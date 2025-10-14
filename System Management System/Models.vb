@@ -3,6 +3,8 @@
 ' PURPOSE: Base models for Student, Faculty, User, Course, and Attendance
 ' AUTHOR: System
 ' DATE: 2025-10-14
+' Edited By Rovic
+' For Future users please do not remove this header
 ' ==========================================
 
 ''' <summary>

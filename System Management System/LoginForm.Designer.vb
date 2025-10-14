@@ -29,211 +29,243 @@ Partial Class LoginForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Me.Guna2Elipse1 = New Guna.UI2.WinForms.Guna2Elipse(Me.components)
-        Me.pnlMain = New Guna.UI2.WinForms.Guna2Panel()
-        Me.pnlLogin = New Guna.UI2.WinForms.Guna2Panel()
-        Me.btnExit = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnLogin = New Guna.UI2.WinForms.Guna2Button()
-        Me.txtPassword = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.txtUsername = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.lblSubtitle = New System.Windows.Forms.Label()
-        Me.lblTitle = New System.Windows.Forms.Label()
-        Me.pnlHeader = New Guna.UI2.WinForms.Guna2Panel()
-        Me.lblAppName = New System.Windows.Forms.Label()
-        Me.Guna2DragControl1 = New Guna.UI2.WinForms.Guna2DragControl(Me.components)
-        Me.Guna2ShadowForm1 = New Guna.UI2.WinForms.Guna2ShadowForm(Me.components)
-        Me.pnlMain.SuspendLayout()
-        Me.pnlLogin.SuspendLayout()
-        Me.pnlHeader.SuspendLayout()
-        Me.SuspendLayout()
-        '
-        'Guna2Elipse1
-        '
-        Me.Guna2Elipse1.TargetControl = Me
-        Me.Guna2Elipse1.BorderRadius = 20
-        '
-        'pnlMain
-        '
-        Me.pnlMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(247, Byte), Integer))
-        Me.pnlMain.Controls.Add(Me.pnlLogin)
-        Me.pnlMain.Controls.Add(Me.pnlHeader)
-        Me.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlMain.Location = New System.Drawing.Point(0, 0)
-        Me.pnlMain.Name = "pnlMain"
-        Me.pnlMain.Size = New System.Drawing.Size(450, 600)
-        Me.pnlMain.TabIndex = 0
-        '
-        'pnlLogin
-        '
-        Me.pnlLogin.BackColor = System.Drawing.Color.White
-        Me.pnlLogin.BorderRadius = 15
-        Me.pnlLogin.Controls.Add(Me.btnExit)
-        Me.pnlLogin.Controls.Add(Me.btnLogin)
-        Me.pnlLogin.Controls.Add(Me.txtPassword)
-        Me.pnlLogin.Controls.Add(Me.txtUsername)
-        Me.pnlLogin.Controls.Add(Me.lblSubtitle)
-        Me.pnlLogin.Controls.Add(Me.lblTitle)
-        Me.pnlLogin.Location = New System.Drawing.Point(40, 180)
-        Me.pnlLogin.Name = "pnlLogin"
-        Me.pnlLogin.ShadowDecoration.BorderRadius = 15
-        Me.pnlLogin.ShadowDecoration.Depth = 10
-        Me.pnlLogin.ShadowDecoration.Enabled = True
-        Me.pnlLogin.Size = New System.Drawing.Size(370, 380)
-        Me.pnlLogin.TabIndex = 1
-        '
-        'btnExit
-        '
-        Me.btnExit.BorderRadius = 8
-        Me.btnExit.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnExit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnExit.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnExit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnExit.FillColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.btnExit.Font = New System.Drawing.Font("Segoe UI", 10.5!, System.Drawing.FontStyle.Bold)
-        Me.btnExit.ForeColor = System.Drawing.Color.White
-        Me.btnExit.Location = New System.Drawing.Point(30, 315)
-        Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(310, 40)
-        Me.btnExit.TabIndex = 4
-        Me.btnExit.Text = "Exit"
-        '
-        'btnLogin
-        '
-        Me.btnLogin.BorderRadius = 8
-        Me.btnLogin.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnLogin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnLogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnLogin.FillColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.btnLogin.Font = New System.Drawing.Font("Segoe UI", 10.5!, System.Drawing.FontStyle.Bold)
-        Me.btnLogin.ForeColor = System.Drawing.Color.White
-        Me.btnLogin.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.btnLogin.Location = New System.Drawing.Point(30, 260)
-        Me.btnLogin.Name = "btnLogin"
-        Me.btnLogin.Size = New System.Drawing.Size(310, 45)
-        Me.btnLogin.TabIndex = 3
-        Me.btnLogin.Text = "Login"
-        '
-        'txtPassword
-        '
-        Me.txtPassword.BorderColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        Me.txtPassword.BorderRadius = 8
-        Me.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtPassword.DefaultText = ""
-        Me.txtPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(188, Byte), Integer), CType(CType(156, Byte), Integer))
-        Me.txtPassword.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        Me.txtPassword.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(188, Byte), Integer), CType(CType(156, Byte), Integer))
-        Me.txtPassword.IconLeft = Nothing
-        Me.txtPassword.Location = New System.Drawing.Point(30, 190)
-        Me.txtPassword.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.txtPassword.Name = "txtPassword"
-        Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
-        Me.txtPassword.PlaceholderForeColor = System.Drawing.Color.Silver
-        Me.txtPassword.PlaceholderText = "Password"
-        Me.txtPassword.SelectedText = ""
-        Me.txtPassword.Size = New System.Drawing.Size(310, 45)
-        Me.txtPassword.TabIndex = 2
-        Me.txtPassword.UseSystemPasswordChar = True
-        '
-        'txtUsername
-        '
-        Me.txtUsername.BorderColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        Me.txtUsername.BorderRadius = 8
-        Me.txtUsername.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtUsername.DefaultText = ""
-        Me.txtUsername.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtUsername.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtUsername.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtUsername.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(188, Byte), Integer), CType(CType(156, Byte), Integer))
-        Me.txtUsername.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        Me.txtUsername.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.txtUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(188, Byte), Integer), CType(CType(156, Byte), Integer))
-        Me.txtUsername.IconLeft = Nothing
-        Me.txtUsername.Location = New System.Drawing.Point(30, 120)
-        Me.txtUsername.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txtUsername.PlaceholderForeColor = System.Drawing.Color.Silver
-        Me.txtUsername.PlaceholderText = "Username"
-        Me.txtUsername.SelectedText = ""
-        Me.txtUsername.Size = New System.Drawing.Size(310, 45)
-        Me.txtUsername.TabIndex = 1
-        '
-        'lblSubtitle
-        '
-        Me.lblSubtitle.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.lblSubtitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.lblSubtitle.Location = New System.Drawing.Point(27, 70)
-        Me.lblSubtitle.Name = "lblSubtitle"
-        Me.lblSubtitle.Size = New System.Drawing.Size(316, 25)
-        Me.lblSubtitle.TabIndex = 1
-        Me.lblSubtitle.Text = "Enter your credentials to continue"
-        Me.lblSubtitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lblTitle
-        '
-        Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold)
-        Me.lblTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.lblTitle.Location = New System.Drawing.Point(25, 30)
-        Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(320, 40)
-        Me.lblTitle.TabIndex = 0
-        Me.lblTitle.Text = "Welcome Back!"
-        Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'pnlHeader
-        '
-        Me.pnlHeader.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.pnlHeader.Controls.Add(Me.lblAppName)
-        Me.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlHeader.Location = New System.Drawing.Point(0, 0)
-        Me.pnlHeader.Name = "pnlHeader"
-        Me.pnlHeader.Size = New System.Drawing.Size(450, 120)
-        Me.pnlHeader.TabIndex = 0
-        '
-        'lblAppName
-        '
-        Me.lblAppName.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblAppName.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Bold)
-        Me.lblAppName.ForeColor = System.Drawing.Color.White
-        Me.lblAppName.Location = New System.Drawing.Point(0, 0)
-        Me.lblAppName.Name = "lblAppName"
-        Me.lblAppName.Size = New System.Drawing.Size(450, 120)
-        Me.lblAppName.TabIndex = 0
-        Me.lblAppName.Text = "Student Management" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "System"
-        Me.lblAppName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Guna2DragControl1
-        '
-        Me.Guna2DragControl1.DockIndicatorTransparencyValue = 0.6R
-        Me.Guna2DragControl1.TargetControl = Me.pnlHeader
-        Me.Guna2DragControl1.UseTransparentDrag = True
-        '
-        'Guna2ShadowForm1
-        '
-        Me.Guna2ShadowForm1.TargetForm = Me
-        '
-        'LoginForm
-        '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(450, 600)
-        Me.Controls.Add(Me.pnlMain)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "LoginForm"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Login - Student Management System"
-        Me.pnlMain.ResumeLayout(False)
-        Me.pnlLogin.ResumeLayout(False)
-        Me.pnlHeader.ResumeLayout(False)
-        Me.ResumeLayout(False)
+        components = New ComponentModel.Container()
+        Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Guna2Elipse1 = New Guna.UI2.WinForms.Guna2Elipse(components)
+        pnlMain = New Guna.UI2.WinForms.Guna2Panel()
+        pnlLogin = New Guna.UI2.WinForms.Guna2Panel()
+        btnExit = New Guna.UI2.WinForms.Guna2Button()
+        btnLogin = New Guna.UI2.WinForms.Guna2Button()
+        txtPassword = New Guna.UI2.WinForms.Guna2TextBox()
+        txtUsername = New Guna.UI2.WinForms.Guna2TextBox()
+        lblSubtitle = New Label()
+        lblTitle = New Label()
+        pnlHeader = New Guna.UI2.WinForms.Guna2Panel()
+        lblAppName = New Label()
+        Guna2DragControl1 = New Guna.UI2.WinForms.Guna2DragControl(components)
+        Guna2ShadowForm1 = New Guna.UI2.WinForms.Guna2ShadowForm(components)
+        pnlMain.SuspendLayout()
+        pnlLogin.SuspendLayout()
+        pnlHeader.SuspendLayout()
+        SuspendLayout()
+        ' 
+        ' Guna2Elipse1
+        ' 
+        Guna2Elipse1.BorderRadius = 20
+        Guna2Elipse1.TargetControl = Me
+        ' 
+        ' pnlMain
+        ' 
+        pnlMain.BackColor = Color.FromArgb(CByte(244), CByte(246), CByte(247))
+        pnlMain.Controls.Add(pnlLogin)
+        pnlMain.Controls.Add(pnlHeader)
+        pnlMain.CustomizableEdges = CustomizableEdges13
+        pnlMain.Dock = DockStyle.Fill
+        pnlMain.Location = New Point(0, 0)
+        pnlMain.Margin = New Padding(4, 5, 4, 5)
+        pnlMain.Name = "pnlMain"
+        pnlMain.ShadowDecoration.CustomizableEdges = CustomizableEdges14
+        pnlMain.Size = New Size(600, 923)
+        pnlMain.TabIndex = 0
+        ' 
+        ' pnlLogin
+        ' 
+        pnlLogin.BackColor = Color.Transparent
+        pnlLogin.BorderRadius = 15
+        pnlLogin.Controls.Add(btnExit)
+        pnlLogin.Controls.Add(btnLogin)
+        pnlLogin.Controls.Add(txtPassword)
+        pnlLogin.Controls.Add(txtUsername)
+        pnlLogin.Controls.Add(lblSubtitle)
+        pnlLogin.Controls.Add(lblTitle)
+        pnlLogin.CustomizableEdges = CustomizableEdges9
+        pnlLogin.Location = New Point(53, 277)
+        pnlLogin.Margin = New Padding(4, 5, 4, 5)
+        pnlLogin.Name = "pnlLogin"
+        pnlLogin.ShadowDecoration.BorderRadius = 15
+        pnlLogin.ShadowDecoration.CustomizableEdges = CustomizableEdges10
+        pnlLogin.ShadowDecoration.Depth = 10
+        pnlLogin.ShadowDecoration.Enabled = True
+        pnlLogin.Size = New Size(493, 585)
+        pnlLogin.TabIndex = 1
+        ' 
+        ' btnExit
+        ' 
+        btnExit.BorderRadius = 8
+        btnExit.CustomizableEdges = CustomizableEdges1
+        btnExit.DisabledState.BorderColor = Color.DarkGray
+        btnExit.DisabledState.CustomBorderColor = Color.DarkGray
+        btnExit.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnExit.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnExit.FillColor = Color.FromArgb(CByte(231), CByte(76), CByte(60))
+        btnExit.Font = New Font("Segoe UI", 10.5F, FontStyle.Bold)
+        btnExit.ForeColor = Color.White
+        btnExit.Location = New Point(40, 485)
+        btnExit.Margin = New Padding(4, 5, 4, 5)
+        btnExit.Name = "btnExit"
+        btnExit.ShadowDecoration.CustomizableEdges = CustomizableEdges2
+        btnExit.Size = New Size(413, 62)
+        btnExit.TabIndex = 4
+        btnExit.Text = "Exit"
+        ' 
+        ' btnLogin
+        ' 
+        btnLogin.BorderRadius = 8
+        btnLogin.CustomizableEdges = CustomizableEdges3
+        btnLogin.DisabledState.BorderColor = Color.DarkGray
+        btnLogin.DisabledState.CustomBorderColor = Color.DarkGray
+        btnLogin.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnLogin.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnLogin.FillColor = Color.FromArgb(CByte(46), CByte(139), CByte(87))
+        btnLogin.Font = New Font("Segoe UI", 10.5F, FontStyle.Bold)
+        btnLogin.ForeColor = Color.White
+        btnLogin.HoverState.FillColor = Color.FromArgb(CByte(39), CByte(118), CByte(74))
+        btnLogin.Location = New Point(40, 400)
+        btnLogin.Margin = New Padding(4, 5, 4, 5)
+        btnLogin.Name = "btnLogin"
+        btnLogin.ShadowDecoration.CustomizableEdges = CustomizableEdges4
+        btnLogin.Size = New Size(413, 69)
+        btnLogin.TabIndex = 3
+        btnLogin.Text = "Login"
+        ' 
+        ' txtPassword
+        ' 
+        txtPassword.BorderRadius = 8
+        txtPassword.Cursor = Cursors.IBeam
+        txtPassword.CustomizableEdges = CustomizableEdges5
+        txtPassword.DefaultText = ""
+        txtPassword.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        txtPassword.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        txtPassword.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txtPassword.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txtPassword.FocusedState.BorderColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
+        txtPassword.Font = New Font("Segoe UI", 10.5F)
+        txtPassword.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        txtPassword.HoverState.BorderColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
+        txtPassword.Location = New Point(40, 292)
+        txtPassword.Margin = New Padding(5, 8, 5, 8)
+        txtPassword.Name = "txtPassword"
+        txtPassword.PasswordChar = "●"c
+        txtPassword.PlaceholderForeColor = Color.Silver
+        txtPassword.PlaceholderText = "Password"
+        txtPassword.SelectedText = ""
+        txtPassword.ShadowDecoration.CustomizableEdges = CustomizableEdges6
+        txtPassword.Size = New Size(413, 69)
+        txtPassword.TabIndex = 2
+        txtPassword.UseSystemPasswordChar = True
+        ' 
+        ' txtUsername
+        ' 
+        txtUsername.BorderRadius = 8
+        txtUsername.Cursor = Cursors.IBeam
+        txtUsername.CustomizableEdges = CustomizableEdges7
+        txtUsername.DefaultText = ""
+        txtUsername.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        txtUsername.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        txtUsername.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txtUsername.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txtUsername.FocusedState.BorderColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
+        txtUsername.Font = New Font("Segoe UI", 10.5F)
+        txtUsername.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        txtUsername.HoverState.BorderColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
+        txtUsername.Location = New Point(40, 185)
+        txtUsername.Margin = New Padding(5, 8, 5, 8)
+        txtUsername.Name = "txtUsername"
+        txtUsername.PlaceholderForeColor = Color.Silver
+        txtUsername.PlaceholderText = "Username"
+        txtUsername.SelectedText = ""
+        txtUsername.ShadowDecoration.CustomizableEdges = CustomizableEdges8
+        txtUsername.Size = New Size(413, 69)
+        txtUsername.TabIndex = 1
+        ' 
+        ' lblSubtitle
+        ' 
+        lblSubtitle.Font = New Font("Segoe UI", 9.75F)
+        lblSubtitle.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
+        lblSubtitle.Location = New Point(36, 108)
+        lblSubtitle.Margin = New Padding(4, 0, 4, 0)
+        lblSubtitle.Name = "lblSubtitle"
+        lblSubtitle.Size = New Size(421, 38)
+        lblSubtitle.TabIndex = 1
+        lblSubtitle.Text = "Enter your credentials to continue"
+        lblSubtitle.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' lblTitle
+        ' 
+        lblTitle.Font = New Font("Segoe UI", 18.0F, FontStyle.Bold)
+        lblTitle.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        lblTitle.Location = New Point(33, 46)
+        lblTitle.Margin = New Padding(4, 0, 4, 0)
+        lblTitle.Name = "lblTitle"
+        lblTitle.Size = New Size(427, 62)
+        lblTitle.TabIndex = 0
+        lblTitle.Text = "Welcome Back!"
+        lblTitle.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' pnlHeader
+        ' 
+        pnlHeader.BackColor = Color.FromArgb(CByte(46), CByte(139), CByte(87))
+        pnlHeader.Controls.Add(lblAppName)
+        pnlHeader.CustomizableEdges = CustomizableEdges11
+        pnlHeader.Dock = DockStyle.Top
+        pnlHeader.Location = New Point(0, 0)
+        pnlHeader.Margin = New Padding(4, 5, 4, 5)
+        pnlHeader.Name = "pnlHeader"
+        pnlHeader.ShadowDecoration.CustomizableEdges = CustomizableEdges12
+        pnlHeader.Size = New Size(600, 185)
+        pnlHeader.TabIndex = 0
+        ' 
+        ' lblAppName
+        ' 
+        lblAppName.Dock = DockStyle.Fill
+        lblAppName.Font = New Font("Segoe UI", 24.0F, FontStyle.Bold)
+        lblAppName.ForeColor = Color.White
+        lblAppName.Location = New Point(0, 0)
+        lblAppName.Margin = New Padding(4, 0, 4, 0)
+        lblAppName.Name = "lblAppName"
+        lblAppName.Size = New Size(600, 185)
+        lblAppName.TabIndex = 0
+        lblAppName.Text = "Student Management" & vbCrLf & "System"
+        lblAppName.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' Guna2DragControl1
+        ' 
+        Guna2DragControl1.DockIndicatorTransparencyValue = 0.6R
+        Guna2DragControl1.TargetControl = pnlHeader
+        Guna2DragControl1.UseTransparentDrag = True
+        ' 
+        ' Guna2ShadowForm1
+        ' 
+        Guna2ShadowForm1.TargetForm = Me
+        ' 
+        ' LoginForm
+        ' 
+        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
+        AutoScaleMode = AutoScaleMode.Font
+        ClientSize = New Size(600, 923)
+        Controls.Add(pnlMain)
+        FormBorderStyle = FormBorderStyle.None
+        Margin = New Padding(4, 5, 4, 5)
+        Name = "LoginForm"
+        StartPosition = FormStartPosition.CenterScreen
+        Text = "Login - Student Management System"
+        pnlMain.ResumeLayout(False)
+        pnlLogin.ResumeLayout(False)
+        pnlHeader.ResumeLayout(False)
+        ResumeLayout(False)
 
     End Sub
 

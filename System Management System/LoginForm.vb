@@ -3,6 +3,8 @@
 ' PURPOSE: Modern login form with database authentication
 ' AUTHOR: System
 ' DATE: 2025-10-14
+' Edited By Rovic
+' For Future users please do not remove this header
 ' ==========================================
 
 Imports System.Data
@@ -200,4 +202,7 @@ Public Class LoginForm
         End If
     End Sub
 
+    Private Sub lblAppName_Click(sender As Object, e As EventArgs) Handles lblAppName.Click
+
+    End Sub
 End Class

@@ -3,6 +3,8 @@
 ' PURPOSE: Writes error logs to file for debugging and monitoring
 ' AUTHOR: System
 ' DATE: 2025-10-14
+' Edited By Rovic
+' For Future users please do not remove this header
 ' ==========================================
 
 Imports System.IO
