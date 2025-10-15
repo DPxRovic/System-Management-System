@@ -121,7 +121,7 @@ End Class
 ''' <summary>
 ''' Attendance model representing student attendance records
 ''' </summary>
-Public Class Attendance
+Public Class AttendanceRecord
     Public Property Id As Integer
     Public Property StudentId As String
     Public Property CourseId As Integer

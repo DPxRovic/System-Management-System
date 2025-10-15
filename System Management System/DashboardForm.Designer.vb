@@ -29,377 +29,461 @@ Partial Class DashboardForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Me.Guna2Elipse1 = New Guna.UI2.WinForms.Guna2Elipse(Me.components)
-        Me.pnlSidebar = New Guna.UI2.WinForms.Guna2Panel()
-        Me.btnLogout = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnSettings = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnReports = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnUsers = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnFaculty = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnAttendance = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnCourses = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnStudents = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnDashboard = New Guna.UI2.WinForms.Guna2Button()
-        Me.pnlUserInfo = New Guna.UI2.WinForms.Guna2Panel()
-        Me.lblRole = New System.Windows.Forms.Label()
-        Me.lblWelcome = New System.Windows.Forms.Label()
-        Me.pnlTop = New Guna.UI2.WinForms.Guna2Panel()
-        Me.lblPageTitle = New System.Windows.Forms.Label()
-        Me.btnMinimize = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnMaximize = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnClose = New Guna.UI2.WinForms.Guna2Button()
-        Me.pnlContent = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Guna2DragControl1 = New Guna.UI2.WinForms.Guna2DragControl(Me.components)
-        Me.Guna2ShadowForm1 = New Guna.UI2.WinForms.Guna2ShadowForm(Me.components)
-        Me.pnlSidebar.SuspendLayout()
-        Me.pnlUserInfo.SuspendLayout()
-        Me.pnlTop.SuspendLayout()
-        Me.SuspendLayout()
-        '
-        'Guna2Elipse1
-        '
-        Me.Guna2Elipse1.TargetControl = Me
-        Me.Guna2Elipse1.BorderRadius = 15
-        '
-        'pnlSidebar
-        '
-        Me.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.pnlSidebar.Controls.Add(Me.btnLogout)
-        Me.pnlSidebar.Controls.Add(Me.btnSettings)
-        Me.pnlSidebar.Controls.Add(Me.btnReports)
-        Me.pnlSidebar.Controls.Add(Me.btnUsers)
-        Me.pnlSidebar.Controls.Add(Me.btnFaculty)
-        Me.pnlSidebar.Controls.Add(Me.btnAttendance)
-        Me.pnlSidebar.Controls.Add(Me.btnCourses)
-        Me.pnlSidebar.Controls.Add(Me.btnStudents)
-        Me.pnlSidebar.Controls.Add(Me.btnDashboard)
-        Me.pnlSidebar.Controls.Add(Me.pnlUserInfo)
-        Me.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left
-        Me.pnlSidebar.Location = New System.Drawing.Point(0, 0)
-        Me.pnlSidebar.Name = "pnlSidebar"
-        Me.pnlSidebar.Size = New System.Drawing.Size(250, 700)
-        Me.pnlSidebar.TabIndex = 0
-        '
-        'btnLogout
-        '
-        Me.btnLogout.BorderRadius = 5
-        Me.btnLogout.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnLogout.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnLogout.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnLogout.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnLogout.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.btnLogout.FillColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.btnLogout.Font = New System.Drawing.Font("Segoe UI", 10.5!, System.Drawing.FontStyle.Bold)
-        Me.btnLogout.ForeColor = System.Drawing.Color.White
-        Me.btnLogout.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(43, Byte), Integer))
-        Me.btnLogout.Location = New System.Drawing.Point(0, 650)
-        Me.btnLogout.Name = "btnLogout"
-        Me.btnLogout.Size = New System.Drawing.Size(250, 50)
-        Me.btnLogout.TabIndex = 9
-        Me.btnLogout.Text = "Logout"
-        '
-        'btnSettings
-        '
-        Me.btnSettings.BorderRadius = 5
-        Me.btnSettings.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnSettings.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnSettings.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnSettings.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnSettings.FillColor = System.Drawing.Color.Transparent
-        Me.btnSettings.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        Me.btnSettings.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.btnSettings.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(188, Byte), Integer), CType(CType(156, Byte), Integer))
-        Me.btnSettings.HoverState.ForeColor = System.Drawing.Color.White
-        Me.btnSettings.Location = New System.Drawing.Point(10, 550)
-        Me.btnSettings.Name = "btnSettings"
-        Me.btnSettings.Size = New System.Drawing.Size(230, 45)
-        Me.btnSettings.TabIndex = 8
-        Me.btnSettings.Text = "Settings"
-        Me.btnSettings.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        '
-        'btnReports
-        '
-        Me.btnReports.BorderRadius = 5
-        Me.btnReports.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnReports.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnReports.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnReports.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnReports.FillColor = System.Drawing.Color.Transparent
-        Me.btnReports.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        Me.btnReports.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.btnReports.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(188, Byte), Integer), CType(CType(156, Byte), Integer))
-        Me.btnReports.HoverState.ForeColor = System.Drawing.Color.White
-        Me.btnReports.Location = New System.Drawing.Point(10, 495)
-        Me.btnReports.Name = "btnReports"
-        Me.btnReports.Size = New System.Drawing.Size(230, 45)
-        Me.btnReports.TabIndex = 7
-        Me.btnReports.Text = "Reports"
-        Me.btnReports.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        '
-        'btnUsers
-        '
-        Me.btnUsers.BorderRadius = 5
-        Me.btnUsers.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnUsers.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnUsers.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnUsers.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnUsers.FillColor = System.Drawing.Color.Transparent
-        Me.btnUsers.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        Me.btnUsers.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.btnUsers.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(188, Byte), Integer), CType(CType(156, Byte), Integer))
-        Me.btnUsers.HoverState.ForeColor = System.Drawing.Color.White
-        Me.btnUsers.Location = New System.Drawing.Point(10, 440)
-        Me.btnUsers.Name = "btnUsers"
-        Me.btnUsers.Size = New System.Drawing.Size(230, 45)
-        Me.btnUsers.TabIndex = 6
-        Me.btnUsers.Text = "Users"
-        Me.btnUsers.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        '
-        'btnFaculty
-        '
-        Me.btnFaculty.BorderRadius = 5
-        Me.btnFaculty.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnFaculty.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnFaculty.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnFaculty.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnFaculty.FillColor = System.Drawing.Color.Transparent
-        Me.btnFaculty.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        Me.btnFaculty.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.btnFaculty.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(188, Byte), Integer), CType(CType(156, Byte), Integer))
-        Me.btnFaculty.HoverState.ForeColor = System.Drawing.Color.White
-        Me.btnFaculty.Location = New System.Drawing.Point(10, 385)
-        Me.btnFaculty.Name = "btnFaculty"
-        Me.btnFaculty.Size = New System.Drawing.Size(230, 45)
-        Me.btnFaculty.TabIndex = 5
-        Me.btnFaculty.Text = "Faculty"
-        Me.btnFaculty.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        '
-        'btnAttendance
-        '
-        Me.btnAttendance.BorderRadius = 5
-        Me.btnAttendance.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnAttendance.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnAttendance.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnAttendance.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnAttendance.FillColor = System.Drawing.Color.Transparent
-        Me.btnAttendance.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        Me.btnAttendance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.btnAttendance.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(188, Byte), Integer), CType(CType(156, Byte), Integer))
-        Me.btnAttendance.HoverState.ForeColor = System.Drawing.Color.White
-        Me.btnAttendance.Location = New System.Drawing.Point(10, 330)
-        Me.btnAttendance.Name = "btnAttendance"
-        Me.btnAttendance.Size = New System.Drawing.Size(230, 45)
-        Me.btnAttendance.TabIndex = 4
-        Me.btnAttendance.Text = "Attendance"
-        Me.btnAttendance.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        '
-        'btnCourses
-        '
-        Me.btnCourses.BorderRadius = 5
-        Me.btnCourses.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnCourses.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnCourses.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnCourses.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnCourses.FillColor = System.Drawing.Color.Transparent
-        Me.btnCourses.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        Me.btnCourses.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.btnCourses.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(188, Byte), Integer), CType(CType(156, Byte), Integer))
-        Me.btnCourses.HoverState.ForeColor = System.Drawing.Color.White
-        Me.btnCourses.Location = New System.Drawing.Point(10, 275)
-        Me.btnCourses.Name = "btnCourses"
-        Me.btnCourses.Size = New System.Drawing.Size(230, 45)
-        Me.btnCourses.TabIndex = 3
-        Me.btnCourses.Text = "Courses"
-        Me.btnCourses.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        '
-        'btnStudents
-        '
-        Me.btnStudents.BorderRadius = 5
-        Me.btnStudents.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnStudents.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnStudents.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnStudents.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnStudents.FillColor = System.Drawing.Color.Transparent
-        Me.btnStudents.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        Me.btnStudents.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.btnStudents.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(188, Byte), Integer), CType(CType(156, Byte), Integer))
-        Me.btnStudents.HoverState.ForeColor = System.Drawing.Color.White
-        Me.btnStudents.Location = New System.Drawing.Point(10, 220)
-        Me.btnStudents.Name = "btnStudents"
-        Me.btnStudents.Size = New System.Drawing.Size(230, 45)
-        Me.btnStudents.TabIndex = 2
-        Me.btnStudents.Text = "Students"
-        Me.btnStudents.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        '
-        'btnDashboard
-        '
-        Me.btnDashboard.BorderRadius = 5
-        Me.btnDashboard.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnDashboard.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnDashboard.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnDashboard.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnDashboard.FillColor = System.Drawing.Color.Transparent
-        Me.btnDashboard.Font = New System.Drawing.Font("Segoe UI", 10.5!)
-        Me.btnDashboard.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.btnDashboard.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(188, Byte), Integer), CType(CType(156, Byte), Integer))
-        Me.btnDashboard.HoverState.ForeColor = System.Drawing.Color.White
-        Me.btnDashboard.Location = New System.Drawing.Point(10, 165)
-        Me.btnDashboard.Name = "btnDashboard"
-        Me.btnDashboard.Size = New System.Drawing.Size(230, 45)
-        Me.btnDashboard.TabIndex = 1
-        Me.btnDashboard.Text = "Dashboard"
-        Me.btnDashboard.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        '
-        'pnlUserInfo
-        '
-        Me.pnlUserInfo.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.pnlUserInfo.Controls.Add(Me.lblRole)
-        Me.pnlUserInfo.Controls.Add(Me.lblWelcome)
-        Me.pnlUserInfo.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlUserInfo.Location = New System.Drawing.Point(0, 0)
-        Me.pnlUserInfo.Name = "pnlUserInfo"
-        Me.pnlUserInfo.Size = New System.Drawing.Size(250, 120)
-        Me.pnlUserInfo.TabIndex = 0
-        '
-        'lblRole
-        '
-        Me.lblRole.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.lblRole.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.lblRole.ForeColor = System.Drawing.Color.White
-        Me.lblRole.Location = New System.Drawing.Point(0, 90)
-        Me.lblRole.Name = "lblRole"
-        Me.lblRole.Size = New System.Drawing.Size(250, 30)
-        Me.lblRole.TabIndex = 1
-        Me.lblRole.Text = "Role: Admin"
-        Me.lblRole.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lblWelcome
-        '
-        Me.lblWelcome.Dock = System.Windows.Forms.DockStyle.Top
-        Me.lblWelcome.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold)
-        Me.lblWelcome.ForeColor = System.Drawing.Color.White
-        Me.lblWelcome.Location = New System.Drawing.Point(0, 0)
-        Me.lblWelcome.Name = "lblWelcome"
-        Me.lblWelcome.Size = New System.Drawing.Size(250, 80)
-        Me.lblWelcome.TabIndex = 0
-        Me.lblWelcome.Text = "Welcome, User"
-        Me.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'pnlTop
-        '
-        Me.pnlTop.BackColor = System.Drawing.Color.White
-        Me.pnlTop.Controls.Add(Me.lblPageTitle)
-        Me.pnlTop.Controls.Add(Me.btnMinimize)
-        Me.pnlTop.Controls.Add(Me.btnMaximize)
-        Me.pnlTop.Controls.Add(Me.btnClose)
-        Me.pnlTop.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlTop.Location = New System.Drawing.Point(250, 0)
-        Me.pnlTop.Name = "pnlTop"
-        Me.pnlTop.ShadowDecoration.Depth = 5
-        Me.pnlTop.ShadowDecoration.Enabled = True
-        Me.pnlTop.Size = New System.Drawing.Size(950, 60)
-        Me.pnlTop.TabIndex = 1
-        '
-        'lblPageTitle
-        '
-        Me.lblPageTitle.AutoSize = True
-        Me.lblPageTitle.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold)
-        Me.lblPageTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.lblPageTitle.Location = New System.Drawing.Point(20, 17)
-        Me.lblPageTitle.Name = "lblPageTitle"
-        Me.lblPageTitle.Size = New System.Drawing.Size(104, 25)
-        Me.lblPageTitle.TabIndex = 3
-        Me.lblPageTitle.Text = "Dashboard"
-        '
-        'btnMinimize
-        '
-        Me.btnMinimize.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnMinimize.BorderRadius = 5
-        Me.btnMinimize.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnMinimize.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnMinimize.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnMinimize.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnMinimize.FillColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(196, Byte), Integer), CType(CType(15, Byte), Integer))
-        Me.btnMinimize.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.btnMinimize.ForeColor = System.Drawing.Color.White
-        Me.btnMinimize.Location = New System.Drawing.Point(810, 15)
-        Me.btnMinimize.Name = "btnMinimize"
-        Me.btnMinimize.Size = New System.Drawing.Size(35, 35)
-        Me.btnMinimize.TabIndex = 2
-        Me.btnMinimize.Text = "-"
-        '
-        'btnMaximize
-        '
-        Me.btnMaximize.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnMaximize.BorderRadius = 5
-        Me.btnMaximize.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnMaximize.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnMaximize.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnMaximize.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnMaximize.FillColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.btnMaximize.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.btnMaximize.ForeColor = System.Drawing.Color.White
-        Me.btnMaximize.Location = New System.Drawing.Point(855, 15)
-        Me.btnMaximize.Name = "btnMaximize"
-        Me.btnMaximize.Size = New System.Drawing.Size(35, 35)
-        Me.btnMaximize.TabIndex = 1
-        Me.btnMaximize.Text = "□"
-        '
-        'btnClose
-        '
-        Me.btnClose.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnClose.BorderRadius = 5
-        Me.btnClose.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnClose.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnClose.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnClose.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnClose.FillColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.btnClose.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.btnClose.ForeColor = System.Drawing.Color.White
-        Me.btnClose.Location = New System.Drawing.Point(900, 15)
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(35, 35)
-        Me.btnClose.TabIndex = 0
-        Me.btnClose.Text = "X"
-        '
-        'pnlContent
-        '
-        Me.pnlContent.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(247, Byte), Integer))
-        Me.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlContent.Location = New System.Drawing.Point(250, 60)
-        Me.pnlContent.Name = "pnlContent"
-        Me.pnlContent.Padding = New System.Windows.Forms.Padding(20)
-        Me.pnlContent.Size = New System.Drawing.Size(950, 640)
-        Me.pnlContent.TabIndex = 2
-        '
-        'Guna2DragControl1
-        '
-        Me.Guna2DragControl1.DockIndicatorTransparencyValue = 0.6R
-        Me.Guna2DragControl1.TargetControl = Me.pnlTop
-        Me.Guna2DragControl1.UseTransparentDrag = True
-        '
-        'Guna2ShadowForm1
-        '
-        Me.Guna2ShadowForm1.TargetForm = Me
-        '
-        'DashboardForm
-        '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1200, 700)
-        Me.Controls.Add(Me.pnlContent)
-        Me.Controls.Add(Me.pnlTop)
-        Me.Controls.Add(Me.pnlSidebar)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "DashboardForm"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Dashboard - Student Management System"
-        Me.pnlSidebar.ResumeLayout(False)
-        Me.pnlUserInfo.ResumeLayout(False)
-        Me.pnlTop.ResumeLayout(False)
-        Me.pnlTop.PerformLayout()
-        Me.ResumeLayout(False)
+        components = New ComponentModel.Container()
+        Dim CustomizableEdges31 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges32 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges17 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges19 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges20 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges21 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges22 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges23 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges24 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges25 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges26 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges27 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges28 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges29 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges30 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Guna2Elipse1 = New Guna.UI2.WinForms.Guna2Elipse(components)
+        pnlSidebar = New Guna.UI2.WinForms.Guna2Panel()
+        btnLogout = New Guna.UI2.WinForms.Guna2Button()
+        btnSettings = New Guna.UI2.WinForms.Guna2Button()
+        btnReports = New Guna.UI2.WinForms.Guna2Button()
+        btnUsers = New Guna.UI2.WinForms.Guna2Button()
+        btnFaculty = New Guna.UI2.WinForms.Guna2Button()
+        btnAttendance = New Guna.UI2.WinForms.Guna2Button()
+        btnCourses = New Guna.UI2.WinForms.Guna2Button()
+        btnStudents = New Guna.UI2.WinForms.Guna2Button()
+        btnDashboard = New Guna.UI2.WinForms.Guna2Button()
+        pnlUserInfo = New Guna.UI2.WinForms.Guna2Panel()
+        lblRole = New Label()
+        lblWelcome = New Label()
+        pnlTop = New Guna.UI2.WinForms.Guna2Panel()
+        lblPageTitle = New Label()
+        btnMinimize = New Guna.UI2.WinForms.Guna2Button()
+        btnMaximize = New Guna.UI2.WinForms.Guna2Button()
+        btnClose = New Guna.UI2.WinForms.Guna2Button()
+        pnlContent = New Guna.UI2.WinForms.Guna2Panel()
+        Guna2DragControl1 = New Guna.UI2.WinForms.Guna2DragControl(components)
+        Guna2ShadowForm1 = New Guna.UI2.WinForms.Guna2ShadowForm(components)
+        pnlSidebar.SuspendLayout()
+        pnlUserInfo.SuspendLayout()
+        pnlTop.SuspendLayout()
+        SuspendLayout()
+        ' 
+        ' Guna2Elipse1
+        ' 
+        Guna2Elipse1.BorderRadius = 15
+        Guna2Elipse1.TargetControl = Me
+        ' 
+        ' pnlSidebar
+        ' 
+        pnlSidebar.BackColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        pnlSidebar.Controls.Add(btnLogout)
+        pnlSidebar.Controls.Add(btnSettings)
+        pnlSidebar.Controls.Add(btnReports)
+        pnlSidebar.Controls.Add(btnUsers)
+        pnlSidebar.Controls.Add(btnFaculty)
+        pnlSidebar.Controls.Add(btnAttendance)
+        pnlSidebar.Controls.Add(btnCourses)
+        pnlSidebar.Controls.Add(btnStudents)
+        pnlSidebar.Controls.Add(btnDashboard)
+        pnlSidebar.Controls.Add(pnlUserInfo)
+        pnlSidebar.CustomizableEdges = CustomizableEdges31
+        pnlSidebar.Dock = DockStyle.Left
+        pnlSidebar.Location = New Point(0, 0)
+        pnlSidebar.Margin = New Padding(4, 5, 4, 5)
+        pnlSidebar.Name = "pnlSidebar"
+        pnlSidebar.ShadowDecoration.CustomizableEdges = CustomizableEdges32
+        pnlSidebar.Size = New Size(333, 1077)
+        pnlSidebar.TabIndex = 0
+        ' 
+        ' btnLogout
+        ' 
+        btnLogout.BorderRadius = 5
+        btnLogout.CustomizableEdges = CustomizableEdges11
+        btnLogout.DisabledState.BorderColor = Color.DarkGray
+        btnLogout.DisabledState.CustomBorderColor = Color.DarkGray
+        btnLogout.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnLogout.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnLogout.Dock = DockStyle.Bottom
+        btnLogout.FillColor = Color.FromArgb(CByte(231), CByte(76), CByte(60))
+        btnLogout.Font = New Font("Segoe UI", 10.5F, FontStyle.Bold)
+        btnLogout.ForeColor = Color.White
+        btnLogout.HoverState.FillColor = Color.FromArgb(CByte(192), CByte(57), CByte(43))
+        btnLogout.Location = New Point(0, 1000)
+        btnLogout.Margin = New Padding(4, 5, 4, 5)
+        btnLogout.Name = "btnLogout"
+        btnLogout.ShadowDecoration.CustomizableEdges = CustomizableEdges12
+        btnLogout.Size = New Size(333, 77)
+        btnLogout.TabIndex = 9
+        btnLogout.Text = "Logout"
+        ' 
+        ' btnSettings
+        ' 
+        btnSettings.BorderRadius = 5
+        btnSettings.CustomizableEdges = CustomizableEdges13
+        btnSettings.DisabledState.BorderColor = Color.DarkGray
+        btnSettings.DisabledState.CustomBorderColor = Color.DarkGray
+        btnSettings.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnSettings.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnSettings.FillColor = Color.Transparent
+        btnSettings.Font = New Font("Segoe UI", 10.5F)
+        btnSettings.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        btnSettings.HoverState.FillColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
+        btnSettings.HoverState.ForeColor = Color.White
+        btnSettings.Location = New Point(13, 846)
+        btnSettings.Margin = New Padding(4, 5, 4, 5)
+        btnSettings.Name = "btnSettings"
+        btnSettings.ShadowDecoration.CustomizableEdges = CustomizableEdges14
+        btnSettings.Size = New Size(307, 69)
+        btnSettings.TabIndex = 8
+        btnSettings.Text = "Settings"
+        btnSettings.TextAlign = HorizontalAlignment.Left
+        ' 
+        ' btnReports
+        ' 
+        btnReports.BorderRadius = 5
+        btnReports.CustomizableEdges = CustomizableEdges15
+        btnReports.DisabledState.BorderColor = Color.DarkGray
+        btnReports.DisabledState.CustomBorderColor = Color.DarkGray
+        btnReports.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnReports.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnReports.FillColor = Color.Transparent
+        btnReports.Font = New Font("Segoe UI", 10.5F)
+        btnReports.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        btnReports.HoverState.FillColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
+        btnReports.HoverState.ForeColor = Color.White
+        btnReports.Location = New Point(13, 762)
+        btnReports.Margin = New Padding(4, 5, 4, 5)
+        btnReports.Name = "btnReports"
+        btnReports.ShadowDecoration.CustomizableEdges = CustomizableEdges16
+        btnReports.Size = New Size(307, 69)
+        btnReports.TabIndex = 7
+        btnReports.Text = "Reports"
+        btnReports.TextAlign = HorizontalAlignment.Left
+        ' 
+        ' btnUsers
+        ' 
+        btnUsers.BorderRadius = 5
+        btnUsers.CustomizableEdges = CustomizableEdges17
+        btnUsers.DisabledState.BorderColor = Color.DarkGray
+        btnUsers.DisabledState.CustomBorderColor = Color.DarkGray
+        btnUsers.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnUsers.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnUsers.FillColor = Color.Transparent
+        btnUsers.Font = New Font("Segoe UI", 10.5F)
+        btnUsers.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        btnUsers.HoverState.FillColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
+        btnUsers.HoverState.ForeColor = Color.White
+        btnUsers.Location = New Point(13, 677)
+        btnUsers.Margin = New Padding(4, 5, 4, 5)
+        btnUsers.Name = "btnUsers"
+        btnUsers.ShadowDecoration.CustomizableEdges = CustomizableEdges18
+        btnUsers.Size = New Size(307, 69)
+        btnUsers.TabIndex = 6
+        btnUsers.Text = "Users"
+        btnUsers.TextAlign = HorizontalAlignment.Left
+        ' 
+        ' btnFaculty
+        ' 
+        btnFaculty.BorderRadius = 5
+        btnFaculty.CustomizableEdges = CustomizableEdges19
+        btnFaculty.DisabledState.BorderColor = Color.DarkGray
+        btnFaculty.DisabledState.CustomBorderColor = Color.DarkGray
+        btnFaculty.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnFaculty.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnFaculty.FillColor = Color.Transparent
+        btnFaculty.Font = New Font("Segoe UI", 10.5F)
+        btnFaculty.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        btnFaculty.HoverState.FillColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
+        btnFaculty.HoverState.ForeColor = Color.White
+        btnFaculty.Location = New Point(13, 592)
+        btnFaculty.Margin = New Padding(4, 5, 4, 5)
+        btnFaculty.Name = "btnFaculty"
+        btnFaculty.ShadowDecoration.CustomizableEdges = CustomizableEdges20
+        btnFaculty.Size = New Size(307, 69)
+        btnFaculty.TabIndex = 5
+        btnFaculty.Text = "Faculty"
+        btnFaculty.TextAlign = HorizontalAlignment.Left
+        ' 
+        ' btnAttendance
+        ' 
+        btnAttendance.BorderRadius = 5
+        btnAttendance.CustomizableEdges = CustomizableEdges21
+        btnAttendance.DisabledState.BorderColor = Color.DarkGray
+        btnAttendance.DisabledState.CustomBorderColor = Color.DarkGray
+        btnAttendance.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnAttendance.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnAttendance.FillColor = Color.Transparent
+        btnAttendance.Font = New Font("Segoe UI", 10.5F)
+        btnAttendance.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        btnAttendance.HoverState.FillColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
+        btnAttendance.HoverState.ForeColor = Color.White
+        btnAttendance.Location = New Point(13, 508)
+        btnAttendance.Margin = New Padding(4, 5, 4, 5)
+        btnAttendance.Name = "btnAttendance"
+        btnAttendance.ShadowDecoration.CustomizableEdges = CustomizableEdges22
+        btnAttendance.Size = New Size(307, 69)
+        btnAttendance.TabIndex = 4
+        btnAttendance.Text = "Attendance"
+        btnAttendance.TextAlign = HorizontalAlignment.Left
+        ' 
+        ' btnCourses
+        ' 
+        btnCourses.BorderRadius = 5
+        btnCourses.CustomizableEdges = CustomizableEdges23
+        btnCourses.DisabledState.BorderColor = Color.DarkGray
+        btnCourses.DisabledState.CustomBorderColor = Color.DarkGray
+        btnCourses.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnCourses.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnCourses.FillColor = Color.Transparent
+        btnCourses.Font = New Font("Segoe UI", 10.5F)
+        btnCourses.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        btnCourses.HoverState.FillColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
+        btnCourses.HoverState.ForeColor = Color.White
+        btnCourses.Location = New Point(13, 423)
+        btnCourses.Margin = New Padding(4, 5, 4, 5)
+        btnCourses.Name = "btnCourses"
+        btnCourses.ShadowDecoration.CustomizableEdges = CustomizableEdges24
+        btnCourses.Size = New Size(307, 69)
+        btnCourses.TabIndex = 3
+        btnCourses.Text = "Courses"
+        btnCourses.TextAlign = HorizontalAlignment.Left
+        ' 
+        ' btnStudents
+        ' 
+        btnStudents.BorderRadius = 5
+        btnStudents.CustomizableEdges = CustomizableEdges25
+        btnStudents.DisabledState.BorderColor = Color.DarkGray
+        btnStudents.DisabledState.CustomBorderColor = Color.DarkGray
+        btnStudents.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnStudents.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnStudents.FillColor = Color.Transparent
+        btnStudents.Font = New Font("Segoe UI", 10.5F)
+        btnStudents.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        btnStudents.HoverState.FillColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
+        btnStudents.HoverState.ForeColor = Color.White
+        btnStudents.Location = New Point(13, 338)
+        btnStudents.Margin = New Padding(4, 5, 4, 5)
+        btnStudents.Name = "btnStudents"
+        btnStudents.ShadowDecoration.CustomizableEdges = CustomizableEdges26
+        btnStudents.Size = New Size(307, 69)
+        btnStudents.TabIndex = 2
+        btnStudents.Text = "Students"
+        btnStudents.TextAlign = HorizontalAlignment.Left
+        ' 
+        ' btnDashboard
+        ' 
+        btnDashboard.BorderRadius = 5
+        btnDashboard.CustomizableEdges = CustomizableEdges27
+        btnDashboard.DisabledState.BorderColor = Color.DarkGray
+        btnDashboard.DisabledState.CustomBorderColor = Color.DarkGray
+        btnDashboard.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnDashboard.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnDashboard.FillColor = Color.Transparent
+        btnDashboard.Font = New Font("Segoe UI", 10.5F)
+        btnDashboard.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        btnDashboard.HoverState.FillColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
+        btnDashboard.HoverState.ForeColor = Color.White
+        btnDashboard.Location = New Point(13, 254)
+        btnDashboard.Margin = New Padding(4, 5, 4, 5)
+        btnDashboard.Name = "btnDashboard"
+        btnDashboard.ShadowDecoration.CustomizableEdges = CustomizableEdges28
+        btnDashboard.Size = New Size(307, 69)
+        btnDashboard.TabIndex = 1
+        btnDashboard.Text = "Dashboard"
+        btnDashboard.TextAlign = HorizontalAlignment.Left
+        ' 
+        ' pnlUserInfo
+        ' 
+        pnlUserInfo.BackColor = Color.FromArgb(CByte(46), CByte(139), CByte(87))
+        pnlUserInfo.Controls.Add(lblRole)
+        pnlUserInfo.Controls.Add(lblWelcome)
+        pnlUserInfo.CustomizableEdges = CustomizableEdges29
+        pnlUserInfo.Dock = DockStyle.Top
+        pnlUserInfo.Location = New Point(0, 0)
+        pnlUserInfo.Margin = New Padding(4, 5, 4, 5)
+        pnlUserInfo.Name = "pnlUserInfo"
+        pnlUserInfo.ShadowDecoration.CustomizableEdges = CustomizableEdges30
+        pnlUserInfo.Size = New Size(333, 185)
+        pnlUserInfo.TabIndex = 0
+        ' 
+        ' lblRole
+        ' 
+        lblRole.Dock = DockStyle.Bottom
+        lblRole.Font = New Font("Segoe UI", 9F)
+        lblRole.ForeColor = Color.White
+        lblRole.Location = New Point(0, 139)
+        lblRole.Margin = New Padding(4, 0, 4, 0)
+        lblRole.Name = "lblRole"
+        lblRole.Size = New Size(333, 46)
+        lblRole.TabIndex = 1
+        lblRole.Text = "Role: Admin"
+        lblRole.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' lblWelcome
+        ' 
+        lblWelcome.Dock = DockStyle.Top
+        lblWelcome.Font = New Font("Segoe UI", 11F, FontStyle.Bold)
+        lblWelcome.ForeColor = Color.White
+        lblWelcome.Location = New Point(0, 0)
+        lblWelcome.Margin = New Padding(4, 0, 4, 0)
+        lblWelcome.Name = "lblWelcome"
+        lblWelcome.Size = New Size(333, 123)
+        lblWelcome.TabIndex = 0
+        lblWelcome.Text = "Welcome, User"
+        lblWelcome.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' pnlTop
+        ' 
+        pnlTop.BackColor = Color.White
+        pnlTop.Controls.Add(lblPageTitle)
+        pnlTop.Controls.Add(btnMinimize)
+        pnlTop.Controls.Add(btnMaximize)
+        pnlTop.Controls.Add(btnClose)
+        pnlTop.CustomizableEdges = CustomizableEdges9
+        pnlTop.Dock = DockStyle.Top
+        pnlTop.Location = New Point(333, 0)
+        pnlTop.Margin = New Padding(4, 5, 4, 5)
+        pnlTop.Name = "pnlTop"
+        pnlTop.ShadowDecoration.CustomizableEdges = CustomizableEdges10
+        pnlTop.ShadowDecoration.Depth = 5
+        pnlTop.ShadowDecoration.Enabled = True
+        pnlTop.Size = New Size(1267, 92)
+        pnlTop.TabIndex = 1
+        ' 
+        ' lblPageTitle
+        ' 
+        lblPageTitle.AutoSize = True
+        lblPageTitle.Font = New Font("Segoe UI", 14F, FontStyle.Bold)
+        lblPageTitle.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        lblPageTitle.Location = New Point(27, 26)
+        lblPageTitle.Margin = New Padding(4, 0, 4, 0)
+        lblPageTitle.Name = "lblPageTitle"
+        lblPageTitle.Size = New Size(138, 32)
+        lblPageTitle.TabIndex = 3
+        lblPageTitle.Text = "Dashboard"
+        ' 
+        ' btnMinimize
+        ' 
+        btnMinimize.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        btnMinimize.BorderRadius = 5
+        btnMinimize.CustomizableEdges = CustomizableEdges3
+        btnMinimize.DisabledState.BorderColor = Color.DarkGray
+        btnMinimize.DisabledState.CustomBorderColor = Color.DarkGray
+        btnMinimize.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnMinimize.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnMinimize.FillColor = Color.FromArgb(CByte(241), CByte(196), CByte(15))
+        btnMinimize.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
+        btnMinimize.ForeColor = Color.White
+        btnMinimize.Location = New Point(1080, 23)
+        btnMinimize.Margin = New Padding(4, 5, 4, 5)
+        btnMinimize.Name = "btnMinimize"
+        btnMinimize.ShadowDecoration.CustomizableEdges = CustomizableEdges4
+        btnMinimize.Size = New Size(47, 54)
+        btnMinimize.TabIndex = 2
+        btnMinimize.Text = "-"
+        ' 
+        ' btnMaximize
+        ' 
+        btnMaximize.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        btnMaximize.BorderRadius = 5
+        btnMaximize.CustomizableEdges = CustomizableEdges5
+        btnMaximize.DisabledState.BorderColor = Color.DarkGray
+        btnMaximize.DisabledState.CustomBorderColor = Color.DarkGray
+        btnMaximize.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnMaximize.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnMaximize.FillColor = Color.FromArgb(CByte(46), CByte(204), CByte(113))
+        btnMaximize.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
+        btnMaximize.ForeColor = Color.White
+        btnMaximize.Location = New Point(1140, 23)
+        btnMaximize.Margin = New Padding(4, 5, 4, 5)
+        btnMaximize.Name = "btnMaximize"
+        btnMaximize.ShadowDecoration.CustomizableEdges = CustomizableEdges6
+        btnMaximize.Size = New Size(47, 54)
+        btnMaximize.TabIndex = 1
+        btnMaximize.Text = "□"
+        ' 
+        ' btnClose
+        ' 
+        btnClose.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        btnClose.BorderRadius = 5
+        btnClose.CustomizableEdges = CustomizableEdges7
+        btnClose.DisabledState.BorderColor = Color.DarkGray
+        btnClose.DisabledState.CustomBorderColor = Color.DarkGray
+        btnClose.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnClose.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnClose.FillColor = Color.FromArgb(CByte(231), CByte(76), CByte(60))
+        btnClose.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
+        btnClose.ForeColor = Color.White
+        btnClose.Location = New Point(1200, 23)
+        btnClose.Margin = New Padding(4, 5, 4, 5)
+        btnClose.Name = "btnClose"
+        btnClose.ShadowDecoration.CustomizableEdges = CustomizableEdges8
+        btnClose.Size = New Size(47, 54)
+        btnClose.TabIndex = 0
+        btnClose.Text = "X"
+        ' 
+        ' pnlContent
+        ' 
+        pnlContent.BackColor = Color.FromArgb(CByte(244), CByte(246), CByte(247))
+        pnlContent.CustomizableEdges = CustomizableEdges1
+        pnlContent.Dock = DockStyle.Fill
+        pnlContent.Location = New Point(333, 92)
+        pnlContent.Margin = New Padding(4, 5, 4, 5)
+        pnlContent.Name = "pnlContent"
+        pnlContent.Padding = New Padding(27, 31, 27, 31)
+        pnlContent.ShadowDecoration.CustomizableEdges = CustomizableEdges2
+        pnlContent.Size = New Size(1267, 985)
+        pnlContent.TabIndex = 2
+        ' 
+        ' Guna2DragControl1
+        ' 
+        Guna2DragControl1.DockIndicatorTransparencyValue = 0.6R
+        Guna2DragControl1.TargetControl = pnlTop
+        Guna2DragControl1.UseTransparentDrag = True
+        ' 
+        ' Guna2ShadowForm1
+        ' 
+        Guna2ShadowForm1.TargetForm = Me
+        ' 
+        ' DashboardForm
+        ' 
+        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleMode = AutoScaleMode.Font
+        ClientSize = New Size(1600, 1077)
+        Controls.Add(pnlContent)
+        Controls.Add(pnlTop)
+        Controls.Add(pnlSidebar)
+        FormBorderStyle = FormBorderStyle.None
+        Margin = New Padding(4, 5, 4, 5)
+        Name = "DashboardForm"
+        StartPosition = FormStartPosition.CenterScreen
+        Text = "Dashboard - Student Management System"
+        pnlSidebar.ResumeLayout(False)
+        pnlUserInfo.ResumeLayout(False)
+        pnlTop.ResumeLayout(False)
+        pnlTop.PerformLayout()
+        ResumeLayout(False)
 
     End Sub
 
