@@ -3,8 +3,6 @@
 ' PURPOSE: Checks if DB/tables exist and auto-creates them with seed data
 ' AUTHOR: System
 ' DATE: 2025-10-14
-' Edited By Rovic
-' For Future users please do not remove this header
 ' ==========================================
 
 Imports MySql.Data.MySqlClient
@@ -84,13 +82,30 @@ Public Class DatabaseInitializer
                     `password` VARCHAR(255) NOT NULL,
                     `role` VARCHAR(20) NOT NULL,
                     `fullname` VARCHAR(100) NOT NULL,
+                    `is_archived` TINYINT(1) DEFAULT 0,
                     `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                     INDEX idx_username (username),
-                    INDEX idx_role (role)
+                    INDEX idx_role (role),
+                    INDEX idx_archived (is_archived)
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
 
                 DatabaseHandler.ExecuteNonQuery(createUsersTable)
                 Logger.LogInfo("Users table created successfully.")
+            Else
+                ' Check if is_archived column exists, add if not
+                Try
+                    Dim checkColumn As String = "SELECT COUNT(*) FROM information_schema.columns WHERE table_schema = @database AND table_name = 'users' AND column_name = 'is_archived'"
+                    Dim checkParams As New Dictionary(Of String, Object) From {{"@database", DatabaseManager.DatabaseName}}
+                    Dim columnExists As Integer = Convert.ToInt32(DatabaseHandler.ExecuteScalar(checkColumn, checkParams))
+
+                    If columnExists = 0 Then
+                        Dim alterTable As String = "ALTER TABLE users ADD COLUMN is_archived TINYINT(1) DEFAULT 0"
+                        DatabaseHandler.ExecuteNonQuery(alterTable)
+                        Logger.LogInfo("Added is_archived column to users table")
+                    End If
+                Catch ex As Exception
+                    Logger.LogError("Error checking/adding is_archived column", ex)
+                End Try
             End If
 
             ' Create students table
@@ -223,8 +238,6 @@ Public Class DatabaseInitializer
             If userCount = 0 Then
                 Logger.LogInfo("Users table is empty. Seeding initial admin user...")
 
-                ' Create default admin user
-                ' Username: admin, Password: admin123
                 Dim insertAdmin As String = "
                 INSERT INTO users (username, password, role, fullname) 
                 VALUES (@username, @password, @role, @fullname)"
@@ -239,7 +252,6 @@ Public Class DatabaseInitializer
                 DatabaseHandler.ExecuteNonQuery(insertAdmin, parameters)
                 Logger.LogInfo("Default admin user created successfully (username: admin, password: admin123)")
 
-                ' Create sample SuperAdmin user
                 Dim insertSuperAdmin As String = "
                 INSERT INTO users (username, password, role, fullname) 
                 VALUES (@username, @password, @role, @fullname)"

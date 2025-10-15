@@ -3,12 +3,9 @@
 ' PURPOSE: Modern login form with database authentication
 ' AUTHOR: System
 ' DATE: 2025-10-14
-' Edited By Rovic
-' For Future users please do not remove this header
 ' ==========================================
 
 Imports System.Data
-Imports Microsoft.VisualBasic.ApplicationServices
 
 Public Class LoginForm
     Private currentUser As User = Nothing
@@ -72,16 +69,37 @@ Public Class LoginForm
                 ' Show success message
                 MessageBox.Show($"Welcome, {user.FullName}!", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-                ' Open dashboard form
-                Dim dashboard As New DashboardForm(user)
-                Me.Hide()
-                dashboard.ShowDialog()
+                ' Determine user role and open appropriate panel
+                Dim role = If(user?.Role, "").ToUpperInvariant()
 
-                ' Clear password field when returning to login
-                txtPassword.Clear()
-                txtUsername.Clear()
-                txtUsername.Focus()
-                Me.Show()
+                If role = "ADMIN" OrElse role = "SUPERADMIN" Then
+                    Using chooser As New RoleChooserForm(user)
+                        Dim dr = chooser.ShowDialog(Me)
+                        If dr = DialogResult.Yes Then
+                            ' Admin panel
+                            Dim adminForm As New AdminForm(user)
+                            adminForm.Show()
+                            Me.Hide()
+                        ElseIf dr = DialogResult.No Then
+                            ' Dashboard
+                            Dim dashboard As New DashboardForm(user)
+                            dashboard.Show()
+                            Me.Hide()
+                        Else
+                            ' Cancelled — fall back to dashboard but keep login visible
+                            Dim dashboard As New DashboardForm(user)
+                            dashboard.Show()
+                            Me.Hide()
+                        End If
+                    End Using
+                ElseIf role = "FACULTY" OrElse role = "STUDENT" Then
+                    Dim dashboard As New DashboardForm(user)
+                    dashboard.Show()
+                    Me.Hide()
+                Else
+                    MessageBox.Show("Unknown user role. Please contact support.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
+
             Else
                 Logger.LogWarning($"Failed login attempt for username: {txtUsername.Text}")
                 MessageBox.Show("Invalid username or password. Please try again.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -107,7 +125,7 @@ Public Class LoginForm
     ''' <returns>User object if authenticated, Nothing otherwise</returns>
     Private Function AuthenticateUser(username As String, password As String) As User
         Try
-            Dim query As String = "SELECT id, username, password, role, fullname, created_at FROM users WHERE username = @username AND password = @password"
+            Dim query As String = "SELECT id, username, password, role, fullname, created_at, is_archived FROM users WHERE username = @username AND password = @password"
 
             Dim parameters As New Dictionary(Of String, Object) From {
                 {"@username", username},
@@ -119,10 +137,18 @@ Public Class LoginForm
             If dt.Rows.Count > 0 Then
                 Dim row As DataRow = dt.Rows(0)
 
+                ' Check if user is archived
+                Dim isArchived As Boolean = If(IsDBNull(row("is_archived")), False, Convert.ToBoolean(row("is_archived")))
+
+                If isArchived Then
+                    MessageBox.Show("This account has been archived and cannot login.", "Account Archived", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    Return Nothing
+                End If
+
                 Dim user As New User With {
                     .Id = Convert.ToInt32(row("id")),
-                    .username = row("username").ToString(),
-                    .password = row("password").ToString(),
+                    .Username = row("username").ToString(),
+                    .Password = row("password").ToString(),
                     .Role = row("role").ToString(),
                     .FullName = row("fullname").ToString(),
                     .CreatedAt = Convert.ToDateTime(row("created_at"))
@@ -202,7 +228,4 @@ Public Class LoginForm
         End If
     End Sub
 
-    Private Sub lblAppName_Click(sender As Object, e As EventArgs) Handles lblAppName.Click
-
-    End Sub
 End Class

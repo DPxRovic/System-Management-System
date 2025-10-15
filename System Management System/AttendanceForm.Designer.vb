@@ -30,27 +30,22 @@ Partial Class AttendanceForm
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
-        Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim CustomizableEdges35 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges36 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges17 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges19 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -61,14 +56,16 @@ Partial Class AttendanceForm
         Dim CustomizableEdges24 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges25 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges26 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim CustomizableEdges27 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges28 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges29 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges30 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges31 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges32 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges33 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges34 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+
         Guna2Elipse1 = New Guna.UI2.WinForms.Guna2Elipse(components)
         pnlScrollContainer = New Panel()
         pnlContent = New Panel()
@@ -113,6 +110,7 @@ Partial Class AttendanceForm
         tmrStudentIdDebounce = New Timer(components)
         tmrToast = New Timer(components)
         tmrResetForm = New Timer(components)
+
         pnlScrollContainer.SuspendLayout()
         pnlContent.SuspendLayout()
         pnlBottom.SuspendLayout()
@@ -137,7 +135,7 @@ Partial Class AttendanceForm
         pnlScrollContainer.Dock = DockStyle.Fill
         pnlScrollContainer.Location = New Point(0, 0)
         pnlScrollContainer.Name = "pnlScrollContainer"
-        pnlScrollContainer.Padding = New Padding(20)
+        pnlScrollContainer.Padding = New Padding(20, 20, 20, 20)
         pnlScrollContainer.Size = New Size(1333, 1077)
         pnlScrollContainer.TabIndex = 0
         ' 
@@ -150,13 +148,12 @@ Partial Class AttendanceForm
         pnlContent.Location = New Point(20, 20)
         pnlContent.MinimumSize = New Size(1250, 0)
         pnlContent.Name = "pnlContent"
-        pnlContent.Size = New Size(1272, 1395)
+        pnlContent.Size = New Size(1250, 1395)
         pnlContent.TabIndex = 0
         ' 
         ' pnlBottom
         ' 
-        pnlBottom.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
-        pnlBottom.BackColor = Color.Transparent
+        pnlBottom.BackColor = Color.White
         pnlBottom.BorderRadius = 10
         pnlBottom.Controls.Add(pnlAttendanceStats)
         pnlBottom.Controls.Add(pnlDateFilter)
@@ -165,17 +162,17 @@ Partial Class AttendanceForm
         pnlBottom.Controls.Add(btnRefresh)
         pnlBottom.Controls.Add(dgvTodayAttendance)
         pnlBottom.Controls.Add(Label5)
-        pnlBottom.CustomizableEdges = CustomizableEdges15
+        pnlBottom.CustomizableEdges = CustomizableEdges27
+        pnlBottom.Dock = DockStyle.Top
         pnlBottom.Location = New Point(0, 650)
         pnlBottom.Margin = New Padding(0, 20, 0, 0)
-        pnlBottom.MinimumSize = New Size(1250, 745)
         pnlBottom.Name = "pnlBottom"
-        pnlBottom.Padding = New Padding(20)
+        pnlBottom.Padding = New Padding(20, 20, 20, 20)
         pnlBottom.ShadowDecoration.BorderRadius = 10
-        pnlBottom.ShadowDecoration.CustomizableEdges = CustomizableEdges16
+        pnlBottom.ShadowDecoration.CustomizableEdges = CustomizableEdges28
         pnlBottom.ShadowDecoration.Depth = 5
         pnlBottom.ShadowDecoration.Enabled = True
-        pnlBottom.Size = New Size(1272, 745)
+        pnlBottom.Size = New Size(1250, 745)
         pnlBottom.TabIndex = 1
         ' 
         ' pnlAttendanceStats
@@ -205,7 +202,7 @@ Partial Class AttendanceForm
         lblLateCount.ForeColor = Color.FromArgb(CByte(243), CByte(156), CByte(18))
         lblLateCount.Location = New Point(280, 95)
         lblLateCount.Name = "lblLateCount"
-        lblLateCount.Size = New Size(33, 37)
+        lblLateCount.Size = New Size(32, 37)
         lblLateCount.TabIndex = 6
         lblLateCount.Text = "0"
         ' 
@@ -216,7 +213,7 @@ Partial Class AttendanceForm
         lblAbsentCount.ForeColor = Color.FromArgb(CByte(231), CByte(76), CByte(60))
         lblAbsentCount.Location = New Point(170, 95)
         lblAbsentCount.Name = "lblAbsentCount"
-        lblAbsentCount.Size = New Size(33, 37)
+        lblAbsentCount.Size = New Size(32, 37)
         lblAbsentCount.TabIndex = 5
         lblAbsentCount.Text = "0"
         ' 
@@ -227,7 +224,7 @@ Partial Class AttendanceForm
         lblPresentCount.ForeColor = Color.FromArgb(CByte(46), CByte(139), CByte(87))
         lblPresentCount.Location = New Point(60, 95)
         lblPresentCount.Name = "lblPresentCount"
-        lblPresentCount.Size = New Size(33, 37)
+        lblPresentCount.Size = New Size(32, 37)
         lblPresentCount.TabIndex = 4
         lblPresentCount.Text = "0"
         ' 
@@ -249,7 +246,7 @@ Partial Class AttendanceForm
         Label8.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
         Label8.Location = New Point(155, 60)
         Label8.Name = "Label8"
-        Label8.Size = New Size(55, 20)
+        Label8.Size = New Size(57, 20)
         Label8.TabIndex = 2
         Label8.Text = "Absent"
         ' 
@@ -260,7 +257,7 @@ Partial Class AttendanceForm
         Label7.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
         Label7.Location = New Point(40, 60)
         Label7.Name = "Label7"
-        Label7.Size = New Size(57, 20)
+        Label7.Size = New Size(58, 20)
         Label7.TabIndex = 1
         Label7.Text = "Present"
         ' 
@@ -271,7 +268,7 @@ Partial Class AttendanceForm
         Label6.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
         Label6.Location = New Point(15, 15)
         Label6.Name = "Label6"
-        Label6.Size = New Size(151, 23)
+        Label6.Size = New Size(152, 23)
         Label6.TabIndex = 0
         Label6.Text = "Today's Summary"
         ' 
@@ -288,7 +285,7 @@ Partial Class AttendanceForm
         pnlDateFilter.Controls.Add(Label11)
         pnlDateFilter.Controls.Add(Label10)
         pnlDateFilter.CustomizableEdges = CustomizableEdges9
-        pnlDateFilter.Location = New Point(672, 75)
+        pnlDateFilter.Location = New Point(650, 75)
         pnlDateFilter.Name = "pnlDateFilter"
         pnlDateFilter.Padding = New Padding(15)
         pnlDateFilter.ShadowDecoration.CustomizableEdges = CustomizableEdges10
@@ -320,15 +317,15 @@ Partial Class AttendanceForm
         dtpEndDate.CustomizableEdges = CustomizableEdges5
         dtpEndDate.FillColor = Color.White
         dtpEndDate.Font = New Font("Segoe UI", 9.0F)
-        dtpEndDate.Format = DateTimePickerFormat.Short
+        dtpEndDate.Format = DateTimePickerFormat.[Short]
         dtpEndDate.Location = New Point(300, 60)
-        dtpEndDate.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
-        dtpEndDate.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        dtpEndDate.MaxDate = New DateTime(9998, 12, 31, 0, 0, 0, 0)
+        dtpEndDate.MinDate = New DateTime(1753, 1, 1, 0, 0, 0, 0)
         dtpEndDate.Name = "dtpEndDate"
         dtpEndDate.ShadowDecoration.CustomizableEdges = CustomizableEdges6
         dtpEndDate.Size = New Size(260, 36)
         dtpEndDate.TabIndex = 3
-        dtpEndDate.Value = New Date(2025, 10, 15, 0, 0, 0, 0)
+        dtpEndDate.Value = New DateTime(2025, 10, 15, 0, 0, 0, 0)
         ' 
         ' dtpStartDate
         ' 
@@ -337,15 +334,15 @@ Partial Class AttendanceForm
         dtpStartDate.CustomizableEdges = CustomizableEdges7
         dtpStartDate.FillColor = Color.White
         dtpStartDate.Font = New Font("Segoe UI", 9.0F)
-        dtpStartDate.Format = DateTimePickerFormat.Short
+        dtpStartDate.Format = DateTimePickerFormat.[Short]
         dtpStartDate.Location = New Point(20, 60)
-        dtpStartDate.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
-        dtpStartDate.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        dtpStartDate.MaxDate = New DateTime(9998, 12, 31, 0, 0, 0, 0)
+        dtpStartDate.MinDate = New DateTime(1753, 1, 1, 0, 0, 0, 0)
         dtpStartDate.Name = "dtpStartDate"
         dtpStartDate.ShadowDecoration.CustomizableEdges = CustomizableEdges8
         dtpStartDate.Size = New Size(260, 36)
         dtpStartDate.TabIndex = 2
-        dtpStartDate.Value = New Date(2025, 10, 15, 0, 0, 0, 0)
+        dtpStartDate.Value = New DateTime(2025, 10, 15, 0, 0, 0, 0)
         ' 
         ' Label11
         ' 
@@ -392,7 +389,7 @@ Partial Class AttendanceForm
         btnExport.FillColor = Color.FromArgb(CByte(46), CByte(139), CByte(87))
         btnExport.Font = New Font("Segoe UI", 9.0F)
         btnExport.ForeColor = Color.White
-        btnExport.Location = New Point(1009, 20)
+        btnExport.Location = New Point(987, 20)
         btnExport.Name = "btnExport"
         btnExport.ShadowDecoration.CustomizableEdges = CustomizableEdges12
         btnExport.Size = New Size(120, 45)
@@ -411,7 +408,7 @@ Partial Class AttendanceForm
         btnRefresh.FillColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
         btnRefresh.Font = New Font("Segoe UI", 9.0F)
         btnRefresh.ForeColor = Color.White
-        btnRefresh.Location = New Point(1135, 20)
+        btnRefresh.Location = New Point(1113, 20)
         btnRefresh.Name = "btnRefresh"
         btnRefresh.ShadowDecoration.CustomizableEdges = CustomizableEdges14
         btnRefresh.Size = New Size(113, 45)
@@ -449,8 +446,7 @@ Partial Class AttendanceForm
         dgvTodayAttendance.ReadOnly = True
         dgvTodayAttendance.RowHeadersVisible = False
         dgvTodayAttendance.RowHeadersWidth = 51
-        dgvTodayAttendance.RowTemplate.Height = 22
-        dgvTodayAttendance.Size = New Size(1224, 450)
+        dgvTodayAttendance.Size = New Size(1202, 450)
         dgvTodayAttendance.TabIndex = 3
         dgvTodayAttendance.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
         dgvTodayAttendance.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -481,14 +477,13 @@ Partial Class AttendanceForm
         Label5.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
         Label5.Location = New Point(20, 20)
         Label5.Name = "Label5"
-        Label5.Size = New Size(202, 28)
+        Label5.Size = New Size(205, 28)
         Label5.TabIndex = 0
         Label5.Text = "Attendance Records"
         ' 
         ' pnlAttendance
         ' 
-        pnlAttendance.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
-        pnlAttendance.BackColor = Color.Transparent
+        pnlAttendance.BackColor = Color.White
         pnlAttendance.BorderRadius = 10
         pnlAttendance.Controls.Add(pnlToast)
         pnlAttendance.Controls.Add(lblStatus)
@@ -506,16 +501,16 @@ Partial Class AttendanceForm
         pnlAttendance.Controls.Add(txtStudentId)
         pnlAttendance.Controls.Add(Label2)
         pnlAttendance.Controls.Add(Label1)
-        pnlAttendance.CustomizableEdges = CustomizableEdges35
+        pnlAttendance.CustomizableEdges = CustomizableEdges29
+        pnlAttendance.Dock = DockStyle.Top
         pnlAttendance.Location = New Point(0, 0)
-        pnlAttendance.MinimumSize = New Size(1250, 650)
         pnlAttendance.Name = "pnlAttendance"
-        pnlAttendance.Padding = New Padding(20)
+        pnlAttendance.Padding = New Padding(20, 20, 20, 20)
         pnlAttendance.ShadowDecoration.BorderRadius = 10
-        pnlAttendance.ShadowDecoration.CustomizableEdges = CustomizableEdges36
+        pnlAttendance.ShadowDecoration.CustomizableEdges = CustomizableEdges30
         pnlAttendance.ShadowDecoration.Depth = 5
         pnlAttendance.ShadowDecoration.Enabled = True
-        pnlAttendance.Size = New Size(1272, 650)
+        pnlAttendance.Size = New Size(1250, 650)
         pnlAttendance.TabIndex = 0
         ' 
         ' pnlToast
@@ -524,10 +519,10 @@ Partial Class AttendanceForm
         pnlToast.BackColor = Color.FromArgb(CByte(46), CByte(204), CByte(113))
         pnlToast.BorderRadius = 8
         pnlToast.Controls.Add(lblToastMessage)
-        pnlToast.CustomizableEdges = CustomizableEdges17
-        pnlToast.Location = New Point(882, 20)
+        pnlToast.CustomizableEdges = CustomizableEdges15
+        pnlToast.Location = New Point(860, 20)
         pnlToast.Name = "pnlToast"
-        pnlToast.ShadowDecoration.CustomizableEdges = CustomizableEdges18
+        pnlToast.ShadowDecoration.CustomizableEdges = CustomizableEdges16
         pnlToast.Size = New Size(360, 65)
         pnlToast.TabIndex = 15
         pnlToast.Visible = False
@@ -560,7 +555,7 @@ Partial Class AttendanceForm
         ' 
         txtRemarks.BorderRadius = 8
         txtRemarks.Cursor = Cursors.IBeam
-        txtRemarks.CustomizableEdges = CustomizableEdges19
+        txtRemarks.CustomizableEdges = CustomizableEdges17
         txtRemarks.DefaultText = ""
         txtRemarks.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         txtRemarks.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -576,7 +571,7 @@ Partial Class AttendanceForm
         txtRemarks.Name = "txtRemarks"
         txtRemarks.PlaceholderText = "Optional remarks..."
         txtRemarks.SelectedText = ""
-        txtRemarks.ShadowDecoration.CustomizableEdges = CustomizableEdges20
+        txtRemarks.ShadowDecoration.CustomizableEdges = CustomizableEdges18
         txtRemarks.Size = New Size(800, 120)
         txtRemarks.TabIndex = 13
         ' 
@@ -594,7 +589,7 @@ Partial Class AttendanceForm
         ' btnClear
         ' 
         btnClear.BorderRadius = 8
-        btnClear.CustomizableEdges = CustomizableEdges21
+        btnClear.CustomizableEdges = CustomizableEdges19
         btnClear.DisabledState.BorderColor = Color.DarkGray
         btnClear.DisabledState.CustomBorderColor = Color.DarkGray
         btnClear.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -605,7 +600,7 @@ Partial Class AttendanceForm
         btnClear.HoverState.FillColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
         btnClear.Location = New Point(840, 360)
         btnClear.Name = "btnClear"
-        btnClear.ShadowDecoration.CustomizableEdges = CustomizableEdges22
+        btnClear.ShadowDecoration.CustomizableEdges = CustomizableEdges20
         btnClear.Size = New Size(200, 65)
         btnClear.TabIndex = 11
         btnClear.Text = "Clear"
@@ -613,7 +608,7 @@ Partial Class AttendanceForm
         ' btnExcused
         ' 
         btnExcused.BorderRadius = 8
-        btnExcused.CustomizableEdges = CustomizableEdges23
+        btnExcused.CustomizableEdges = CustomizableEdges21
         btnExcused.DisabledState.BorderColor = Color.DarkGray
         btnExcused.DisabledState.CustomBorderColor = Color.DarkGray
         btnExcused.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -625,7 +620,7 @@ Partial Class AttendanceForm
         btnExcused.HoverState.FillColor = Color.FromArgb(CByte(142), CByte(68), CByte(173))
         btnExcused.Location = New Point(627, 360)
         btnExcused.Name = "btnExcused"
-        btnExcused.ShadowDecoration.CustomizableEdges = CustomizableEdges24
+        btnExcused.ShadowDecoration.CustomizableEdges = CustomizableEdges22
         btnExcused.Size = New Size(200, 65)
         btnExcused.TabIndex = 10
         btnExcused.Text = "Excused"
@@ -633,7 +628,7 @@ Partial Class AttendanceForm
         ' btnLate
         ' 
         btnLate.BorderRadius = 8
-        btnLate.CustomizableEdges = CustomizableEdges25
+        btnLate.CustomizableEdges = CustomizableEdges23
         btnLate.DisabledState.BorderColor = Color.DarkGray
         btnLate.DisabledState.CustomBorderColor = Color.DarkGray
         btnLate.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -645,7 +640,7 @@ Partial Class AttendanceForm
         btnLate.HoverState.FillColor = Color.FromArgb(CByte(211), CByte(84), CByte(0))
         btnLate.Location = New Point(413, 360)
         btnLate.Name = "btnLate"
-        btnLate.ShadowDecoration.CustomizableEdges = CustomizableEdges26
+        btnLate.ShadowDecoration.CustomizableEdges = CustomizableEdges24
         btnLate.Size = New Size(200, 65)
         btnLate.TabIndex = 9
         btnLate.Text = "Late"
@@ -653,7 +648,7 @@ Partial Class AttendanceForm
         ' btnAbsent
         ' 
         btnAbsent.BorderRadius = 8
-        btnAbsent.CustomizableEdges = CustomizableEdges27
+        btnAbsent.CustomizableEdges = CustomizableEdges25
         btnAbsent.DisabledState.BorderColor = Color.DarkGray
         btnAbsent.DisabledState.CustomBorderColor = Color.DarkGray
         btnAbsent.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -665,7 +660,7 @@ Partial Class AttendanceForm
         btnAbsent.HoverState.FillColor = Color.FromArgb(CByte(192), CByte(57), CByte(43))
         btnAbsent.Location = New Point(240, 360)
         btnAbsent.Name = "btnAbsent"
-        btnAbsent.ShadowDecoration.CustomizableEdges = CustomizableEdges28
+        btnAbsent.ShadowDecoration.CustomizableEdges = CustomizableEdges26
         btnAbsent.Size = New Size(160, 65)
         btnAbsent.TabIndex = 8
         btnAbsent.Text = "Absent"
@@ -673,7 +668,7 @@ Partial Class AttendanceForm
         ' btnPresent
         ' 
         btnPresent.BorderRadius = 8
-        btnPresent.CustomizableEdges = CustomizableEdges29
+        btnPresent.CustomizableEdges = CustomizableEdges31
         btnPresent.DisabledState.BorderColor = Color.DarkGray
         btnPresent.DisabledState.CustomBorderColor = Color.DarkGray
         btnPresent.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -685,7 +680,7 @@ Partial Class AttendanceForm
         btnPresent.HoverState.FillColor = Color.FromArgb(CByte(39), CByte(118), CByte(74))
         btnPresent.Location = New Point(240, 360)
         btnPresent.Name = "btnPresent"
-        btnPresent.ShadowDecoration.CustomizableEdges = CustomizableEdges30
+        btnPresent.ShadowDecoration.CustomizableEdges = CustomizableEdges32
         btnPresent.Size = New Size(160, 65)
         btnPresent.TabIndex = 7
         btnPresent.Text = "Present"
@@ -719,7 +714,6 @@ Partial Class AttendanceForm
         cmbCourse.BackColor = Color.Transparent
         cmbCourse.BorderColor = Color.FromArgb(CByte(213), CByte(218), CByte(223))
         cmbCourse.BorderRadius = 8
-        cmbCourse.CustomizableEdges = CustomizableEdges31
         cmbCourse.DrawMode = DrawMode.OwnerDrawFixed
         cmbCourse.DropDownStyle = ComboBoxStyle.DropDownList
         cmbCourse.FocusedColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
@@ -729,7 +723,6 @@ Partial Class AttendanceForm
         cmbCourse.ItemHeight = 30
         cmbCourse.Location = New Point(640, 130)
         cmbCourse.Name = "cmbCourse"
-        cmbCourse.ShadowDecoration.CustomizableEdges = CustomizableEdges32
         cmbCourse.Size = New Size(400, 36)
         cmbCourse.TabIndex = 4
         ' 
@@ -748,7 +741,6 @@ Partial Class AttendanceForm
         ' 
         txtStudentId.BorderRadius = 8
         txtStudentId.Cursor = Cursors.IBeam
-        txtStudentId.CustomizableEdges = CustomizableEdges33
         txtStudentId.DefaultText = ""
         txtStudentId.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         txtStudentId.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -763,7 +755,6 @@ Partial Class AttendanceForm
         txtStudentId.Name = "txtStudentId"
         txtStudentId.PlaceholderText = "Enter student ID..."
         txtStudentId.SelectedText = ""
-        txtStudentId.ShadowDecoration.CustomizableEdges = CustomizableEdges34
         txtStudentId.Size = New Size(370, 60)
         txtStudentId.TabIndex = 2
         ' 
@@ -811,7 +802,6 @@ Partial Class AttendanceForm
         Name = "AttendanceForm"
         Text = "Attendance - Student Management System"
         pnlScrollContainer.ResumeLayout(False)
-        pnlScrollContainer.PerformLayout()
         pnlContent.ResumeLayout(False)
         pnlBottom.ResumeLayout(False)
         pnlBottom.PerformLayout()

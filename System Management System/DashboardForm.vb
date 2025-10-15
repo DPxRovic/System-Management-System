@@ -1,12 +1,17 @@
 ﻿' ==========================================
 ' FILENAME: /Forms/DashboardForm.vb
-' PURPOSE: Main dashboard form with navigation - UPDATED
+' PURPOSE: Main dashboard form with role-based navigation - MERGED VERSION
 ' AUTHOR: System
 ' DATE: 2025-10-15
+' Edited By Rovic
+' For Future users please do not remove this header
 ' ==========================================
+Imports Guna.UI2.WinForms
+Imports System.Data
 
 Public Class DashboardForm
     Private currentUser As User
+    Private activeButton As Guna.UI2.WinForms.Guna2Button = Nothing
     Private currentForm As Form = Nothing
 
     ''' <summary>
@@ -18,7 +23,7 @@ Public Class DashboardForm
     End Sub
 
     ''' <summary>
-    ''' Form load event
+    ''' Form load event - Setup dashboard based on user role
     ''' </summary>
     Private Sub DashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
@@ -26,19 +31,82 @@ Public Class DashboardForm
             lblWelcome.Text = $"Welcome, {currentUser.FullName}"
             lblRole.Text = $"Role: {currentUser.Role}"
 
+            ' Setup navigation based on role
+            SetupNavigation()
+
             ' Set button permissions based on user role
             SetUserPermissions()
 
             ' Enable auto-scaling for child forms
             Me.AutoScaleMode = AutoScaleMode.Dpi
 
-            ' Load default dashboard content
-            LoadDashboard()
+            ' Load initial dashboard content
+            LoadDashboardContent()
 
             Logger.LogInfo($"Dashboard loaded for user: {currentUser.Username}")
+
         Catch ex As Exception
             Logger.LogError("Error loading dashboard", ex)
             MessageBox.Show($"Error loading dashboard: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+
+    ''' <summary>
+    ''' Setup navigation buttons based on user role
+    ''' </summary>
+    Private Sub SetupNavigation()
+        Try
+            ' Hide all navigation buttons initially
+            btnDashboard.Visible = True
+            btnStudents.Visible = False
+            btnCourses.Visible = False
+            btnAttendance.Visible = False
+            btnFaculty.Visible = False
+            btnUsers.Visible = False
+            btnReports.Visible = False
+            btnSettings.Visible = False
+
+            ' Show navigation based on role
+            Select Case currentUser.Role.ToUpper()
+                Case "SUPERADMIN"
+                    ' SuperAdmin sees everything
+                    btnStudents.Visible = True
+                    btnCourses.Visible = True
+                    btnAttendance.Visible = True
+                    btnFaculty.Visible = True
+                    btnUsers.Visible = True
+                    btnReports.Visible = True
+                    btnSettings.Visible = True
+
+                Case "ADMIN"
+                    ' Admin sees most features except some system settings
+                    btnStudents.Visible = True
+                    btnCourses.Visible = True
+                    btnAttendance.Visible = True
+                    btnFaculty.Visible = True
+                    btnUsers.Visible = True
+                    btnReports.Visible = True
+                    btnSettings.Visible = True
+
+                Case "FACULTY"
+                    ' Faculty sees courses, attendance, and reports
+                    btnCourses.Visible = True
+                    btnAttendance.Visible = True
+                    btnReports.Visible = True
+
+                Case "STUDENT"
+                    ' Student sees limited options
+                    btnAttendance.Visible = True
+                    btnReports.Visible = True
+            End Select
+
+            ' Set Dashboard as active by default
+            SetActiveButton(btnDashboard)
+
+        Catch ex As Exception
+            Logger.LogError("Error setting up navigation", ex)
+            Throw
         End Try
     End Sub
 
@@ -48,7 +116,7 @@ Public Class DashboardForm
     Private Sub SetUserPermissions()
         Try
             Select Case currentUser.Role.ToLower()
-                Case "admin"
+                Case "admin", "superadmin"
                     ' Admin has access to everything
                     btnDashboard.Enabled = True
                     btnStudents.Enabled = True
@@ -99,10 +167,13 @@ Public Class DashboardForm
     End Sub
 
     ''' <summary>
-    ''' Load a child form into the content panel
+    ''' Load dashboard content based on role
     ''' </summary>
-    Private Sub LoadChildForm(childForm As Form, pageTitle As String)
+    Private Sub LoadDashboardContent()
         Try
+            ' Clear existing content
+            pnlContent.Controls.Clear()
+
             ' Dispose of current form if exists
             If currentForm IsNot Nothing Then
                 currentForm.Close()
@@ -110,42 +181,221 @@ Public Class DashboardForm
                 currentForm = Nothing
             End If
 
-            ' Clear the panel
-            pnlContent.Controls.Clear()
+            ' Update page title if it exists
+            If lblPageTitle IsNot Nothing Then
+                lblPageTitle.Text = "Dashboard"
+            End If
 
-            ' Update page title
-            lblPageTitle.Text = pageTitle
+            ' Create dashboard summary panel
+            Dim summaryPanel As New Panel With {
+                .Dock = DockStyle.Fill,
+                .BackColor = Color.White,
+                .Padding = New Padding(20)
+            }
 
-            ' Configure the child form for responsive behavior
-            childForm.TopLevel = False
-            childForm.FormBorderStyle = FormBorderStyle.None
-            childForm.Dock = DockStyle.Fill
-            childForm.AutoScaleMode = AutoScaleMode.Dpi
-            childForm.AutoSize = False
+            ' Add summary labels
+            Dim yPos As Integer = 20
 
-            ' Enable anchor/dock settings to work properly
-            childForm.Width = pnlContent.Width
-            childForm.Height = pnlContent.Height
+            Select Case currentUser.Role.ToUpper()
+                Case "SUPERADMIN", "ADMIN"
+                    ' Show statistics for admin users
+                    AddStatCard(summaryPanel, "Total Students", GetStudentCount().ToString(), 20, yPos)
+                    AddStatCard(summaryPanel, "Total Courses", GetCourseCount().ToString(), 220, yPos)
+                    AddStatCard(summaryPanel, "Total Faculty", GetFacultyCount().ToString(), 420, yPos)
 
-            ' Add to panel and show
-            pnlContent.Controls.Add(childForm)
-            childForm.BringToFront()
-            childForm.Show()
+                    yPos += 150
+                    AddStatCard(summaryPanel, "Today's Attendance", GetTodayAttendanceCount().ToString(), 20, yPos)
+                    AddStatCard(summaryPanel, "Active Users", GetActiveUserCount().ToString(), 220, yPos)
 
-            ' Store reference
-            currentForm = childForm
+                Case "FACULTY"
+                    ' Show faculty-specific statistics
+                    AddStatCard(summaryPanel, "My Courses", GetFacultyCourseCount().ToString(), 20, yPos)
+                    AddStatCard(summaryPanel, "Today's Classes", "0", 220, yPos)
+                    AddStatCard(summaryPanel, "Total Students", GetStudentCount().ToString(), 420, yPos)
 
-            ' Reset all button colors
-            ResetButtonColors()
+                Case "STUDENT"
+                    ' Show student-specific statistics
+                    AddStatCard(summaryPanel, "My Courses", "0", 20, yPos)
+                    AddStatCard(summaryPanel, "Attendance Rate", "0%", 220, yPos)
+                    AddStatCard(summaryPanel, "Pending Tasks", "0", 420, yPos)
+            End Select
 
-            ' Force layout update
-            pnlContent.PerformLayout()
-            childForm.PerformLayout()
+            pnlContent.Controls.Add(summaryPanel)
 
         Catch ex As Exception
-            Logger.LogError("Error loading child form", ex)
-            MessageBox.Show($"Error loading page: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Logger.LogError("Error loading dashboard content", ex)
+            Throw
         End Try
+    End Sub
+
+    ''' <summary>
+    ''' Load dashboard content - Alternative simple version
+    ''' </summary>
+    Private Sub LoadDashboard()
+        Try
+            ' For now, create a simple dashboard view
+            ' You can replace this with an actual DashboardContentForm later
+            pnlContent.Controls.Clear()
+
+            If currentForm IsNot Nothing Then
+                currentForm.Close()
+                currentForm.Dispose()
+                currentForm = Nothing
+            End If
+
+            If lblPageTitle IsNot Nothing Then
+                lblPageTitle.Text = "Dashboard"
+            End If
+
+            HighlightButton(btnDashboard)
+
+            ' Create a simple welcome panel
+            Dim welcomeLabel As New Label With {
+                .Text = $"Welcome to Student Management System, {currentUser.FullName}!",
+                .Font = New Font("Segoe UI", 16, FontStyle.Bold),
+                .ForeColor = Color.FromArgb(44, 62, 80),
+                .Dock = DockStyle.Top,
+                .Height = 100,
+                .TextAlign = ContentAlignment.MiddleCenter
+            }
+            pnlContent.Controls.Add(welcomeLabel)
+
+        Catch ex As Exception
+            Logger.LogError("Error loading dashboard", ex)
+        End Try
+    End Sub
+
+    ''' <summary>
+    ''' Add a statistics card to the panel
+    ''' </summary>
+    Private Sub AddStatCard(parent As Panel, title As String, value As String, x As Integer, y As Integer)
+        Dim card As New Guna.UI2.WinForms.Guna2Panel With {
+            .Size = New Size(180, 120),
+            .Location = New Point(x, y),
+            .BorderRadius = 10,
+            .FillColor = Color.FromArgb(46, 139, 87)
+        }
+        card.ShadowDecoration.Enabled = True
+        card.ShadowDecoration.Depth = 5
+
+        Dim lblTitle As New Label With {
+            .Text = title,
+            .Font = New Font("Segoe UI", 10, FontStyle.Regular),
+            .ForeColor = Color.White,
+            .Location = New Point(15, 20),
+            .Size = New Size(150, 25),
+            .BackColor = Color.Transparent
+        }
+
+        Dim lblValue As New Label With {
+            .Text = value,
+            .Font = New Font("Segoe UI", 24, FontStyle.Bold),
+            .ForeColor = Color.White,
+            .Location = New Point(15, 50),
+            .Size = New Size(150, 50),
+            .BackColor = Color.Transparent
+        }
+
+        card.Controls.Add(lblTitle)
+        card.Controls.Add(lblValue)
+        parent.Controls.Add(card)
+    End Sub
+
+    ''' <summary>
+    ''' Get total student count
+    ''' </summary>
+    Private Function GetStudentCount() As Integer
+        Try
+            Dim query As String = "SELECT COUNT(*) FROM students WHERE status = 'Active'"
+            Return Convert.ToInt32(DatabaseHandler.ExecuteScalar(query))
+        Catch ex As Exception
+            Logger.LogError("Error getting student count", ex)
+            Return 0
+        End Try
+    End Function
+
+    ''' <summary>
+    ''' Get total course count
+    ''' </summary>
+    Private Function GetCourseCount() As Integer
+        Try
+            Dim query As String = "SELECT COUNT(*) FROM courses WHERE status = 'Active'"
+            Return Convert.ToInt32(DatabaseHandler.ExecuteScalar(query))
+        Catch ex As Exception
+            Logger.LogError("Error getting course count", ex)
+            Return 0
+        End Try
+    End Function
+
+    ''' <summary>
+    ''' Get total faculty count
+    ''' </summary>
+    Private Function GetFacultyCount() As Integer
+        Try
+            Dim query As String = "SELECT COUNT(*) FROM courses WHERE status = 'Active'"
+            Return Convert.ToInt32(DatabaseHandler.ExecuteScalar(query))
+        Catch ex As Exception
+            Logger.LogError("Error getting faculty count", ex)
+            Return 0
+        End Try
+    End Function
+
+    ''' <summary>
+    ''' Get today's attendance count
+    ''' </summary>
+    Private Function GetTodayAttendanceCount() As Integer
+        Try
+            Dim query As String = "SELECT COUNT(*) FROM attendance WHERE date = CURDATE()"
+            Return Convert.ToInt32(DatabaseHandler.ExecuteScalar(query))
+        Catch ex As Exception
+            Logger.LogError("Error getting today's attendance count", ex)
+            Return 0
+        End Try
+    End Function
+
+    ''' <summary>
+    ''' Get active user count
+    ''' </summary>
+    Private Function GetActiveUserCount() As Integer
+        Try
+            Dim query As String = "SELECT COUNT(*) FROM users"
+            Return Convert.ToInt32(DatabaseHandler.ExecuteScalar(query))
+        Catch ex As Exception
+            Logger.LogError("Error getting active user count", ex)
+            Return 0
+        End Try
+    End Function
+
+    ''' <summary>
+    ''' Get faculty course count
+    ''' </summary>
+    Private Function GetFacultyCourseCount() As Integer
+        Try
+            Dim query As String = "SELECT COUNT(*) FROM courses WHERE faculty_id = @faculty_id AND status = 'Active'"
+            Dim params As New Dictionary(Of String, Object) From {
+                {"@faculty_id", currentUser.Id}
+            }
+            Return Convert.ToInt32(DatabaseHandler.ExecuteScalar(query, params))
+        Catch ex As Exception
+            Logger.LogError("Error getting faculty course count", ex)
+            Return 0
+        End Try
+    End Function
+
+    ''' <summary>
+    ''' Set active navigation button
+    ''' </summary>
+    Private Sub SetActiveButton(btn As Guna.UI2.WinForms.Guna2Button)
+        ' Reset previous active button
+        If activeButton IsNot Nothing Then
+            activeButton.FillColor = Color.Transparent
+            activeButton.ForeColor = Color.FromArgb(44, 62, 80)
+        End If
+
+        ' Set new active button
+        activeButton = btn
+        activeButton.FillColor = Color.FromArgb(26, 188, 156)
+        activeButton.ForeColor = Color.White
     End Sub
 
     ''' <summary>
@@ -182,84 +432,104 @@ Public Class DashboardForm
     End Sub
 
     ''' <summary>
-    ''' Dashboard button click
+    ''' Load a child form into the content panel
     ''' </summary>
-    Private Sub btnDashboard_Click(sender As Object, e As EventArgs) Handles btnDashboard.Click
-        LoadDashboard()
-        HighlightButton(btnDashboard)
-    End Sub
-
-    ''' <summary>
-    ''' Load dashboard content
-    ''' </summary>
-    Private Sub LoadDashboard()
+    Private Sub LoadChildForm(childForm As Form, pageTitle As String)
         Try
-            ' For now, create a simple dashboard view
-            ' You can replace this with an actual DashboardContentForm later
-            pnlContent.Controls.Clear()
-
+            ' Dispose of current form if exists
             If currentForm IsNot Nothing Then
                 currentForm.Close()
                 currentForm.Dispose()
                 currentForm = Nothing
             End If
 
-            lblPageTitle.Text = "Dashboard"
-            HighlightButton(btnDashboard)
+            ' Clear the panel
+            pnlContent.Controls.Clear()
 
-            ' Create a simple welcome panel
-            Dim welcomeLabel As New Label With {
-                .Text = $"Welcome to Student Management System, {currentUser.FullName}!",
-                .Font = New Font("Segoe UI", 16, FontStyle.Bold),
-                .ForeColor = Color.FromArgb(44, 62, 80),
-                .Dock = DockStyle.Top,
-                .Height = 100,
-                .TextAlign = ContentAlignment.MiddleCenter
-            }
-            pnlContent.Controls.Add(welcomeLabel)
+            ' Update page title
+            If lblPageTitle IsNot Nothing Then
+                lblPageTitle.Text = pageTitle
+            End If
+
+            ' Configure the child form for responsive behavior
+            childForm.TopLevel = False
+            childForm.FormBorderStyle = FormBorderStyle.None
+            childForm.Dock = DockStyle.Fill
+            childForm.AutoScaleMode = AutoScaleMode.Dpi
+            childForm.AutoSize = False
+
+            ' Enable anchor/dock settings to work properly
+            childForm.Width = pnlContent.Width
+            childForm.Height = pnlContent.Height
+
+            ' Add to panel and show
+            pnlContent.Controls.Add(childForm)
+            childForm.BringToFront()
+            childForm.Show()
+
+            ' Store reference
+            currentForm = childForm
+
+            ' Reset all button colors
+            ResetButtonColors()
+
+            ' Force layout update
+            pnlContent.PerformLayout()
+            childForm.PerformLayout()
 
         Catch ex As Exception
-            Logger.LogError("Error loading dashboard", ex)
+            Logger.LogError("Error loading child form", ex)
+            MessageBox.Show($"Error loading page: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
     ''' <summary>
-    ''' Students button click
+    ''' Loads a form into the content panel - Alternative method
     ''' </summary>
+    ''' <param name="childForm">Form to load</param>
+    Private Sub LoadForm(childForm As Form)
+        Try
+            ' Clear existing content
+            pnlContent.Controls.Clear()
+
+            ' Configure child form
+            childForm.TopLevel = False
+            childForm.FormBorderStyle = FormBorderStyle.None
+            childForm.Dock = DockStyle.Fill
+
+            ' Add form to content panel
+            pnlContent.Controls.Add(childForm)
+            childForm.Show()
+
+            Logger.LogInfo($"Form {childForm.Name} loaded into dashboard")
+        Catch ex As Exception
+            Logger.LogError("Error loading form into dashboard", ex)
+            MessageBox.Show($"Error loading module: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    ' Navigation button click events
+    Private Sub btnDashboard_Click(sender As Object, e As EventArgs) Handles btnDashboard.Click
+        SetActiveButton(btnDashboard)
+        LoadDashboardContent()
+    End Sub
+
     Private Sub btnStudents_Click(sender As Object, e As EventArgs) Handles btnStudents.Click
-        Try
-            ' You need to create StudentManagementForm
-            ' LoadChildForm(New StudentManagementForm(), "Students Management")
-            HighlightButton(btnStudents)
-            MessageBox.Show("Students Management form coming soon!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        Catch ex As Exception
-            Logger.LogError("Error opening students form", ex)
-        End Try
+        SetActiveButton(btnStudents)
+        ShowMessage("Students Management", "Student management module coming soon...")
     End Sub
 
-    ''' <summary>
-    ''' Courses button click
-    ''' </summary>
     Private Sub btnCourses_Click(sender As Object, e As EventArgs) Handles btnCourses.Click
-        Try
-            ' You need to create CoursesManagementForm
-            ' LoadChildForm(New CoursesManagementForm(), "Courses Management")
-            HighlightButton(btnCourses)
-            MessageBox.Show("Courses Management form coming soon!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        Catch ex As Exception
-            Logger.LogError("Error opening courses form", ex)
-        End Try
+        SetActiveButton(btnCourses)
+        ShowMessage("Course Management", "Course management module coming soon...")
     End Sub
 
-    ''' <summary>
-    ''' Attendance button click - UPDATED TO USE NEW FORM
-    ''' </summary>
     Private Sub btnAttendance_Click(sender As Object, e As EventArgs) Handles btnAttendance.Click
         Try
+            SetActiveButton(btnAttendance)
             ' IMPORTANT: This creates a NEW instance of AttendanceForm with the updated designer
             Dim attendanceForm As New AttendanceForm(currentUser)
             LoadChildForm(attendanceForm, "Attendance Management")
-            HighlightButton(btnAttendance)
 
             Logger.LogInfo("Attendance form loaded - using updated designer")
         Catch ex As Exception
@@ -268,65 +538,41 @@ Public Class DashboardForm
         End Try
     End Sub
 
-    ''' <summary>
-    ''' Faculty button click
-    ''' </summary>
     Private Sub btnFaculty_Click(sender As Object, e As EventArgs) Handles btnFaculty.Click
-        Try
-            ' You need to create FacultyManagementForm
-            ' LoadChildForm(New FacultyManagementForm(), "Faculty Management")
-            HighlightButton(btnFaculty)
-            MessageBox.Show("Faculty Management form coming soon!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        Catch ex As Exception
-            Logger.LogError("Error opening faculty form", ex)
-        End Try
+        SetActiveButton(btnFaculty)
+        LoadForm(New FacultyForm(currentUser))
     End Sub
 
-    ''' <summary>
-    ''' Users button click
-    ''' </summary>
     Private Sub btnUsers_Click(sender As Object, e As EventArgs) Handles btnUsers.Click
         Try
-            ' You need to create UserManagementForm
-            ' LoadChildForm(New UserManagementForm(), "User Management")
-            HighlightButton(btnUsers)
-            MessageBox.Show("User Management form coming soon!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Dim role = If(currentUser?.Role, "").ToUpperInvariant()
+
+            If role = "ADMIN" OrElse role = "SUPERADMIN" Then
+                ' Open AdminForm inside the content panel
+                Dim adminForm As New AdminForm(currentUser)
+                LoadChildForm(adminForm, "Administration")
+                SetActiveButton(btnUsers)
+                Logger.LogInfo($"Admin panel opened by {currentUser.Username}")
+            Else
+                SetActiveButton(btnUsers)
+                ShowMessage("User Management", "User management module coming soon...")
+            End If
         Catch ex As Exception
-            Logger.LogError("Error opening users form", ex)
+            Logger.LogError("Error opening admin/users panel", ex)
+            MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
-    ''' <summary>
-    ''' Reports button click
-    ''' </summary>
     Private Sub btnReports_Click(sender As Object, e As EventArgs) Handles btnReports.Click
-        Try
-            ' You need to create ReportsForm
-            ' LoadChildForm(New ReportsForm(), "Reports")
-            HighlightButton(btnReports)
-            MessageBox.Show("Reports form coming soon!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        Catch ex As Exception
-            Logger.LogError("Error opening reports form", ex)
-        End Try
+        SetActiveButton(btnReports)
+        ShowMessage("Reports", "Reports module coming soon...")
     End Sub
 
-    ''' <summary>
-    ''' Settings button click
-    ''' </summary>
     Private Sub btnSettings_Click(sender As Object, e As EventArgs) Handles btnSettings.Click
-        Try
-            ' You need to create SettingsForm
-            ' LoadChildForm(New SettingsForm(), "Settings")
-            HighlightButton(btnSettings)
-            MessageBox.Show("Settings form coming soon!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        Catch ex As Exception
-            Logger.LogError("Error opening settings form", ex)
-        End Try
+        SetActiveButton(btnSettings)
+        ShowMessage("Settings", "Settings module coming soon...")
     End Sub
 
-    ''' <summary>
-    ''' Logout button click
-    ''' </summary>
     Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
         Try
             Dim result As DialogResult = MessageBox.Show(
@@ -354,8 +600,15 @@ Public Class DashboardForm
 
         Catch ex As Exception
             Logger.LogError("Error during logout", ex)
-            MessageBox.Show($"Error during logout: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Me.Close()
         End Try
+    End Sub
+
+    ''' <summary>
+    ''' Helper method to show messages
+    ''' </summary>
+    Private Sub ShowMessage(title As String, message As String)
+        MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
     ''' <summary>
@@ -455,4 +708,7 @@ Public Class DashboardForm
         End Try
     End Sub
 
+    Private Sub pnlTop_Paint(sender As Object, e As PaintEventArgs) Handles pnlTop.Paint
+
+    End Sub
 End Class
