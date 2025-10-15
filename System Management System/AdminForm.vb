@@ -112,18 +112,30 @@ Public Class AdminForm
 
             ' Format grid columns
             If dgvUsers.Columns.Count > 0 Then
-                dgvUsers.Columns("id").HeaderText = "ID"
-                dgvUsers.Columns("id").Width = 50
-                dgvUsers.Columns("username").HeaderText = "Username"
-                dgvUsers.Columns("username").Width = 120
-                dgvUsers.Columns("password").HeaderText = "Password"
-                dgvUsers.Columns("password").Width = 100
-                dgvUsers.Columns("role").HeaderText = "Role"
-                dgvUsers.Columns("role").Width = 100
-                dgvUsers.Columns("fullname").HeaderText = "Full Name"
-                dgvUsers.Columns("fullname").Width = 200
-                dgvUsers.Columns("created_at").HeaderText = "Created At"
-                dgvUsers.Columns("created_at").Width = 150
+                If dgvUsers.Columns.Contains("id") Then
+                    dgvUsers.Columns("id").HeaderText = "ID"
+                    dgvUsers.Columns("id").Width = 50
+                End If
+                If dgvUsers.Columns.Contains("username") Then
+                    dgvUsers.Columns("username").HeaderText = "Username"
+                    dgvUsers.Columns("username").Width = 120
+                End If
+                If dgvUsers.Columns.Contains("password") Then
+                    dgvUsers.Columns("password").HeaderText = "Password"
+                    dgvUsers.Columns("password").Width = 100
+                End If
+                If dgvUsers.Columns.Contains("role") Then
+                    dgvUsers.Columns("role").HeaderText = "Role"
+                    dgvUsers.Columns("role").Width = 100
+                End If
+                If dgvUsers.Columns.Contains("fullname") Then
+                    dgvUsers.Columns("fullname").HeaderText = "Full Name"
+                    dgvUsers.Columns("fullname").Width = 200
+                End If
+                If dgvUsers.Columns.Contains("created_at") Then
+                    dgvUsers.Columns("created_at").HeaderText = "Created At"
+                    dgvUsers.Columns("created_at").Width = 150
+                End If
                 If dgvUsers.Columns.Contains("is_archived") Then
                     dgvUsers.Columns("is_archived").HeaderText = "Archived"
                     dgvUsers.Columns("is_archived").Width = 80
@@ -133,9 +145,30 @@ Public Class AdminForm
             ' Update count label
             lblUsersCount.Text = $"Total Users: {dt.Rows.Count}"
 
+            ' Prevent unintended automatic selection (user clicked Archive without selecting)
+            Try
+                dgvUsers.ClearSelection()
+                If dgvUsers.Rows.Count > 0 Then
+                    dgvUsers.CurrentCell = Nothing
+                End If
+            Catch ex As Exception
+                ' swallow any DataGridView focus exceptions
+            End Try
+
         Catch ex As Exception
             Logger.LogError("Error loading users data", ex)
             MessageBox.Show($"Error loading users: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    ''' <summary>
+    ''' When user toggles Show Archived — reload users
+    ''' </summary>
+    Private Sub chkShowArchivedUsers_CheckedChanged(sender As Object, e As EventArgs) Handles chkShowArchivedUsers.CheckedChanged
+        Try
+            LoadUsersData()
+        Catch ex As Exception
+            Logger.LogError("Error handling chkShowArchivedUsers_CheckedChanged", ex)
         End Try
     End Sub
 
@@ -211,7 +244,7 @@ Public Class AdminForm
     End Sub
 
     ''' <summary>
-    ''' Archive/unarchive selected user
+    ''' Archive/unarchive selected user (with user confirmation)
     ''' </summary>
     Private Sub btnArchiveUser_Click(sender As Object, e As EventArgs) Handles btnArchiveUser.Click
         Try
@@ -220,16 +253,40 @@ Public Class AdminForm
                 Return
             End If
 
-            Dim userId As Integer = Convert.ToInt32(dgvUsers.SelectedRows(0).Cells("id").Value)
-            Dim isArchived As Boolean = Convert.ToBoolean(dgvUsers.SelectedRows(0).Cells("is_archived").Value)
+            Dim row = dgvUsers.SelectedRows(0)
+            Dim userId As Integer = Convert.ToInt32(row.Cells("id").Value)
+            Dim isArchived As Boolean = False
 
-            If isArchived Then
-                AdminRepository.RestoreUser(userId)
-            Else
-                AdminRepository.ArchiveUser(userId)
+            If dgvUsers.Columns.Contains("is_archived") Then
+                Dim val = row.Cells("is_archived").Value
+                isArchived = If(IsDBNull(val), False, Convert.ToBoolean(val))
             End If
 
-            LoadUsersData()
+            Dim usernameDisplay As String = If(dgvUsers.Columns.Contains("username"), row.Cells("username").Value.ToString(), $"ID {userId}")
+            Dim prompt As String = If(isArchived,
+                                      $"Do you want to restore user '{usernameDisplay}'?",
+                                      $"Are you sure you want to archive user '{usernameDisplay}'?")
+
+            Dim result = MessageBox.Show(prompt, If(isArchived, "Confirm Restore", "Confirm Archive"), MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If result <> DialogResult.Yes Then
+                Return
+            End If
+
+            Dim success As Boolean = False
+            If isArchived Then
+                success = AdminRepository.RestoreUser(userId)
+                If success Then MessageBox.Show($"User '{usernameDisplay}' restored.", "Restored", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Else
+                success = AdminRepository.ArchiveUser(userId)
+                If success Then MessageBox.Show($"User '{usernameDisplay}' archived.", "Archived", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+
+            If success Then
+                LoadUsersData()
+            Else
+                MessageBox.Show("Operation failed. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+
         Catch ex As Exception
             Logger.LogError("Error archiving/unarchiving user", ex)
             MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -241,21 +298,48 @@ Public Class AdminForm
 #Region "Courses Tab"
 
     ''' <summary>
-    ''' Load courses - minimal implementation (expand as needed)
+    ''' Load courses - include archived when checkbox checked
     ''' </summary>
     Private Sub LoadCoursesData()
         Try
-            Dim dt As DataTable = AdminRepository.GetAllCourses()
+            Dim includeArchived As Boolean = chkShowArchivedCourses.Checked
+            Dim dt As DataTable = AdminRepository.GetAllCourses(includeArchived)
             dgvCourses.DataSource = dt
 
             ' Simple column formatting if present
             If dgvCourses.Columns.Count > 0 Then
                 If dgvCourses.Columns.Contains("id") Then dgvCourses.Columns("id").Width = 50
+                If dgvCourses.Columns.Contains("status") Then
+                    dgvCourses.Columns("status").HeaderText = "Status"
+                    dgvCourses.Columns("status").Width = 100
+                End If
             End If
 
             lblCoursesCount.Text = $"Total Courses: {dt.Rows.Count}"
+
+            ' Prevent unintended automatic selection
+            Try
+                dgvCourses.ClearSelection()
+                If dgvCourses.Rows.Count > 0 Then
+                    dgvCourses.CurrentCell = Nothing
+                End If
+            Catch ex As Exception
+                ' swallow any DataGridView focus exceptions
+            End Try
+
         Catch ex As Exception
             Logger.LogError("Error loading courses", ex)
+        End Try
+    End Sub
+
+    ''' <summary>
+    ''' When user toggles Show Archived in Courses — reload courses
+    ''' </summary>
+    Private Sub chkShowArchivedCourses_CheckedChanged(sender As Object, e As EventArgs) Handles chkShowArchivedCourses.CheckedChanged
+        Try
+            LoadCoursesData()
+        Catch ex As Exception
+            Logger.LogError("Error handling chkShowArchivedCourses_CheckedChanged", ex)
         End Try
     End Sub
 
