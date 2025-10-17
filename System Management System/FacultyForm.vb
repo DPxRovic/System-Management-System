@@ -63,13 +63,13 @@ Public Class FacultyForm
                 lblCoursesCount.Text = "My Courses (0)"
 
                 Dim noCoursesLabel As New Label With {
-                    .Text = "No courses assigned yet.",
-                    .Font = ThemeManager.HeaderFont,
-                    .ForeColor = ThemeManager.SecondaryTextColor,
-                    .Size = New Size(400, 50),
-                    .TextAlign = ContentAlignment.MiddleCenter,
-                    .Margin = New Padding(50, 50, 0, 0)
-                }
+                        .Text = "No courses assigned yet.",
+                        .Font = ThemeManager.HeaderFont,
+                        .ForeColor = ThemeManager.SecondaryTextColor,
+                        .Size = New Size(400, 50),
+                        .TextAlign = ContentAlignment.MiddleCenter,
+                        .Margin = New Padding(50, 50, 0, 0)
+                    }
 
                 flpCourses.Controls.Add(noCoursesLabel)
             End If
@@ -97,70 +97,70 @@ Public Class FacultyForm
 
             ' Create card
             Dim card As New Guna2GroupBox With {
-                .Size = New Size(350, 280),
-                .BorderRadius = ThemeManager.BorderRadiusLarge,
-                .FillColor = ThemeManager.WhiteColor,
-                .BorderColor = ThemeManager.AccentColor,
-                .CustomBorderColor = ThemeManager.AccentColor,
-                .BorderThickness = 2,
-                .Font = ThemeManager.HeaderFont,
-                .ForeColor = ThemeManager.TextColor,
-                .Text = courseCode,
-                .Margin = New Padding(10),
-                .Tag = courseId
-            }
+                    .Size = New Size(350, 280),
+                    .BorderRadius = ThemeManager.BorderRadiusLarge,
+                    .FillColor = ThemeManager.WhiteColor,
+                    .BorderColor = ThemeManager.AccentColor,
+                    .CustomBorderColor = ThemeManager.AccentColor,
+                    .BorderThickness = 2,
+                    .Font = ThemeManager.HeaderFont,
+                    .ForeColor = ThemeManager.TextColor,
+                    .Text = courseCode,
+                    .Margin = New Padding(10),
+                    .Tag = courseId
+                }
 
             ThemeManager.ApplyShadow(card, ThemeManager.ShadowDepth)
 
             ' Course name label
             Dim lblCourseName As New Label With {
-                .Text = courseName,
-                .Font = New Font("Segoe UI", 11, FontStyle.Bold),
-                .ForeColor = ThemeManager.PrimaryColor,
-                .Location = New Point(15, 40),
-                .Size = New Size(320, 50),
-                .AutoSize = False
-            }
+                    .Text = courseName,
+                    .Font = New Font("Segoe UI", 11, FontStyle.Bold),
+                    .ForeColor = ThemeManager.PrimaryColor,
+                    .Location = New Point(15, 40),
+                    .Size = New Size(320, 50),
+                    .AutoSize = False
+                }
 
             ' Schedule label
             Dim lblSchedule As New Label With {
-                .Text = $"📅 {schedule}",
-                .Font = ThemeManager.DefaultFont,
-                .ForeColor = ThemeManager.TextColor,
-                .Location = New Point(15, 95),
-                .Size = New Size(320, 20),
-                .AutoSize = False
-            }
+                    .Text = $"📅 {schedule}",
+                    .Font = ThemeManager.DefaultFont,
+                    .ForeColor = ThemeManager.TextColor,
+                    .Location = New Point(15, 95),
+                    .Size = New Size(320, 20),
+                    .AutoSize = False
+                }
 
             ' Room label
             Dim lblRoom As New Label With {
-                .Text = $"🚪 Room: {room}",
-                .Font = ThemeManager.DefaultFont,
-                .ForeColor = ThemeManager.TextColor,
-                .Location = New Point(15, 120),
-                .Size = New Size(320, 20),
-                .AutoSize = False
-            }
+                    .Text = $"🚪 Room: {room}",
+                    .Font = ThemeManager.DefaultFont,
+                    .ForeColor = ThemeManager.TextColor,
+                    .Location = New Point(15, 120),
+                    .Size = New Size(320, 20),
+                    .AutoSize = False
+                }
 
             ' Students label
             Dim lblStudents As New Label With {
-                .Text = $"👥 Students: {enrolledStudents}",
-                .Font = ThemeManager.DefaultFont,
-                .ForeColor = ThemeManager.TextColor,
-                .Location = New Point(15, 145),
-                .Size = New Size(150, 20),
-                .AutoSize = False
-            }
+                    .Text = $"👥 Students: {enrolledStudents}",
+                    .Font = ThemeManager.DefaultFont,
+                    .ForeColor = ThemeManager.TextColor,
+                    .Location = New Point(15, 145),
+                    .Size = New Size(150, 20),
+                    .AutoSize = False
+                }
 
             ' Attendance rate label
             Dim lblAttendanceRate As New Label With {
-                .Text = $"📊 Attendance: {stats("AttendanceRate")}%",
-                .Font = ThemeManager.DefaultFont,
-                .ForeColor = ThemeManager.SuccessColor,
-                .Location = New Point(170, 145),
-                .Size = New Size(165, 20),
-                .AutoSize = False
-            }
+                    .Text = $"📊 Attendance: {stats("AttendanceRate")}%",
+                    .Font = ThemeManager.DefaultFont,
+                    .ForeColor = ThemeManager.SuccessColor,
+                    .Location = New Point(170, 145),
+                    .Size = New Size(165, 20),
+                    .AutoSize = False
+                }
 
             ' Take Attendance button
             Dim btnTakeAttendance As Guna2Button = ThemeManager.CreatePrimaryButton("Take Attendance", 150, 35)
@@ -179,14 +179,14 @@ Public Class FacultyForm
 
             ' Course Details button
             Dim btnDetails As New Guna2Button With {
-                .Size = New Size(150, 35),
-                .Location = New Point(175, 225),
-                .BorderRadius = ThemeManager.BorderRadiusMedium,
-                .FillColor = ThemeManager.SecondaryTextColor,
-                .Font = ThemeManager.DefaultFont,
-                .ForeColor = ThemeManager.WhiteColor,
-                .Text = "Details"
-            }
+                    .Size = New Size(150, 35),
+                    .Location = New Point(175, 225),
+                    .BorderRadius = ThemeManager.BorderRadiusMedium,
+                    .FillColor = ThemeManager.SecondaryTextColor,
+                    .Font = ThemeManager.DefaultFont,
+                    .ForeColor = ThemeManager.WhiteColor,
+                    .Text = "Details"
+                }
             btnDetails.HoverState.FillColor = ThemeManager.DarkenColor(ThemeManager.SecondaryTextColor, 15)
             AddHandler btnDetails.Click, Sub(s, e) ShowCourseDetails(courseId)
 
@@ -244,15 +244,15 @@ Public Class FacultyForm
     Private Sub ViewCourseRecords(courseId As Integer, courseName As String)
         Try
             Dim recordsForm As New Form With {
-                .Text = $"Attendance Records - {courseName}",
-                .Size = New Size(900, 600),
-                .StartPosition = FormStartPosition.CenterParent,
-                .FormBorderStyle = FormBorderStyle.Sizable
-            }
+                    .Text = $"Attendance Records - {courseName}",
+                    .Size = New Size(900, 600),
+                    .StartPosition = FormStartPosition.CenterParent,
+                    .FormBorderStyle = FormBorderStyle.Sizable
+                }
 
             Dim dgv As New Guna2DataGridView With {
-                .Dock = DockStyle.Fill
-            }
+                    .Dock = DockStyle.Fill
+                }
 
             ' Load attendance records
             Dim dt As DataTable = FacultyRepository.GetCourseAttendance(courseId)
@@ -289,15 +289,15 @@ Public Class FacultyForm
     Private Sub ViewEnrolledStudents(courseId As Integer, courseName As String)
         Try
             Dim studentsForm As New Form With {
-                .Text = $"Enrolled Students - {courseName}",
-                .Size = New Size(1000, 600),
-                .StartPosition = FormStartPosition.CenterParent,
-                .FormBorderStyle = FormBorderStyle.Sizable
-            }
+                    .Text = $"Enrolled Students - {courseName}",
+                    .Size = New Size(1000, 600),
+                    .StartPosition = FormStartPosition.CenterParent,
+                    .FormBorderStyle = FormBorderStyle.Sizable
+                }
 
             Dim dgv As New Guna2DataGridView With {
-                .Dock = DockStyle.Fill
-            }
+                    .Dock = DockStyle.Fill
+                }
 
             ' Load student attendance summary
             Dim dt As DataTable = FacultyRepository.GetStudentAttendanceSummary(courseId)
@@ -336,11 +336,11 @@ Public Class FacultyForm
 
             If course IsNot Nothing Then
                 Dim details As String = $"Course Code: {course.CourseCode}" & vbCrLf &
-                                       $"Course Name: {course.CourseName}" & vbCrLf &
-                                       $"Credits: {course.Credits}" & vbCrLf &
-                                       $"Schedule: {course.Schedule}" & vbCrLf &
-                                       $"Room: {course.Room}" & vbCrLf &
-                                       $"Description: {course.Description}"
+                                           $"Course Name: {course.CourseName}" & vbCrLf &
+                                           $"Credits: {course.Credits}" & vbCrLf &
+                                           $"Schedule: {course.Schedule}" & vbCrLf &
+                                           $"Room: {course.Room}" & vbCrLf &
+                                           $"Description: {course.Description}"
 
                 MessageBox.Show(details, "Course Details", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If

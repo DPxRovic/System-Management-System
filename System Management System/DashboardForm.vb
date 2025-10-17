@@ -541,13 +541,49 @@ Public Class DashboardForm
     End Sub
 
     Private Sub btnStudents_Click(sender As Object, e As EventArgs) Handles btnStudents.Click
-        SetActiveButton(btnStudents)
-        ShowMessage("Students Management", "Student management module coming soon...")
+        Try
+            SetActiveButton(btnStudents)
+
+            ' Check if user has permission to access student management
+            If currentUser.Role.ToUpper() = "ADMIN" OrElse currentUser.Role.ToUpper() = "SUPERADMIN" Then
+                ' Open AdminForm focused on Users tab
+                Dim adminForm As New AdminForm(currentUser)
+                LoadChildForm(adminForm, "Student Management")
+
+                ' Switch to Users tab (students are managed through user accounts)
+                adminForm.SwitchToTab("Users")
+
+                Logger.LogInfo($"Student management opened by {currentUser.Username}")
+            Else
+                MessageBox.Show("You don't have permission to access student management.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+        Catch ex As Exception
+            Logger.LogError("Error opening student management", ex)
+            MessageBox.Show($"Error loading student management: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
     Private Sub btnCourses_Click(sender As Object, e As EventArgs) Handles btnCourses.Click
-        SetActiveButton(btnCourses)
-        ShowMessage("Course Management", "Course management module coming soon...")
+        Try
+            SetActiveButton(btnCourses)
+
+            ' Check if user has permission to access course management
+            If currentUser.Role.ToUpper() = "ADMIN" OrElse currentUser.Role.ToUpper() = "SUPERADMIN" OrElse currentUser.Role.ToUpper() = "FACULTY" Then
+                ' Open AdminForm focused on Courses tab
+                Dim adminForm As New AdminForm(currentUser)
+                LoadChildForm(adminForm, "Course Management")
+
+                ' Switch to Courses tab after form loads
+                adminForm.SwitchToTab("Courses")
+
+                Logger.LogInfo($"Course management opened by {currentUser.Username}")
+            Else
+                MessageBox.Show("You don't have permission to access course management.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+        Catch ex As Exception
+            Logger.LogError("Error opening course management", ex)
+            MessageBox.Show($"Error loading course management: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
     Private Sub btnAttendance_Click(sender As Object, e As EventArgs) Handles btnAttendance.Click

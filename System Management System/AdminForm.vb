@@ -13,12 +13,43 @@ Public Class AdminForm
     Private isSuperAdmin As Boolean = False
 
     ''' <summary>
+    ''' Public property to access the tab control for programmatic tab switching
+    ''' Renamed to avoid collision with designer field 'tabControl' (VB is case-insensitive).
+    ''' </summary>
+    Public ReadOnly Property MainTabControl As Guna2TabControl
+        Get
+            Return Me.tabControl
+        End Get
+    End Property
+
+    ''' <summary>
     ''' Constructor with user parameter
     ''' </summary>
     Public Sub New(user As User)
         InitializeComponent()
         currentUser = user
         isSuperAdmin = (user.Role.ToUpper() = "SUPERADMIN")
+    End Sub
+
+    ''' <summary>
+    ''' Switches to a specific tab by name
+    ''' </summary>
+    ''' <param name="tabName">Name of tab: "Users" or "Courses"</param>
+    Public Sub SwitchToTab(tabName As String)
+        Try
+            Select Case tabName.ToUpper()
+                Case "USERS"
+                    MainTabControl.SelectedIndex = 0
+                    Logger.LogInfo("Switched to Users tab")
+                Case "COURSES"
+                    MainTabControl.SelectedIndex = 1
+                    Logger.LogInfo("Switched to Courses tab")
+                Case Else
+                    Logger.LogWarning($"Unknown tab name: {tabName}")
+            End Select
+        Catch ex As Exception
+            Logger.LogError("Error switching tabs", ex)
+        End Try
     End Sub
 
     ''' <summary>
@@ -90,12 +121,6 @@ Public Class AdminForm
     ''' Apply theme to form
     ''' </summary>
     Private Sub ApplyTheme()
-        Try
-            ThemeManager.StyleDataGridView(dgvUsers)
-            ThemeManager.StyleDataGridView(dgvCourses)
-        Catch ex As Exception
-            Logger.LogError("Error applying theme", ex)
-        End Try
     End Sub
 
 #Region "Users Tab"
