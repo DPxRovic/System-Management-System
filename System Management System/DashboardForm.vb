@@ -2,7 +2,7 @@
 ' FILENAME: /Forms/DashboardForm.vb
 ' PURPOSE: Main dashboard form with role-based navigation - MERGED VERSION
 ' AUTHOR: System
-' DATE: 2025-10-15
+' DATE: 2025-10-17
 ' Edited By Rovic
 ' For Future users please do not remove this header
 ' ==========================================
@@ -50,7 +50,6 @@ Public Class DashboardForm
             MessageBox.Show($"Error loading dashboard: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
-
 
     ''' <summary>
     ''' Setup navigation buttons based on user role
@@ -167,7 +166,7 @@ Public Class DashboardForm
     End Sub
 
     ''' <summary>
-    ''' Load dashboard content based on role
+    ''' Load dashboard content based on role with enhanced statistics
     ''' </summary>
     Private Sub LoadDashboardContent()
         Try
@@ -190,7 +189,8 @@ Public Class DashboardForm
             Dim summaryPanel As New Panel With {
                 .Dock = DockStyle.Fill,
                 .BackColor = Color.White,
-                .Padding = New Padding(20)
+                .Padding = New Padding(20),
+                .AutoScroll = True
             }
 
             ' Add summary labels
@@ -199,25 +199,52 @@ Public Class DashboardForm
             Select Case currentUser.Role.ToUpper()
                 Case "SUPERADMIN", "ADMIN"
                     ' Show statistics for admin users
-                    AddStatCard(summaryPanel, "Total Students", GetStudentCount().ToString(), 20, yPos)
-                    AddStatCard(summaryPanel, "Total Courses", GetCourseCount().ToString(), 220, yPos)
-                    AddStatCard(summaryPanel, "Total Faculty", GetFacultyCount().ToString(), 420, yPos)
+                    AddStatCard(summaryPanel, "Total Students", GetStudentCount().ToString(), 20, yPos, Color.FromArgb(52, 152, 219))
+                    AddStatCard(summaryPanel, "Total Courses", GetCourseCount().ToString(), 240, yPos, Color.FromArgb(46, 139, 87))
+                    AddStatCard(summaryPanel, "Total Faculty", GetFacultyCount().ToString(), 460, yPos, Color.FromArgb(155, 89, 182))
+                    AddStatCard(summaryPanel, "Active Users", GetActiveUserCount().ToString(), 680, yPos, Color.FromArgb(243, 156, 18))
 
-                    yPos += 150
-                    AddStatCard(summaryPanel, "Today's Attendance", GetTodayAttendanceCount().ToString(), 20, yPos)
-                    AddStatCard(summaryPanel, "Active Users", GetActiveUserCount().ToString(), 220, yPos)
+                    yPos += 170
+
+                    ' Add attendance statistics section
+                    AddSectionLabel(summaryPanel, "Today's Attendance Overview", 20, yPos)
+                    yPos += 40
+
+                    AddStatCard(summaryPanel, "Today's Attendance", GetTodayAttendanceCount().ToString(), 20, yPos, Color.FromArgb(52, 152, 219))
+
+                    yPos += 170
+
+                    ' Add quick action buttons
+                    AddSectionLabel(summaryPanel, "Quick Actions", 20, yPos)
+                    yPos += 40
+
+                    AddQuickActionButton(summaryPanel, "View Reports", 20, yPos, Sub() btnReports.PerformClick())
+                    AddQuickActionButton(summaryPanel, "Take Attendance", 240, yPos, Sub() btnAttendance.PerformClick())
+                    AddQuickActionButton(summaryPanel, "Manage Users", 460, yPos, Sub() btnUsers.PerformClick())
 
                 Case "FACULTY"
                     ' Show faculty-specific statistics
-                    AddStatCard(summaryPanel, "My Courses", GetFacultyCourseCount().ToString(), 20, yPos)
-                    AddStatCard(summaryPanel, "Today's Classes", "0", 220, yPos)
-                    AddStatCard(summaryPanel, "Total Students", GetStudentCount().ToString(), 420, yPos)
+                    AddStatCard(summaryPanel, "My Courses", GetFacultyCourseCount().ToString(), 20, yPos, Color.FromArgb(46, 139, 87))
+                    AddStatCard(summaryPanel, "Today's Classes", "0", 240, yPos, Color.FromArgb(52, 152, 219))
+                    AddStatCard(summaryPanel, "Total Students", GetStudentCount().ToString(), 460, yPos, Color.FromArgb(155, 89, 182))
+
+                    yPos += 170
+
+                    AddSectionLabel(summaryPanel, "Quick Actions", 20, yPos)
+                    yPos += 40
+
+                    AddQuickActionButton(summaryPanel, "View Reports", 20, yPos, Sub() btnReports.PerformClick())
+                    AddQuickActionButton(summaryPanel, "Take Attendance", 240, yPos, Sub() btnAttendance.PerformClick())
 
                 Case "STUDENT"
                     ' Show student-specific statistics
-                    AddStatCard(summaryPanel, "My Courses", "0", 20, yPos)
-                    AddStatCard(summaryPanel, "Attendance Rate", "0%", 220, yPos)
-                    AddStatCard(summaryPanel, "Pending Tasks", "0", 420, yPos)
+                    AddStatCard(summaryPanel, "My Courses", "0", 20, yPos, Color.FromArgb(46, 139, 87))
+                    AddStatCard(summaryPanel, "Attendance Rate", "0%", 240, yPos, Color.FromArgb(52, 152, 219))
+                    AddStatCard(summaryPanel, "Pending Tasks", "0", 460, yPos, Color.FromArgb(155, 89, 182))
+
+                    yPos += 170
+
+                    AddQuickActionButton(summaryPanel, "View My Reports", 20, yPos, Sub() btnReports.PerformClick())
             End Select
 
             pnlContent.Controls.Add(summaryPanel)
@@ -229,51 +256,14 @@ Public Class DashboardForm
     End Sub
 
     ''' <summary>
-    ''' Load dashboard content - Alternative simple version
-    ''' </summary>
-    Private Sub LoadDashboard()
-        Try
-            ' For now, create a simple dashboard view
-            ' You can replace this with an actual DashboardContentForm later
-            pnlContent.Controls.Clear()
-
-            If currentForm IsNot Nothing Then
-                currentForm.Close()
-                currentForm.Dispose()
-                currentForm = Nothing
-            End If
-
-            If lblPageTitle IsNot Nothing Then
-                lblPageTitle.Text = "Dashboard"
-            End If
-
-            HighlightButton(btnDashboard)
-
-            ' Create a simple welcome panel
-            Dim welcomeLabel As New Label With {
-                .Text = $"Welcome to Student Management System, {currentUser.FullName}!",
-                .Font = New Font("Segoe UI", 16, FontStyle.Bold),
-                .ForeColor = Color.FromArgb(44, 62, 80),
-                .Dock = DockStyle.Top,
-                .Height = 100,
-                .TextAlign = ContentAlignment.MiddleCenter
-            }
-            pnlContent.Controls.Add(welcomeLabel)
-
-        Catch ex As Exception
-            Logger.LogError("Error loading dashboard", ex)
-        End Try
-    End Sub
-
-    ''' <summary>
     ''' Add a statistics card to the panel
     ''' </summary>
-    Private Sub AddStatCard(parent As Panel, title As String, value As String, x As Integer, y As Integer)
+    Private Sub AddStatCard(parent As Panel, title As String, value As String, x As Integer, y As Integer, color As Color)
         Dim card As New Guna.UI2.WinForms.Guna2Panel With {
-            .Size = New Size(180, 120),
+            .Size = New Size(200, 140),
             .Location = New Point(x, y),
             .BorderRadius = 10,
-            .FillColor = Color.FromArgb(46, 139, 87)
+            .FillColor = color
         }
         card.ShadowDecoration.Enabled = True
         card.ShadowDecoration.Depth = 5
@@ -283,22 +273,58 @@ Public Class DashboardForm
             .Font = New Font("Segoe UI", 10, FontStyle.Regular),
             .ForeColor = Color.White,
             .Location = New Point(15, 20),
-            .Size = New Size(150, 25),
+            .Size = New Size(170, 30),
             .BackColor = Color.Transparent
         }
 
         Dim lblValue As New Label With {
             .Text = value,
-            .Font = New Font("Segoe UI", 24, FontStyle.Bold),
+            .Font = New Font("Segoe UI", 28, FontStyle.Bold),
             .ForeColor = Color.White,
-            .Location = New Point(15, 50),
-            .Size = New Size(150, 50),
-            .BackColor = Color.Transparent
+            .Location = New Point(15, 55),
+            .Size = New Size(170, 60),
+            .BackColor = Color.Transparent,
+            .TextAlign = ContentAlignment.MiddleLeft
         }
 
         card.Controls.Add(lblTitle)
         card.Controls.Add(lblValue)
         parent.Controls.Add(card)
+    End Sub
+
+    ''' <summary>
+    ''' Add a section label to the panel
+    ''' </summary>
+    Private Sub AddSectionLabel(parent As Panel, text As String, x As Integer, y As Integer)
+        Dim lblSection As New Label With {
+            .Text = text,
+            .Font = New Font("Segoe UI", 14, FontStyle.Bold),
+            .ForeColor = Color.FromArgb(44, 62, 80),
+            .Location = New Point(x, y),
+            .AutoSize = True
+        }
+        parent.Controls.Add(lblSection)
+    End Sub
+
+    ''' <summary>
+    ''' Add a quick action button to the panel
+    ''' </summary>
+    Private Sub AddQuickActionButton(parent As Panel, text As String, x As Integer, y As Integer, onClick As Action)
+        Dim btn As New Guna.UI2.WinForms.Guna2Button With {
+            .Text = text,
+            .Size = New Size(200, 60),
+            .Location = New Point(x, y),
+            .BorderRadius = 10,
+            .FillColor = Color.FromArgb(46, 139, 87),
+            .Font = New Font("Segoe UI", 10, FontStyle.Bold),
+            .ForeColor = Color.White
+        }
+        btn.ShadowDecoration.Enabled = True
+        btn.ShadowDecoration.Depth = 5
+
+        AddHandler btn.Click, Sub(s, e) onClick()
+
+        parent.Controls.Add(btn)
     End Sub
 
     ''' <summary>
@@ -527,11 +553,11 @@ Public Class DashboardForm
     Private Sub btnAttendance_Click(sender As Object, e As EventArgs) Handles btnAttendance.Click
         Try
             SetActiveButton(btnAttendance)
-            ' IMPORTANT: This creates a NEW instance of AttendanceForm with the updated designer
+            ' Create and load Attendance form
             Dim attendanceForm As New AttendanceForm(currentUser)
             LoadChildForm(attendanceForm, "Attendance Management")
 
-            Logger.LogInfo("Attendance form loaded - using updated designer")
+            Logger.LogInfo("Attendance form loaded successfully")
         Catch ex As Exception
             Logger.LogError("Error opening attendance form", ex)
             MessageBox.Show($"Error loading attendance form: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -564,8 +590,19 @@ Public Class DashboardForm
     End Sub
 
     Private Sub btnReports_Click(sender As Object, e As EventArgs) Handles btnReports.Click
-        SetActiveButton(btnReports)
-        ShowMessage("Reports", "Reports module coming soon...")
+        Try
+            SetActiveButton(btnReports)
+
+            ' Create and load Reports form
+            Dim reportsForm As New ReportsForm(currentUser)
+            LoadChildForm(reportsForm, "Attendance Reports")
+
+            Logger.LogInfo("Reports form loaded successfully")
+
+        Catch ex As Exception
+            Logger.LogError("Error opening reports form", ex)
+            MessageBox.Show($"Error loading reports: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
     Private Sub btnSettings_Click(sender As Object, e As EventArgs) Handles btnSettings.Click
@@ -708,7 +745,4 @@ Public Class DashboardForm
         End Try
     End Sub
 
-    Private Sub pnlTop_Paint(sender As Object, e As PaintEventArgs) Handles pnlTop.Paint
-
-    End Sub
 End Class
