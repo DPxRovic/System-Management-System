@@ -540,20 +540,18 @@ Public Class DashboardForm
         LoadDashboardContent()
     End Sub
 
+    ''' <summary>
+    ''' Students button click - NOW LOADS DEDICATED STUDENT MANAGEMENT
+    ''' </summary>
     Private Sub btnStudents_Click(sender As Object, e As EventArgs) Handles btnStudents.Click
         Try
             SetActiveButton(btnStudents)
-
             ' Check if user has permission to access student management
-            If currentUser.Role.ToUpper() = "ADMIN" OrElse currentUser.Role.ToUpper() = "SUPERADMIN" Then
-                ' Open AdminForm focused on Users tab
-                Dim adminForm As New AdminForm(currentUser)
-                LoadChildForm(adminForm, "Student Management")
-
-                ' Switch to Users tab (students are managed through user accounts)
-                adminForm.SwitchToTab("Users")
-
-                Logger.LogInfo($"Student management opened by {currentUser.Username}")
+            If currentUser.Role.ToUpper() = "ADMIN" OrElse currentUser.Role.ToUpper() = "SUPERADMIN" OrElse currentUser.Role.ToUpper() = "FACULTY" Then
+                ' Open dedicated StudentManagementForm
+                Dim studentMgmtForm As New StudentManagementForm(currentUser)
+                LoadChildForm(studentMgmtForm, "Student Management")
+                Logger.LogInfo($"Student Management opened by {currentUser.Username}")
             Else
                 MessageBox.Show("You don't have permission to access student management.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If

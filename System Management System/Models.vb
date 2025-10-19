@@ -4,6 +4,7 @@
 ' AUTHOR: System
 ' DATE: 2025-10-14
 ' Edited By Rovic
+' Enhanced: 2025-10-18
 ' For Future users please do not remove this header
 ' ==========================================
 
@@ -38,7 +39,7 @@ Public Class User
 End Class
 
 ''' <summary>
-''' Student model representing student records
+''' Enhanced Student model representing student records
 ''' </summary>
 Public Class Student
     Public Property Id As Integer
@@ -47,9 +48,10 @@ Public Class Student
     Public Property Course As String
     Public Property Email As String
     Public Property PhoneNumber As String
-    Public Property DateOfBirth As DateTime
-    Public Property EnrollmentDate As DateTime
+    Public Property DateOfBirth As DateTime?
+    Public Property EnrollmentDate As DateTime?
     Public Property Status As String
+    Public Property CreatedAt As DateTime
 
     Public Sub New()
         Id = 0
@@ -58,9 +60,10 @@ Public Class Student
         Course = ""
         Email = ""
         PhoneNumber = ""
-        DateOfBirth = DateTime.Now
-        EnrollmentDate = DateTime.Now
+        DateOfBirth = Nothing
+        EnrollmentDate = DateTime.Today
         Status = "Active"
+        CreatedAt = DateTime.Now
     End Sub
 
     Public Sub New(id As Integer, studentId As String, name As String, course As String)
@@ -70,10 +73,91 @@ Public Class Student
         Me.Course = course
         Me.Email = ""
         Me.PhoneNumber = ""
-        Me.DateOfBirth = DateTime.Now
-        Me.EnrollmentDate = DateTime.Now
+        Me.DateOfBirth = Nothing
+        Me.EnrollmentDate = DateTime.Today
         Me.Status = "Active"
+        Me.CreatedAt = DateTime.Now
     End Sub
+
+    ''' <summary>
+    ''' Gets display name for UI
+    ''' </summary>
+    Public ReadOnly Property DisplayName As String
+        Get
+            Return $"{StudentId} - {Name}"
+        End Get
+    End Property
+
+    ''' <summary>
+    ''' Calculates age if date of birth is available
+    ''' </summary>
+    Public ReadOnly Property Age As Integer?
+        Get
+            If DateOfBirth.HasValue Then
+                Dim calculatedAge As Integer = DateTime.Today.Year - DateOfBirth.Value.Year
+                If DateOfBirth.Value.Date > DateTime.Today.AddYears(-calculatedAge) Then
+                    calculatedAge -= 1
+                End If
+                Return calculatedAge
+            End If
+            Return Nothing
+        End Get
+    End Property
+
+    ''' <summary>
+    ''' Returns formatted enrollment date
+    ''' </summary>
+    Public ReadOnly Property EnrollmentDateFormatted As String
+        Get
+            Return If(EnrollmentDate.HasValue, EnrollmentDate.Value.ToString("MMMM dd, yyyy"), "N/A")
+        End Get
+    End Property
+
+    ''' <summary>
+    ''' Checks if student is active
+    ''' </summary>
+    Public ReadOnly Property IsActive As Boolean
+        Get
+            Return Status.Equals("Active", StringComparison.OrdinalIgnoreCase)
+        End Get
+    End Property
+
+    ''' <summary>
+    ''' Validates student data
+    ''' </summary>
+    Public Function Validate() As List(Of String)
+        Dim errors As New List(Of String)
+
+        If String.IsNullOrWhiteSpace(StudentId) Then
+            errors.Add("Student ID is required")
+        End If
+
+        If String.IsNullOrWhiteSpace(Name) Then
+            errors.Add("Name is required")
+        End If
+
+        If String.IsNullOrWhiteSpace(Course) Then
+            errors.Add("Course/Program is required")
+        End If
+
+        If Not String.IsNullOrWhiteSpace(Email) AndAlso Not IsValidEmail(Email) Then
+            errors.Add("Invalid email format")
+        End If
+
+        Return errors
+    End Function
+
+    ''' <summary>
+    ''' Basic email validation
+    ''' </summary>
+    Private Function IsValidEmail(email As String) As Boolean
+        Try
+            Dim addr = New System.Net.Mail.MailAddress(email)
+            Return addr.Address = email
+        Catch
+            Return False
+        End Try
+    End Function
 End Class
 
 ''' <summary>
