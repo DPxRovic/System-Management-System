@@ -233,7 +233,20 @@ Public Class CreateAccountForm
     ''' Show password checkbox changed
     ''' </summary>
     Private Sub chkShowPassword_CheckedChanged(sender As Object, e As EventArgs) Handles chkShowPassword.CheckedChanged
-        txtPassword.UseSystemPasswordChar = Not chkShowPassword.Checked
+        ' Toggle password masking — when checked, show plain text; when unchecked, mask.
+        Try
+            If chkShowPassword.Checked Then
+                ' Show plain text
+                txtPassword.UseSystemPasswordChar = False
+                txtPassword.PasswordChar = ChrW(0)
+            Else
+                ' Mask again
+                txtPassword.UseSystemPasswordChar = True
+                txtPassword.PasswordChar = "●"c
+            End If
+        Catch ex As Exception
+            Logger.LogError("Error toggling show password", ex)
+        End Try
     End Sub
 
 End Class
