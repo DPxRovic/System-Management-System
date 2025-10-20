@@ -57,6 +57,7 @@ Partial Class LoginForm
         lblAppName = New Label()
         Guna2DragControl1 = New Guna.UI2.WinForms.Guna2DragControl(components)
         Guna2ShadowForm1 = New Guna.UI2.WinForms.Guna2ShadowForm(components)
+        chkShowPassword = New Guna.UI2.WinForms.Guna2CheckBox()
         pnlMain.SuspendLayout()
         pnlLogin.SuspendLayout()
         pnlHeader.SuspendLayout()
@@ -85,6 +86,7 @@ Partial Class LoginForm
         ' 
         pnlLogin.BackColor = Color.Transparent
         pnlLogin.BorderRadius = 15
+        pnlLogin.Controls.Add(chkShowPassword)
         pnlLogin.Controls.Add(btnExit)
         pnlLogin.Controls.Add(btnLogin)
         pnlLogin.Controls.Add(txtPassword)
@@ -205,7 +207,7 @@ Partial Class LoginForm
         ' 
         ' lblTitle
         ' 
-        lblTitle.Font = New Font("Segoe UI", 18.0F, FontStyle.Bold)
+        lblTitle.Font = New Font("Segoe UI", 18F, FontStyle.Bold)
         lblTitle.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
         lblTitle.Location = New Point(33, 46)
         lblTitle.Margin = New Padding(4, 0, 4, 0)
@@ -231,7 +233,7 @@ Partial Class LoginForm
         ' lblAppName
         ' 
         lblAppName.Dock = DockStyle.Fill
-        lblAppName.Font = New Font("Segoe UI", 24.0F, FontStyle.Bold)
+        lblAppName.Font = New Font("Segoe UI", 24F, FontStyle.Bold)
         lblAppName.ForeColor = Color.White
         lblAppName.Location = New Point(0, 0)
         lblAppName.Margin = New Padding(4, 0, 4, 0)
@@ -251,9 +253,29 @@ Partial Class LoginForm
         ' 
         Guna2ShadowForm1.TargetForm = Me
         ' 
+        ' chkShowPassword
+        ' 
+        chkShowPassword.AutoSize = True
+        chkShowPassword.CheckedState.BorderColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
+        chkShowPassword.CheckedState.BorderRadius = 0
+        chkShowPassword.CheckedState.BorderThickness = 0
+        chkShowPassword.CheckedState.FillColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
+        chkShowPassword.Font = New Font("Segoe UI", 9F)
+        chkShowPassword.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
+        chkShowPassword.Location = New Point(40, 366)
+        chkShowPassword.Margin = New Padding(4, 5, 4, 5)
+        chkShowPassword.Name = "chkShowPassword"
+        chkShowPassword.Size = New Size(132, 24)
+        chkShowPassword.TabIndex = 12
+        chkShowPassword.Text = "Show Password"
+        chkShowPassword.UncheckedState.BorderColor = Color.FromArgb(CByte(125), CByte(137), CByte(149))
+        chkShowPassword.UncheckedState.BorderRadius = 0
+        chkShowPassword.UncheckedState.BorderThickness = 0
+        chkShowPassword.UncheckedState.FillColor = Color.FromArgb(CByte(125), CByte(137), CByte(149))
+        ' 
         ' LoginForm
         ' 
-        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
+        AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(600, 923)
         Controls.Add(pnlMain)
@@ -264,6 +286,7 @@ Partial Class LoginForm
         Text = "Login - Student Management System"
         pnlMain.ResumeLayout(False)
         pnlLogin.ResumeLayout(False)
+        pnlLogin.PerformLayout()
         pnlHeader.ResumeLayout(False)
         ResumeLayout(False)
 
@@ -282,4 +305,5 @@ Partial Class LoginForm
     Friend WithEvents lblAppName As Label
     Friend WithEvents Guna2DragControl1 As Guna.UI2.WinForms.Guna2DragControl
     Friend WithEvents Guna2ShadowForm1 As Guna.UI2.WinForms.Guna2ShadowForm
+    Friend WithEvents chkShowPassword As Guna.UI2.WinForms.Guna2CheckBox
 End Class

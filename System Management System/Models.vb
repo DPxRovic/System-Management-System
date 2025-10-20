@@ -1,15 +1,15 @@
 ﻿' ==========================================
 ' FILENAME: /Models/Models.vb
-' PURPOSE: Base models for Student, Faculty, User, Course, and Attendance
+' PURPOSE: Data models for the application - ENHANCED WITH STUDENT PORTAL FEATURES
 ' AUTHOR: System
 ' DATE: 2025-10-14
+' LAST UPDATED: 2025-10-21 - Added Student Portal Properties
 ' Edited By Rovic
-' Enhanced: 2025-10-18
 ' For Future users please do not remove this header
 ' ==========================================
 
 ''' <summary>
-''' User model representing system users (Admin, Faculty, etc.)
+''' User model for authentication and authorization
 ''' </summary>
 Public Class User
     Public Property Id As Integer
@@ -17,6 +17,7 @@ Public Class User
     Public Property Password As String
     Public Property Role As String
     Public Property FullName As String
+    Public Property IsArchived As Boolean
     Public Property CreatedAt As DateTime
 
     Public Sub New()
@@ -25,21 +26,13 @@ Public Class User
         Password = ""
         Role = ""
         FullName = ""
+        IsArchived = False
         CreatedAt = DateTime.Now
-    End Sub
-
-    Public Sub New(id As Integer, username As String, password As String, role As String, fullName As String)
-        Me.Id = id
-        Me.Username = username
-        Me.Password = password
-        Me.Role = role
-        Me.FullName = fullName
-        Me.CreatedAt = DateTime.Now
     End Sub
 End Class
 
 ''' <summary>
-''' Enhanced Student model representing student records
+''' Student model with enhanced properties for student portal
 ''' </summary>
 Public Class Student
     Public Property Id As Integer
@@ -53,6 +46,45 @@ Public Class Student
     Public Property Status As String
     Public Property CreatedAt As DateTime
 
+    ' Enhanced properties for Student Portal
+    Public Property Age As Integer?
+        Get
+            If DateOfBirth.HasValue Then
+                Dim today As DateTime = DateTime.Today
+                Dim calculatedAge As Integer = today.Year - DateOfBirth.Value.Year
+                If DateOfBirth.Value.Date > today.AddYears(-calculatedAge) Then
+                    calculatedAge -= 1
+                End If
+                Return calculatedAge
+            End If
+            Return Nothing
+        End Get
+        Set(value As Integer?)
+            ' Age is calculated, setter not used
+        End Set
+    End Property
+
+    Public Property DaysEnrolled As Integer
+        Get
+            If EnrollmentDate.HasValue Then
+                Return (DateTime.Today - EnrollmentDate.Value).Days
+            End If
+            Return 0
+        End Get
+        Set(value As Integer)
+            ' DaysEnrolled is calculated, setter not used
+        End Set
+    End Property
+
+    ' Additional properties for student portal
+    Public Property TotalCourses As Integer
+    Public Property TotalAttendance As Integer
+    Public Property AttendanceRate As Double
+    Public Property PresentCount As Integer
+    Public Property AbsentCount As Integer
+    Public Property LateCount As Integer
+    Public Property ExcusedCount As Integer
+
     Public Sub New()
         Id = 0
         StudentId = ""
@@ -61,188 +93,93 @@ Public Class Student
         Email = ""
         PhoneNumber = ""
         DateOfBirth = Nothing
-        EnrollmentDate = DateTime.Today
+        EnrollmentDate = Nothing
         Status = "Active"
         CreatedAt = DateTime.Now
+        TotalCourses = 0
+        TotalAttendance = 0
+        AttendanceRate = 0.0
+        PresentCount = 0
+        AbsentCount = 0
+        LateCount = 0
+        ExcusedCount = 0
     End Sub
-
-    Public Sub New(id As Integer, studentId As String, name As String, course As String)
-        Me.Id = id
-        Me.StudentId = studentId
-        Me.Name = name
-        Me.Course = course
-        Me.Email = ""
-        Me.PhoneNumber = ""
-        Me.DateOfBirth = Nothing
-        Me.EnrollmentDate = DateTime.Today
-        Me.Status = "Active"
-        Me.CreatedAt = DateTime.Now
-    End Sub
-
-    ''' <summary>
-    ''' Gets display name for UI
-    ''' </summary>
-    Public ReadOnly Property DisplayName As String
-        Get
-            Return $"{StudentId} - {Name}"
-        End Get
-    End Property
-
-    ''' <summary>
-    ''' Calculates age if date of birth is available
-    ''' </summary>
-    Public ReadOnly Property Age As Integer?
-        Get
-            If DateOfBirth.HasValue Then
-                Dim calculatedAge As Integer = DateTime.Today.Year - DateOfBirth.Value.Year
-                If DateOfBirth.Value.Date > DateTime.Today.AddYears(-calculatedAge) Then
-                    calculatedAge -= 1
-                End If
-                Return calculatedAge
-            End If
-            Return Nothing
-        End Get
-    End Property
-
-    ''' <summary>
-    ''' Returns formatted enrollment date
-    ''' </summary>
-    Public ReadOnly Property EnrollmentDateFormatted As String
-        Get
-            Return If(EnrollmentDate.HasValue, EnrollmentDate.Value.ToString("MMMM dd, yyyy"), "N/A")
-        End Get
-    End Property
-
-    ''' <summary>
-    ''' Checks if student is active
-    ''' </summary>
-    Public ReadOnly Property IsActive As Boolean
-        Get
-            Return Status.Equals("Active", StringComparison.OrdinalIgnoreCase)
-        End Get
-    End Property
-
-    ''' <summary>
-    ''' Validates student data
-    ''' </summary>
-    Public Function Validate() As List(Of String)
-        Dim errors As New List(Of String)
-
-        If String.IsNullOrWhiteSpace(StudentId) Then
-            errors.Add("Student ID is required")
-        End If
-
-        If String.IsNullOrWhiteSpace(Name) Then
-            errors.Add("Name is required")
-        End If
-
-        If String.IsNullOrWhiteSpace(Course) Then
-            errors.Add("Course/Program is required")
-        End If
-
-        If Not String.IsNullOrWhiteSpace(Email) AndAlso Not IsValidEmail(Email) Then
-            errors.Add("Invalid email format")
-        End If
-
-        Return errors
-    End Function
-
-    ''' <summary>
-    ''' Basic email validation
-    ''' </summary>
-    Private Function IsValidEmail(email As String) As Boolean
-        Try
-            Dim addr = New System.Net.Mail.MailAddress(email)
-            Return addr.Address = email
-        Catch
-            Return False
-        End Try
-    End Function
 End Class
 
 ''' <summary>
-''' Course model representing courses/subjects
+''' Course model with enhanced properties
 ''' </summary>
 Public Class Course
     Public Property Id As Integer
     Public Property CourseCode As String
     Public Property CourseName As String
-    Public Property FacultyId As Integer
-    Public Property FacultyName As String
+    Public Property FacultyId As Integer?
     Public Property Description As String
     Public Property Credits As Integer
     Public Property Schedule As String
     Public Property Room As String
     Public Property Status As String
+    Public Property CreatedAt As DateTime
+
+    ' Additional properties for display
+    Public Property FacultyName As String
+    Public Property EnrolledStudents As Integer
 
     Public Sub New()
         Id = 0
         CourseCode = ""
         CourseName = ""
-        FacultyId = 0
-        FacultyName = ""
+        FacultyId = Nothing
         Description = ""
-        Credits = 0
+        Credits = 3
         Schedule = ""
         Room = ""
         Status = "Active"
-    End Sub
-
-    Public Sub New(id As Integer, courseCode As String, courseName As String, facultyId As Integer)
-        Me.Id = id
-        Me.CourseCode = courseCode
-        Me.CourseName = courseName
-        Me.FacultyId = facultyId
-        Me.FacultyName = ""
-        Me.Description = ""
-        Me.Credits = 0
-        Me.Schedule = ""
-        Me.Room = ""
-        Me.Status = "Active"
+        CreatedAt = DateTime.Now
+        FacultyName = "Not Assigned"
+        EnrolledStudents = 0
     End Sub
 End Class
 
 ''' <summary>
-''' Attendance model representing student attendance records
+''' Attendance record model
 ''' </summary>
-Public Class AttendanceRecord
+Public Class Attendance
     Public Property Id As Integer
     Public Property StudentId As String
     Public Property CourseId As Integer
-    Public Property AttendanceDate As DateTime
-    Public Property Status As String ' Present, Absent, Late, Excused
-    Public Property TimeIn As DateTime?
-    Public Property TimeOut As DateTime?
+    Public Property [Date] As DateTime
+    Public Property Status As String
+    Public Property TimeIn As TimeSpan?
+    Public Property TimeOut As TimeSpan?
     Public Property Remarks As String
     Public Property RecordedBy As String
+    Public Property CreatedAt As DateTime
+
+    ' Additional properties for display
+    Public Property StudentName As String
+    Public Property CourseCode As String
+    Public Property CourseName As String
 
     Public Sub New()
         Id = 0
         StudentId = ""
         CourseId = 0
-        AttendanceDate = DateTime.Today
+        [Date] = DateTime.Today
         Status = "Present"
         TimeIn = Nothing
         TimeOut = Nothing
         Remarks = ""
         RecordedBy = ""
-    End Sub
-
-    Public Sub New(id As Integer, studentId As String, courseId As Integer, attendanceDate As DateTime, status As String)
-        Me.Id = id
-        Me.StudentId = studentId
-        Me.CourseId = courseId
-        Me.AttendanceDate = attendanceDate
-        Me.Status = status
-        Me.TimeIn = Nothing
-        Me.TimeOut = Nothing
-        Me.Remarks = ""
-        Me.RecordedBy = ""
+        CreatedAt = DateTime.Now
+        StudentName = ""
+        CourseCode = ""
+        CourseName = ""
     End Sub
 End Class
 
 ''' <summary>
-''' Faculty model representing faculty/teacher records
+''' Faculty model
 ''' </summary>
 Public Class Faculty
     Public Property Id As Integer
@@ -252,8 +189,12 @@ Public Class Faculty
     Public Property Email As String
     Public Property PhoneNumber As String
     Public Property Specialization As String
-    Public Property HireDate As DateTime
+    Public Property HireDate As DateTime?
     Public Property Status As String
+    Public Property CreatedAt As DateTime
+
+    ' Additional properties
+    Public Property AssignedCourses As Integer
 
     Public Sub New()
         Id = 0
@@ -263,25 +204,15 @@ Public Class Faculty
         Email = ""
         PhoneNumber = ""
         Specialization = ""
-        HireDate = DateTime.Now
+        HireDate = Nothing
         Status = "Active"
-    End Sub
-
-    Public Sub New(id As Integer, facultyId As String, name As String, department As String)
-        Me.Id = id
-        Me.FacultyId = facultyId
-        Me.Name = name
-        Me.Department = department
-        Me.Email = ""
-        Me.PhoneNumber = ""
-        Me.Specialization = ""
-        Me.HireDate = DateTime.Now
-        Me.Status = "Active"
+        CreatedAt = DateTime.Now
+        AssignedCourses = 0
     End Sub
 End Class
 
 ''' <summary>
-''' Enrollment model representing student course enrollments
+''' Enrollment model - represents student enrollment in a course
 ''' </summary>
 Public Class Enrollment
     Public Property Id As Integer
@@ -290,42 +221,298 @@ Public Class Enrollment
     Public Property EnrollmentDate As DateTime
     Public Property Status As String
     Public Property Grade As String
+    Public Property CreatedAt As DateTime
+
+    ' Additional properties for display
+    Public Property StudentName As String
+    Public Property CourseCode As String
+    Public Property CourseName As String
+    Public Property Credits As Integer
 
     Public Sub New()
         Id = 0
         StudentId = ""
         CourseId = 0
-        EnrollmentDate = DateTime.Now
+        EnrollmentDate = DateTime.Today
         Status = "Enrolled"
         Grade = ""
-    End Sub
-
-    Public Sub New(id As Integer, studentId As String, courseId As Integer)
-        Me.Id = id
-        Me.StudentId = studentId
-        Me.CourseId = courseId
-        Me.EnrollmentDate = DateTime.Now
-        Me.Status = "Enrolled"
-        Me.Grade = ""
+        CreatedAt = DateTime.Now
+        StudentName = ""
+        CourseCode = ""
+        CourseName = ""
+        Credits = 0
     End Sub
 End Class
 
 ''' <summary>
-''' Enum for user roles
+''' Attendance statistics model for reporting
 ''' </summary>
-Public Enum UserRole
-    Student
-    Faculty
-    Admin
-    SuperAdmin
-End Enum
+Public Class AttendanceStats
+    Public Property TotalSessions As Integer
+    Public Property PresentCount As Integer
+    Public Property AbsentCount As Integer
+    Public Property LateCount As Integer
+    Public Property ExcusedCount As Integer
+    Public Property AttendanceRate As Double
+
+    Public Sub New()
+        TotalSessions = 0
+        PresentCount = 0
+        AbsentCount = 0
+        LateCount = 0
+        ExcusedCount = 0
+        AttendanceRate = 0.0
+    End Sub
+
+    ''' <summary>
+    ''' Calculates attendance rate based on counts
+    ''' </summary>
+    Public Sub CalculateRate()
+        If TotalSessions > 0 Then
+            Dim attendedCount As Integer = PresentCount + LateCount + ExcusedCount
+            AttendanceRate = (attendedCount / TotalSessions) * 100
+        Else
+            AttendanceRate = 0.0
+        End If
+    End Sub
+End Class
 
 ''' <summary>
-''' Enum for attendance status
+''' Course attendance summary model for student portal
 ''' </summary>
-Public Enum AttendanceStatus
-    Present
-    Absent
-    Late
-    Excused
-End Enum
+Public Class CourseAttendanceSummary
+    Public Property CourseId As Integer
+    Public Property CourseCode As String
+    Public Property CourseName As String
+    Public Property TotalSessions As Integer
+    Public Property PresentCount As Integer
+    Public Property AbsentCount As Integer
+    Public Property LateCount As Integer
+    Public Property ExcusedCount As Integer
+    Public Property AttendanceRate As Double
+    Public Property Credits As Integer
+    Public Property FacultyName As String
+
+    Public Sub New()
+        CourseId = 0
+        CourseCode = ""
+        CourseName = ""
+        TotalSessions = 0
+        PresentCount = 0
+        AbsentCount = 0
+        LateCount = 0
+        ExcusedCount = 0
+        AttendanceRate = 0.0
+        Credits = 0
+        FacultyName = ""
+    End Sub
+End Class
+
+''' <summary>
+''' Student profile statistics model for dashboard
+''' </summary>
+Public Class StudentProfileStats
+    Public Property EnrolledCourses As Integer
+    Public Property TotalAttendance As Integer
+    Public Property AttendanceRate As Double
+    Public Property DaysEnrolled As Integer
+    Public Property PresentCount As Integer
+    Public Property AbsentCount As Integer
+    Public Property LateCount As Integer
+    Public Property ExcusedCount As Integer
+    Public Property AverageGrade As String
+
+    Public Sub New()
+        EnrolledCourses = 0
+        TotalAttendance = 0
+        AttendanceRate = 0.0
+        DaysEnrolled = 0
+        PresentCount = 0
+        AbsentCount = 0
+        LateCount = 0
+        ExcusedCount = 0
+        AverageGrade = "N/A"
+    End Sub
+End Class
+
+''' <summary>
+''' Course details with attendance model for student portal
+''' </summary>
+Public Class CourseDetailsWithAttendance
+    Public Property CourseId As Integer
+    Public Property CourseCode As String
+    Public Property CourseName As String
+    Public Property Description As String
+    Public Property Credits As Integer
+    Public Property Schedule As String
+    Public Property Room As String
+    Public Property FacultyName As String
+    Public Property FacultyEmail As String
+    Public Property TotalSessions As Integer
+    Public Property PresentCount As Integer
+    Public Property AbsentCount As Integer
+    Public Property LateCount As Integer
+    Public Property ExcusedCount As Integer
+    Public Property AttendanceRate As Double
+    Public Property EnrollmentDate As DateTime?
+    Public Property CurrentGrade As String
+
+    Public Sub New()
+        CourseId = 0
+        CourseCode = ""
+        CourseName = ""
+        Description = ""
+        Credits = 0
+        Schedule = ""
+        Room = ""
+        FacultyName = ""
+        FacultyEmail = ""
+        TotalSessions = 0
+        PresentCount = 0
+        AbsentCount = 0
+        LateCount = 0
+        ExcusedCount = 0
+        AttendanceRate = 0.0
+        EnrollmentDate = Nothing
+        CurrentGrade = "N/A"
+    End Sub
+End Class
+
+''' <summary>
+''' Attendance report item model
+''' </summary>
+Public Class AttendanceReportItem
+    Public Property [Date] As DateTime
+    Public Property CourseCode As String
+    Public Property CourseName As String
+    Public Property Status As String
+    Public Property TimeIn As String
+    Public Property TimeOut As String
+    Public Property FacultyName As String
+    Public Property Remarks As String
+
+    Public Sub New()
+        [Date] = DateTime.Today
+        CourseCode = ""
+        CourseName = ""
+        Status = ""
+        TimeIn = ""
+        TimeOut = ""
+        FacultyName = ""
+        Remarks = ""
+    End Sub
+End Class
+
+''' <summary>
+''' Monthly attendance trend model
+''' </summary>
+Public Class MonthlyAttendanceTrend
+    Public Property Month As String
+    Public Property MonthName As String
+    Public Property TotalSessions As Integer
+    Public Property PresentCount As Integer
+    Public Property AbsentCount As Integer
+    Public Property AttendanceRate As Double
+
+    Public Sub New()
+        Month = ""
+        MonthName = ""
+        TotalSessions = 0
+        PresentCount = 0
+        AbsentCount = 0
+        AttendanceRate = 0.0
+    End Sub
+End Class
+
+''' <summary>
+''' Validation result model
+''' </summary>
+Public Class ValidationResult
+    Public Property IsValid As Boolean
+    Public Property ErrorMessage As String
+    Public Property Errors As New List(Of String)
+
+    Public Sub New()
+        IsValid = True
+        ErrorMessage = ""
+    End Sub
+
+    Public Sub AddError(message As String)
+        IsValid = False
+        Errors.Add(message)
+        If String.IsNullOrEmpty(ErrorMessage) Then
+            ErrorMessage = message
+        Else
+            ErrorMessage &= vbCrLf & message
+        End If
+    End Sub
+End Class
+
+''' <summary>
+''' Report filter model for generating reports
+''' </summary>
+Public Class ReportFilter
+    Public Property StartDate As DateTime
+    Public Property EndDate As DateTime
+    Public Property StudentId As String
+    Public Property CourseId As Integer?
+    Public Property Status As String
+    Public Property ReportType As String
+
+    Public Sub New()
+        StartDate = DateTime.Today.AddMonths(-1)
+        EndDate = DateTime.Today
+        StudentId = ""
+        CourseId = Nothing
+        Status = "All"
+        ReportType = "Summary"
+    End Sub
+End Class
+
+''' <summary>
+''' Dashboard summary model
+''' </summary>
+Public Class DashboardSummary
+    Public Property TotalStudents As Integer
+    Public Property TotalCourses As Integer
+    Public Property TotalFaculty As Integer
+    Public Property TotalUsers As Integer
+    Public Property TodayAttendance As Integer
+    Public Property OverallAttendanceRate As Double
+    Public Property ActiveEnrollments As Integer
+
+    Public Sub New()
+        TotalStudents = 0
+        TotalCourses = 0
+        TotalFaculty = 0
+        TotalUsers = 0
+        TodayAttendance = 0
+        OverallAttendanceRate = 0.0
+        ActiveEnrollments = 0
+    End Sub
+End Class
+
+''' <summary>
+''' System notification model
+''' </summary>
+Public Class SystemNotification
+    Public Property Id As Integer
+    Public Property Title As String
+    Public Property Message As String
+    Public Property NotificationType As String
+    Public Property IsRead As Boolean
+    Public Property CreatedAt As DateTime
+    Public Property TargetUserId As Integer?
+    Public Property TargetRole As String
+
+    Public Sub New()
+        Id = 0
+        Title = ""
+        Message = ""
+        NotificationType = "Info"
+        IsRead = False
+        CreatedAt = DateTime.Now
+        TargetUserId = Nothing
+        TargetRole = ""
+    End Sub
+End Class
