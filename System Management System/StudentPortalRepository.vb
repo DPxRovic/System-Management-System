@@ -44,7 +44,7 @@ Public Class StudentPortalRepository
                 Dim row As DataRow = dt.Rows(0)
                 Return New Student With {
                     .Id = Convert.ToInt32(row("id")),
-                    .StudentId = row("student_id").ToString(),
+                    .studentId = row("student_id").ToString(),
                     .Name = row("name").ToString(),
                     .Course = row("course").ToString(),
                     .Email = If(IsDBNull(row("email")), "", row("email").ToString()),
@@ -519,6 +519,7 @@ Public Class StudentPortalRepository
     ''' <returns>True if valid and active</returns>
     Public Shared Function ValidateStudentAccess(studentId As String) As Boolean
         Try
+            Dim query As String = "SELECT COUNT(*) FROM students WHERE student_id = @student_id AND status IN ('Active', 'Inactive')"
             ' 1) Check students table for matching active/inactive profile
             Dim query As String = "SELECT COUNT(*) FROM students WHERE student_id = @student_id AND status IN ('Active','Inactive')"
             Dim parameters As New Dictionary(Of String, Object) From {{"@student_id", studentId}}
@@ -527,14 +528,6 @@ Public Class StudentPortalRepository
                 Return True
             End If
 
-            ' 2) Fallback: check users table for a Student role (non-archived)
-            Dim userQuery As String = "SELECT COUNT(*) FROM users WHERE username = @username AND role = 'Student' AND (is_archived = 0 OR is_archived IS NULL)"
-            Dim userParams As New Dictionary(Of String, Object) From {{"@username", studentId}}
-            Dim userCount As Integer = Convert.ToInt32(DatabaseHandler.ExecuteScalar(userQuery, userParams))
-            If userCount > 0 Then
-                ' user exists as Student; allow access so caller can attempt to load profile (and show a friendly message if profile missing)
-                Return True
-            End If
 
             Return False
         Catch ex As Exception
