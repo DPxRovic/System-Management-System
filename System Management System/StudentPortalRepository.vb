@@ -519,7 +519,6 @@ Public Class StudentPortalRepository
     ''' <returns>True if valid and active</returns>
     Public Shared Function ValidateStudentAccess(studentId As String) As Boolean
         Try
-            Dim query As String = "SELECT COUNT(*) FROM students WHERE student_id = @student_id AND status IN ('Active', 'Inactive')"
             ' 1) Check students table for matching active/inactive profile
             Dim query As String = "SELECT COUNT(*) FROM students WHERE student_id = @student_id AND status IN ('Active','Inactive')"
             Dim parameters As New Dictionary(Of String, Object) From {{"@student_id", studentId}}

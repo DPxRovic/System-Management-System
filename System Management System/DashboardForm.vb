@@ -39,6 +39,9 @@ Public Class DashboardForm
                 Return
             End If
 
+            ' Apply consistent navigation button appearance before anything else
+            InitializeNavigationButtonsAppearance()
+
             ' Setup navigation based on role for non-student users
             SetupNavigation()
 
@@ -136,54 +139,67 @@ Public Class DashboardForm
 
     ''' <summary>
     ''' Setup navigation buttons based on user role
+    ''' - Show all buttons but restrict access by Enabled. This ensures the choices are visible immediately.
     ''' </summary>
     Private Sub SetupNavigation()
         Try
-            ' Hide all navigation buttons initially
+            ' Show all navigation buttons initially so the user sees options at start
             btnDashboard.Visible = True
-            btnStudents.Visible = False
-            btnCourses.Visible = False
-            btnAttendance.Visible = False
-            btnFaculty.Visible = False
-            btnUsers.Visible = False
-            btnReports.Visible = False
-            btnSettings.Visible = False
+            btnStudents.Visible = True
+            btnCourses.Visible = True
+            btnAttendance.Visible = True
+            btnFaculty.Visible = True
+            btnUsers.Visible = True
+            btnReports.Visible = True
+            btnSettings.Visible = True
 
-            ' Show navigation based on role
+            ' Default: disable everything then enable as required
+            btnDashboard.Enabled = False
+            btnStudents.Enabled = False
+            btnCourses.Enabled = False
+            btnAttendance.Enabled = False
+            btnFaculty.Enabled = False
+            btnUsers.Enabled = False
+            btnReports.Enabled = False
+            btnSettings.Enabled = False
+
+            ' Show navigation based on role (use Enabled to control access)
             Select Case currentUser.Role.ToUpper()
                 Case "SUPERADMIN"
                     ' SuperAdmin sees everything
-                    btnStudents.Visible = True
-                    btnCourses.Visible = True
-                    btnAttendance.Visible = True
-                    btnFaculty.Visible = True
-                    btnUsers.Visible = True
-                    btnReports.Visible = True
-                    btnSettings.Visible = True
+                    btnDashboard.Enabled = True
+                    btnStudents.Enabled = True
+                    btnCourses.Enabled = True
+                    btnAttendance.Enabled = True
+                    btnFaculty.Enabled = True
+                    btnUsers.Enabled = True
+                    btnReports.Enabled = True
+                    btnSettings.Enabled = True
 
                 Case "ADMIN"
-                    ' Admin sees most features except some system settings
-                    btnStudents.Visible = True
-                    btnCourses.Visible = True
-                    btnAttendance.Visible = True
-                    btnFaculty.Visible = True
-                    btnUsers.Visible = True
-                    btnReports.Visible = True
-                    btnSettings.Visible = True
+                    ' Admin sees most features
+                    btnDashboard.Enabled = True
+                    btnStudents.Enabled = True
+                    btnCourses.Enabled = True
+                    btnAttendance.Enabled = True
+                    btnFaculty.Enabled = True
+                    btnUsers.Enabled = True
+                    btnReports.Enabled = True
+                    btnSettings.Enabled = True
 
                 Case "FACULTY"
                     ' Faculty sees courses, attendance, and reports
-                    btnCourses.Visible = True
-                    btnAttendance.Visible = True
-                    btnReports.Visible = True
+                    btnDashboard.Enabled = True
+                    btnCourses.Enabled = True
+                    btnAttendance.Enabled = True
+                    btnReports.Enabled = True
 
                 Case "STUDENT"
                     ' Student users are handled separately in LoadStudentPortal()
-                    ' This case should not be reached, but included for completeness
                     HideAllNavigationButtons()
             End Select
 
-            ' Set Dashboard as active by default
+            ' Set Dashboard as active by default (this will highlight it)
             SetActiveButton(btnDashboard)
 
         Catch ex As Exception
@@ -508,56 +524,106 @@ Public Class DashboardForm
     End Function
 
     ''' <summary>
-    ''' Set active navigation button
+    ''' Set active navigation button - resets all and highlights the selected button
     ''' </summary>
     Private Sub SetActiveButton(btn As Guna.UI2.WinForms.Guna2Button)
-        ' Reset previous active button
-        If activeButton IsNot Nothing Then
-            activeButton.FillColor = Color.Transparent
-            activeButton.ForeColor = Color.FromArgb(44, 62, 80)
-        End If
+        Try
+            If btn Is Nothing Then Return
+            ' Reset all buttons first
+            ResetButtonColors()
 
-        ' Set new active button
-        activeButton = btn
-        activeButton.FillColor = Color.FromArgb(26, 188, 156)
-        activeButton.ForeColor = Color.White
+            ' Set new active button
+            activeButton = btn
+            activeButton.FillColor = Color.FromArgb(26, 188, 156)
+            activeButton.ForeColor = Color.White
+        Catch ex As Exception
+            Logger.LogError("Error setting active button", ex)
+        End Try
     End Sub
 
     ''' <summary>
     ''' Reset all navigation button colors
     ''' </summary>
     Private Sub ResetButtonColors()
-        btnDashboard.FillColor = Color.Transparent
-        btnStudents.FillColor = Color.Transparent
-        btnCourses.FillColor = Color.Transparent
-        btnAttendance.FillColor = Color.Transparent
-        btnFaculty.FillColor = Color.Transparent
-        btnUsers.FillColor = Color.Transparent
-        btnReports.FillColor = Color.Transparent
-        btnSettings.FillColor = Color.Transparent
+        Try
+            btnDashboard.FillColor = Color.Transparent
+            btnStudents.FillColor = Color.Transparent
+            btnCourses.FillColor = Color.Transparent
+            btnAttendance.FillColor = Color.Transparent
+            btnFaculty.FillColor = Color.Transparent
+            btnUsers.FillColor = Color.Transparent
+            btnReports.FillColor = Color.Transparent
+            btnSettings.FillColor = Color.Transparent
 
-        ' Reset text colors
-        btnDashboard.ForeColor = Color.White
-        btnStudents.ForeColor = Color.White
-        btnCourses.ForeColor = Color.White
-        btnAttendance.ForeColor = Color.White
-        btnFaculty.ForeColor = Color.White
-        btnUsers.ForeColor = Color.White
-        btnReports.ForeColor = Color.White
-        btnSettings.ForeColor = Color.White
+            ' Reset text colors (keep white for good contrast on dark sidebar)
+            btnDashboard.ForeColor = Color.White
+            btnStudents.ForeColor = Color.White
+            btnCourses.ForeColor = Color.White
+            btnAttendance.ForeColor = Color.White
+            btnFaculty.ForeColor = Color.White
+            btnUsers.ForeColor = Color.White
+            btnReports.ForeColor = Color.White
+            btnSettings.ForeColor = Color.White
+        Catch ex As Exception
+            Logger.LogError("Error resetting button colors", ex)
+        End Try
     End Sub
 
     ''' <summary>
-    ''' Highlight the active button
+    ''' Highlight the active button (kept for compatibility; calls ResetButtonColors then apply highlight)
     ''' </summary>
     Private Sub HighlightButton(btn As Guna.UI2.WinForms.Guna2Button)
         ResetButtonColors()
+        If btn Is Nothing Then Return
         btn.FillColor = Color.FromArgb(26, 188, 156)
         btn.ForeColor = Color.White
     End Sub
 
     ''' <summary>
+    ''' Initialize appearance for navigation buttons (rounded, hover color, text color)
+    ''' </summary>
+    Private Sub InitializeNavigationButtonsAppearance()
+        Try
+            Dim navButtons = New Guna2Button() {
+                btnDashboard, btnStudents, btnCourses, btnAttendance,
+                btnFaculty, btnUsers, btnReports, btnSettings
+            }
+
+            For Each b In navButtons
+                If b Is Nothing Then Continue For
+
+                b.FillColor = Color.Transparent
+                b.ForeColor = Color.White
+                b.BorderRadius = 8
+
+                ' Slight shadow if needed
+                b.ShadowDecoration.Enabled = False
+                b.ShadowDecoration.Depth = 3
+
+                ' Alignment / spacing improvements
+                Try
+                    b.ImageAlign = HorizontalAlignment.Left
+                    b.TextAlign = HorizontalAlignment.Left
+                Catch
+                    ' Some properties may not be available depending on designer config; ignore safely
+                End Try
+
+                ' Hover and pressed states
+                Try
+                    b.HoverState.FillColor = Color.FromArgb(26, 188, 156)
+                    b.HoverState.ForeColor = Color.White
+                    b.PressedColor = Color.FromArgb(22, 160, 133)
+                Catch
+                End Try
+            Next
+        Catch ex As Exception
+            Logger.LogError("Error initializing nav button appearance", ex)
+        End Try
+    End Sub
+
+    ''' <summary>
     ''' Load a child form into the content panel
+    ''' NOTE: removed ResetButtonColors() call so active highlight persists after loading child form.
     ''' </summary>
     Private Sub LoadChildForm(childForm As Form, pageTitle As String)
         Try
@@ -594,9 +660,6 @@ Public Class DashboardForm
 
             ' Store reference
             currentForm = childForm
-
-            ' Reset all button colors
-            ResetButtonColors()
 
             ' Force layout update
             pnlContent.PerformLayout()
@@ -739,8 +802,19 @@ Public Class DashboardForm
     End Sub
 
     Private Sub btnSettings_Click(sender As Object, e As EventArgs) Handles btnSettings.Click
-        SetActiveButton(btnSettings)
-        ShowMessage("Settings", "Settings module coming soon...")
+        Try
+            SetActiveButton(btnSettings)
+
+            ' Create and load simple settings form
+            Dim settingsForm As New SettingsForm(currentUser)
+            LoadChildForm(settingsForm, "Settings")
+
+            Logger.LogInfo($"Settings opened by {currentUser.Username}")
+
+        Catch ex As Exception
+            Logger.LogError("Error opening settings", ex)
+            MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
     Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
@@ -793,7 +867,7 @@ Public Class DashboardForm
                 MessageBoxIcon.Question)
 
             If result = DialogResult.Yes Then
-                Application.Exit()
+                Me.Close()
             End If
         Catch ex As Exception
             Logger.LogError("Error closing application", ex)

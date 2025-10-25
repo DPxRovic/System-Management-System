@@ -327,4 +327,101 @@ Public Class ThemeManager
         End Try
     End Sub
 
+#Region "NEW METHODS - Add to existing ThemeManager"
+
+    ''' <summary>
+    ''' Shows a themed toast notification (NEW METHOD - doesn't affect existing UI)
+    ''' </summary>
+    Public Shared Sub ShowToast(parentForm As Form, message As String, toastType As String, Optional duration As Integer = 3000)
+        Try
+            Dim toastColor As Color
+            Select Case toastType.ToUpper()
+                Case "SUCCESS"
+                    toastColor = SuccessColor
+                Case "ERROR", "DANGER"
+                    toastColor = DangerColor
+                Case "WARNING"
+                    toastColor = WarningColor
+                Case "INFO"
+                    toastColor = InfoColor
+                Case Else
+                    toastColor = InfoColor
+            End Select
+
+            Dim toast As New Guna2Panel With {
+                .Size = New Size(350, 80),
+                .BackColor = toastColor,
+                .BorderRadius = BorderRadiusMedium,
+                .Location = New Point((parentForm.Width - 350) \ 2, -100),
+                .Visible = False
+            }
+
+            Dim lblMessage As New Label With {
+                .Text = message,
+                .Font = DefaultFont,
+                .ForeColor = WhiteColor,
+                .Dock = DockStyle.Fill,
+                .TextAlign = ContentAlignment.MiddleCenter,
+                .AutoEllipsis = True
+            }
+
+            toast.Controls.Add(lblMessage)
+            parentForm.Controls.Add(toast)
+            toast.BringToFront()
+
+            toast.Visible = True
+            Dim targetY As Integer = 20
+            Dim timer As New Timer With {
+                .Interval = 10,
+                .Tag = New With {.Panel = toast, .StartY = -100, .TargetY = targetY, .Duration = 300, .Elapsed = 0, .Phase = "in"}
+            }
+
+            AddHandler timer.Tick, Sub(sender, e)
+                                       Dim t = DirectCast(sender, Timer)
+                                       Dim data = t.Tag
+
+                                       If data.Phase = "in" Then
+                                           data.Elapsed += t.Interval
+                                           Dim progress As Double = Math.Min(data.Elapsed / data.Duration, 1.0)
+                                           Dim easeProgress As Double = 1 - Math.Pow(1 - progress, 3)
+
+                                           data.Panel.Location = New Point(data.Panel.Location.X, CInt(data.StartY + (data.TargetY - data.StartY) * easeProgress))
+
+                                           If progress >= 1.0 Then
+                                               data.Phase = "wait"
+                                               data.Elapsed = 0
+                                           End If
+                                       ElseIf data.Phase = "wait" Then
+                                           data.Elapsed += t.Interval
+                                           If data.Elapsed >= duration Then
+                                               data.Phase = "out"
+                                               data.Elapsed = 0
+                                               data.StartY = data.Panel.Location.Y
+                                               data.TargetY = -100
+                                           End If
+                                       Else
+                                           data.Elapsed += t.Interval
+                                           Dim progress As Double = Math.Min(data.Elapsed / data.Duration, 1.0)
+                                           Dim easeProgress As Double = Math.Pow(progress, 3)
+
+                                           data.Panel.Location = New Point(data.Panel.Location.X, CInt(data.StartY + (data.TargetY - data.StartY) * easeProgress))
+
+                                           If progress >= 1.0 Then
+                                               t.Stop()
+                                               t.Dispose()
+                                               parentForm.Controls.Remove(data.Panel)
+                                               data.Panel.Dispose()
+                                           End If
+                                       End If
+                                   End Sub
+
+            timer.Start()
+
+        Catch ex As Exception
+            Logger.LogError("Error showing toast", ex)
+        End Try
+    End Sub
+
+#End Region
+
 End Class
