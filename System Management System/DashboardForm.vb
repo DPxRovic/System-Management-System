@@ -1,9 +1,9 @@
 ﻿' ==========================================
 ' FILENAME: /Forms/DashboardForm.vb
-' PURPOSE: Main dashboard form with role-based navigation - ENHANCED WITH STUDENT PORTAL
+' PURPOSE: Main dashboard form with role-based navigation - MERGED VERSION
 ' AUTHOR: System
 ' DATE: 2025-10-17
-' LAST UPDATED: 2025-10-21 - Added Student Portal Integration
+' LAST UPDATED: 2025-10-25 - Merged student portal functionality
 ' Edited By Rovic
 ' For Future users please do not remove this header
 ' ==========================================
@@ -14,6 +14,7 @@ Public Class DashboardForm
     Private currentUser As User
     Private activeButton As Guna.UI2.WinForms.Guna2Button = Nothing
     Private currentForm As Form = Nothing
+    Private isStudentMode As Boolean = False
 
     ''' <summary>
     ''' Constructor with user parameter
@@ -21,6 +22,7 @@ Public Class DashboardForm
     Public Sub New(user As User)
         InitializeComponent()
         currentUser = user
+        isStudentMode = IsStudentUser()
     End Sub
 
     ''' <summary>
@@ -32,17 +34,10 @@ Public Class DashboardForm
             lblWelcome.Text = $"Welcome, {currentUser.FullName}"
             lblRole.Text = $"Role: {currentUser.Role}"
 
-            ' Check if user is a student and redirect to student portal
-            If IsStudentUser() Then
-                Logger.LogInfo($"Student user detected: {currentUser.Username}. Loading Student Portal...")
-                LoadStudentPortal()
-                Return
-            End If
-
-            ' Apply consistent navigation button appearance before anything else
+            ' Apply consistent navigation button appearance
             InitializeNavigationButtonsAppearance()
 
-            ' Setup navigation based on role for non-student users
+            ' Setup navigation based on role
             SetupNavigation()
 
             ' Set button permissions based on user role
@@ -51,8 +46,16 @@ Public Class DashboardForm
             ' Enable auto-scaling for child forms
             Me.AutoScaleMode = AutoScaleMode.Dpi
 
-            ' Load initial dashboard content
-            LoadDashboardContent()
+            ' Load initial content based on role
+            If isStudentMode Then
+                ' Students start with dashboard, can navigate to portal
+                LoadDashboardContent()
+                SetActiveButton(btnDashboard)
+            Else
+                ' Regular users start with dashboard
+                LoadDashboardContent()
+                SetActiveButton(btnDashboard)
+            End If
 
             Logger.LogInfo($"Dashboard loaded for user: {currentUser.Username}")
 
@@ -76,74 +79,11 @@ Public Class DashboardForm
     End Function
 
     ''' <summary>
-    ''' Loads the student portal for student users
-    ''' </summary>
-    Private Sub LoadStudentPortal()
-        Try
-            ' Validate student access BEFORE creating/loading the portal form to avoid creating a form
-            ' that will immediately close itself and leave the dashboard with a disposed child.
-            Dim studentId = If(currentUser?.Username, "")
-            If String.IsNullOrWhiteSpace(studentId) OrElse Not StudentPortalRepository.ValidateStudentAccess(studentId) Then
-                Logger.LogWarning($"Student portal access denied for user: {If(currentUser?.Username, "")}")
-                MessageBox.Show("Unable to access student portal. Please contact administration.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Return
-            End If
-
-            Dim profile = StudentPortalRepository.GetStudentProfile(studentId)
-            If profile Is Nothing Then
-                Logger.LogWarning($"Student profile not found for user: {studentId}")
-                MessageBox.Show("Student profile not found. Please contact administration.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Return
-            End If
-
-            ' Hide all navigation buttons for student users
-            HideAllNavigationButtons()
-
-            ' Only show logout button
-            btnLogout.Visible = True
-
-            ' Update page title
-            If lblPageTitle IsNot Nothing Then
-                lblPageTitle.Text = "Student Portal"
-            End If
-
-            ' Create and load student portal form (safe now — access/profile validated)
-            Dim studentPortalForm As New StudentPortalForm(currentUser)
-            LoadChildForm(studentPortalForm, "Student Portal")
-
-            Logger.LogInfo($"Student Portal loaded successfully for {currentUser.Username}")
-
-        Catch ex As Exception
-            Logger.LogError("Error loading student portal", ex)
-            MessageBox.Show($"Error loading Student Portal: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
-    End Sub
-
-    ''' <summary>
-    ''' Hides all navigation buttons
-    ''' </summary>
-    Private Sub HideAllNavigationButtons()
-        Try
-            btnDashboard.Visible = False
-            btnStudents.Visible = False
-            btnCourses.Visible = False
-            btnAttendance.Visible = False
-            btnFaculty.Visible = False
-            btnUsers.Visible = False
-            btnReports.Visible = False
-            btnSettings.Visible = False
-        Catch ex As Exception
-            Logger.LogError("Error hiding navigation buttons", ex)
-        End Try
-    End Sub
-
-    ''' <summary>
-    ''' Setup navigation buttons based on user role
-    ''' - Show all buttons but restrict access by Enabled. This ensures the choices are visible immediately.
+    ''' Setup navigation buttons based on user role - ALL BUTTONS VISIBLE, ENABLED/DISABLED BASED ON ROLE
     ''' </summary>
     Private Sub SetupNavigation()
         Try
-            ' Show all navigation buttons initially so the user sees options at start
+            ' Make ALL buttons visible first (FIX #1 & #2)
             btnDashboard.Visible = True
             btnStudents.Visible = True
             btnCourses.Visible = True
@@ -152,60 +92,93 @@ Public Class DashboardForm
             btnUsers.Visible = True
             btnReports.Visible = True
             btnSettings.Visible = True
+            btnStudentPortal.Visible = True
 
-            ' Default: disable everything then enable as required
-            btnDashboard.Enabled = False
-            btnStudents.Enabled = False
-            btnCourses.Enabled = False
-            btnAttendance.Enabled = False
-            btnFaculty.Enabled = False
-            btnUsers.Enabled = False
-            btnReports.Enabled = False
-            btnSettings.Enabled = False
-
-            ' Show navigation based on role (use Enabled to control access)
+            ' Set enabled/disabled state and styling based on role
             Select Case currentUser.Role.ToUpper()
                 Case "SUPERADMIN"
-                    ' SuperAdmin sees everything
-                    btnDashboard.Enabled = True
-                    btnStudents.Enabled = True
-                    btnCourses.Enabled = True
-                    btnAttendance.Enabled = True
-                    btnFaculty.Enabled = True
-                    btnUsers.Enabled = True
-                    btnReports.Enabled = True
-                    btnSettings.Enabled = True
+                    ' SuperAdmin has access to everything
+                    EnableButton(btnDashboard)
+                    EnableButton(btnStudents)
+                    EnableButton(btnCourses)
+                    EnableButton(btnAttendance)
+                    EnableButton(btnFaculty)
+                    EnableButton(btnUsers)
+                    EnableButton(btnReports)
+                    EnableButton(btnSettings)
+                    EnableButton(btnStudentPortal) ' FIX #3 - SuperAdmin can access student portal
 
                 Case "ADMIN"
-                    ' Admin sees most features
-                    btnDashboard.Enabled = True
-                    btnStudents.Enabled = True
-                    btnCourses.Enabled = True
-                    btnAttendance.Enabled = True
-                    btnFaculty.Enabled = True
-                    btnUsers.Enabled = True
-                    btnReports.Enabled = True
-                    btnSettings.Enabled = True
+                    ' Admin has access to most features
+                    EnableButton(btnDashboard)
+                    EnableButton(btnStudents)
+                    EnableButton(btnCourses)
+                    EnableButton(btnAttendance)
+                    EnableButton(btnFaculty)
+                    EnableButton(btnUsers)
+                    EnableButton(btnReports)
+                    EnableButton(btnSettings)
+                    EnableButton(btnStudentPortal) ' FIX #3 - Admin can access student portal
 
                 Case "FACULTY"
-                    ' Faculty sees courses, attendance, and reports
-                    btnDashboard.Enabled = True
-                    btnCourses.Enabled = True
-                    btnAttendance.Enabled = True
-                    btnReports.Enabled = True
+                    ' Faculty has limited access
+                    EnableButton(btnDashboard)
+                    DisableButton(btnStudents)
+                    EnableButton(btnCourses)
+                    EnableButton(btnAttendance)
+                    DisableButton(btnFaculty)
+                    DisableButton(btnUsers)
+                    EnableButton(btnReports)
+                    DisableButton(btnSettings)
+                    EnableButton(btnStudentPortal) ' FIX #3 - Faculty can access student portal
 
                 Case "STUDENT"
-                    ' Student users are handled separately in LoadStudentPortal()
-                    HideAllNavigationButtons()
-            End Select
+                    ' Students have minimal access
+                    EnableButton(btnDashboard)
+                    DisableButton(btnStudents)
+                    DisableButton(btnCourses)
+                    EnableButton(btnAttendance)
+                    DisableButton(btnFaculty)
+                    DisableButton(btnUsers)
+                    EnableButton(btnReports)
+                    DisableButton(btnSettings)
+                    EnableButton(btnStudentPortal) ' Students access their own portal
 
-            ' Set Dashboard as active by default (this will highlight it)
-            SetActiveButton(btnDashboard)
+                Case Else
+                    ' Default: minimal access
+                    EnableButton(btnDashboard)
+                    DisableButton(btnStudents)
+                    DisableButton(btnCourses)
+                    EnableButton(btnAttendance)
+                    DisableButton(btnFaculty)
+                    DisableButton(btnUsers)
+                    DisableButton(btnReports)
+                    DisableButton(btnSettings)
+                    DisableButton(btnStudentPortal)
+            End Select
 
         Catch ex As Exception
             Logger.LogError("Error setting up navigation", ex)
             Throw
         End Try
+    End Sub
+
+    ''' <summary>
+    ''' Enable a button with full color (FIX #2)
+    ''' </summary>
+    Private Sub EnableButton(btn As Guna2Button)
+        btn.Enabled = True
+        btn.ForeColor = Color.White
+        btn.FillColor = Color.Transparent
+    End Sub
+
+    ''' <summary>
+    ''' Disable a button with gray shading (FIX #2)
+    ''' </summary>
+    Private Sub DisableButton(btn As Guna2Button)
+        btn.Enabled = False
+        btn.ForeColor = Color.FromArgb(149, 165, 166) ' Gray text
+        btn.FillColor = Color.FromArgb(52, 73, 94) ' Darker gray background
     End Sub
 
     ''' <summary>
@@ -248,14 +221,15 @@ Public Class DashboardForm
                     btnSettings.Enabled = False
 
                 Case "student"
-                    ' Student users - all navigation disabled (handled by student portal)
-                    btnDashboard.Enabled = False
+                    ' Students have limited access
+                    btnDashboard.Enabled = True
+                    btnStudentPortal.Enabled = True
+                    btnAttendance.Enabled = True
+                    btnReports.Enabled = True
                     btnStudents.Enabled = False
                     btnCourses.Enabled = False
-                    btnAttendance.Enabled = False
                     btnFaculty.Enabled = False
                     btnUsers.Enabled = False
-                    btnReports.Enabled = False
                     btnSettings.Enabled = False
 
                 Case Else
@@ -272,6 +246,39 @@ Public Class DashboardForm
 
         Catch ex As Exception
             Logger.LogError("Error setting user permissions", ex)
+        End Try
+    End Sub
+
+    ''' <summary>
+    ''' Initialize appearance for navigation buttons
+    ''' </summary>
+    Private Sub InitializeNavigationButtonsAppearance()
+        Try
+            Dim navButtons = New Guna2Button() {
+                btnDashboard, btnStudents, btnCourses, btnAttendance,
+                btnFaculty, btnUsers, btnReports, btnSettings, btnStudentPortal
+            }
+
+            For Each b In navButtons
+                If b Is Nothing Then Continue For
+
+                b.FillColor = Color.Transparent
+                b.ForeColor = Color.White
+                b.BorderRadius = 8
+                b.ShadowDecoration.Enabled = False
+                b.ShadowDecoration.Depth = 3
+
+                Try
+                    b.ImageAlign = HorizontalAlignment.Left
+                    b.TextAlign = HorizontalAlignment.Left
+                    b.HoverState.FillColor = Color.FromArgb(26, 188, 156)
+                    b.HoverState.ForeColor = Color.White
+                    b.PressedColor = Color.FromArgb(22, 160, 133)
+                Catch
+                End Try
+            Next
+        Catch ex As Exception
+            Logger.LogError("Error initializing nav button appearance", ex)
         End Try
     End Sub
 
@@ -347,19 +354,34 @@ Public Class DashboardForm
                     AddQuickActionButton(summaryPanel, "Take Attendance", 240, yPos, Sub() btnAttendance.PerformClick())
 
                 Case "STUDENT"
-                    ' Student dashboard - should not reach here as students are redirected to portal
-                    ' But included for safety
-                    AddSectionLabel(summaryPanel, "Student Portal", 20, yPos)
+                    ' Show student-specific dashboard
+                    Dim studentStats = GetStudentStats()
+
+                    AddStatCard(summaryPanel, "My Courses", studentStats("EnrolledCourses").ToString(), 20, yPos, Color.FromArgb(46, 139, 87))
+                    AddStatCard(summaryPanel, "Attendance Rate", $"{studentStats("AttendanceRate")}%", 240, yPos, Color.FromArgb(52, 152, 219))
+                    AddStatCard(summaryPanel, "Total Attendance", studentStats("TotalAttendance").ToString(), 460, yPos, Color.FromArgb(155, 89, 182))
+
+                    yPos += 170
+
+                    AddSectionLabel(summaryPanel, "Quick Actions", 20, yPos)
                     yPos += 40
 
-                    Dim lblInfo As New Label With {
-                        .Text = "You have been redirected to the Student Portal.",
-                        .Font = New Font("Segoe UI", 11),
-                        .ForeColor = Color.FromArgb(44, 62, 80),
+                    AddQuickActionButton(summaryPanel, "View My Portal", 20, yPos, Sub() btnStudentPortal.PerformClick())
+                    AddQuickActionButton(summaryPanel, "View Reports", 240, yPos, Sub() btnReports.PerformClick())
+                    AddQuickActionButton(summaryPanel, "Check Attendance", 460, yPos, Sub() btnAttendance.PerformClick())
+
+                    yPos += 100
+
+                    ' Add welcome message for students
+                    Dim lblWelcomeMsg As New Label With {
+                        .Text = "Welcome to your dashboard! Use the navigation menu to access your student portal, view attendance records, and check your reports.",
+                        .Font = New Font("Segoe UI", 10),
+                        .ForeColor = Color.FromArgb(127, 140, 141),
                         .Location = New Point(20, yPos),
-                        .AutoSize = True
+                        .Size = New Size(800, 60),
+                        .AutoSize = False
                     }
-                    summaryPanel.Controls.Add(lblInfo)
+                    summaryPanel.Controls.Add(lblWelcomeMsg)
             End Select
 
             pnlContent.Controls.Add(summaryPanel)
@@ -369,6 +391,32 @@ Public Class DashboardForm
             Throw
         End Try
     End Sub
+
+    ''' <summary>
+    ''' Get student statistics for dashboard
+    ''' </summary>
+    Private Function GetStudentStats() As Dictionary(Of String, Object)
+        Try
+            Dim stats As New Dictionary(Of String, Object)
+
+            ' Use StudentPortalRepository to get stats
+            Dim profileStats = StudentPortalRepository.GetStudentProfileStats(currentUser.Username)
+
+            stats("EnrolledCourses") = profileStats("EnrolledCourses")
+            stats("TotalAttendance") = profileStats("TotalAttendance")
+            stats("AttendanceRate") = profileStats("AttendanceRate")
+
+            Return stats
+        Catch ex As Exception
+            Logger.LogError("Error getting student stats", ex)
+            ' Return default values
+            Return New Dictionary(Of String, Object) From {
+                {"EnrolledCourses", 0},
+                {"TotalAttendance", 0},
+                {"AttendanceRate", 0}
+            }
+        End Try
+    End Function
 
     ''' <summary>
     ''' Add a statistics card to the panel
@@ -524,7 +572,7 @@ Public Class DashboardForm
     End Function
 
     ''' <summary>
-    ''' Set active navigation button - resets all and highlights the selected button
+    ''' Set active navigation button
     ''' </summary>
     Private Sub SetActiveButton(btn As Guna.UI2.WinForms.Guna2Button)
         Try
@@ -554,8 +602,9 @@ Public Class DashboardForm
             btnUsers.FillColor = Color.Transparent
             btnReports.FillColor = Color.Transparent
             btnSettings.FillColor = Color.Transparent
+            btnStudentPortal.FillColor = Color.Transparent
 
-            ' Reset text colors (keep white for good contrast on dark sidebar)
+            ' Reset text colors
             btnDashboard.ForeColor = Color.White
             btnStudents.ForeColor = Color.White
             btnCourses.ForeColor = Color.White
@@ -564,66 +613,14 @@ Public Class DashboardForm
             btnUsers.ForeColor = Color.White
             btnReports.ForeColor = Color.White
             btnSettings.ForeColor = Color.White
+            btnStudentPortal.ForeColor = Color.White
         Catch ex As Exception
             Logger.LogError("Error resetting button colors", ex)
         End Try
     End Sub
 
     ''' <summary>
-    ''' Highlight the active button (kept for compatibility; calls ResetButtonColors then apply highlight)
-    ''' </summary>
-    Private Sub HighlightButton(btn As Guna.UI2.WinForms.Guna2Button)
-        ResetButtonColors()
-        If btn Is Nothing Then Return
-        btn.FillColor = Color.FromArgb(26, 188, 156)
-        btn.ForeColor = Color.White
-    End Sub
-
-    ''' <summary>
-    ''' Initialize appearance for navigation buttons (rounded, hover color, text color)
-    ''' </summary>
-    Private Sub InitializeNavigationButtonsAppearance()
-        Try
-            Dim navButtons = New Guna2Button() {
-                btnDashboard, btnStudents, btnCourses, btnAttendance,
-                btnFaculty, btnUsers, btnReports, btnSettings
-            }
-
-            For Each b In navButtons
-                If b Is Nothing Then Continue For
-
-                b.FillColor = Color.Transparent
-                b.ForeColor = Color.White
-                b.BorderRadius = 8
-
-                ' Slight shadow if needed
-                b.ShadowDecoration.Enabled = False
-                b.ShadowDecoration.Depth = 3
-
-                ' Alignment / spacing improvements
-                Try
-                    b.ImageAlign = HorizontalAlignment.Left
-                    b.TextAlign = HorizontalAlignment.Left
-                Catch
-                    ' Some properties may not be available depending on designer config; ignore safely
-                End Try
-
-                ' Hover and pressed states
-                Try
-                    b.HoverState.FillColor = Color.FromArgb(26, 188, 156)
-                    b.HoverState.ForeColor = Color.White
-                    b.PressedColor = Color.FromArgb(22, 160, 133)
-                Catch
-                End Try
-            Next
-        Catch ex As Exception
-            Logger.LogError("Error initializing nav button appearance", ex)
-        End Try
-    End Sub
-
-    ''' <summary>
     ''' Load a child form into the content panel
-    ''' NOTE: removed ResetButtonColors() call so active highlight persists after loading child form.
     ''' </summary>
     Private Sub LoadChildForm(childForm As Form, pageTitle As String)
         Try
@@ -674,7 +671,6 @@ Public Class DashboardForm
     ''' <summary>
     ''' Loads a form into the content panel - Alternative method
     ''' </summary>
-    ''' <param name="childForm">Form to load</param>
     Private Sub LoadForm(childForm As Form)
         Try
             ' Clear existing content
@@ -700,6 +696,48 @@ Public Class DashboardForm
     Private Sub btnDashboard_Click(sender As Object, e As EventArgs) Handles btnDashboard.Click
         SetActiveButton(btnDashboard)
         LoadDashboardContent()
+    End Sub
+
+    ''' <summary>
+    ''' Student Portal button click - FOR STUDENTS
+    ''' </summary>
+    Private Sub btnStudentPortal_Click(sender As Object, e As EventArgs) Handles btnStudentPortal.Click
+        Try
+            SetActiveButton(btnStudentPortal)
+
+            Dim role = If(currentUser?.Role, "").ToUpperInvariant()
+
+            ' Privileged users choose a student first
+            If role = "ADMIN" OrElse role = "SUPERADMIN" OrElse role = "FACULTY" Then
+                Dim selector As New StudentSelectorForm(currentUser)
+                selector.StartPosition = FormStartPosition.CenterParent
+                ' StudentSelectorForm will call Dashboard.OpenStudentPortalFor(...) when a student is selected.
+                selector.ShowDialog(Me)
+                Return
+            End If
+
+            ' Non-privileged / student: open own portal
+            Dim studentId = currentUser.Username
+            If Not StudentPortalRepository.ValidateStudentAccess(studentId) Then
+                MessageBox.Show("Unable to access student portal. Please contact administration.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End If
+
+            Dim profile = StudentPortalRepository.GetStudentProfile(studentId)
+            If profile Is Nothing Then
+                MessageBox.Show("Student profile not found. Please contact administration.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End If
+
+            Dim studentPortalForm As New StudentPortalForm(currentUser)
+            LoadChildForm(studentPortalForm, "Student Portal")
+
+            Logger.LogInfo($"Student Portal opened by {currentUser.Username}")
+
+        Catch ex As Exception
+            Logger.LogError("Error opening student portal", ex)
+            MessageBox.Show($"Error loading Student Portal: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
     ''' <summary>
@@ -867,7 +905,7 @@ Public Class DashboardForm
                 MessageBoxIcon.Question)
 
             If result = DialogResult.Yes Then
-                Me.Close()
+                Application.Exit()
             End If
         Catch ex As Exception
             Logger.LogError("Error closing application", ex)
@@ -949,6 +987,25 @@ Public Class DashboardForm
             End If
         Catch ex As Exception
             ' Silently handle resize errors
+        End Try
+    End Sub
+
+    ''' <summary>
+    ''' Open student portal for a specific student user
+    ''' </summary>
+    Public Sub OpenStudentPortalFor(studentUser As User)
+        Try
+            If studentUser Is Nothing Then Return
+
+            ' Open selected student's portal embedded in the dashboard
+            Dim portalForm As New StudentPortalForm(studentUser)
+            LoadChildForm(portalForm, $"Student Portal - {studentUser.FullName}")
+            SetActiveButton(btnStudentPortal)
+
+            Logger.LogInfo($"{currentUser.Username} opened portal for {studentUser.Username} inside dashboard")
+        Catch ex As Exception
+            Logger.LogError("Error opening student portal inside dashboard", ex)
+            MessageBox.Show($"Error opening student portal: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
