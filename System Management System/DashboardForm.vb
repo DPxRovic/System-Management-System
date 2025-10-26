@@ -707,12 +707,19 @@ Public Class DashboardForm
 
             Dim role = If(currentUser?.Role, "").ToUpperInvariant()
 
-            ' Privileged users choose a student first
+            ' Privileged users: embed the selector inside the dashboard content panel
             If role = "ADMIN" OrElse role = "SUPERADMIN" OrElse role = "FACULTY" Then
                 Dim selector As New StudentSelectorForm(currentUser)
-                selector.StartPosition = FormStartPosition.CenterParent
-                ' StudentSelectorForm will call Dashboard.OpenStudentPortalFor(...) when a student is selected.
-                selector.ShowDialog(Me)
+
+                ' Embed selector into pnlContent just like other child forms
+                selector.TopLevel = False
+                selector.FormBorderStyle = FormBorderStyle.None
+                selector.Dock = DockStyle.Fill
+
+                LoadChildForm(selector, "Select Student")
+                SetActiveButton(btnStudentPortal)
+
+                Logger.LogInfo($"{currentUser.Username} opened Student Selector (embedded)")
                 Return
             End If
 
