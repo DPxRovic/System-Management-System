@@ -62,7 +62,7 @@ Public Class ThemeManager
     ''' Applies shadow to a Guna2Panel
     ''' </summary>
     Public Shared Sub ApplyShadow(panel As Guna2Panel, Optional depth As Integer = 5)
-        panel.ShadowDecoration.Enabled = True
+        panel.ShadowDecoration.Enabled = False
         panel.ShadowDecoration.Depth = depth
         panel.ShadowDecoration.BorderRadius = panel.BorderRadius
     End Sub
@@ -71,7 +71,7 @@ Public Class ThemeManager
     ''' Applies shadow to a Guna2GroupBox
     ''' </summary>
     Public Shared Sub ApplyShadow(groupBox As Guna2GroupBox, Optional depth As Integer = 5)
-        groupBox.ShadowDecoration.Enabled = True
+        groupBox.ShadowDecoration.Enabled = False
         groupBox.ShadowDecoration.Depth = depth
         groupBox.ShadowDecoration.BorderRadius = groupBox.BorderRadius
     End Sub
@@ -80,7 +80,7 @@ Public Class ThemeManager
     ''' Applies shadow to a Guna2Button
     ''' </summary>
     Public Shared Sub ApplyShadow(button As Guna2Button, Optional depth As Integer = 3)
-        button.ShadowDecoration.Enabled = True
+        button.ShadowDecoration.Enabled = False
         button.ShadowDecoration.Depth = depth
     End Sub
 
@@ -218,7 +218,7 @@ Public Class ThemeManager
     Public Shared Sub FadeOut(control As Control, Optional duration As Integer = 300, Optional callback As Action = Nothing)
         Try
             Dim timer As New Timer With {
-                .Interval = 10,
+                .Interval = 0,
                 .Tag = New AnimationData(control, duration, callback)
             }
 
