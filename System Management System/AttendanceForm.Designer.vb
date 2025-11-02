@@ -558,7 +558,7 @@ Partial Class AttendanceForm
         ' 
         lblStatus.Font = New Font("Segoe UI", 9F, FontStyle.Italic)
         lblStatus.ForeColor = Color.FromArgb(CByte(243), CByte(156), CByte(18))
-        lblStatus.Location = New Point(305, 353)
+        lblStatus.Location = New Point(197, 305)
         lblStatus.Name = "lblStatus"
         lblStatus.Size = New Size(700, 19)
         lblStatus.TabIndex = 14
@@ -577,10 +577,10 @@ Partial Class AttendanceForm
         txtRemarks.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
         txtRemarks.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
         txtRemarks.FocusedState.BorderColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
-        txtRemarks.Font = New Font("Segoe UI", 10F)
+        txtRemarks.Font = New Font("Segoe UI", 10.0F)
         txtRemarks.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
         txtRemarks.HoverState.BorderColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
-        txtRemarks.Location = New Point(291, 380)
+        txtRemarks.Location = New Point(221, 380)
         txtRemarks.Margin = New Padding(4, 3, 4, 3)
         txtRemarks.Multiline = True
         txtRemarks.Name = "txtRemarks"
@@ -593,9 +593,9 @@ Partial Class AttendanceForm
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Font = New Font("Segoe UI", 10F)
+        Label4.Font = New Font("Segoe UI", 10.0F)
         Label4.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
-        Label4.Location = New Point(292, 353)
+        Label4.Location = New Point(224, 353)
         Label4.Name = "Label4"
         Label4.Size = New Size(61, 19)
         Label4.TabIndex = 12
@@ -613,7 +613,7 @@ Partial Class AttendanceForm
         btnClear.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
         btnClear.ForeColor = Color.White
         btnClear.HoverState.FillColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
-        btnClear.Location = New Point(851, 161)
+        btnClear.Location = New Point(781, 161)
         btnClear.Margin = New Padding(3, 2, 3, 2)
         btnClear.Name = "btnClear"
         btnClear.ShadowDecoration.CustomizableEdges = CustomizableEdges22
@@ -634,7 +634,7 @@ Partial Class AttendanceForm
         btnExcused.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
         btnExcused.ForeColor = Color.White
         btnExcused.HoverState.FillColor = Color.FromArgb(CByte(142), CByte(68), CByte(173))
-        btnExcused.Location = New Point(285, 161)
+        btnExcused.Location = New Point(343, 161)
         btnExcused.Margin = New Padding(3, 2, 3, 2)
         btnExcused.Name = "btnExcused"
         btnExcused.ShadowDecoration.CustomizableEdges = CustomizableEdges24
@@ -655,7 +655,7 @@ Partial Class AttendanceForm
         btnLate.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
         btnLate.ForeColor = Color.White
         btnLate.HoverState.FillColor = Color.FromArgb(CByte(211), CByte(84), CByte(0))
-        btnLate.Location = New Point(656, 161)
+        btnLate.Location = New Point(635, 161)
         btnLate.Margin = New Padding(3, 2, 3, 2)
         btnLate.Name = "btnLate"
         btnLate.ShadowDecoration.CustomizableEdges = CustomizableEdges26
@@ -676,7 +676,7 @@ Partial Class AttendanceForm
         btnAbsent.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
         btnAbsent.ForeColor = Color.White
         btnAbsent.HoverState.FillColor = Color.FromArgb(CByte(192), CByte(57), CByte(43))
-        btnAbsent.Location = New Point(472, 161)
+        btnAbsent.Location = New Point(489, 161)
         btnAbsent.Margin = New Padding(3, 2, 3, 2)
         btnAbsent.Name = "btnAbsent"
         btnAbsent.ShadowDecoration.CustomizableEdges = CustomizableEdges28
@@ -697,7 +697,7 @@ Partial Class AttendanceForm
         btnPresent.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
         btnPresent.ForeColor = Color.White
         btnPresent.HoverState.FillColor = Color.FromArgb(CByte(39), CByte(118), CByte(74))
-        btnPresent.Location = New Point(123, 161)
+        btnPresent.Location = New Point(197, 161)
         btnPresent.Margin = New Padding(3, 2, 3, 2)
         btnPresent.Name = "btnPresent"
         btnPresent.ShadowDecoration.CustomizableEdges = CustomizableEdges30
@@ -709,7 +709,7 @@ Partial Class AttendanceForm
         ' 
         lblCourse.Font = New Font("Segoe UI", 9.5F)
         lblCourse.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
-        lblCourse.Location = New Point(305, 326)
+        lblCourse.Location = New Point(197, 286)
         lblCourse.Name = "lblCourse"
         lblCourse.Size = New Size(700, 19)
         lblCourse.TabIndex = 6
@@ -719,9 +719,9 @@ Partial Class AttendanceForm
         ' 
         ' lblStudentName
         ' 
-        lblStudentName.Font = New Font("Segoe UI", 16F, FontStyle.Bold)
+        lblStudentName.Font = New Font("Segoe UI", 16.0F, FontStyle.Bold)
         lblStudentName.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
-        lblStudentName.Location = New Point(305, 289)
+        lblStudentName.Location = New Point(197, 256)
         lblStudentName.Name = "lblStudentName"
         lblStudentName.Size = New Size(700, 30)
         lblStudentName.TabIndex = 5
