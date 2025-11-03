@@ -159,7 +159,7 @@ Public Class StudentSelectorForm
 
             ' Filter data
             Dim filteredView As DataView = allStudents.DefaultView
-            filteredView.RowFilter = $"student_id LIKE '%{searchText}%' OR name LIKE '%{searchText}%' OR course LIKE '%{searchText}%' OR email LIKE '%{searchText}%'"
+            filteredView.RowFilter = $"student_id LIKE '%{searchText}%' OR name LIKE '%{searchText}%' OR course LIKE '%{searchText}%'"
 
             dgvStudents.DataSource = filteredView
             lblStudentCount.Text = $"Found: {filteredView.Count} students"
@@ -302,4 +302,7 @@ Public Class StudentSelectorForm
         End Try
     End Sub
 
+    Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
+
+    End Sub
 End Class

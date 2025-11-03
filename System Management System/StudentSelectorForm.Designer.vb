@@ -29,208 +29,296 @@ Partial Class StudentSelectorForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Me.Guna2Elipse1 = New Guna.UI2.WinForms.Guna2Elipse(Me.components)
-        Me.pnlMain = New Guna.UI2.WinForms.Guna2Panel()
-        Me.dgvStudents = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.pnlBottom = New Guna.UI2.WinForms.Guna2Panel()
-        Me.btnViewPortal = New Guna.UI2.WinForms.Guna2Button()
-        Me.lblStudentCount = New System.Windows.Forms.Label()
-        Me.pnlTop = New Guna.UI2.WinForms.Guna2Panel()
-        Me.btnRefresh = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnClearSearch = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnSearch = New Guna.UI2.WinForms.Guna2Button()
-        Me.txtSearch = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.pnlMain.SuspendLayout()
-        CType(Me.dgvStudents, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.pnlBottom.SuspendLayout()
-        Me.pnlTop.SuspendLayout()
-        Me.SuspendLayout()
-        '
-        'Guna2Elipse1
-        '
-        Me.Guna2Elipse1.BorderRadius = 15
-        Me.Guna2Elipse1.TargetControl = Me
-        '
-        'pnlMain
-        '
-        Me.pnlMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(247, Byte), Integer))
-        Me.pnlMain.Controls.Add(Me.dgvStudents)
-        Me.pnlMain.Controls.Add(Me.pnlBottom)
-        Me.pnlMain.Controls.Add(Me.pnlTop)
-        Me.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlMain.Location = New System.Drawing.Point(0, 0)
-        Me.pnlMain.Name = "pnlMain"
-        Me.pnlMain.Padding = New System.Windows.Forms.Padding(20)
-        Me.pnlMain.Size = New System.Drawing.Size(1200, 700)
-        Me.pnlMain.TabIndex = 0
-        '
-        'dgvStudents
-        '
-        Me.dgvStudents.AllowUserToAddRows = False
-        Me.dgvStudents.AllowUserToDeleteRows = False
-        Me.dgvStudents.BackgroundColor = System.Drawing.Color.White
-        Me.dgvStudents.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.dgvStudents.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
-        Me.dgvStudents.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        Me.dgvStudents.ColumnHeadersHeight = 40
-        Me.dgvStudents.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgvStudents.Location = New System.Drawing.Point(20, 170)
-        Me.dgvStudents.MultiSelect = False
-        Me.dgvStudents.Name = "dgvStudents"
-        Me.dgvStudents.ReadOnly = True
-        Me.dgvStudents.RowHeadersVisible = False
-        Me.dgvStudents.RowTemplate.Height = 40
-        Me.dgvStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvStudents.Size = New System.Drawing.Size(1160, 430)
-        Me.dgvStudents.TabIndex = 2
-        '
-        'pnlBottom
-        '
-        Me.pnlBottom.BackColor = System.Drawing.Color.White
-        Me.pnlBottom.BorderRadius = 10
-        Me.pnlBottom.Controls.Add(Me.btnViewPortal)
-        Me.pnlBottom.Controls.Add(Me.lblStudentCount)
-        Me.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.pnlBottom.Location = New System.Drawing.Point(20, 600)
-        Me.pnlBottom.Name = "pnlBottom"
-        Me.pnlBottom.Padding = New System.Windows.Forms.Padding(20)
-        Me.pnlBottom.Size = New System.Drawing.Size(1160, 80)
-        Me.pnlBottom.TabIndex = 1
-        '
-        'btnViewPortal
-        '
-        Me.btnViewPortal.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnViewPortal.BorderRadius = 8
-        Me.btnViewPortal.Enabled = False
-        Me.btnViewPortal.FillColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.btnViewPortal.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.btnViewPortal.ForeColor = System.Drawing.Color.White
-        Me.btnViewPortal.Location = New System.Drawing.Point(940, 15)
-        Me.btnViewPortal.Name = "btnViewPortal"
-        Me.btnViewPortal.Size = New System.Drawing.Size(200, 50)
-        Me.btnViewPortal.TabIndex = 1
-        Me.btnViewPortal.Text = "📂 Open Student Portal"
-        '
-        'lblStudentCount
-        '
-        Me.lblStudentCount.AutoSize = True
-        Me.lblStudentCount.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold)
-        Me.lblStudentCount.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.lblStudentCount.Location = New System.Drawing.Point(20, 30)
-        Me.lblStudentCount.Name = "lblStudentCount"
-        Me.lblStudentCount.Size = New System.Drawing.Size(195, 20)
-        Me.lblStudentCount.TabIndex = 0
-        Me.lblStudentCount.Text = "Total Active Students: 0"
-        '
-        'pnlTop
-        '
-        Me.pnlTop.BackColor = System.Drawing.Color.White
-        Me.pnlTop.BorderRadius = 10
-        Me.pnlTop.Controls.Add(Me.btnRefresh)
-        Me.pnlTop.Controls.Add(Me.btnClearSearch)
-        Me.pnlTop.Controls.Add(Me.btnSearch)
-        Me.pnlTop.Controls.Add(Me.txtSearch)
-        Me.pnlTop.Controls.Add(Me.Label2)
-        Me.pnlTop.Controls.Add(Me.Label1)
-        Me.pnlTop.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlTop.Location = New System.Drawing.Point(20, 20)
-        Me.pnlTop.Name = "pnlTop"
-        Me.pnlTop.Padding = New System.Windows.Forms.Padding(20)
-        Me.pnlTop.Size = New System.Drawing.Size(1160, 150)
-        Me.pnlTop.TabIndex = 0
-        '
-        'btnRefresh
-        '
-        Me.btnRefresh.BorderRadius = 8
-        Me.btnRefresh.FillColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.btnRefresh.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.btnRefresh.ForeColor = System.Drawing.Color.White
-        Me.btnRefresh.Location = New System.Drawing.Point(920, 85)
-        Me.btnRefresh.Name = "btnRefresh"
-        Me.btnRefresh.Size = New System.Drawing.Size(120, 45)
-        Me.btnRefresh.TabIndex = 5
-        Me.btnRefresh.Text = "🔄 Refresh"
-        '
-        'btnClearSearch
-        '
-        Me.btnClearSearch.BorderRadius = 8
-        Me.btnClearSearch.FillColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(165, Byte), Integer), CType(CType(166, Byte), Integer))
-        Me.btnClearSearch.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.btnClearSearch.ForeColor = System.Drawing.Color.White
-        Me.btnClearSearch.Location = New System.Drawing.Point(780, 85)
-        Me.btnClearSearch.Name = "btnClearSearch"
-        Me.btnClearSearch.Size = New System.Drawing.Size(120, 45)
-        Me.btnClearSearch.TabIndex = 4
-        Me.btnClearSearch.Text = "✖ Clear"
-        '
-        'btnSearch
-        '
-        Me.btnSearch.BorderRadius = 8
-        Me.btnSearch.FillColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.btnSearch.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.btnSearch.ForeColor = System.Drawing.Color.White
-        Me.btnSearch.Location = New System.Drawing.Point(640, 85)
-        Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(120, 45)
-        Me.btnSearch.TabIndex = 3
-        Me.btnSearch.Text = "🔍 Search"
-        '
-        'txtSearch
-        '
-        Me.txtSearch.BorderRadius = 8
-        Me.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtSearch.DefaultText = ""
-        Me.txtSearch.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.txtSearch.Location = New System.Drawing.Point(150, 85)
-        Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txtSearch.PlaceholderText = "Enter Student ID, Name, Course, or Email..."
-        Me.txtSearch.SelectedText = ""
-        Me.txtSearch.Size = New System.Drawing.Size(470, 45)
-        Me.txtSearch.TabIndex = 2
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(23, 50)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(553, 15)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Select a student from the list below to access their portal. You can search by Student ID, Name, Course, or Email."
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold)
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(20, 20)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(279, 25)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "🎓 Select Student Portal Access"
-        '
-        'StudentSelectorForm
-        '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1200, 700)
-        Me.Controls.Add(Me.pnlMain)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "StudentSelectorForm"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Select Student - Student Portal Access"
-        Me.pnlMain.ResumeLayout(False)
-        CType(Me.dgvStudents, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.pnlBottom.ResumeLayout(False)
-        Me.pnlBottom.PerformLayout()
-        Me.pnlTop.ResumeLayout(False)
-        Me.pnlTop.PerformLayout()
-        Me.ResumeLayout(False)
+        components = New ComponentModel.Container()
+        Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Guna2Elipse1 = New Guna.UI2.WinForms.Guna2Elipse(components)
+        pnlMain = New Guna.UI2.WinForms.Guna2Panel()
+        dgvStudents = New Guna.UI2.WinForms.Guna2DataGridView()
+        pnlBottom = New Guna.UI2.WinForms.Guna2Panel()
+        btnViewPortal = New Guna.UI2.WinForms.Guna2Button()
+        lblStudentCount = New Label()
+        pnlTop = New Guna.UI2.WinForms.Guna2Panel()
+        btnRefresh = New Guna.UI2.WinForms.Guna2Button()
+        btnClearSearch = New Guna.UI2.WinForms.Guna2Button()
+        btnSearch = New Guna.UI2.WinForms.Guna2Button()
+        txtSearch = New Guna.UI2.WinForms.Guna2TextBox()
+        Label2 = New Label()
+        Label1 = New Label()
+        pnlMain.SuspendLayout()
+        CType(dgvStudents, ComponentModel.ISupportInitialize).BeginInit()
+        pnlBottom.SuspendLayout()
+        pnlTop.SuspendLayout()
+        SuspendLayout()
+        ' 
+        ' Guna2Elipse1
+        ' 
+        Guna2Elipse1.BorderRadius = 15
+        Guna2Elipse1.TargetControl = Me
+        ' 
+        ' pnlMain
+        ' 
+        pnlMain.BackColor = Color.FromArgb(CByte(244), CByte(246), CByte(247))
+        pnlMain.Controls.Add(dgvStudents)
+        pnlMain.Controls.Add(pnlBottom)
+        pnlMain.Controls.Add(pnlTop)
+        pnlMain.CustomizableEdges = CustomizableEdges15
+        pnlMain.Dock = DockStyle.Fill
+        pnlMain.Location = New Point(0, 0)
+        pnlMain.Margin = New Padding(4, 5, 4, 5)
+        pnlMain.Name = "pnlMain"
+        pnlMain.Padding = New Padding(27, 31, 27, 31)
+        pnlMain.ShadowDecoration.CustomizableEdges = CustomizableEdges16
+        pnlMain.Size = New Size(1600, 1077)
+        pnlMain.TabIndex = 0
+        ' 
+        ' dgvStudents
+        ' 
+        dgvStudents.AllowUserToAddRows = False
+        dgvStudents.AllowUserToDeleteRows = False
+        DataGridViewCellStyle1.BackColor = Color.White
+        dgvStudents.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        dgvStudents.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
+        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F)
+        DataGridViewCellStyle2.ForeColor = Color.White
+        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
+        dgvStudents.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        dgvStudents.ColumnHeadersHeight = 40
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = Color.White
+        DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F)
+        DataGridViewCellStyle3.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        DataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        DataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.False
+        dgvStudents.DefaultCellStyle = DataGridViewCellStyle3
+        dgvStudents.Dock = DockStyle.Fill
+        dgvStudents.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dgvStudents.Location = New Point(27, 262)
+        dgvStudents.Margin = New Padding(4, 5, 4, 5)
+        dgvStudents.MultiSelect = False
+        dgvStudents.Name = "dgvStudents"
+        dgvStudents.ReadOnly = True
+        dgvStudents.RowHeadersVisible = False
+        dgvStudents.RowHeadersWidth = 51
+        dgvStudents.RowTemplate.Height = 40
+        dgvStudents.Size = New Size(1546, 661)
+        dgvStudents.TabIndex = 2
+        dgvStudents.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
+        dgvStudents.ThemeStyle.AlternatingRowsStyle.Font = Nothing
+        dgvStudents.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty
+        dgvStudents.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty
+        dgvStudents.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty
+        dgvStudents.ThemeStyle.BackColor = Color.White
+        dgvStudents.ThemeStyle.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dgvStudents.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
+        dgvStudents.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None
+        dgvStudents.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F)
+        dgvStudents.ThemeStyle.HeaderStyle.ForeColor = Color.White
+        dgvStudents.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        dgvStudents.ThemeStyle.HeaderStyle.Height = 40
+        dgvStudents.ThemeStyle.ReadOnly = True
+        dgvStudents.ThemeStyle.RowsStyle.BackColor = Color.White
+        dgvStudents.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
+        dgvStudents.ThemeStyle.RowsStyle.Font = New Font("Segoe UI", 9F)
+        dgvStudents.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        dgvStudents.ThemeStyle.RowsStyle.Height = 40
+        dgvStudents.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dgvStudents.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        ' 
+        ' pnlBottom
+        ' 
+        pnlBottom.BackColor = Color.White
+        pnlBottom.BorderRadius = 10
+        pnlBottom.Controls.Add(btnViewPortal)
+        pnlBottom.Controls.Add(lblStudentCount)
+        pnlBottom.CustomizableEdges = CustomizableEdges3
+        pnlBottom.Dock = DockStyle.Bottom
+        pnlBottom.Location = New Point(27, 923)
+        pnlBottom.Margin = New Padding(4, 5, 4, 5)
+        pnlBottom.Name = "pnlBottom"
+        pnlBottom.Padding = New Padding(27, 31, 27, 31)
+        pnlBottom.ShadowDecoration.CustomizableEdges = CustomizableEdges4
+        pnlBottom.Size = New Size(1546, 123)
+        pnlBottom.TabIndex = 1
+        ' 
+        ' btnViewPortal
+        ' 
+        btnViewPortal.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        btnViewPortal.BorderRadius = 8
+        btnViewPortal.CustomizableEdges = CustomizableEdges1
+        btnViewPortal.Enabled = False
+        btnViewPortal.FillColor = Color.FromArgb(CByte(46), CByte(139), CByte(87))
+        btnViewPortal.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
+        btnViewPortal.ForeColor = Color.White
+        btnViewPortal.Location = New Point(1252, 23)
+        btnViewPortal.Margin = New Padding(4, 5, 4, 5)
+        btnViewPortal.Name = "btnViewPortal"
+        btnViewPortal.ShadowDecoration.CustomizableEdges = CustomizableEdges2
+        btnViewPortal.Size = New Size(267, 77)
+        btnViewPortal.TabIndex = 1
+        btnViewPortal.Text = "📂 Open Student Portal"
+        ' 
+        ' lblStudentCount
+        ' 
+        lblStudentCount.AutoSize = True
+        lblStudentCount.Font = New Font("Segoe UI", 11F, FontStyle.Bold)
+        lblStudentCount.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        lblStudentCount.Location = New Point(27, 46)
+        lblStudentCount.Margin = New Padding(4, 0, 4, 0)
+        lblStudentCount.Name = "lblStudentCount"
+        lblStudentCount.Size = New Size(219, 25)
+        lblStudentCount.TabIndex = 0
+        lblStudentCount.Text = "Total Active Students: 0"
+        ' 
+        ' pnlTop
+        ' 
+        pnlTop.BackColor = Color.White
+        pnlTop.BorderRadius = 10
+        pnlTop.Controls.Add(btnRefresh)
+        pnlTop.Controls.Add(btnClearSearch)
+        pnlTop.Controls.Add(btnSearch)
+        pnlTop.Controls.Add(txtSearch)
+        pnlTop.Controls.Add(Label2)
+        pnlTop.Controls.Add(Label1)
+        pnlTop.CustomizableEdges = CustomizableEdges13
+        pnlTop.Dock = DockStyle.Top
+        pnlTop.Location = New Point(27, 31)
+        pnlTop.Margin = New Padding(4, 5, 4, 5)
+        pnlTop.Name = "pnlTop"
+        pnlTop.Padding = New Padding(27, 31, 27, 31)
+        pnlTop.ShadowDecoration.CustomizableEdges = CustomizableEdges14
+        pnlTop.Size = New Size(1546, 231)
+        pnlTop.TabIndex = 0
+        ' 
+        ' btnRefresh
+        ' 
+        btnRefresh.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        btnRefresh.BorderRadius = 8
+        btnRefresh.CustomizableEdges = CustomizableEdges5
+        btnRefresh.FillColor = Color.FromArgb(CByte(52), CByte(152), CByte(219))
+        btnRefresh.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        btnRefresh.ForeColor = Color.White
+        btnRefresh.Location = New Point(1263, 131)
+        btnRefresh.Margin = New Padding(4, 5, 4, 5)
+        btnRefresh.Name = "btnRefresh"
+        btnRefresh.ShadowDecoration.CustomizableEdges = CustomizableEdges6
+        btnRefresh.Size = New Size(160, 69)
+        btnRefresh.TabIndex = 5
+        btnRefresh.Text = "🔄 Refresh"
+        ' 
+        ' btnClearSearch
+        ' 
+        btnClearSearch.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        btnClearSearch.BorderRadius = 8
+        btnClearSearch.CustomizableEdges = CustomizableEdges7
+        btnClearSearch.FillColor = Color.FromArgb(CByte(149), CByte(165), CByte(166))
+        btnClearSearch.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        btnClearSearch.ForeColor = Color.White
+        btnClearSearch.Location = New Point(1076, 131)
+        btnClearSearch.Margin = New Padding(4, 5, 4, 5)
+        btnClearSearch.Name = "btnClearSearch"
+        btnClearSearch.ShadowDecoration.CustomizableEdges = CustomizableEdges8
+        btnClearSearch.Size = New Size(160, 69)
+        btnClearSearch.TabIndex = 4
+        btnClearSearch.Text = "✖ Clear"
+        ' 
+        ' btnSearch
+        ' 
+        btnSearch.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        btnSearch.BorderRadius = 8
+        btnSearch.CustomizableEdges = CustomizableEdges9
+        btnSearch.FillColor = Color.FromArgb(CByte(46), CByte(139), CByte(87))
+        btnSearch.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        btnSearch.ForeColor = Color.White
+        btnSearch.Location = New Point(886, 131)
+        btnSearch.Margin = New Padding(4, 5, 4, 5)
+        btnSearch.Name = "btnSearch"
+        btnSearch.ShadowDecoration.CustomizableEdges = CustomizableEdges10
+        btnSearch.Size = New Size(160, 69)
+        btnSearch.TabIndex = 3
+        btnSearch.Text = "🔍 Search"
+        ' 
+        ' txtSearch
+        ' 
+        txtSearch.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        txtSearch.BorderRadius = 8
+        txtSearch.Cursor = Cursors.IBeam
+        txtSearch.CustomizableEdges = CustomizableEdges11
+        txtSearch.DefaultText = ""
+        txtSearch.Font = New Font("Segoe UI", 10F)
+        txtSearch.Location = New Point(31, 125)
+        txtSearch.Margin = New Padding(4, 6, 4, 6)
+        txtSearch.Name = "txtSearch"
+        txtSearch.PlaceholderText = "Enter Student ID, Name, Course......."
+        txtSearch.SelectedText = ""
+        txtSearch.ShadowDecoration.CustomizableEdges = CustomizableEdges12
+        txtSearch.Size = New Size(627, 69)
+        txtSearch.TabIndex = 2
+        ' 
+        ' Label2
+        ' 
+        Label2.AutoSize = True
+        Label2.Font = New Font("Segoe UI", 9F)
+        Label2.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
+        Label2.Location = New Point(31, 77)
+        Label2.Margin = New Padding(4, 0, 4, 0)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(747, 20)
+        Label2.TabIndex = 1
+        Label2.Text = "Select a student from the list below to access their portal. You can search by Student ID, Name, Course, or Email."
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Font = New Font("Segoe UI", 14F, FontStyle.Bold)
+        Label1.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        Label1.Location = New Point(27, 31)
+        Label1.Margin = New Padding(4, 0, 4, 0)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(376, 32)
+        Label1.TabIndex = 0
+        Label1.Text = "🎓 Select Student Portal Access"
+        ' 
+        ' StudentSelectorForm
+        ' 
+        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleMode = AutoScaleMode.Font
+        ClientSize = New Size(1600, 1077)
+        Controls.Add(pnlMain)
+        FormBorderStyle = FormBorderStyle.None
+        Margin = New Padding(4, 5, 4, 5)
+        Name = "StudentSelectorForm"
+        StartPosition = FormStartPosition.CenterScreen
+        Text = "Select Student - Student Portal Access"
+        pnlMain.ResumeLayout(False)
+        CType(dgvStudents, ComponentModel.ISupportInitialize).EndInit()
+        pnlBottom.ResumeLayout(False)
+        pnlBottom.PerformLayout()
+        pnlTop.ResumeLayout(False)
+        pnlTop.PerformLayout()
+        ResumeLayout(False)
 
     End Sub
 
