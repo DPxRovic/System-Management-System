@@ -858,6 +858,10 @@ Public Class StudentPortalForm
         End Try
     End Sub
 
+    Private Sub pnlMain_Paint(sender As Object, e As PaintEventArgs) Handles pnlMain.Paint
+
+    End Sub
+
 #End Region
 
 End Class

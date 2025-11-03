@@ -388,6 +388,41 @@ Public Class AdminForm
 
     End Sub
 
+    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub dgvCourses_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvCourses.CellContentClick
+
+    End Sub
+
+    Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
+        Try
+            Dim result As DialogResult = MessageBox.Show(
+                "Are you sure you want to logout?",
+                "Confirm Logout",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question)
+
+            If result = DialogResult.Yes Then
+                Logger.LogInfo($"User {currentUser.Username} logged out")
+
+
+
+                ' Show login form
+                Dim loginForm As New LoginForm()
+                loginForm.Show()
+
+                ' Close this form
+                Me.Close()
+            End If
+
+        Catch ex As Exception
+            Logger.LogError("Error during logout", ex)
+            Me.Close()
+        End Try
+    End Sub
+
 #End Region
 
 End Class

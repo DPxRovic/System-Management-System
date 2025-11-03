@@ -68,6 +68,7 @@ Public Class LoginForm
 
                 ' Show success message
                 MessageBox.Show($"Welcome, {user.FullName}!", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Me.Hide()
 
                 ' Determine user role and open appropriate panel
                 Dim role = If(user?.Role, "").ToUpperInvariant()
@@ -76,20 +77,18 @@ Public Class LoginForm
                     Using chooser As New RoleChooserForm(user)
                         Dim dr = chooser.ShowDialog(Me)
                         If dr = DialogResult.Yes Then
-                            ' Admin panel
+                            ' Admin panel chosen
                             Dim adminForm As New AdminForm(user)
                             adminForm.Show()
                             Me.Hide()
                         ElseIf dr = DialogResult.No Then
-                            ' Dashboard
+                            ' Dashboard chosen
                             Dim dashboard As New DashboardForm(user)
                             dashboard.Show()
                             Me.Hide()
                         Else
-                            ' Cancelled — fall back to dashboard but keep login visible
-                            Dim dashboard As New DashboardForm(user)
-                            dashboard.Show()
-                            Me.Hide()
+                            ' Cancel clicked - show login form again
+                            Me.Show()
                         End If
                     End Using
                 ElseIf role = "FACULTY" OrElse role = "STUDENT" Then
@@ -114,6 +113,8 @@ Public Class LoginForm
             ' Reset cursor and button
             Me.Cursor = Cursors.Default
             btnLogin.Enabled = True
+            txtUsername.Clear()
+            txtPassword.Clear()
         End Try
     End Sub
 
