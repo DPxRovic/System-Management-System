@@ -108,10 +108,10 @@ Partial Class SettingsForm
         pnlContent.Controls.Add(grpPreferences)
         pnlContent.CustomizableEdges = CustomizableEdges15
         pnlContent.Dock = DockStyle.Fill
-        pnlContent.Location = New Point(20, 81)
+        pnlContent.Location = New Point(20, 72)
         pnlContent.Name = "pnlContent"
         pnlContent.ShadowDecoration.CustomizableEdges = CustomizableEdges16
-        pnlContent.Size = New Size(920, 659)
+        pnlContent.Size = New Size(920, 668)
         pnlContent.TabIndex = 1
         ' 
         ' grpNotifications
@@ -125,7 +125,7 @@ Partial Class SettingsForm
         grpNotifications.Controls.Add(btnTestNotification)
         grpNotifications.CustomBorderColor = Color.FromArgb(CByte(46), CByte(139), CByte(87))
         grpNotifications.CustomizableEdges = CustomizableEdges5
-        grpNotifications.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
+        grpNotifications.Font = New Font("Segoe UI", 11F, FontStyle.Bold)
         grpNotifications.ForeColor = Color.White
         grpNotifications.Location = New Point(20, 20)
         grpNotifications.Name = "grpNotifications"
@@ -146,7 +146,7 @@ Partial Class SettingsForm
         chkEnableNotifications.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
         chkEnableNotifications.Location = New Point(25, 55)
         chkEnableNotifications.Name = "chkEnableNotifications"
-        chkEnableNotifications.Size = New Size(191, 29)
+        chkEnableNotifications.Size = New Size(148, 23)
         chkEnableNotifications.TabIndex = 0
         chkEnableNotifications.Text = "Enable Notifications"
         chkEnableNotifications.UncheckedState.BorderColor = Color.FromArgb(CByte(125), CByte(137), CByte(149))
@@ -161,7 +161,7 @@ Partial Class SettingsForm
         lblNotificationDuration.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
         lblNotificationDuration.Location = New Point(25, 95)
         lblNotificationDuration.Name = "lblNotificationDuration"
-        lblNotificationDuration.Size = New Size(197, 25)
+        lblNotificationDuration.Size = New Size(151, 19)
         lblNotificationDuration.TabIndex = 1
         lblNotificationDuration.Text = "Duration (milliseconds):"
         ' 
@@ -214,7 +214,7 @@ Partial Class SettingsForm
         grpDatabase.Controls.Add(btnBackupNow)
         grpDatabase.CustomBorderColor = Color.FromArgb(CByte(52), CByte(152), CByte(219))
         grpDatabase.CustomizableEdges = CustomizableEdges11
-        grpDatabase.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
+        grpDatabase.Font = New Font("Segoe UI", 11F, FontStyle.Bold)
         grpDatabase.ForeColor = Color.White
         grpDatabase.Location = New Point(20, 210)
         grpDatabase.Name = "grpDatabase"
@@ -235,7 +235,7 @@ Partial Class SettingsForm
         chkAutoBackup.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
         chkAutoBackup.Location = New Point(25, 55)
         chkAutoBackup.Name = "chkAutoBackup"
-        chkAutoBackup.Size = New Size(235, 29)
+        chkAutoBackup.Size = New Size(183, 23)
         chkAutoBackup.TabIndex = 0
         chkAutoBackup.Text = "Enable Automatic Backup"
         chkAutoBackup.UncheckedState.BorderColor = Color.FromArgb(CByte(125), CByte(137), CByte(149))
@@ -250,7 +250,7 @@ Partial Class SettingsForm
         lblBackupInterval.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
         lblBackupInterval.Location = New Point(25, 95)
         lblBackupInterval.Name = "lblBackupInterval"
-        lblBackupInterval.Size = New Size(188, 25)
+        lblBackupInterval.Size = New Size(146, 19)
         lblBackupInterval.TabIndex = 1
         lblBackupInterval.Text = "Backup Interval (days):"
         ' 
@@ -274,11 +274,11 @@ Partial Class SettingsForm
         ' lblLastBackup
         ' 
         lblLastBackup.AutoSize = True
-        lblLastBackup.Font = New Font("Segoe UI", 9.0F, FontStyle.Italic)
+        lblLastBackup.Font = New Font("Segoe UI", 9F, FontStyle.Italic)
         lblLastBackup.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
         lblLastBackup.Location = New Point(25, 140)
         lblLastBackup.Name = "lblLastBackup"
-        lblLastBackup.Size = New Size(129, 20)
+        lblLastBackup.Size = New Size(108, 15)
         lblLastBackup.TabIndex = 3
         lblLastBackup.Text = "Last backup: Never"
         ' 
@@ -309,7 +309,7 @@ Partial Class SettingsForm
         grpPreferences.Controls.Add(chkRememberUsername)
         grpPreferences.CustomBorderColor = Color.FromArgb(CByte(155), CByte(89), CByte(182))
         grpPreferences.CustomizableEdges = CustomizableEdges13
-        grpPreferences.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
+        grpPreferences.Font = New Font("Segoe UI", 11F, FontStyle.Bold)
         grpPreferences.ForeColor = Color.White
         grpPreferences.Location = New Point(20, 430)
         grpPreferences.Name = "grpPreferences"
@@ -330,7 +330,7 @@ Partial Class SettingsForm
         chkRememberUsername.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
         chkRememberUsername.Location = New Point(25, 55)
         chkRememberUsername.Name = "chkRememberUsername"
-        chkRememberUsername.Size = New Size(279, 29)
+        chkRememberUsername.Size = New Size(218, 23)
         chkRememberUsername.TabIndex = 0
         chkRememberUsername.Text = "Remember Username on Login"
         chkRememberUsername.UncheckedState.BorderColor = Color.FromArgb(CByte(125), CByte(137), CByte(149))
@@ -395,12 +395,12 @@ Partial Class SettingsForm
         ' 
         lblTitle.AutoSize = True
         lblTitle.Dock = DockStyle.Top
-        lblTitle.Font = New Font("Segoe UI", 18.0F, FontStyle.Bold)
+        lblTitle.Font = New Font("Segoe UI", 18F, FontStyle.Bold)
         lblTitle.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
         lblTitle.Location = New Point(20, 20)
         lblTitle.Name = "lblTitle"
         lblTitle.Padding = New Padding(0, 0, 0, 20)
-        lblTitle.Size = New Size(184, 61)
+        lblTitle.Size = New Size(147, 52)
         lblTitle.TabIndex = 0
         lblTitle.Text = "⚙ Settings"
         ' 
@@ -415,7 +415,7 @@ Partial Class SettingsForm
         ' 
         ' SettingsForm
         ' 
-        AutoScaleDimensions = New SizeF(9.0F, 23.0F)
+        AutoScaleDimensions = New SizeF(8F, 19F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(244), CByte(246), CByte(247))
         ClientSize = New Size(1000, 880)

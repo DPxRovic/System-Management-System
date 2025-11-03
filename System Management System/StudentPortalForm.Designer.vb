@@ -29,1053 +29,1301 @@ Partial Class StudentPortalForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Me.Guna2Elipse1 = New Guna.UI2.WinForms.Guna2Elipse(Me.components)
-        Me.pnlMain = New Guna.UI2.WinForms.Guna2Panel()
-        Me.tabControl = New Guna.UI2.WinForms.Guna2TabControl()
-        Me.tabProfile = New System.Windows.Forms.TabPage()
-        Me.pnlProfile = New Guna.UI2.WinForms.Guna2Panel()
-        Me.lblStatusValue = New System.Windows.Forms.Label()
-        Me.lblStatus = New System.Windows.Forms.Label()
-        Me.lblEnrollmentValue = New System.Windows.Forms.Label()
-        Me.lblEnrollment = New System.Windows.Forms.Label()
-        Me.lblDOBValue = New System.Windows.Forms.Label()
-        Me.lblDOB = New System.Windows.Forms.Label()
-        Me.lblCourseValue = New System.Windows.Forms.Label()
-        Me.lblCourse = New System.Windows.Forms.Label()
-        Me.lblPhoneValue = New System.Windows.Forms.Label()
-        Me.lblPhone = New System.Windows.Forms.Label()
-        Me.lblEmailValue = New System.Windows.Forms.Label()
-        Me.lblEmail = New System.Windows.Forms.Label()
-        Me.lblNameValue = New System.Windows.Forms.Label()
-        Me.lblName = New System.Windows.Forms.Label()
-        Me.lblStudentIdValue = New System.Windows.Forms.Label()
-        Me.lblStudentId = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.pnlStats = New Guna.UI2.WinForms.Guna2Panel()
-        Me.lblStatDaysEnrolled = New System.Windows.Forms.Label()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.lblStatOverallRate = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.lblStatTotalAttendance = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.lblStatEnrolledCourses = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.tabAttendance = New System.Windows.Forms.TabPage()
-        Me.pnlAttendanceContent = New Guna.UI2.WinForms.Guna2Panel()
-        Me.dgvAttendance = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.flpCourseAttendance = New System.Windows.Forms.FlowLayoutPanel()
-        Me.pnlAttendanceStats = New Guna.UI2.WinForms.Guna2Panel()
-        Me.pbAttendanceRate = New Guna.UI2.WinForms.Guna2ProgressBar()
-        Me.lblAttendanceRate = New System.Windows.Forms.Label()
-        Me.Label26 = New System.Windows.Forms.Label()
-        Me.lblExcusedCount = New System.Windows.Forms.Label()
-        Me.Label24 = New System.Windows.Forms.Label()
-        Me.lblLateCount = New System.Windows.Forms.Label()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.lblAbsentCount = New System.Windows.Forms.Label()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.lblPresentCount = New System.Windows.Forms.Label()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.pnlAttendanceControls = New Guna.UI2.WinForms.Guna2Panel()
-        Me.lblAttendanceCount = New System.Windows.Forms.Label()
-        Me.btnResetFilter = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnApplyFilter = New Guna.UI2.WinForms.Guna2Button()
-        Me.dtpEndDate = New Guna.UI2.WinForms.Guna2DateTimePicker()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.dtpStartDate = New Guna.UI2.WinForms.Guna2DateTimePicker()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.tabCourses = New System.Windows.Forms.TabPage()
-        Me.dgvCourses = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.pnlCoursesHeader = New Guna.UI2.WinForms.Guna2Panel()
-        Me.lblCoursesCount = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.tabReports = New System.Windows.Forms.TabPage()
-        Me.pnlReportsContent = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Label28 = New System.Windows.Forms.Label()
-        Me.Label27 = New System.Windows.Forms.Label()
-        Me.btnPrintReport = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnExportReport = New Guna.UI2.WinForms.Guna2Button()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.pnlHeader = New Guna.UI2.WinForms.Guna2Panel()
-        Me.btnRefreshAll = New Guna.UI2.WinForms.Guna2Button()
-        Me.lblSubtitle = New System.Windows.Forms.Label()
-        Me.lblTitle = New System.Windows.Forms.Label()
-        Me.pnlMain.SuspendLayout()
-        Me.tabControl.SuspendLayout()
-        Me.tabProfile.SuspendLayout()
-        Me.pnlProfile.SuspendLayout()
-        Me.pnlStats.SuspendLayout()
-        Me.tabAttendance.SuspendLayout()
-        Me.pnlAttendanceContent.SuspendLayout()
-        CType(Me.dgvAttendance, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.pnlAttendanceStats.SuspendLayout()
-        Me.pnlAttendanceControls.SuspendLayout()
-        Me.tabCourses.SuspendLayout()
-        CType(Me.dgvCourses, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.pnlCoursesHeader.SuspendLayout()
-        Me.tabReports.SuspendLayout()
-        Me.pnlReportsContent.SuspendLayout()
-        Me.pnlHeader.SuspendLayout()
-        Me.SuspendLayout()
-        '
-        'Guna2Elipse1
-        '
-        Me.Guna2Elipse1.BorderRadius = 15
-        Me.Guna2Elipse1.TargetControl = Me
-        '
-        'pnlMain
-        '
-        Me.pnlMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(247, Byte), Integer))
-        Me.pnlMain.Controls.Add(Me.tabControl)
-        Me.pnlMain.Controls.Add(Me.pnlHeader)
-        Me.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlMain.Location = New System.Drawing.Point(0, 0)
-        Me.pnlMain.Name = "pnlMain"
-        Me.pnlMain.Padding = New System.Windows.Forms.Padding(20)
-        Me.pnlMain.Size = New System.Drawing.Size(1200, 800)
-        Me.pnlMain.TabIndex = 0
-        '
-        'tabControl
-        '
-        Me.tabControl.Alignment = System.Windows.Forms.TabAlignment.Top
-        Me.tabControl.Controls.Add(Me.tabProfile)
-        Me.tabControl.Controls.Add(Me.tabAttendance)
-        Me.tabControl.Controls.Add(Me.tabCourses)
-        Me.tabControl.Controls.Add(Me.tabReports)
-        Me.tabControl.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.tabControl.ItemSize = New System.Drawing.Size(200, 50)
-        Me.tabControl.Location = New System.Drawing.Point(20, 120)
-        Me.tabControl.Name = "tabControl"
-        Me.tabControl.SelectedIndex = 0
-        Me.tabControl.Size = New System.Drawing.Size(1160, 660)
-        Me.tabControl.TabIndex = 1
-        '
-        'tabProfile
-        '
-        Me.tabProfile.BackColor = System.Drawing.Color.White
-        Me.tabProfile.Controls.Add(Me.pnlProfile)
-        Me.tabProfile.Controls.Add(Me.pnlStats)
-        Me.tabProfile.Location = New System.Drawing.Point(4, 54)
-        Me.tabProfile.Name = "tabProfile"
-        Me.tabProfile.Padding = New System.Windows.Forms.Padding(15)
-        Me.tabProfile.Size = New System.Drawing.Size(1152, 602)
-        Me.tabProfile.TabIndex = 0
-        Me.tabProfile.Text = "👤 My Profile"
-        '
-        'pnlProfile
-        '
-        Me.pnlProfile.BorderColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        Me.pnlProfile.BorderRadius = 10
-        Me.pnlProfile.BorderThickness = 1
-        Me.pnlProfile.Controls.Add(Me.lblStatusValue)
-        Me.pnlProfile.Controls.Add(Me.lblStatus)
-        Me.pnlProfile.Controls.Add(Me.lblEnrollmentValue)
-        Me.pnlProfile.Controls.Add(Me.lblEnrollment)
-        Me.pnlProfile.Controls.Add(Me.lblDOBValue)
-        Me.pnlProfile.Controls.Add(Me.lblDOB)
-        Me.pnlProfile.Controls.Add(Me.lblCourseValue)
-        Me.pnlProfile.Controls.Add(Me.lblCourse)
-        Me.pnlProfile.Controls.Add(Me.lblPhoneValue)
-        Me.pnlProfile.Controls.Add(Me.lblPhone)
-        Me.pnlProfile.Controls.Add(Me.lblEmailValue)
-        Me.pnlProfile.Controls.Add(Me.lblEmail)
-        Me.pnlProfile.Controls.Add(Me.lblNameValue)
-        Me.pnlProfile.Controls.Add(Me.lblName)
-        Me.pnlProfile.Controls.Add(Me.lblStudentIdValue)
-        Me.pnlProfile.Controls.Add(Me.lblStudentId)
-        Me.pnlProfile.Controls.Add(Me.Label1)
-        Me.pnlProfile.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlProfile.Location = New System.Drawing.Point(15, 135)
-        Me.pnlProfile.Name = "pnlProfile"
-        Me.pnlProfile.Padding = New System.Windows.Forms.Padding(20)
-        Me.pnlProfile.Size = New System.Drawing.Size(1122, 452)
-        Me.pnlProfile.TabIndex = 1
-        '
-        'lblStatusValue
-        '
-        Me.lblStatusValue.AutoSize = True
-        Me.lblStatusValue.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.lblStatusValue.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.lblStatusValue.Location = New System.Drawing.Point(250, 385)
-        Me.lblStatusValue.Name = "lblStatusValue"
-        Me.lblStatusValue.Size = New System.Drawing.Size(51, 19)
-        Me.lblStatusValue.TabIndex = 16
-        Me.lblStatusValue.Text = "Active"
-        '
-        'lblStatus
-        '
-        Me.lblStatus.AutoSize = True
-        Me.lblStatus.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.lblStatus.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.lblStatus.Location = New System.Drawing.Point(40, 385)
-        Me.lblStatus.Name = "lblStatus"
-        Me.lblStatus.Size = New System.Drawing.Size(52, 19)
-        Me.lblStatus.TabIndex = 15
-        Me.lblStatus.Text = "Status:"
-        '
-        'lblEnrollmentValue
-        '
-        Me.lblEnrollmentValue.AutoSize = True
-        Me.lblEnrollmentValue.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.lblEnrollmentValue.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.lblEnrollmentValue.Location = New System.Drawing.Point(250, 345)
-        Me.lblEnrollmentValue.Name = "lblEnrollmentValue"
-        Me.lblEnrollmentValue.Size = New System.Drawing.Size(105, 19)
-        Me.lblEnrollmentValue.TabIndex = 14
-        Me.lblEnrollmentValue.Text = "Not Available"
-        '
-        'lblEnrollment
-        '
-        Me.lblEnrollment.AutoSize = True
-        Me.lblEnrollment.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.lblEnrollment.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.lblEnrollment.Location = New System.Drawing.Point(40, 345)
-        Me.lblEnrollment.Name = "lblEnrollment"
-        Me.lblEnrollment.Size = New System.Drawing.Size(119, 19)
-        Me.lblEnrollment.TabIndex = 13
-        Me.lblEnrollment.Text = "Enrollment Date:"
-        '
-        'lblDOBValue
-        '
-        Me.lblDOBValue.AutoSize = True
-        Me.lblDOBValue.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.lblDOBValue.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.lblDOBValue.Location = New System.Drawing.Point(250, 305)
-        Me.lblDOBValue.Name = "lblDOBValue"
-        Me.lblDOBValue.Size = New System.Drawing.Size(80, 19)
-        Me.lblDOBValue.TabIndex = 12
-        Me.lblDOBValue.Text = "Not on file"
-        '
-        'lblDOB
-        '
-        Me.lblDOB.AutoSize = True
-        Me.lblDOB.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.lblDOB.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.lblDOB.Location = New System.Drawing.Point(40, 305)
-        Me.lblDOB.Name = "lblDOB"
-        Me.lblDOB.Size = New System.Drawing.Size(95, 19)
-        Me.lblDOB.TabIndex = 11
-        Me.lblDOB.Text = "Date of Birth:"
-        '
-        'lblCourseValue
-        '
-        Me.lblCourseValue.AutoSize = True
-        Me.lblCourseValue.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.lblCourseValue.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.lblCourseValue.Location = New System.Drawing.Point(250, 265)
-        Me.lblCourseValue.Name = "lblCourseValue"
-        Me.lblCourseValue.Size = New System.Drawing.Size(114, 19)
-        Me.lblCourseValue.TabIndex = 10
-        Me.lblCourseValue.Text = "Not Registered"
-        '
-        'lblCourse
-        '
-        Me.lblCourse.AutoSize = True
-        Me.lblCourse.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.lblCourse.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.lblCourse.Location = New System.Drawing.Point(40, 265)
-        Me.lblCourse.Name = "lblCourse"
-        Me.lblCourse.Size = New System.Drawing.Size(118, 19)
-        Me.lblCourse.TabIndex = 9
-        Me.lblCourse.Text = "Course/Program:"
-        '
-        'lblPhoneValue
-        '
-        Me.lblPhoneValue.AutoSize = True
-        Me.lblPhoneValue.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.lblPhoneValue.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.lblPhoneValue.Location = New System.Drawing.Point(250, 225)
-        Me.lblPhoneValue.Name = "lblPhoneValue"
-        Me.lblPhoneValue.Size = New System.Drawing.Size(103, 19)
-        Me.lblPhoneValue.TabIndex = 8
-        Me.lblPhoneValue.Text = "Not provided"
-        '
-        'lblPhone
-        '
-        Me.lblPhone.AutoSize = True
-        Me.lblPhone.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.lblPhone.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.lblPhone.Location = New System.Drawing.Point(40, 225)
-        Me.lblPhone.Name = "lblPhone"
-        Me.lblPhone.Size = New System.Drawing.Size(108, 19)
-        Me.lblPhone.TabIndex = 7
-        Me.lblPhone.Text = "Phone Number:"
-        '
-        'lblEmailValue
-        '
-        Me.lblEmailValue.AutoSize = True
-        Me.lblEmailValue.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.lblEmailValue.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.lblEmailValue.Location = New System.Drawing.Point(250, 185)
-        Me.lblEmailValue.Name = "lblEmailValue"
-        Me.lblEmailValue.Size = New System.Drawing.Size(103, 19)
-        Me.lblEmailValue.TabIndex = 6
-        Me.lblEmailValue.Text = "Not provided"
-        '
-        'lblEmail
-        '
-        Me.lblEmail.AutoSize = True
-        Me.lblEmail.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.lblEmail.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.lblEmail.Location = New System.Drawing.Point(40, 185)
-        Me.lblEmail.Name = "lblEmail"
-        Me.lblEmail.Size = New System.Drawing.Size(103, 19)
-        Me.lblEmail.TabIndex = 5
-        Me.lblEmail.Text = "Email Address:"
-        '
-        'lblNameValue
-        '
-        Me.lblNameValue.AutoSize = True
-        Me.lblNameValue.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.lblNameValue.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.lblNameValue.Location = New System.Drawing.Point(250, 145)
-        Me.lblNameValue.Name = "lblNameValue"
-        Me.lblNameValue.Size = New System.Drawing.Size(119, 21)
-        Me.lblNameValue.TabIndex = 4
-        Me.lblNameValue.Text = "Student Name"
-        '
-        'lblName
-        '
-        Me.lblName.AutoSize = True
-        Me.lblName.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.lblName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.lblName.Location = New System.Drawing.Point(40, 145)
-        Me.lblName.Name = "lblName"
-        Me.lblName.Size = New System.Drawing.Size(76, 19)
-        Me.lblName.TabIndex = 3
-        Me.lblName.Text = "Full Name:"
-        '
-        'lblStudentIdValue
-        '
-        Me.lblStudentIdValue.AutoSize = True
-        Me.lblStudentIdValue.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.lblStudentIdValue.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.lblStudentIdValue.Location = New System.Drawing.Point(250, 105)
-        Me.lblStudentIdValue.Name = "lblStudentIdValue"
-        Me.lblStudentIdValue.Size = New System.Drawing.Size(100, 21)
-        Me.lblStudentIdValue.TabIndex = 2
-        Me.lblStudentIdValue.Text = "0000-0000"
-        '
-        'lblStudentId
-        '
-        Me.lblStudentId.AutoSize = True
-        Me.lblStudentId.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.lblStudentId.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.lblStudentId.Location = New System.Drawing.Point(40, 105)
-        Me.lblStudentId.Name = "lblStudentId"
-        Me.lblStudentId.Size = New System.Drawing.Size(80, 19)
-        Me.lblStudentId.TabIndex = 1
-        Me.lblStudentId.Text = "Student ID:"
-        '
-        'Label1
-        '
-        Me.Label1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold)
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(20, 20)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(1082, 50)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "📋 Personal Information"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'pnlStats
-        '
-        Me.pnlStats.BorderColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        Me.pnlStats.BorderRadius = 10
-        Me.pnlStats.BorderThickness = 1
-        Me.pnlStats.Controls.Add(Me.lblStatDaysEnrolled)
-        Me.pnlStats.Controls.Add(Me.Label17)
-        Me.pnlStats.Controls.Add(Me.lblStatOverallRate)
-        Me.pnlStats.Controls.Add(Me.Label15)
-        Me.pnlStats.Controls.Add(Me.lblStatTotalAttendance)
-        Me.pnlStats.Controls.Add(Me.Label13)
-        Me.pnlStats.Controls.Add(Me.lblStatEnrolledCourses)
-        Me.pnlStats.Controls.Add(Me.Label11)
-        Me.pnlStats.Controls.Add(Me.Label10)
-        Me.pnlStats.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlStats.Location = New System.Drawing.Point(15, 15)
-        Me.pnlStats.Name = "pnlStats"
-        Me.pnlStats.Padding = New System.Windows.Forms.Padding(20)
-        Me.pnlStats.Size = New System.Drawing.Size(1122, 120)
-        Me.pnlStats.TabIndex = 0
-        '
-        'lblStatDaysEnrolled
-        '
-        Me.lblStatDaysEnrolled.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold)
-        Me.lblStatDaysEnrolled.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.lblStatDaysEnrolled.Location = New System.Drawing.Point(850, 45)
-        Me.lblStatDaysEnrolled.Name = "lblStatDaysEnrolled"
-        Me.lblStatDaysEnrolled.Size = New System.Drawing.Size(100, 30)
-        Me.lblStatDaysEnrolled.TabIndex = 8
-        Me.lblStatDaysEnrolled.Text = "0"
-        Me.lblStatDaysEnrolled.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label17
-        '
-        Me.Label17.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Label17.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Label17.Location = New System.Drawing.Point(850, 75)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(100, 20)
-        Me.Label17.TabIndex = 7
-        Me.Label17.Text = "Days Enrolled"
-        Me.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lblStatOverallRate
-        '
-        Me.lblStatOverallRate.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold)
-        Me.lblStatOverallRate.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.lblStatOverallRate.Location = New System.Drawing.Point(600, 45)
-        Me.lblStatOverallRate.Name = "lblStatOverallRate"
-        Me.lblStatOverallRate.Size = New System.Drawing.Size(120, 30)
-        Me.lblStatOverallRate.TabIndex = 6
-        Me.lblStatOverallRate.Text = "0%"
-        Me.lblStatOverallRate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label15
-        '
-        Me.Label15.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Label15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Label15.Location = New System.Drawing.Point(600, 75)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(120, 20)
-        Me.Label15.TabIndex = 5
-        Me.Label15.Text = "Overall Rate"
-        Me.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lblStatTotalAttendance
-        '
-        Me.lblStatTotalAttendance.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold)
-        Me.lblStatTotalAttendance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.lblStatTotalAttendance.Location = New System.Drawing.Point(350, 45)
-        Me.lblStatTotalAttendance.Name = "lblStatTotalAttendance"
-        Me.lblStatTotalAttendance.Size = New System.Drawing.Size(120, 30)
-        Me.lblStatTotalAttendance.TabIndex = 4
-        Me.lblStatTotalAttendance.Text = "0"
-        Me.lblStatTotalAttendance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label13
-        '
-        Me.Label13.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Label13.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Label13.Location = New System.Drawing.Point(350, 75)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(120, 20)
-        Me.Label13.TabIndex = 3
-        Me.Label13.Text = "Total Attendance"
-        Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lblStatEnrolledCourses
-        '
-        Me.lblStatEnrolledCourses.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold)
-        Me.lblStatEnrolledCourses.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.lblStatEnrolledCourses.Location = New System.Drawing.Point(100, 45)
-        Me.lblStatEnrolledCourses.Name = "lblStatEnrolledCourses"
-        Me.lblStatEnrolledCourses.Size = New System.Drawing.Size(120, 30)
-        Me.lblStatEnrolledCourses.TabIndex = 2
-        Me.lblStatEnrolledCourses.Text = "0"
-        Me.lblStatEnrolledCourses.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label11
-        '
-        Me.Label11.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Label11.Location = New System.Drawing.Point(100, 75)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(120, 20)
-        Me.Label11.TabIndex = 1
-        Me.Label11.Text = "Enrolled Courses"
-        Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label10
-        '
-        Me.Label10.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label10.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label10.Location = New System.Drawing.Point(20, 20)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(1082, 25)
-        Me.Label10.TabIndex = 0
-        Me.Label10.Text = "📊 Quick Statistics"
-        Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'tabAttendance
-        '
-        Me.tabAttendance.BackColor = System.Drawing.Color.White
-        Me.tabAttendance.Controls.Add(Me.pnlAttendanceContent)
-        Me.tabAttendance.Controls.Add(Me.pnlAttendanceStats)
-        Me.tabAttendance.Controls.Add(Me.pnlAttendanceControls)
-        Me.tabAttendance.Location = New System.Drawing.Point(4, 54)
-        Me.tabAttendance.Name = "tabAttendance"
-        Me.tabAttendance.Padding = New System.Windows.Forms.Padding(15)
-        Me.tabAttendance.Size = New System.Drawing.Size(1152, 602)
-        Me.tabAttendance.TabIndex = 1
-        Me.tabAttendance.Text = "📅 My Attendance"
-        '
-        'pnlAttendanceContent
-        '
-        Me.pnlAttendanceContent.Controls.Add(Me.dgvAttendance)
-        Me.pnlAttendanceContent.Controls.Add(Me.flpCourseAttendance)
-        Me.pnlAttendanceContent.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlAttendanceContent.Location = New System.Drawing.Point(15, 245)
-        Me.pnlAttendanceContent.Name = "pnlAttendanceContent"
-        Me.pnlAttendanceContent.Size = New System.Drawing.Size(1122, 342)
-        Me.pnlAttendanceContent.TabIndex = 2
-        '
-        'dgvAttendance
-        '
-        Me.dgvAttendance.AllowUserToAddRows = False
-        Me.dgvAttendance.AllowUserToDeleteRows = False
-        Me.dgvAttendance.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgvAttendance.Location = New System.Drawing.Point(0, 160)
-        Me.dgvAttendance.Name = "dgvAttendance"
-        Me.dgvAttendance.ReadOnly = True
-        Me.dgvAttendance.RowHeadersVisible = False
-        Me.dgvAttendance.RowTemplate.Height = 35
-        Me.dgvAttendance.Size = New System.Drawing.Size(1122, 182)
-        Me.dgvAttendance.TabIndex = 1
-        '
-        'flpCourseAttendance
-        '
-        Me.flpCourseAttendance.AutoScroll = True
-        Me.flpCourseAttendance.Dock = System.Windows.Forms.DockStyle.Top
-        Me.flpCourseAttendance.Location = New System.Drawing.Point(0, 0)
-        Me.flpCourseAttendance.Name = "flpCourseAttendance"
-        Me.flpCourseAttendance.Padding = New System.Windows.Forms.Padding(5)
-        Me.flpCourseAttendance.Size = New System.Drawing.Size(1122, 160)
-        Me.flpCourseAttendance.TabIndex = 0
-        '
-        'pnlAttendanceStats
-        '
-        Me.pnlAttendanceStats.BorderColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        Me.pnlAttendanceStats.BorderRadius = 10
-        Me.pnlAttendanceStats.BorderThickness = 1
-        Me.pnlAttendanceStats.Controls.Add(Me.pbAttendanceRate)
-        Me.pnlAttendanceStats.Controls.Add(Me.lblAttendanceRate)
-        Me.pnlAttendanceStats.Controls.Add(Me.Label26)
-        Me.pnlAttendanceStats.Controls.Add(Me.lblExcusedCount)
-        Me.pnlAttendanceStats.Controls.Add(Me.Label24)
-        Me.pnlAttendanceStats.Controls.Add(Me.lblLateCount)
-        Me.pnlAttendanceStats.Controls.Add(Me.Label22)
-        Me.pnlAttendanceStats.Controls.Add(Me.lblAbsentCount)
-        Me.pnlAttendanceStats.Controls.Add(Me.Label20)
-        Me.pnlAttendanceStats.Controls.Add(Me.lblPresentCount)
-        Me.pnlAttendanceStats.Controls.Add(Me.Label18)
-        Me.pnlAttendanceStats.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlAttendanceStats.Location = New System.Drawing.Point(15, 115)
-        Me.pnlAttendanceStats.Name = "pnlAttendanceStats"
-        Me.pnlAttendanceStats.Padding = New System.Windows.Forms.Padding(20)
-        Me.pnlAttendanceStats.Size = New System.Drawing.Size(1122, 130)
-        Me.pnlAttendanceStats.TabIndex = 1
-        '
-        'pbAttendanceRate
-        '
-        Me.pbAttendanceRate.BorderRadius = 5
-        Me.pbAttendanceRate.Location = New System.Drawing.Point(750, 75)
-        Me.pbAttendanceRate.Name = "pbAttendanceRate"
-        Me.pbAttendanceRate.Size = New System.Drawing.Size(200, 20)
-        Me.pbAttendanceRate.TabIndex = 10
-        '
-        'lblAttendanceRate
-        '
-        Me.lblAttendanceRate.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold)
-        Me.lblAttendanceRate.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.lblAttendanceRate.Location = New System.Drawing.Point(750, 45)
-        Me.lblAttendanceRate.Name = "lblAttendanceRate"
-        Me.lblAttendanceRate.Size = New System.Drawing.Size(200, 25)
-        Me.lblAttendanceRate.TabIndex = 9
-        Me.lblAttendanceRate.Text = "0%"
-        Me.lblAttendanceRate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label26
-        '
-        Me.Label26.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Label26.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Label26.Location = New System.Drawing.Point(750, 100)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(200, 20)
-        Me.Label26.TabIndex = 8
-        Me.Label26.Text = "Attendance Rate"
-        Me.Label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lblExcusedCount
-        '
-        Me.lblExcusedCount.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold)
-        Me.lblExcusedCount.ForeColor = System.Drawing.Color.FromArgb(CType(CType(155, Byte), Integer), CType(CType(89, Byte), Integer), CType(CType(182, Byte), Integer))
-        Me.lblExcusedCount.Location = New System.Drawing.Point(600, 45)
-        Me.lblExcusedCount.Name = "lblExcusedCount"
-        Me.lblExcusedCount.Size = New System.Drawing.Size(100, 30)
-        Me.lblExcusedCount.TabIndex = 7
-        Me.lblExcusedCount.Text = "0"
-        Me.lblExcusedCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label24
-        '
-        Me.Label24.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Label24.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Label24.Location = New System.Drawing.Point(600, 75)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(100, 20)
-        Me.Label24.TabIndex = 6
-        Me.Label24.Text = "Excused"
-        Me.Label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lblLateCount
-        '
-        Me.lblLateCount.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold)
-        Me.lblLateCount.ForeColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(156, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.lblLateCount.Location = New System.Drawing.Point(450, 45)
-        Me.lblLateCount.Name = "lblLateCount"
-        Me.lblLateCount.Size = New System.Drawing.Size(100, 30)
-        Me.lblLateCount.TabIndex = 5
-        Me.lblLateCount.Text = "0"
-        Me.lblLateCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label22
-        '
-        Me.Label22.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Label22.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Label22.Location = New System.Drawing.Point(450, 75)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(100, 20)
-        Me.Label22.TabIndex = 4
-        Me.Label22.Text = "Late"
-        Me.Label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lblAbsentCount
-        '
-        Me.lblAbsentCount.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold)
-        Me.lblAbsentCount.ForeColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.lblAbsentCount.Location = New System.Drawing.Point(300, 45)
-        Me.lblAbsentCount.Name = "lblAbsentCount"
-        Me.lblAbsentCount.Size = New System.Drawing.Size(100, 30)
-        Me.lblAbsentCount.TabIndex = 3
-        Me.lblAbsentCount.Text = "0"
-        Me.lblAbsentCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label20
-        '
-        Me.Label20.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Label20.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Label20.Location = New System.Drawing.Point(300, 75)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(100, 20)
-        Me.Label20.TabIndex = 2
-        Me.Label20.Text = "Absent"
-        Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lblPresentCount
-        '
-        Me.lblPresentCount.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold)
-        Me.lblPresentCount.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.lblPresentCount.Location = New System.Drawing.Point(150, 45)
-        Me.lblPresentCount.Name = "lblPresentCount"
-        Me.lblPresentCount.Size = New System.Drawing.Size(100, 30)
-        Me.lblPresentCount.TabIndex = 1
-        Me.lblPresentCount.Text = "0"
-        Me.lblPresentCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label18
-        '
-        Me.Label18.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Label18.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Label18.Location = New System.Drawing.Point(150, 75)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(100, 20)
-        Me.Label18.TabIndex = 0
-        Me.Label18.Text = "Present"
-        Me.Label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'pnlAttendanceControls
-        '
-        Me.pnlAttendanceControls.BorderColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        Me.pnlAttendanceControls.BorderRadius = 10
-        Me.pnlAttendanceControls.BorderThickness = 1
-        Me.pnlAttendanceControls.Controls.Add(Me.lblAttendanceCount)
-        Me.pnlAttendanceControls.Controls.Add(Me.btnResetFilter)
-        Me.pnlAttendanceControls.Controls.Add(Me.btnApplyFilter)
-        Me.pnlAttendanceControls.Controls.Add(Me.dtpEndDate)
-        Me.pnlAttendanceControls.Controls.Add(Me.Label9)
-        Me.pnlAttendanceControls.Controls.Add(Me.dtpStartDate)
-        Me.pnlAttendanceControls.Controls.Add(Me.Label8)
-        Me.pnlAttendanceControls.Controls.Add(Me.Label2)
-        Me.pnlAttendanceControls.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlAttendanceControls.Location = New System.Drawing.Point(15, 15)
-        Me.pnlAttendanceControls.Name = "pnlAttendanceControls"
-        Me.pnlAttendanceControls.Padding = New System.Windows.Forms.Padding(20)
-        Me.pnlAttendanceControls.Size = New System.Drawing.Size(1122, 100)
-        Me.pnlAttendanceControls.TabIndex = 0
-        '
-        'lblAttendanceCount
-        '
-        Me.lblAttendanceCount.AutoSize = True
-        Me.lblAttendanceCount.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.lblAttendanceCount.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.lblAttendanceCount.Location = New System.Drawing.Point(850, 60)
-        Me.lblAttendanceCount.Name = "lblAttendanceCount"
-        Me.lblAttendanceCount.Size = New System.Drawing.Size(85, 19)
-        Me.lblAttendanceCount.TabIndex = 7
-        Me.lblAttendanceCount.Text = "Records: 0"
-        '
-        'btnResetFilter
-        '
-        Me.btnResetFilter.BorderRadius = 8
-        Me.btnResetFilter.FillColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(165, Byte), Integer), CType(CType(166, Byte), Integer))
-        Me.btnResetFilter.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.btnResetFilter.ForeColor = System.Drawing.Color.White
-        Me.btnResetFilter.Location = New System.Drawing.Point(720, 50)
-        Me.btnResetFilter.Name = "btnResetFilter"
-        Me.btnResetFilter.Size = New System.Drawing.Size(100, 40)
-        Me.btnResetFilter.TabIndex = 6
-        Me.btnResetFilter.Text = "Reset"
-        '
-        'btnApplyFilter
-        '
-        Me.btnApplyFilter.BorderRadius = 8
-        Me.btnApplyFilter.FillColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.btnApplyFilter.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.btnApplyFilter.ForeColor = System.Drawing.Color.White
-        Me.btnApplyFilter.Location = New System.Drawing.Point(600, 50)
-        Me.btnApplyFilter.Name = "btnApplyFilter"
-        Me.btnApplyFilter.Size = New System.Drawing.Size(100, 40)
-        Me.btnApplyFilter.TabIndex = 5
-        Me.btnApplyFilter.Text = "Apply"
-        '
-        'dtpEndDate
-        '
-        Me.dtpEndDate.BorderRadius = 8
-        Me.dtpEndDate.Checked = True
-        Me.dtpEndDate.FillColor = System.Drawing.Color.White
-        Me.dtpEndDate.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short
-        Me.dtpEndDate.Location = New System.Drawing.Point(420, 50)
-        Me.dtpEndDate.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
-        Me.dtpEndDate.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
-        Me.dtpEndDate.Name = "dtpEndDate"
-        Me.dtpEndDate.Size = New System.Drawing.Size(150, 40)
-        Me.dtpEndDate.TabIndex = 4
-        Me.dtpEndDate.Value = New Date(2025, 10, 20, 0, 0, 0, 0)
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Label9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Label9.Location = New System.Drawing.Point(340, 60)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(23, 15)
-        Me.Label9.TabIndex = 3
-        Me.Label9.Text = "To:"
-        '
-        'dtpStartDate
-        '
-        Me.dtpStartDate.BorderRadius = 8
-        Me.dtpStartDate.Checked = True
-        Me.dtpStartDate.FillColor = System.Drawing.Color.White
-        Me.dtpStartDate.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short
-        Me.dtpStartDate.Location = New System.Drawing.Point(170, 50)
-        Me.dtpStartDate.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
-        Me.dtpStartDate.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
-        Me.dtpStartDate.Name = "dtpStartDate"
-        Me.dtpStartDate.Size = New System.Drawing.Size(150, 40)
-        Me.dtpStartDate.TabIndex = 2
-        Me.dtpStartDate.Value = New Date(2025, 10, 20, 0, 0, 0, 0)
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Label8.Location = New System.Drawing.Point(80, 60)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(38, 15)
-        Me.Label8.TabIndex = 1
-        Me.Label8.Text = "From:"
-        '
-        'Label2
-        '
-        Me.Label2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(20, 20)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(1082, 25)
-        Me.Label2.TabIndex = 0
-        Me.Label2.Text = "📅 Filter by Date Range"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'tabCourses
-        '
-        Me.tabCourses.BackColor = System.Drawing.Color.White
-        Me.tabCourses.Controls.Add(Me.dgvCourses)
-        Me.tabCourses.Controls.Add(Me.pnlCoursesHeader)
-        Me.tabCourses.Location = New System.Drawing.Point(4, 54)
-        Me.tabCourses.Name = "tabCourses"
-        Me.tabCourses.Padding = New System.Windows.Forms.Padding(15)
-        Me.tabCourses.Size = New System.Drawing.Size(1152, 602)
-        Me.tabCourses.TabIndex = 2
-        Me.tabCourses.Text = "📚 My Courses"
-        '
-        'dgvCourses
-        '
-        Me.dgvCourses.AllowUserToAddRows = False
-        Me.dgvCourses.AllowUserToDeleteRows = False
-        Me.dgvCourses.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgvCourses.Location = New System.Drawing.Point(15, 95)
-        Me.dgvCourses.Name = "dgvCourses"
-        Me.dgvCourses.ReadOnly = True
-        Me.dgvCourses.RowHeadersVisible = False
-        Me.dgvCourses.RowTemplate.Height = 35
-        Me.dgvCourses.Size = New System.Drawing.Size(1122, 492)
-        Me.dgvCourses.TabIndex = 1
-        'pnlCoursesHeader
-        '
-        Me.pnlCoursesHeader.BorderColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        Me.pnlCoursesHeader.BorderRadius = 10
-        Me.pnlCoursesHeader.BorderThickness = 1
-        Me.pnlCoursesHeader.Controls.Add(Me.lblCoursesCount)
-        Me.pnlCoursesHeader.Controls.Add(Me.Label3)
-        Me.pnlCoursesHeader.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlCoursesHeader.Location = New System.Drawing.Point(15, 15)
-        Me.pnlCoursesHeader.Name = "pnlCoursesHeader"
-        Me.pnlCoursesHeader.Padding = New System.Windows.Forms.Padding(20)
-        Me.pnlCoursesHeader.Size = New System.Drawing.Size(1122, 80)
-        Me.pnlCoursesHeader.TabIndex = 0
-        '
-        'lblCoursesCount
-        '
-        Me.lblCoursesCount.AutoSize = True
-        Me.lblCoursesCount.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.lblCoursesCount.ForeColor = Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.lblCoursesCount.Location = New System.Drawing.Point(23, 50)
-        Me.lblCoursesCount.Name = "lblCoursesCount"
-        Me.lblCoursesCount.Size = New System.Drawing.Size(138, 19)
-        Me.lblCoursesCount.TabIndex = 1
-        Me.lblCoursesCount.Text = "Enrolled Courses: 0"
-        '
-        'Label3
-        '
-        Me.Label3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(20, 20)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(1082, 25)
-        Me.Label3.TabIndex = 0
-        Me.Label3.Text = "📚 Your Enrolled Courses"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'tabReports
-        '
-        Me.tabReports.BackColor = System.Drawing.Color.White
-        Me.tabReports.Controls.Add(Me.pnlReportsContent)
-        Me.tabReports.Location = New System.Drawing.Point(4, 54)
-        Me.tabReports.Name = "tabReports"
-        Me.tabReports.Padding = New System.Windows.Forms.Padding(15)
-        Me.tabReports.Size = New System.Drawing.Size(1152, 602)
-        Me.tabReports.TabIndex = 3
-        Me.tabReports.Text = "📊 Reports"
-        '
-        'pnlReportsContent
-        '
-        Me.pnlReportsContent.BorderColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        Me.pnlReportsContent.BorderRadius = 10
-        Me.pnlReportsContent.BorderThickness = 1
-        Me.pnlReportsContent.Controls.Add(Me.Label28)
-        Me.pnlReportsContent.Controls.Add(Me.Label27)
-        Me.pnlReportsContent.Controls.Add(Me.btnPrintReport)
-        Me.pnlReportsContent.Controls.Add(Me.btnExportReport)
-        Me.pnlReportsContent.Controls.Add(Me.Label7)
-        Me.pnlReportsContent.Controls.Add(Me.Label6)
-        Me.pnlReportsContent.Controls.Add(Me.Label5)
-        Me.pnlReportsContent.Controls.Add(Me.Label4)
-        Me.pnlReportsContent.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlReportsContent.Location = New System.Drawing.Point(15, 15)
-        Me.pnlReportsContent.Name = "pnlReportsContent"
-        Me.pnlReportsContent.Padding = New System.Windows.Forms.Padding(20)
-        Me.pnlReportsContent.Size = New System.Drawing.Size(1122, 572)
-        Me.pnlReportsContent.TabIndex = 0
-        '
-        'Label28
-        '
-        Me.Label28.AutoSize = True
-        Me.Label28.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Label28.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Label28.Location = New System.Drawing.Point(120, 280)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(293, 15)
-        Me.Label28.TabIndex = 7
-        Me.Label28.Text = "Print or preview your attendance report for records"
-        '
-        'Label27
-        '
-        Me.Label27.AutoSize = True
-        Me.Label27.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Label27.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Label27.Location = New System.Drawing.Point(120, 195)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(341, 15)
-        Me.Label27.TabIndex = 6
-        Me.Label27.Text = "Export your attendance data to CSV or HTML for external use"
-        '
-        'btnPrintReport
-        '
-        Me.btnPrintReport.BorderRadius = 8
-        Me.btnPrintReport.FillColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.btnPrintReport.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.btnPrintReport.ForeColor = System.Drawing.Color.White
-        Me.btnPrintReport.Location = New System.Drawing.Point(100, 310)
-        Me.btnPrintReport.Name = "btnPrintReport"
-        Me.btnPrintReport.Size = New System.Drawing.Size(200, 50)
-        Me.btnPrintReport.TabIndex = 5
-        Me.btnPrintReport.Text = "🖨️ Print Report"
-        '
-        'btnExportReport
-        '
-        Me.btnExportReport.BorderRadius = 8
-        Me.btnExportReport.FillColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.btnExportReport.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.btnExportReport.ForeColor = System.Drawing.Color.White
-        Me.btnExportReport.Location = New System.Drawing.Point(100, 225)
-        Me.btnExportReport.Name = "btnExportReport"
-        Me.btnExportReport.Size = New System.Drawing.Size(200, 50)
-        Me.btnExportReport.TabIndex = 4
-        Me.btnExportReport.Text = "📥 Export Report"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Label7.Location = New System.Drawing.Point(40, 130)
-        Me.Label7.MaximumSize = New System.Drawing.Size(600, 0)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(583, 30)
-        Me.Label7.TabIndex = 3
-        Me.Label7.Text = "Generate and download reports of your attendance data. You can export to CSV or HTML format, or print directly for physical records."
-        '
-        'Label6
-        '
-        Me.Label6.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label6.Location = New System.Drawing.Point(20, 95)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(1082, 25)
-        Me.Label6.TabIndex = 2
-        Me.Label6.Text = "Generate Your Reports"
-        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Label5.Location = New System.Drawing.Point(40, 60)
-        Me.Label5.MaximumSize = New System.Drawing.Size(600, 0)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(565, 30)
-        Me.Label5.TabIndex = 1
-        Me.Label5.Text = "Access and download your attendance reports. Reports include detailed attendance records, statistics, and summaries based on the date range selected in the Attendance tab."
-        '
-        'Label4
-        '
-        Me.Label4.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold)
-        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(20, 20)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(1082, 30)
-        Me.Label4.TabIndex = 0
-        Me.Label4.Text = "📊 Attendance Reports"
-        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'pnlHeader
-        '
-        Me.pnlHeader.BackColor = System.Drawing.Color.White
-        Me.pnlHeader.Controls.Add(Me.btnRefreshAll)
-        Me.pnlHeader.Controls.Add(Me.lblSubtitle)
-        Me.pnlHeader.Controls.Add(Me.lblTitle)
-        Me.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlHeader.Location = New System.Drawing.Point(20, 20)
-        Me.pnlHeader.Name = "pnlHeader"
-        Me.pnlHeader.Size = New System.Drawing.Size(1160, 100)
-        Me.pnlHeader.TabIndex = 0
-        '
-        'btnRefreshAll
-        '
-        Me.btnRefreshAll.BorderRadius = 8
-        Me.btnRefreshAll.FillColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.btnRefreshAll.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.btnRefreshAll.ForeColor = System.Drawing.Color.White
-        Me.btnRefreshAll.Location = New System.Drawing.Point(1000, 30)
-        Me.btnRefreshAll.Name = "btnRefreshAll"
-        Me.btnRefreshAll.Size = New System.Drawing.Size(140, 45)
-        Me.btnRefreshAll.TabIndex = 2
-        Me.btnRefreshAll.Text = "🔄 Refresh All"
-        '
-        'lblSubtitle
-        '
-        Me.lblSubtitle.AutoSize = True
-        Me.lblSubtitle.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.lblSubtitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.lblSubtitle.Location = New System.Drawing.Point(20, 55)
-        Me.lblSubtitle.Name = "lblSubtitle"
-        Me.lblSubtitle.Size = New System.Drawing.Size(380, 19)
-        Me.lblSubtitle.TabIndex = 1
-        Me.lblSubtitle.Text = "View your profile, attendance records, courses, and reports"
-        '
-        'lblTitle
-        '
-        Me.lblTitle.AutoSize = True
-        Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold)
-        Me.lblTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.lblTitle.Location = New System.Drawing.Point(15, 20)
-        Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(179, 32)
-        Me.lblTitle.TabIndex = 0
-        Me.lblTitle.Text = "Student Portal"
-        '
-        'StudentPortalForm
-        '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1200, 800)
-        Me.Controls.Add(Me.pnlMain)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "StudentPortalForm"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Student Portal"
-        Me.pnlMain.ResumeLayout(False)
-        Me.tabControl.ResumeLayout(False)
-        Me.tabProfile.ResumeLayout(False)
-        Me.pnlProfile.ResumeLayout(False)
-        Me.pnlProfile.PerformLayout()
-        Me.pnlStats.ResumeLayout(False)
-        Me.tabAttendance.ResumeLayout(False)
-        Me.pnlAttendanceContent.ResumeLayout(False)
-        CType(Me.dgvAttendance, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.pnlAttendanceStats.ResumeLayout(False)
-        Me.pnlAttendanceControls.ResumeLayout(False)
-        Me.pnlAttendanceControls.PerformLayout()
-        Me.tabCourses.ResumeLayout(False)
-        CType(Me.dgvCourses, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.pnlCoursesHeader.ResumeLayout(False)
-        Me.pnlCoursesHeader.PerformLayout()
-        Me.tabReports.ResumeLayout(False)
-        Me.pnlReportsContent.ResumeLayout(False)
-        Me.pnlReportsContent.PerformLayout()
-        Me.pnlHeader.ResumeLayout(False)
-        Me.pnlHeader.PerformLayout()
-        Me.ResumeLayout(False)
+        components = New ComponentModel.Container()
+        Dim CustomizableEdges33 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges34 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges19 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges20 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges17 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim CustomizableEdges21 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges22 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges27 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges28 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges23 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges24 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges25 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges26 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges31 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges32 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges29 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges30 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Guna2Elipse1 = New Guna.UI2.WinForms.Guna2Elipse(components)
+        pnlMain = New Guna.UI2.WinForms.Guna2Panel()
+        tabControl = New Guna.UI2.WinForms.Guna2TabControl()
+        tabProfile = New TabPage()
+        pnlProfile = New Guna.UI2.WinForms.Guna2Panel()
+        lblStatusValue = New Label()
+        lblStatus = New Label()
+        lblEnrollmentValue = New Label()
+        lblEnrollment = New Label()
+        lblDOBValue = New Label()
+        lblDOB = New Label()
+        lblCourseValue = New Label()
+        lblCourse = New Label()
+        lblPhoneValue = New Label()
+        lblPhone = New Label()
+        lblEmailValue = New Label()
+        lblEmail = New Label()
+        lblNameValue = New Label()
+        lblName = New Label()
+        lblStudentIdValue = New Label()
+        lblStudentId = New Label()
+        Label1 = New Label()
+        pnlStats = New Guna.UI2.WinForms.Guna2Panel()
+        lblStatDaysEnrolled = New Label()
+        Label17 = New Label()
+        lblStatOverallRate = New Label()
+        Label15 = New Label()
+        lblStatTotalAttendance = New Label()
+        Label13 = New Label()
+        lblStatEnrolledCourses = New Label()
+        Label11 = New Label()
+        Label10 = New Label()
+        tabAttendance = New TabPage()
+        pnlAttendanceContent = New Guna.UI2.WinForms.Guna2Panel()
+        dgvAttendance = New Guna.UI2.WinForms.Guna2DataGridView()
+        flpCourseAttendance = New FlowLayoutPanel()
+        pnlAttendanceStats = New Guna.UI2.WinForms.Guna2Panel()
+        pbAttendanceRate = New Guna.UI2.WinForms.Guna2ProgressBar()
+        lblAttendanceRate = New Label()
+        Label26 = New Label()
+        lblExcusedCount = New Label()
+        Label24 = New Label()
+        lblLateCount = New Label()
+        Label22 = New Label()
+        lblAbsentCount = New Label()
+        Label20 = New Label()
+        lblPresentCount = New Label()
+        Label18 = New Label()
+        pnlAttendanceControls = New Guna.UI2.WinForms.Guna2Panel()
+        lblAttendanceCount = New Label()
+        btnResetFilter = New Guna.UI2.WinForms.Guna2Button()
+        btnApplyFilter = New Guna.UI2.WinForms.Guna2Button()
+        dtpEndDate = New Guna.UI2.WinForms.Guna2DateTimePicker()
+        Label9 = New Label()
+        dtpStartDate = New Guna.UI2.WinForms.Guna2DateTimePicker()
+        Label8 = New Label()
+        Label2 = New Label()
+        tabCourses = New TabPage()
+        dgvCourses = New Guna.UI2.WinForms.Guna2DataGridView()
+        pnlCoursesHeader = New Guna.UI2.WinForms.Guna2Panel()
+        lblCoursesCount = New Label()
+        Label3 = New Label()
+        tabReports = New TabPage()
+        pnlReportsContent = New Guna.UI2.WinForms.Guna2Panel()
+        Label28 = New Label()
+        Label27 = New Label()
+        btnPrintReport = New Guna.UI2.WinForms.Guna2Button()
+        btnExportReport = New Guna.UI2.WinForms.Guna2Button()
+        Label7 = New Label()
+        Label6 = New Label()
+        Label5 = New Label()
+        Label4 = New Label()
+        pnlHeader = New Guna.UI2.WinForms.Guna2Panel()
+        btnRefreshAll = New Guna.UI2.WinForms.Guna2Button()
+        lblSubtitle = New Label()
+        lblTitle = New Label()
+        pnlMain.SuspendLayout()
+        tabControl.SuspendLayout()
+        tabProfile.SuspendLayout()
+        pnlProfile.SuspendLayout()
+        pnlStats.SuspendLayout()
+        tabAttendance.SuspendLayout()
+        pnlAttendanceContent.SuspendLayout()
+        CType(dgvAttendance, ComponentModel.ISupportInitialize).BeginInit()
+        pnlAttendanceStats.SuspendLayout()
+        pnlAttendanceControls.SuspendLayout()
+        tabCourses.SuspendLayout()
+        CType(dgvCourses, ComponentModel.ISupportInitialize).BeginInit()
+        pnlCoursesHeader.SuspendLayout()
+        tabReports.SuspendLayout()
+        pnlReportsContent.SuspendLayout()
+        pnlHeader.SuspendLayout()
+        SuspendLayout()
+        ' 
+        ' Guna2Elipse1
+        ' 
+        Guna2Elipse1.BorderRadius = 15
+        Guna2Elipse1.TargetControl = Me
+        ' 
+        ' pnlMain
+        ' 
+        pnlMain.BackColor = Color.FromArgb(CByte(244), CByte(246), CByte(247))
+        pnlMain.Controls.Add(tabControl)
+        pnlMain.Controls.Add(pnlHeader)
+        pnlMain.CustomizableEdges = CustomizableEdges33
+        pnlMain.Dock = DockStyle.Fill
+        pnlMain.Location = New Point(0, 0)
+        pnlMain.Margin = New Padding(4, 3, 4, 3)
+        pnlMain.Name = "pnlMain"
+        pnlMain.Padding = New Padding(23)
+        pnlMain.ShadowDecoration.CustomizableEdges = CustomizableEdges34
+        pnlMain.Size = New Size(1400, 923)
+        pnlMain.TabIndex = 0
+        ' 
+        ' tabControl
+        ' 
+        tabControl.Anchor = AnchorStyles.None
+        tabControl.Controls.Add(tabProfile)
+        tabControl.Controls.Add(tabAttendance)
+        tabControl.Controls.Add(tabCourses)
+        tabControl.Controls.Add(tabReports)
+        tabControl.ItemSize = New Size(200, 50)
+        tabControl.Location = New Point(23, 138)
+        tabControl.Margin = New Padding(4, 3, 4, 3)
+        tabControl.Name = "tabControl"
+        tabControl.SelectedIndex = 0
+        tabControl.Size = New Size(1354, 762)
+        tabControl.TabButtonHoverState.BorderColor = Color.Empty
+        tabControl.TabButtonHoverState.FillColor = Color.FromArgb(CByte(40), CByte(52), CByte(70))
+        tabControl.TabButtonHoverState.Font = New Font("Segoe UI Semibold", 10F)
+        tabControl.TabButtonHoverState.ForeColor = Color.White
+        tabControl.TabButtonHoverState.InnerColor = Color.FromArgb(CByte(40), CByte(52), CByte(70))
+        tabControl.TabButtonIdleState.BorderColor = Color.Empty
+        tabControl.TabButtonIdleState.FillColor = Color.FromArgb(CByte(33), CByte(42), CByte(57))
+        tabControl.TabButtonIdleState.Font = New Font("Segoe UI Semibold", 10F)
+        tabControl.TabButtonIdleState.ForeColor = Color.FromArgb(CByte(156), CByte(160), CByte(167))
+        tabControl.TabButtonIdleState.InnerColor = Color.FromArgb(CByte(33), CByte(42), CByte(57))
+        tabControl.TabButtonSelectedState.BorderColor = Color.Empty
+        tabControl.TabButtonSelectedState.FillColor = Color.FromArgb(CByte(29), CByte(37), CByte(49))
+        tabControl.TabButtonSelectedState.Font = New Font("Segoe UI Semibold", 10F)
+        tabControl.TabButtonSelectedState.ForeColor = Color.White
+        tabControl.TabButtonSelectedState.InnerColor = Color.FromArgb(CByte(76), CByte(132), CByte(255))
+        tabControl.TabButtonSize = New Size(200, 50)
+        tabControl.TabIndex = 1
+        tabControl.TabMenuBackColor = Color.FromArgb(CByte(33), CByte(42), CByte(57))
+        tabControl.TabMenuOrientation = Guna.UI2.WinForms.TabMenuOrientation.HorizontalTop
+        ' 
+        ' tabProfile
+        ' 
+        tabProfile.BackColor = Color.White
+        tabProfile.Controls.Add(pnlProfile)
+        tabProfile.Controls.Add(pnlStats)
+        tabProfile.Location = New Point(4, 54)
+        tabProfile.Margin = New Padding(4, 3, 4, 3)
+        tabProfile.Name = "tabProfile"
+        tabProfile.Padding = New Padding(18, 17, 18, 17)
+        tabProfile.Size = New Size(1346, 704)
+        tabProfile.TabIndex = 0
+        tabProfile.Text = "👤 My Profile"
+        ' 
+        ' pnlProfile
+        ' 
+        pnlProfile.BorderColor = Color.FromArgb(CByte(213), CByte(218), CByte(223))
+        pnlProfile.BorderRadius = 10
+        pnlProfile.BorderThickness = 1
+        pnlProfile.Controls.Add(lblStatusValue)
+        pnlProfile.Controls.Add(lblStatus)
+        pnlProfile.Controls.Add(lblEnrollmentValue)
+        pnlProfile.Controls.Add(lblEnrollment)
+        pnlProfile.Controls.Add(lblDOBValue)
+        pnlProfile.Controls.Add(lblDOB)
+        pnlProfile.Controls.Add(lblCourseValue)
+        pnlProfile.Controls.Add(lblCourse)
+        pnlProfile.Controls.Add(lblPhoneValue)
+        pnlProfile.Controls.Add(lblPhone)
+        pnlProfile.Controls.Add(lblEmailValue)
+        pnlProfile.Controls.Add(lblEmail)
+        pnlProfile.Controls.Add(lblNameValue)
+        pnlProfile.Controls.Add(lblName)
+        pnlProfile.Controls.Add(lblStudentIdValue)
+        pnlProfile.Controls.Add(lblStudentId)
+        pnlProfile.Controls.Add(Label1)
+        pnlProfile.CustomizableEdges = CustomizableEdges1
+        pnlProfile.Dock = DockStyle.Fill
+        pnlProfile.Location = New Point(18, 155)
+        pnlProfile.Margin = New Padding(4, 3, 4, 3)
+        pnlProfile.Name = "pnlProfile"
+        pnlProfile.Padding = New Padding(23)
+        pnlProfile.ShadowDecoration.CustomizableEdges = CustomizableEdges2
+        pnlProfile.Size = New Size(1310, 532)
+        pnlProfile.TabIndex = 1
+        ' 
+        ' lblStatusValue
+        ' 
+        lblStatusValue.AutoSize = True
+        lblStatusValue.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
+        lblStatusValue.ForeColor = Color.FromArgb(CByte(46), CByte(139), CByte(87))
+        lblStatusValue.Location = New Point(292, 444)
+        lblStatusValue.Margin = New Padding(4, 0, 4, 0)
+        lblStatusValue.Name = "lblStatusValue"
+        lblStatusValue.Size = New Size(51, 19)
+        lblStatusValue.TabIndex = 16
+        lblStatusValue.Text = "Active"
+        ' 
+        ' lblStatus
+        ' 
+        lblStatus.AutoSize = True
+        lblStatus.Font = New Font("Segoe UI", 10F)
+        lblStatus.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
+        lblStatus.Location = New Point(47, 444)
+        lblStatus.Margin = New Padding(4, 0, 4, 0)
+        lblStatus.Name = "lblStatus"
+        lblStatus.Size = New Size(50, 19)
+        lblStatus.TabIndex = 15
+        lblStatus.Text = "Status:"
+        ' 
+        ' lblEnrollmentValue
+        ' 
+        lblEnrollmentValue.AutoSize = True
+        lblEnrollmentValue.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
+        lblEnrollmentValue.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        lblEnrollmentValue.Location = New Point(292, 398)
+        lblEnrollmentValue.Margin = New Padding(4, 0, 4, 0)
+        lblEnrollmentValue.Name = "lblEnrollmentValue"
+        lblEnrollmentValue.Size = New Size(101, 19)
+        lblEnrollmentValue.TabIndex = 14
+        lblEnrollmentValue.Text = "Not Available"
+        ' 
+        ' lblEnrollment
+        ' 
+        lblEnrollment.AutoSize = True
+        lblEnrollment.Font = New Font("Segoe UI", 10F)
+        lblEnrollment.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
+        lblEnrollment.Location = New Point(47, 398)
+        lblEnrollment.Margin = New Padding(4, 0, 4, 0)
+        lblEnrollment.Name = "lblEnrollment"
+        lblEnrollment.Size = New Size(111, 19)
+        lblEnrollment.TabIndex = 13
+        lblEnrollment.Text = "Enrollment Date:"
+        ' 
+        ' lblDOBValue
+        ' 
+        lblDOBValue.AutoSize = True
+        lblDOBValue.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
+        lblDOBValue.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        lblDOBValue.Location = New Point(292, 352)
+        lblDOBValue.Margin = New Padding(4, 0, 4, 0)
+        lblDOBValue.Name = "lblDOBValue"
+        lblDOBValue.Size = New Size(80, 19)
+        lblDOBValue.TabIndex = 12
+        lblDOBValue.Text = "Not on file"
+        ' 
+        ' lblDOB
+        ' 
+        lblDOB.AutoSize = True
+        lblDOB.Font = New Font("Segoe UI", 10F)
+        lblDOB.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
+        lblDOB.Location = New Point(47, 352)
+        lblDOB.Margin = New Padding(4, 0, 4, 0)
+        lblDOB.Name = "lblDOB"
+        lblDOB.Size = New Size(90, 19)
+        lblDOB.TabIndex = 11
+        lblDOB.Text = "Date of Birth:"
+        ' 
+        ' lblCourseValue
+        ' 
+        lblCourseValue.AutoSize = True
+        lblCourseValue.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
+        lblCourseValue.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        lblCourseValue.Location = New Point(292, 306)
+        lblCourseValue.Margin = New Padding(4, 0, 4, 0)
+        lblCourseValue.Name = "lblCourseValue"
+        lblCourseValue.Size = New Size(110, 19)
+        lblCourseValue.TabIndex = 10
+        lblCourseValue.Text = "Not Registered"
+        ' 
+        ' lblCourse
+        ' 
+        lblCourse.AutoSize = True
+        lblCourse.Font = New Font("Segoe UI", 10F)
+        lblCourse.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
+        lblCourse.Location = New Point(47, 306)
+        lblCourse.Margin = New Padding(4, 0, 4, 0)
+        lblCourse.Name = "lblCourse"
+        lblCourse.Size = New Size(113, 19)
+        lblCourse.TabIndex = 9
+        lblCourse.Text = "Course/Program:"
+        ' 
+        ' lblPhoneValue
+        ' 
+        lblPhoneValue.AutoSize = True
+        lblPhoneValue.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
+        lblPhoneValue.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        lblPhoneValue.Location = New Point(292, 260)
+        lblPhoneValue.Margin = New Padding(4, 0, 4, 0)
+        lblPhoneValue.Name = "lblPhoneValue"
+        lblPhoneValue.Size = New Size(100, 19)
+        lblPhoneValue.TabIndex = 8
+        lblPhoneValue.Text = "Not provided"
+        ' 
+        ' lblPhone
+        ' 
+        lblPhone.AutoSize = True
+        lblPhone.Font = New Font("Segoe UI", 10F)
+        lblPhone.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
+        lblPhone.Location = New Point(47, 260)
+        lblPhone.Margin = New Padding(4, 0, 4, 0)
+        lblPhone.Name = "lblPhone"
+        lblPhone.Size = New Size(105, 19)
+        lblPhone.TabIndex = 7
+        lblPhone.Text = "Phone Number:"
+        ' 
+        ' lblEmailValue
+        ' 
+        lblEmailValue.AutoSize = True
+        lblEmailValue.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
+        lblEmailValue.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        lblEmailValue.Location = New Point(292, 213)
+        lblEmailValue.Margin = New Padding(4, 0, 4, 0)
+        lblEmailValue.Name = "lblEmailValue"
+        lblEmailValue.Size = New Size(100, 19)
+        lblEmailValue.TabIndex = 6
+        lblEmailValue.Text = "Not provided"
+        ' 
+        ' lblEmail
+        ' 
+        lblEmail.AutoSize = True
+        lblEmail.Font = New Font("Segoe UI", 10F)
+        lblEmail.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
+        lblEmail.Location = New Point(47, 213)
+        lblEmail.Margin = New Padding(4, 0, 4, 0)
+        lblEmail.Name = "lblEmail"
+        lblEmail.Size = New Size(97, 19)
+        lblEmail.TabIndex = 5
+        lblEmail.Text = "Email Address:"
+        ' 
+        ' lblNameValue
+        ' 
+        lblNameValue.AutoSize = True
+        lblNameValue.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
+        lblNameValue.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        lblNameValue.Location = New Point(292, 167)
+        lblNameValue.Margin = New Padding(4, 0, 4, 0)
+        lblNameValue.Name = "lblNameValue"
+        lblNameValue.Size = New Size(120, 21)
+        lblNameValue.TabIndex = 4
+        lblNameValue.Text = "Student Name"
+        ' 
+        ' lblName
+        ' 
+        lblName.AutoSize = True
+        lblName.Font = New Font("Segoe UI", 10F)
+        lblName.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
+        lblName.Location = New Point(47, 167)
+        lblName.Margin = New Padding(4, 0, 4, 0)
+        lblName.Name = "lblName"
+        lblName.Size = New Size(73, 19)
+        lblName.TabIndex = 3
+        lblName.Text = "Full Name:"
+        ' 
+        ' lblStudentIdValue
+        ' 
+        lblStudentIdValue.AutoSize = True
+        lblStudentIdValue.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
+        lblStudentIdValue.ForeColor = Color.FromArgb(CByte(46), CByte(139), CByte(87))
+        lblStudentIdValue.Location = New Point(292, 121)
+        lblStudentIdValue.Margin = New Padding(4, 0, 4, 0)
+        lblStudentIdValue.Name = "lblStudentIdValue"
+        lblStudentIdValue.Size = New Size(88, 21)
+        lblStudentIdValue.TabIndex = 2
+        lblStudentIdValue.Text = "0000-0000"
+        ' 
+        ' lblStudentId
+        ' 
+        lblStudentId.AutoSize = True
+        lblStudentId.Font = New Font("Segoe UI", 10F)
+        lblStudentId.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
+        lblStudentId.Location = New Point(47, 121)
+        lblStudentId.Margin = New Padding(4, 0, 4, 0)
+        lblStudentId.Name = "lblStudentId"
+        lblStudentId.Size = New Size(78, 19)
+        lblStudentId.TabIndex = 1
+        lblStudentId.Text = "Student ID:"
+        ' 
+        ' Label1
+        ' 
+        Label1.Dock = DockStyle.Top
+        Label1.Font = New Font("Segoe UI", 14F, FontStyle.Bold)
+        Label1.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        Label1.Location = New Point(23, 23)
+        Label1.Margin = New Padding(4, 0, 4, 0)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(1264, 58)
+        Label1.TabIndex = 0
+        Label1.Text = "📋 Personal Information"
+        Label1.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' pnlStats
+        ' 
+        pnlStats.BorderColor = Color.FromArgb(CByte(213), CByte(218), CByte(223))
+        pnlStats.BorderRadius = 10
+        pnlStats.BorderThickness = 1
+        pnlStats.Controls.Add(lblStatDaysEnrolled)
+        pnlStats.Controls.Add(Label17)
+        pnlStats.Controls.Add(lblStatOverallRate)
+        pnlStats.Controls.Add(Label15)
+        pnlStats.Controls.Add(lblStatTotalAttendance)
+        pnlStats.Controls.Add(Label13)
+        pnlStats.Controls.Add(lblStatEnrolledCourses)
+        pnlStats.Controls.Add(Label11)
+        pnlStats.Controls.Add(Label10)
+        pnlStats.CustomizableEdges = CustomizableEdges3
+        pnlStats.Dock = DockStyle.Top
+        pnlStats.Location = New Point(18, 17)
+        pnlStats.Margin = New Padding(4, 3, 4, 3)
+        pnlStats.Name = "pnlStats"
+        pnlStats.Padding = New Padding(23)
+        pnlStats.ShadowDecoration.CustomizableEdges = CustomizableEdges4
+        pnlStats.Size = New Size(1310, 138)
+        pnlStats.TabIndex = 0
+        ' 
+        ' lblStatDaysEnrolled
+        ' 
+        lblStatDaysEnrolled.Font = New Font("Segoe UI", 16F, FontStyle.Bold)
+        lblStatDaysEnrolled.ForeColor = Color.FromArgb(CByte(46), CByte(139), CByte(87))
+        lblStatDaysEnrolled.Location = New Point(992, 52)
+        lblStatDaysEnrolled.Margin = New Padding(4, 0, 4, 0)
+        lblStatDaysEnrolled.Name = "lblStatDaysEnrolled"
+        lblStatDaysEnrolled.Size = New Size(117, 35)
+        lblStatDaysEnrolled.TabIndex = 8
+        lblStatDaysEnrolled.Text = "0"
+        lblStatDaysEnrolled.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' Label17
+        ' 
+        Label17.Font = New Font("Segoe UI", 9F)
+        Label17.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
+        Label17.Location = New Point(992, 87)
+        Label17.Margin = New Padding(4, 0, 4, 0)
+        Label17.Name = "Label17"
+        Label17.Size = New Size(117, 23)
+        Label17.TabIndex = 7
+        Label17.Text = "Days Enrolled"
+        Label17.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' lblStatOverallRate
+        ' 
+        lblStatOverallRate.Font = New Font("Segoe UI", 16F, FontStyle.Bold)
+        lblStatOverallRate.ForeColor = Color.FromArgb(CByte(46), CByte(139), CByte(87))
+        lblStatOverallRate.Location = New Point(700, 52)
+        lblStatOverallRate.Margin = New Padding(4, 0, 4, 0)
+        lblStatOverallRate.Name = "lblStatOverallRate"
+        lblStatOverallRate.Size = New Size(140, 35)
+        lblStatOverallRate.TabIndex = 6
+        lblStatOverallRate.Text = "0%"
+        lblStatOverallRate.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' Label15
+        ' 
+        Label15.Font = New Font("Segoe UI", 9F)
+        Label15.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
+        Label15.Location = New Point(700, 87)
+        Label15.Margin = New Padding(4, 0, 4, 0)
+        Label15.Name = "Label15"
+        Label15.Size = New Size(140, 23)
+        Label15.TabIndex = 5
+        Label15.Text = "Overall Rate"
+        Label15.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' lblStatTotalAttendance
+        ' 
+        lblStatTotalAttendance.Font = New Font("Segoe UI", 16F, FontStyle.Bold)
+        lblStatTotalAttendance.ForeColor = Color.FromArgb(CByte(46), CByte(139), CByte(87))
+        lblStatTotalAttendance.Location = New Point(408, 52)
+        lblStatTotalAttendance.Margin = New Padding(4, 0, 4, 0)
+        lblStatTotalAttendance.Name = "lblStatTotalAttendance"
+        lblStatTotalAttendance.Size = New Size(140, 35)
+        lblStatTotalAttendance.TabIndex = 4
+        lblStatTotalAttendance.Text = "0"
+        lblStatTotalAttendance.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' Label13
+        ' 
+        Label13.Font = New Font("Segoe UI", 9F)
+        Label13.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
+        Label13.Location = New Point(408, 87)
+        Label13.Margin = New Padding(4, 0, 4, 0)
+        Label13.Name = "Label13"
+        Label13.Size = New Size(140, 23)
+        Label13.TabIndex = 3
+        Label13.Text = "Total Attendance"
+        Label13.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' lblStatEnrolledCourses
+        ' 
+        lblStatEnrolledCourses.Font = New Font("Segoe UI", 16F, FontStyle.Bold)
+        lblStatEnrolledCourses.ForeColor = Color.FromArgb(CByte(46), CByte(139), CByte(87))
+        lblStatEnrolledCourses.Location = New Point(117, 52)
+        lblStatEnrolledCourses.Margin = New Padding(4, 0, 4, 0)
+        lblStatEnrolledCourses.Name = "lblStatEnrolledCourses"
+        lblStatEnrolledCourses.Size = New Size(140, 35)
+        lblStatEnrolledCourses.TabIndex = 2
+        lblStatEnrolledCourses.Text = "0"
+        lblStatEnrolledCourses.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' Label11
+        ' 
+        Label11.Font = New Font("Segoe UI", 9F)
+        Label11.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
+        Label11.Location = New Point(117, 87)
+        Label11.Margin = New Padding(4, 0, 4, 0)
+        Label11.Name = "Label11"
+        Label11.Size = New Size(140, 23)
+        Label11.TabIndex = 1
+        Label11.Text = "Enrolled Courses"
+        Label11.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' Label10
+        ' 
+        Label10.Dock = DockStyle.Top
+        Label10.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
+        Label10.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        Label10.Location = New Point(23, 23)
+        Label10.Margin = New Padding(4, 0, 4, 0)
+        Label10.Name = "Label10"
+        Label10.Size = New Size(1264, 29)
+        Label10.TabIndex = 0
+        Label10.Text = "📊 Quick Statistics"
+        Label10.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' tabAttendance
+        ' 
+        tabAttendance.BackColor = Color.White
+        tabAttendance.Controls.Add(pnlAttendanceContent)
+        tabAttendance.Controls.Add(pnlAttendanceStats)
+        tabAttendance.Controls.Add(pnlAttendanceControls)
+        tabAttendance.Location = New Point(4, 54)
+        tabAttendance.Margin = New Padding(4, 3, 4, 3)
+        tabAttendance.Name = "tabAttendance"
+        tabAttendance.Padding = New Padding(18, 17, 18, 17)
+        tabAttendance.Size = New Size(1346, 704)
+        tabAttendance.TabIndex = 1
+        tabAttendance.Text = "📅 My Attendance"
+        ' 
+        ' pnlAttendanceContent
+        ' 
+        pnlAttendanceContent.Controls.Add(dgvAttendance)
+        pnlAttendanceContent.Controls.Add(flpCourseAttendance)
+        pnlAttendanceContent.CustomizableEdges = CustomizableEdges5
+        pnlAttendanceContent.Dock = DockStyle.Fill
+        pnlAttendanceContent.Location = New Point(18, 282)
+        pnlAttendanceContent.Margin = New Padding(4, 3, 4, 3)
+        pnlAttendanceContent.Name = "pnlAttendanceContent"
+        pnlAttendanceContent.ShadowDecoration.CustomizableEdges = CustomizableEdges6
+        pnlAttendanceContent.Size = New Size(1310, 405)
+        pnlAttendanceContent.TabIndex = 2
+        ' 
+        ' dgvAttendance
+        ' 
+        dgvAttendance.AllowUserToAddRows = False
+        dgvAttendance.AllowUserToDeleteRows = False
+        DataGridViewCellStyle1.BackColor = Color.White
+        dgvAttendance.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
+        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F)
+        DataGridViewCellStyle2.ForeColor = Color.White
+        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
+        dgvAttendance.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = Color.White
+        DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F)
+        DataGridViewCellStyle3.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        DataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        DataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.False
+        dgvAttendance.DefaultCellStyle = DataGridViewCellStyle3
+        dgvAttendance.Dock = DockStyle.Fill
+        dgvAttendance.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dgvAttendance.Location = New Point(0, 185)
+        dgvAttendance.Margin = New Padding(4, 3, 4, 3)
+        dgvAttendance.Name = "dgvAttendance"
+        dgvAttendance.ReadOnly = True
+        dgvAttendance.RowHeadersVisible = False
+        dgvAttendance.RowTemplate.Height = 35
+        dgvAttendance.Size = New Size(1310, 220)
+        dgvAttendance.TabIndex = 1
+        dgvAttendance.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
+        dgvAttendance.ThemeStyle.AlternatingRowsStyle.Font = Nothing
+        dgvAttendance.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty
+        dgvAttendance.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty
+        dgvAttendance.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty
+        dgvAttendance.ThemeStyle.BackColor = Color.White
+        dgvAttendance.ThemeStyle.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dgvAttendance.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
+        dgvAttendance.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None
+        dgvAttendance.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F)
+        dgvAttendance.ThemeStyle.HeaderStyle.ForeColor = Color.White
+        dgvAttendance.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        dgvAttendance.ThemeStyle.HeaderStyle.Height = 23
+        dgvAttendance.ThemeStyle.ReadOnly = True
+        dgvAttendance.ThemeStyle.RowsStyle.BackColor = Color.White
+        dgvAttendance.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
+        dgvAttendance.ThemeStyle.RowsStyle.Font = New Font("Segoe UI", 9F)
+        dgvAttendance.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        dgvAttendance.ThemeStyle.RowsStyle.Height = 35
+        dgvAttendance.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dgvAttendance.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        ' 
+        ' flpCourseAttendance
+        ' 
+        flpCourseAttendance.AutoScroll = True
+        flpCourseAttendance.Dock = DockStyle.Top
+        flpCourseAttendance.Location = New Point(0, 0)
+        flpCourseAttendance.Margin = New Padding(4, 3, 4, 3)
+        flpCourseAttendance.Name = "flpCourseAttendance"
+        flpCourseAttendance.Padding = New Padding(6)
+        flpCourseAttendance.Size = New Size(1310, 185)
+        flpCourseAttendance.TabIndex = 0
+        ' 
+        ' pnlAttendanceStats
+        ' 
+        pnlAttendanceStats.BorderColor = Color.FromArgb(CByte(213), CByte(218), CByte(223))
+        pnlAttendanceStats.BorderRadius = 10
+        pnlAttendanceStats.BorderThickness = 1
+        pnlAttendanceStats.Controls.Add(pbAttendanceRate)
+        pnlAttendanceStats.Controls.Add(lblAttendanceRate)
+        pnlAttendanceStats.Controls.Add(Label26)
+        pnlAttendanceStats.Controls.Add(lblExcusedCount)
+        pnlAttendanceStats.Controls.Add(Label24)
+        pnlAttendanceStats.Controls.Add(lblLateCount)
+        pnlAttendanceStats.Controls.Add(Label22)
+        pnlAttendanceStats.Controls.Add(lblAbsentCount)
+        pnlAttendanceStats.Controls.Add(Label20)
+        pnlAttendanceStats.Controls.Add(lblPresentCount)
+        pnlAttendanceStats.Controls.Add(Label18)
+        pnlAttendanceStats.CustomizableEdges = CustomizableEdges9
+        pnlAttendanceStats.Dock = DockStyle.Top
+        pnlAttendanceStats.Location = New Point(18, 132)
+        pnlAttendanceStats.Margin = New Padding(4, 3, 4, 3)
+        pnlAttendanceStats.Name = "pnlAttendanceStats"
+        pnlAttendanceStats.Padding = New Padding(23)
+        pnlAttendanceStats.ShadowDecoration.CustomizableEdges = CustomizableEdges10
+        pnlAttendanceStats.Size = New Size(1310, 150)
+        pnlAttendanceStats.TabIndex = 1
+        ' 
+        ' pbAttendanceRate
+        ' 
+        pbAttendanceRate.BorderRadius = 5
+        pbAttendanceRate.CustomizableEdges = CustomizableEdges7
+        pbAttendanceRate.Location = New Point(875, 87)
+        pbAttendanceRate.Margin = New Padding(4, 3, 4, 3)
+        pbAttendanceRate.Name = "pbAttendanceRate"
+        pbAttendanceRate.ShadowDecoration.CustomizableEdges = CustomizableEdges8
+        pbAttendanceRate.Size = New Size(233, 23)
+        pbAttendanceRate.TabIndex = 10
+        pbAttendanceRate.TextRenderingHint = Drawing.Text.TextRenderingHint.SystemDefault
+        ' 
+        ' lblAttendanceRate
+        ' 
+        lblAttendanceRate.Font = New Font("Segoe UI", 14F, FontStyle.Bold)
+        lblAttendanceRate.ForeColor = Color.FromArgb(CByte(46), CByte(139), CByte(87))
+        lblAttendanceRate.Location = New Point(875, 52)
+        lblAttendanceRate.Margin = New Padding(4, 0, 4, 0)
+        lblAttendanceRate.Name = "lblAttendanceRate"
+        lblAttendanceRate.Size = New Size(233, 29)
+        lblAttendanceRate.TabIndex = 9
+        lblAttendanceRate.Text = "0%"
+        lblAttendanceRate.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' Label26
+        ' 
+        Label26.Font = New Font("Segoe UI", 9F)
+        Label26.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
+        Label26.Location = New Point(875, 115)
+        Label26.Margin = New Padding(4, 0, 4, 0)
+        Label26.Name = "Label26"
+        Label26.Size = New Size(233, 23)
+        Label26.TabIndex = 8
+        Label26.Text = "Attendance Rate"
+        Label26.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' lblExcusedCount
+        ' 
+        lblExcusedCount.Font = New Font("Segoe UI", 16F, FontStyle.Bold)
+        lblExcusedCount.ForeColor = Color.FromArgb(CByte(155), CByte(89), CByte(182))
+        lblExcusedCount.Location = New Point(700, 52)
+        lblExcusedCount.Margin = New Padding(4, 0, 4, 0)
+        lblExcusedCount.Name = "lblExcusedCount"
+        lblExcusedCount.Size = New Size(117, 35)
+        lblExcusedCount.TabIndex = 7
+        lblExcusedCount.Text = "0"
+        lblExcusedCount.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' Label24
+        ' 
+        Label24.Font = New Font("Segoe UI", 9F)
+        Label24.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
+        Label24.Location = New Point(700, 87)
+        Label24.Margin = New Padding(4, 0, 4, 0)
+        Label24.Name = "Label24"
+        Label24.Size = New Size(117, 23)
+        Label24.TabIndex = 6
+        Label24.Text = "Excused"
+        Label24.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' lblLateCount
+        ' 
+        lblLateCount.Font = New Font("Segoe UI", 16F, FontStyle.Bold)
+        lblLateCount.ForeColor = Color.FromArgb(CByte(243), CByte(156), CByte(18))
+        lblLateCount.Location = New Point(525, 52)
+        lblLateCount.Margin = New Padding(4, 0, 4, 0)
+        lblLateCount.Name = "lblLateCount"
+        lblLateCount.Size = New Size(117, 35)
+        lblLateCount.TabIndex = 5
+        lblLateCount.Text = "0"
+        lblLateCount.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' Label22
+        ' 
+        Label22.Font = New Font("Segoe UI", 9F)
+        Label22.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
+        Label22.Location = New Point(525, 87)
+        Label22.Margin = New Padding(4, 0, 4, 0)
+        Label22.Name = "Label22"
+        Label22.Size = New Size(117, 23)
+        Label22.TabIndex = 4
+        Label22.Text = "Late"
+        Label22.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' lblAbsentCount
+        ' 
+        lblAbsentCount.Font = New Font("Segoe UI", 16F, FontStyle.Bold)
+        lblAbsentCount.ForeColor = Color.FromArgb(CByte(231), CByte(76), CByte(60))
+        lblAbsentCount.Location = New Point(350, 52)
+        lblAbsentCount.Margin = New Padding(4, 0, 4, 0)
+        lblAbsentCount.Name = "lblAbsentCount"
+        lblAbsentCount.Size = New Size(117, 35)
+        lblAbsentCount.TabIndex = 3
+        lblAbsentCount.Text = "0"
+        lblAbsentCount.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' Label20
+        ' 
+        Label20.Font = New Font("Segoe UI", 9F)
+        Label20.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
+        Label20.Location = New Point(350, 87)
+        Label20.Margin = New Padding(4, 0, 4, 0)
+        Label20.Name = "Label20"
+        Label20.Size = New Size(117, 23)
+        Label20.TabIndex = 2
+        Label20.Text = "Absent"
+        Label20.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' lblPresentCount
+        ' 
+        lblPresentCount.Font = New Font("Segoe UI", 16F, FontStyle.Bold)
+        lblPresentCount.ForeColor = Color.FromArgb(CByte(46), CByte(139), CByte(87))
+        lblPresentCount.Location = New Point(175, 52)
+        lblPresentCount.Margin = New Padding(4, 0, 4, 0)
+        lblPresentCount.Name = "lblPresentCount"
+        lblPresentCount.Size = New Size(117, 35)
+        lblPresentCount.TabIndex = 1
+        lblPresentCount.Text = "0"
+        lblPresentCount.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' Label18
+        ' 
+        Label18.Font = New Font("Segoe UI", 9F)
+        Label18.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
+        Label18.Location = New Point(175, 87)
+        Label18.Margin = New Padding(4, 0, 4, 0)
+        Label18.Name = "Label18"
+        Label18.Size = New Size(117, 23)
+        Label18.TabIndex = 0
+        Label18.Text = "Present"
+        Label18.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' pnlAttendanceControls
+        ' 
+        pnlAttendanceControls.BorderColor = Color.FromArgb(CByte(213), CByte(218), CByte(223))
+        pnlAttendanceControls.BorderRadius = 10
+        pnlAttendanceControls.BorderThickness = 1
+        pnlAttendanceControls.Controls.Add(lblAttendanceCount)
+        pnlAttendanceControls.Controls.Add(btnResetFilter)
+        pnlAttendanceControls.Controls.Add(btnApplyFilter)
+        pnlAttendanceControls.Controls.Add(dtpEndDate)
+        pnlAttendanceControls.Controls.Add(Label9)
+        pnlAttendanceControls.Controls.Add(dtpStartDate)
+        pnlAttendanceControls.Controls.Add(Label8)
+        pnlAttendanceControls.Controls.Add(Label2)
+        pnlAttendanceControls.CustomizableEdges = CustomizableEdges19
+        pnlAttendanceControls.Dock = DockStyle.Top
+        pnlAttendanceControls.Location = New Point(18, 17)
+        pnlAttendanceControls.Margin = New Padding(4, 3, 4, 3)
+        pnlAttendanceControls.Name = "pnlAttendanceControls"
+        pnlAttendanceControls.Padding = New Padding(23)
+        pnlAttendanceControls.ShadowDecoration.CustomizableEdges = CustomizableEdges20
+        pnlAttendanceControls.Size = New Size(1310, 115)
+        pnlAttendanceControls.TabIndex = 0
+        ' 
+        ' lblAttendanceCount
+        ' 
+        lblAttendanceCount.AutoSize = True
+        lblAttendanceCount.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
+        lblAttendanceCount.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        lblAttendanceCount.Location = New Point(992, 69)
+        lblAttendanceCount.Margin = New Padding(4, 0, 4, 0)
+        lblAttendanceCount.Name = "lblAttendanceCount"
+        lblAttendanceCount.Size = New Size(79, 19)
+        lblAttendanceCount.TabIndex = 7
+        lblAttendanceCount.Text = "Records: 0"
+        ' 
+        ' btnResetFilter
+        ' 
+        btnResetFilter.BorderRadius = 8
+        btnResetFilter.CustomizableEdges = CustomizableEdges11
+        btnResetFilter.FillColor = Color.FromArgb(CByte(149), CByte(165), CByte(166))
+        btnResetFilter.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        btnResetFilter.ForeColor = Color.White
+        btnResetFilter.Location = New Point(840, 58)
+        btnResetFilter.Margin = New Padding(4, 3, 4, 3)
+        btnResetFilter.Name = "btnResetFilter"
+        btnResetFilter.ShadowDecoration.CustomizableEdges = CustomizableEdges12
+        btnResetFilter.Size = New Size(117, 46)
+        btnResetFilter.TabIndex = 6
+        btnResetFilter.Text = "Reset"
+        ' 
+        ' btnApplyFilter
+        ' 
+        btnApplyFilter.BorderRadius = 8
+        btnApplyFilter.CustomizableEdges = CustomizableEdges13
+        btnApplyFilter.FillColor = Color.FromArgb(CByte(46), CByte(139), CByte(87))
+        btnApplyFilter.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        btnApplyFilter.ForeColor = Color.White
+        btnApplyFilter.Location = New Point(700, 58)
+        btnApplyFilter.Margin = New Padding(4, 3, 4, 3)
+        btnApplyFilter.Name = "btnApplyFilter"
+        btnApplyFilter.ShadowDecoration.CustomizableEdges = CustomizableEdges14
+        btnApplyFilter.Size = New Size(117, 46)
+        btnApplyFilter.TabIndex = 5
+        btnApplyFilter.Text = "Apply"
+        ' 
+        ' dtpEndDate
+        ' 
+        dtpEndDate.BorderRadius = 8
+        dtpEndDate.Checked = True
+        dtpEndDate.CustomizableEdges = CustomizableEdges15
+        dtpEndDate.FillColor = Color.White
+        dtpEndDate.Font = New Font("Segoe UI", 9F)
+        dtpEndDate.Format = DateTimePickerFormat.Short
+        dtpEndDate.Location = New Point(490, 58)
+        dtpEndDate.Margin = New Padding(4, 3, 4, 3)
+        dtpEndDate.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        dtpEndDate.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        dtpEndDate.Name = "dtpEndDate"
+        dtpEndDate.ShadowDecoration.CustomizableEdges = CustomizableEdges16
+        dtpEndDate.Size = New Size(175, 46)
+        dtpEndDate.TabIndex = 4
+        dtpEndDate.Value = New Date(2025, 10, 20, 0, 0, 0, 0)
+        ' 
+        ' Label9
+        ' 
+        Label9.AutoSize = True
+        Label9.Font = New Font("Segoe UI", 9F)
+        Label9.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
+        Label9.Location = New Point(397, 69)
+        Label9.Margin = New Padding(4, 0, 4, 0)
+        Label9.Name = "Label9"
+        Label9.Size = New Size(23, 15)
+        Label9.TabIndex = 3
+        Label9.Text = "To:"
+        ' 
+        ' dtpStartDate
+        ' 
+        dtpStartDate.BorderRadius = 8
+        dtpStartDate.Checked = True
+        dtpStartDate.CustomizableEdges = CustomizableEdges17
+        dtpStartDate.FillColor = Color.White
+        dtpStartDate.Font = New Font("Segoe UI", 9F)
+        dtpStartDate.Format = DateTimePickerFormat.Short
+        dtpStartDate.Location = New Point(198, 58)
+        dtpStartDate.Margin = New Padding(4, 3, 4, 3)
+        dtpStartDate.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        dtpStartDate.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        dtpStartDate.Name = "dtpStartDate"
+        dtpStartDate.ShadowDecoration.CustomizableEdges = CustomizableEdges18
+        dtpStartDate.Size = New Size(175, 46)
+        dtpStartDate.TabIndex = 2
+        dtpStartDate.Value = New Date(2025, 10, 20, 0, 0, 0, 0)
+        ' 
+        ' Label8
+        ' 
+        Label8.AutoSize = True
+        Label8.Font = New Font("Segoe UI", 9F)
+        Label8.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
+        Label8.Location = New Point(93, 69)
+        Label8.Margin = New Padding(4, 0, 4, 0)
+        Label8.Name = "Label8"
+        Label8.Size = New Size(38, 15)
+        Label8.TabIndex = 1
+        Label8.Text = "From:"
+        ' 
+        ' Label2
+        ' 
+        Label2.Dock = DockStyle.Top
+        Label2.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
+        Label2.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        Label2.Location = New Point(23, 23)
+        Label2.Margin = New Padding(4, 0, 4, 0)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(1264, 29)
+        Label2.TabIndex = 0
+        Label2.Text = "📅 Filter by Date Range"
+        Label2.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' tabCourses
+        ' 
+        tabCourses.BackColor = Color.White
+        tabCourses.Controls.Add(dgvCourses)
+        tabCourses.Controls.Add(pnlCoursesHeader)
+        tabCourses.Location = New Point(4, 54)
+        tabCourses.Margin = New Padding(4, 3, 4, 3)
+        tabCourses.Name = "tabCourses"
+        tabCourses.Padding = New Padding(18, 17, 18, 17)
+        tabCourses.Size = New Size(1346, 704)
+        tabCourses.TabIndex = 2
+        tabCourses.Text = "📚 My Courses"
+        ' 
+        ' dgvCourses
+        ' 
+        dgvCourses.AllowUserToAddRows = False
+        dgvCourses.AllowUserToDeleteRows = False
+        DataGridViewCellStyle4.BackColor = Color.White
+        dgvCourses.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
+        DataGridViewCellStyle5.Font = New Font("Segoe UI", 9F)
+        DataGridViewCellStyle5.ForeColor = Color.White
+        DataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.True
+        dgvCourses.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = Color.White
+        DataGridViewCellStyle6.Font = New Font("Segoe UI", 9F)
+        DataGridViewCellStyle6.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        DataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        DataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        DataGridViewCellStyle6.WrapMode = DataGridViewTriState.False
+        dgvCourses.DefaultCellStyle = DataGridViewCellStyle6
+        dgvCourses.Dock = DockStyle.Fill
+        dgvCourses.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dgvCourses.Location = New Point(18, 109)
+        dgvCourses.Margin = New Padding(4, 3, 4, 3)
+        dgvCourses.Name = "dgvCourses"
+        dgvCourses.ReadOnly = True
+        dgvCourses.RowHeadersVisible = False
+        dgvCourses.RowTemplate.Height = 35
+        dgvCourses.Size = New Size(1310, 578)
+        dgvCourses.TabIndex = 1
+        dgvCourses.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
+        dgvCourses.ThemeStyle.AlternatingRowsStyle.Font = Nothing
+        dgvCourses.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty
+        dgvCourses.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty
+        dgvCourses.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty
+        dgvCourses.ThemeStyle.BackColor = Color.White
+        dgvCourses.ThemeStyle.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dgvCourses.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
+        dgvCourses.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None
+        dgvCourses.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F)
+        dgvCourses.ThemeStyle.HeaderStyle.ForeColor = Color.White
+        dgvCourses.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        dgvCourses.ThemeStyle.HeaderStyle.Height = 23
+        dgvCourses.ThemeStyle.ReadOnly = True
+        dgvCourses.ThemeStyle.RowsStyle.BackColor = Color.White
+        dgvCourses.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
+        dgvCourses.ThemeStyle.RowsStyle.Font = New Font("Segoe UI", 9F)
+        dgvCourses.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        dgvCourses.ThemeStyle.RowsStyle.Height = 35
+        dgvCourses.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dgvCourses.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        ' 
+        ' pnlCoursesHeader
+        ' 
+        pnlCoursesHeader.BorderColor = Color.FromArgb(CByte(213), CByte(218), CByte(223))
+        pnlCoursesHeader.BorderRadius = 10
+        pnlCoursesHeader.BorderThickness = 1
+        pnlCoursesHeader.Controls.Add(lblCoursesCount)
+        pnlCoursesHeader.Controls.Add(Label3)
+        pnlCoursesHeader.CustomizableEdges = CustomizableEdges21
+        pnlCoursesHeader.Dock = DockStyle.Top
+        pnlCoursesHeader.Location = New Point(18, 17)
+        pnlCoursesHeader.Margin = New Padding(4, 3, 4, 3)
+        pnlCoursesHeader.Name = "pnlCoursesHeader"
+        pnlCoursesHeader.Padding = New Padding(23)
+        pnlCoursesHeader.ShadowDecoration.CustomizableEdges = CustomizableEdges22
+        pnlCoursesHeader.Size = New Size(1310, 92)
+        pnlCoursesHeader.TabIndex = 0
+        ' 
+        ' lblCoursesCount
+        ' 
+        lblCoursesCount.AutoSize = True
+        lblCoursesCount.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
+        lblCoursesCount.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        lblCoursesCount.Location = New Point(27, 58)
+        lblCoursesCount.Margin = New Padding(4, 0, 4, 0)
+        lblCoursesCount.Name = "lblCoursesCount"
+        lblCoursesCount.Size = New Size(136, 19)
+        lblCoursesCount.TabIndex = 1
+        lblCoursesCount.Text = "Enrolled Courses: 0"
+        ' 
+        ' Label3
+        ' 
+        Label3.Dock = DockStyle.Top
+        Label3.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
+        Label3.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        Label3.Location = New Point(23, 23)
+        Label3.Margin = New Padding(4, 0, 4, 0)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(1264, 29)
+        Label3.TabIndex = 0
+        Label3.Text = "📚 Your Enrolled Courses"
+        Label3.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' tabReports
+        ' 
+        tabReports.BackColor = Color.White
+        tabReports.Controls.Add(pnlReportsContent)
+        tabReports.Location = New Point(4, 54)
+        tabReports.Margin = New Padding(4, 3, 4, 3)
+        tabReports.Name = "tabReports"
+        tabReports.Padding = New Padding(18, 17, 18, 17)
+        tabReports.Size = New Size(1346, 704)
+        tabReports.TabIndex = 3
+        tabReports.Text = "📊 Reports"
+        ' 
+        ' pnlReportsContent
+        ' 
+        pnlReportsContent.BorderColor = Color.FromArgb(CByte(213), CByte(218), CByte(223))
+        pnlReportsContent.BorderRadius = 10
+        pnlReportsContent.BorderThickness = 1
+        pnlReportsContent.Controls.Add(Label28)
+        pnlReportsContent.Controls.Add(Label27)
+        pnlReportsContent.Controls.Add(btnPrintReport)
+        pnlReportsContent.Controls.Add(btnExportReport)
+        pnlReportsContent.Controls.Add(Label7)
+        pnlReportsContent.Controls.Add(Label6)
+        pnlReportsContent.Controls.Add(Label5)
+        pnlReportsContent.Controls.Add(Label4)
+        pnlReportsContent.CustomizableEdges = CustomizableEdges27
+        pnlReportsContent.Dock = DockStyle.Fill
+        pnlReportsContent.Location = New Point(18, 17)
+        pnlReportsContent.Margin = New Padding(4, 3, 4, 3)
+        pnlReportsContent.Name = "pnlReportsContent"
+        pnlReportsContent.Padding = New Padding(23)
+        pnlReportsContent.ShadowDecoration.CustomizableEdges = CustomizableEdges28
+        pnlReportsContent.Size = New Size(1310, 670)
+        pnlReportsContent.TabIndex = 0
+        ' 
+        ' Label28
+        ' 
+        Label28.AutoSize = True
+        Label28.Font = New Font("Segoe UI", 9F)
+        Label28.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
+        Label28.Location = New Point(140, 323)
+        Label28.Margin = New Padding(4, 0, 4, 0)
+        Label28.Name = "Label28"
+        Label28.Size = New Size(274, 15)
+        Label28.TabIndex = 7
+        Label28.Text = "Print or preview your attendance report for records"
+        ' 
+        ' Label27
+        ' 
+        Label27.AutoSize = True
+        Label27.Font = New Font("Segoe UI", 9F)
+        Label27.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
+        Label27.Location = New Point(140, 225)
+        Label27.Margin = New Padding(4, 0, 4, 0)
+        Label27.Name = "Label27"
+        Label27.Size = New Size(326, 15)
+        Label27.TabIndex = 6
+        Label27.Text = "Export your attendance data to CSV or HTML for external use"
+        ' 
+        ' btnPrintReport
+        ' 
+        btnPrintReport.BorderRadius = 8
+        btnPrintReport.CustomizableEdges = CustomizableEdges23
+        btnPrintReport.FillColor = Color.FromArgb(CByte(52), CByte(152), CByte(219))
+        btnPrintReport.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
+        btnPrintReport.ForeColor = Color.White
+        btnPrintReport.Location = New Point(117, 358)
+        btnPrintReport.Margin = New Padding(4, 3, 4, 3)
+        btnPrintReport.Name = "btnPrintReport"
+        btnPrintReport.ShadowDecoration.CustomizableEdges = CustomizableEdges24
+        btnPrintReport.Size = New Size(233, 58)
+        btnPrintReport.TabIndex = 5
+        btnPrintReport.Text = "🖨️ Print Report"
+        ' 
+        ' btnExportReport
+        ' 
+        btnExportReport.BorderRadius = 8
+        btnExportReport.CustomizableEdges = CustomizableEdges25
+        btnExportReport.FillColor = Color.FromArgb(CByte(46), CByte(139), CByte(87))
+        btnExportReport.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
+        btnExportReport.ForeColor = Color.White
+        btnExportReport.Location = New Point(117, 260)
+        btnExportReport.Margin = New Padding(4, 3, 4, 3)
+        btnExportReport.Name = "btnExportReport"
+        btnExportReport.ShadowDecoration.CustomizableEdges = CustomizableEdges26
+        btnExportReport.Size = New Size(233, 58)
+        btnExportReport.TabIndex = 4
+        btnExportReport.Text = "📥 Export Report"
+        ' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.Font = New Font("Segoe UI", 9F)
+        Label7.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
+        Label7.Location = New Point(47, 150)
+        Label7.Margin = New Padding(4, 0, 4, 0)
+        Label7.MaximumSize = New Size(700, 0)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(667, 30)
+        Label7.TabIndex = 3
+        Label7.Text = "Generate and download reports of your attendance data. You can export to CSV or HTML format, or print directly for physical records."
+        ' 
+        ' Label6
+        ' 
+        Label6.Dock = DockStyle.Top
+        Label6.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
+        Label6.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        Label6.Location = New Point(23, 58)
+        Label6.Margin = New Padding(4, 0, 4, 0)
+        Label6.Name = "Label6"
+        Label6.Size = New Size(1264, 29)
+        Label6.TabIndex = 2
+        Label6.Text = "Generate Your Reports"
+        Label6.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' Label5
+        ' 
+        Label5.AutoSize = True
+        Label5.Font = New Font("Segoe UI", 9F)
+        Label5.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
+        Label5.Location = New Point(47, 69)
+        Label5.Margin = New Padding(4, 0, 4, 0)
+        Label5.MaximumSize = New Size(700, 0)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(700, 30)
+        Label5.TabIndex = 1
+        Label5.Text = "Access and download your attendance reports. Reports include detailed attendance records, statistics, and summaries based on the date range selected in the Attendance tab."
+        ' 
+        ' Label4
+        ' 
+        Label4.Dock = DockStyle.Top
+        Label4.Font = New Font("Segoe UI", 14F, FontStyle.Bold)
+        Label4.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        Label4.Location = New Point(23, 23)
+        Label4.Margin = New Padding(4, 0, 4, 0)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(1264, 35)
+        Label4.TabIndex = 0
+        Label4.Text = "📊 Attendance Reports"
+        Label4.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' pnlHeader
+        ' 
+        pnlHeader.BackColor = Color.White
+        pnlHeader.Controls.Add(btnRefreshAll)
+        pnlHeader.Controls.Add(lblSubtitle)
+        pnlHeader.Controls.Add(lblTitle)
+        pnlHeader.CustomizableEdges = CustomizableEdges31
+        pnlHeader.Location = New Point(23, 26)
+        pnlHeader.Margin = New Padding(4, 3, 4, 3)
+        pnlHeader.Name = "pnlHeader"
+        pnlHeader.ShadowDecoration.CustomizableEdges = CustomizableEdges32
+        pnlHeader.Size = New Size(1354, 112)
+        pnlHeader.TabIndex = 0
+        ' 
+        ' btnRefreshAll
+        ' 
+        btnRefreshAll.BorderRadius = 8
+        btnRefreshAll.CustomizableEdges = CustomizableEdges29
+        btnRefreshAll.FillColor = Color.FromArgb(CByte(46), CByte(139), CByte(87))
+        btnRefreshAll.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        btnRefreshAll.ForeColor = Color.White
+        btnRefreshAll.Location = New Point(1169, 23)
+        btnRefreshAll.Margin = New Padding(4, 3, 4, 3)
+        btnRefreshAll.Name = "btnRefreshAll"
+        btnRefreshAll.ShadowDecoration.CustomizableEdges = CustomizableEdges30
+        btnRefreshAll.Size = New Size(163, 43)
+        btnRefreshAll.TabIndex = 2
+        btnRefreshAll.Text = "🔄 Refresh All"
+        ' 
+        ' lblSubtitle
+        ' 
+        lblSubtitle.AutoSize = True
+        lblSubtitle.Font = New Font("Segoe UI", 10F)
+        lblSubtitle.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
+        lblSubtitle.Location = New Point(23, 63)
+        lblSubtitle.Margin = New Padding(4, 0, 4, 0)
+        lblSubtitle.Name = "lblSubtitle"
+        lblSubtitle.Size = New Size(367, 19)
+        lblSubtitle.TabIndex = 1
+        lblSubtitle.Text = "View your profile, attendance records, courses, and reports"
+        ' 
+        ' lblTitle
+        ' 
+        lblTitle.AutoSize = True
+        lblTitle.Font = New Font("Segoe UI", 18F, FontStyle.Bold)
+        lblTitle.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        lblTitle.Location = New Point(18, 23)
+        lblTitle.Margin = New Padding(4, 0, 4, 0)
+        lblTitle.Name = "lblTitle"
+        lblTitle.Size = New Size(178, 32)
+        lblTitle.TabIndex = 0
+        lblTitle.Text = "Student Portal"
+        ' 
+        ' StudentPortalForm
+        ' 
+        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleMode = AutoScaleMode.Font
+        ClientSize = New Size(1400, 923)
+        Controls.Add(pnlMain)
+        FormBorderStyle = FormBorderStyle.None
+        Margin = New Padding(4, 3, 4, 3)
+        Name = "StudentPortalForm"
+        StartPosition = FormStartPosition.CenterScreen
+        Text = "Student Portal"
+        pnlMain.ResumeLayout(False)
+        tabControl.ResumeLayout(False)
+        tabProfile.ResumeLayout(False)
+        pnlProfile.ResumeLayout(False)
+        pnlProfile.PerformLayout()
+        pnlStats.ResumeLayout(False)
+        tabAttendance.ResumeLayout(False)
+        pnlAttendanceContent.ResumeLayout(False)
+        CType(dgvAttendance, ComponentModel.ISupportInitialize).EndInit()
+        pnlAttendanceStats.ResumeLayout(False)
+        pnlAttendanceControls.ResumeLayout(False)
+        pnlAttendanceControls.PerformLayout()
+        tabCourses.ResumeLayout(False)
+        CType(dgvCourses, ComponentModel.ISupportInitialize).EndInit()
+        pnlCoursesHeader.ResumeLayout(False)
+        pnlCoursesHeader.PerformLayout()
+        tabReports.ResumeLayout(False)
+        pnlReportsContent.ResumeLayout(False)
+        pnlReportsContent.PerformLayout()
+        pnlHeader.ResumeLayout(False)
+        pnlHeader.PerformLayout()
+        ResumeLayout(False)
 
     End Sub
 

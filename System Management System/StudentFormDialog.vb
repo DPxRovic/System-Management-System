@@ -37,6 +37,9 @@ Public Class StudentFormDialog
             ' Initialize status dropdown
             InitializeStatusDropdown()
 
+            ' === Temporarily remove checkbox event handler ===
+            RemoveHandler chkNoDOB.CheckedChanged, AddressOf chkNoDOB_CheckedChanged
+
             ' Set form title and button text based on mode
             If editMode Then
                 lblTitle.Text = "Edit Student Record"
@@ -45,10 +48,21 @@ Public Class StudentFormDialog
             Else
                 lblTitle.Text = "Add New Student"
                 btnSave.Text = "Save"
+
                 ' Set default values
                 dtpEnrollmentDate.Value = DateTime.Today
                 cmbStatus.SelectedIndex = 0 ' Active
+
+                ' ✅ Set default DOB (18 years old) and enable editing
+                dtpDateOfBirth.Value = DateTime.Today.AddYears(-18)
+                dtpDateOfBirth.Enabled = True
+
+                ' ✅ Ensure "No DOB" is unchecked when adding a new student
+                chkNoDOB.Checked = False
             End If
+
+            ' === Reattach event handler after initialization ===
+            AddHandler chkNoDOB.CheckedChanged, AddressOf chkNoDOB_CheckedChanged
 
             ' Apply theme
             ApplyTheme()
@@ -78,9 +92,7 @@ Public Class StudentFormDialog
     ''' </summary>
     Private Sub LoadStudentData()
         Try
-            If currentStudent Is Nothing Then
-                Return
-            End If
+            If currentStudent Is Nothing Then Return
 
             txtStudentId.Text = currentStudent.StudentId
             txtName.Text = currentStudent.Name
@@ -88,14 +100,22 @@ Public Class StudentFormDialog
             txtPhoneNumber.Text = currentStudent.PhoneNumber
             txtCourse.Text = currentStudent.Course
 
-            ' Date of birth
+            ' === Temporarily detach the event handler ===
+            RemoveHandler chkNoDOB.CheckedChanged, AddressOf chkNoDOB_CheckedChanged
+
+            ' Handle DOB
             If currentStudent.DateOfBirth.HasValue Then
-                dtpDateOfBirth.Value = currentStudent.DateOfBirth.Value
                 chkNoDOB.Checked = False
+                dtpDateOfBirth.Value = currentStudent.DateOfBirth.Value
+                dtpDateOfBirth.Enabled = True
             Else
-                dtpDateOfBirth.Value = DateTime.Today.AddYears(-20)
                 chkNoDOB.Checked = True
+                dtpDateOfBirth.Value = DateTime.Today.AddYears(-20)
+                dtpDateOfBirth.Enabled = False
             End If
+
+            ' === Reattach event after values are set ===
+            AddHandler chkNoDOB.CheckedChanged, AddressOf chkNoDOB_CheckedChanged
 
             ' Enrollment date
             If currentStudent.EnrollmentDate.HasValue Then
@@ -304,12 +324,13 @@ Public Class StudentFormDialog
     ''' </summary>
     Private Sub chkNoDOB_CheckedChanged(sender As Object, e As EventArgs) Handles chkNoDOB.CheckedChanged
         Try
+            ' Enable/disable based on checkbox
             dtpDateOfBirth.Enabled = Not chkNoDOB.Checked
 
+            ' Only reset default if they checked the box
             If chkNoDOB.Checked Then
                 dtpDateOfBirth.Value = DateTime.Today.AddYears(-20)
             End If
-
         Catch ex As Exception
             Logger.LogError("Error handling no DOB checkbox", ex)
         End Try
@@ -353,4 +374,11 @@ Public Class StudentFormDialog
         End If
     End Sub
 
+    Private Sub dtpDateOfBirth_ValueChanged(sender As Object, e As EventArgs) Handles dtpDateOfBirth.ValueChanged
+
+    End Sub
+
+    Private Sub dtpEnrollmentDate_ValueChanged(sender As Object, e As EventArgs) Handles dtpEnrollmentDate.ValueChanged
+
+    End Sub
 End Class
