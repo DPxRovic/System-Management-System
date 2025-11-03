@@ -27,27 +27,39 @@ Public Class AttendanceForm
     ''' </summary>
     Private Sub AttendanceForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            ' Keep auto-scaling behavior
+            ' Set auto-scaling for responsive design
             Me.AutoScaleMode = AutoScaleMode.Dpi
 
-            ' Load courses and set filters
+            ' Load courses into combo box
             LoadCourses()
+
+            ' Set date filters to current week
             dtpStartDate.Value = DateTime.Today.AddDays(-7)
             dtpEndDate.Value = DateTime.Today
 
-            ' Reset state and load today’s data
+            ' Set initial state
             ResetForm()
+
+            ' Load today's attendance
             LoadTodayAttendance()
+
+            ' Update statistics
             UpdateTodayStatistics()
 
-            ' Focus Student ID input
+            ' Set focus to student ID textbox
             txtStudentId.Focus()
 
-            ' Optional: only enforce layout once if absolutely needed
-            ' ConfigureResponsiveLayout()
+            ' Fix button layout - hide Present, show Absent first
+            btnPresent.Visible = False
+            btnAbsent.Location = New Point(240, 360)
+            btnLate.Location = New Point(413, 360)
+            btnExcused.Location = New Point(627, 360)
+            btnClear.Location = New Point(840, 360)
 
-            Logger.LogInfo("Attendance form loaded successfully")
+            ' Configure scroll container for proper sizing
+            ConfigureResponsiveLayout()
 
+            Logger.LogInfo("Attendance form loaded")
         Catch ex As Exception
             Logger.LogError("Error loading attendance form", ex)
             MessageBox.Show($"Error loading form: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -59,13 +71,18 @@ Public Class AttendanceForm
     ''' </summary>
     Private Sub ConfigureResponsiveLayout()
         Try
-            ' Enable scrolling only if content exceeds window size
+            ' Ensure scroll container fills the form
+            pnlScrollContainer.Dock = DockStyle.Fill
+
+            ' Set minimum sizes to prevent layout issues
             pnlScrollContainer.AutoScroll = True
+            pnlScrollContainer.AutoScrollMinSize = New Size(1200, 1400)
 
-            ' Keep minimum scroll area, but don’t force Dock=Fill
-            pnlScrollContainer.AutoScrollMinSize = New Size(1000, 800)
+            ' Configure content panel
+            pnlContent.AutoSize = True
+            pnlContent.MinimumSize = New Size(1200, 0)
 
-            ' Let Designer anchors control alignment
+            ' Set anchor properties for bottom panel
             pnlBottom.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
 
         Catch ex As Exception
@@ -716,4 +733,5 @@ Public Class AttendanceForm
             ' Silently handle resize errors
         End Try
     End Sub
+
 End Class

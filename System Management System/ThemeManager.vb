@@ -218,7 +218,7 @@ Public Class ThemeManager
     Public Shared Sub FadeOut(control As Control, Optional duration As Integer = 300, Optional callback As Action = Nothing)
         Try
             Dim timer As New Timer With {
-                .Interval = 0,
+                .Interval = 10,
                 .Tag = New AnimationData(control, duration, callback)
             }
 
@@ -271,7 +271,7 @@ Public Class ThemeManager
             panel.Location = startLocation
 
             Dim timer As New Timer With {
-                .Interval = 0,
+                .Interval = 10,
                 .Tag = New With {.Panel = panel, .Start = startLocation, .Target = originalLocation, .Duration = duration, .Elapsed = 0}
             }
 
