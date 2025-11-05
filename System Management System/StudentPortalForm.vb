@@ -34,7 +34,8 @@ Public Class StudentPortalForm
                 Me.Close()
                 Return
             End If
-
+            Me.WindowState = FormWindowState.Maximized
+            pnlHeader.BringToFront()
             ' Load student profile
             currentStudent = StudentPortalRepository.GetStudentProfile(studentId)
             If currentStudent Is Nothing Then
@@ -814,7 +815,7 @@ Public Class StudentPortalForm
     Private Sub tabControl_SelectedIndexChanged(sender As Object, e As EventArgs) Handles tabControl.SelectedIndexChanged
         Try
             ' Refresh data when switching tabs
-            Select Case TabControl.SelectedIndex
+            Select Case tabControl.SelectedIndex
                 Case 0 ' Profile
                     LoadProfileData()
                 Case 1 ' Attendance
@@ -859,6 +860,14 @@ Public Class StudentPortalForm
     End Sub
 
     Private Sub pnlMain_Paint(sender As Object, e As PaintEventArgs) Handles pnlMain.Paint
+
+    End Sub
+
+    Private Sub tabProfile_Click(sender As Object, e As EventArgs) Handles tabProfile.Click
+
+    End Sub
+
+    Private Sub pnlHeader_Paint(sender As Object, e As PaintEventArgs) Handles pnlHeader.Paint
 
     End Sub
 
