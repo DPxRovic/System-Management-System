@@ -577,7 +577,7 @@ Partial Class AttendanceForm
         txtRemarks.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
         txtRemarks.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
         txtRemarks.FocusedState.BorderColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
-        txtRemarks.Font = New Font("Segoe UI", 10.0F)
+        txtRemarks.Font = New Font("Segoe UI", 10F)
         txtRemarks.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
         txtRemarks.HoverState.BorderColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
         txtRemarks.Location = New Point(221, 380)
@@ -593,7 +593,7 @@ Partial Class AttendanceForm
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Font = New Font("Segoe UI", 10.0F)
+        Label4.Font = New Font("Segoe UI", 10F)
         Label4.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
         Label4.Location = New Point(224, 353)
         Label4.Name = "Label4"
@@ -610,7 +610,7 @@ Partial Class AttendanceForm
         btnClear.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         btnClear.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
         btnClear.FillColor = Color.FromArgb(CByte(149), CByte(165), CByte(166))
-        btnClear.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
+        btnClear.Font = New Font("Segoe UI", 11F, FontStyle.Bold)
         btnClear.ForeColor = Color.White
         btnClear.HoverState.FillColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
         btnClear.Location = New Point(781, 161)
@@ -631,7 +631,7 @@ Partial Class AttendanceForm
         btnExcused.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
         btnExcused.Enabled = False
         btnExcused.FillColor = Color.FromArgb(CByte(155), CByte(89), CByte(182))
-        btnExcused.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
+        btnExcused.Font = New Font("Segoe UI", 11F, FontStyle.Bold)
         btnExcused.ForeColor = Color.White
         btnExcused.HoverState.FillColor = Color.FromArgb(CByte(142), CByte(68), CByte(173))
         btnExcused.Location = New Point(343, 161)
@@ -652,7 +652,7 @@ Partial Class AttendanceForm
         btnLate.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
         btnLate.Enabled = False
         btnLate.FillColor = Color.FromArgb(CByte(243), CByte(156), CByte(18))
-        btnLate.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
+        btnLate.Font = New Font("Segoe UI", 11F, FontStyle.Bold)
         btnLate.ForeColor = Color.White
         btnLate.HoverState.FillColor = Color.FromArgb(CByte(211), CByte(84), CByte(0))
         btnLate.Location = New Point(635, 161)
@@ -673,7 +673,7 @@ Partial Class AttendanceForm
         btnAbsent.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
         btnAbsent.Enabled = False
         btnAbsent.FillColor = Color.FromArgb(CByte(231), CByte(76), CByte(60))
-        btnAbsent.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
+        btnAbsent.Font = New Font("Segoe UI", 11F, FontStyle.Bold)
         btnAbsent.ForeColor = Color.White
         btnAbsent.HoverState.FillColor = Color.FromArgb(CByte(192), CByte(57), CByte(43))
         btnAbsent.Location = New Point(489, 161)
@@ -694,7 +694,7 @@ Partial Class AttendanceForm
         btnPresent.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
         btnPresent.Enabled = False
         btnPresent.FillColor = Color.FromArgb(CByte(46), CByte(139), CByte(87))
-        btnPresent.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
+        btnPresent.Font = New Font("Segoe UI", 11F, FontStyle.Bold)
         btnPresent.ForeColor = Color.White
         btnPresent.HoverState.FillColor = Color.FromArgb(CByte(39), CByte(118), CByte(74))
         btnPresent.Location = New Point(197, 161)
@@ -719,7 +719,7 @@ Partial Class AttendanceForm
         ' 
         ' lblStudentName
         ' 
-        lblStudentName.Font = New Font("Segoe UI", 16.0F, FontStyle.Bold)
+        lblStudentName.Font = New Font("Segoe UI", 16F, FontStyle.Bold)
         lblStudentName.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
         lblStudentName.Location = New Point(197, 256)
         lblStudentName.Name = "lblStudentName"
