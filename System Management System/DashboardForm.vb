@@ -16,6 +16,9 @@ Public Class DashboardForm
     Private currentForm As Form = Nothing
     Private isStudentMode As Boolean = False
 
+    ' *** NEW: Flag to control closing order (CRITICAL FOR FIX) ***
+    Private isClosingFromButton As Boolean = False
+
     ''' <summary>
     ''' Constructor with user parameter
     ''' </summary>
@@ -904,20 +907,30 @@ Public Class DashboardForm
     ''' Close button click
     ''' </summary>
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
-        Try
-            Dim result As DialogResult = MessageBox.Show(
-                "Are you sure you want to exit?",
-                "Confirm Exit",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question)
+        Dim confirm As DialogResult = MessageBox.Show("Are you sure you want to Exit?",
+                                                  "Confirm Exit",
+                                                  MessageBoxButtons.YesNo,
+                                                  MessageBoxIcon.Question)
+        If confirm = DialogResult.Yes Then
+            ' Clear the content panel so no form stays loaded
+            pnlContent.Controls.Clear()
 
-            If result = DialogResult.Yes Then
-                Application.Exit()
-            End If
-        Catch ex As Exception
-            Logger.LogError("Error closing application", ex)
-        End Try
+            ' Make sure all open child forms are closed
+            For Each f As Form In Application.OpenForms.OfType(Of Form).ToList()
+                If f.Name <> "" Then
+                    f.Close()
+                End If
+            Next
+
+            ' Show the login form (only once)
+            'Dim login As New LoginForm()
+            'login.Show()'
+
+            ' Finally hide this main form
+            Me.Close()
+        End If
     End Sub
+
 
     ''' <summary>
     ''' Maximize/Restore button click
@@ -1015,6 +1028,7 @@ Public Class DashboardForm
             MessageBox.Show($"Error opening student portal: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
+
 
     Private Sub pnlContent_Paint(sender As Object, e As PaintEventArgs) Handles pnlContent.Paint
 
