@@ -33,8 +33,10 @@ Partial Class DashboardForm
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
-        Dim CustomizableEdges35 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges36 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges33 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges34 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -55,10 +57,6 @@ Partial Class DashboardForm
         Dim CustomizableEdges30 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges31 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges32 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges33 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges34 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -116,19 +114,19 @@ Partial Class DashboardForm
         pnlSidebar.Controls.Add(btnStudentPortal)
         pnlSidebar.Controls.Add(btnDashboard)
         pnlSidebar.Controls.Add(pnlUserInfo)
-        pnlSidebar.CustomizableEdges = CustomizableEdges35
+        pnlSidebar.CustomizableEdges = CustomizableEdges33
         pnlSidebar.Dock = DockStyle.Left
         pnlSidebar.Location = New Point(0, 0)
-        pnlSidebar.Margin = New Padding(4, 5, 4, 5)
+        pnlSidebar.Margin = New Padding(4)
         pnlSidebar.Name = "pnlSidebar"
-        pnlSidebar.ShadowDecoration.CustomizableEdges = CustomizableEdges36
-        pnlSidebar.Size = New Size(333, 1077)
+        pnlSidebar.ShadowDecoration.CustomizableEdges = CustomizableEdges34
+        pnlSidebar.Size = New Size(291, 808)
         pnlSidebar.TabIndex = 0
         ' 
         ' btnLogout
         ' 
         btnLogout.BorderRadius = 5
-        btnLogout.CustomizableEdges = CustomizableEdges13
+        btnLogout.CustomizableEdges = CustomizableEdges11
         btnLogout.DisabledState.BorderColor = Color.DarkGray
         btnLogout.DisabledState.CustomBorderColor = Color.DarkGray
         btnLogout.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -138,18 +136,18 @@ Partial Class DashboardForm
         btnLogout.Font = New Font("Segoe UI", 10.5F, FontStyle.Bold)
         btnLogout.ForeColor = Color.White
         btnLogout.HoverState.FillColor = Color.FromArgb(CByte(192), CByte(57), CByte(43))
-        btnLogout.Location = New Point(0, 1000)
-        btnLogout.Margin = New Padding(4, 5, 4, 5)
+        btnLogout.Location = New Point(0, 750)
+        btnLogout.Margin = New Padding(4)
         btnLogout.Name = "btnLogout"
-        btnLogout.ShadowDecoration.CustomizableEdges = CustomizableEdges14
-        btnLogout.Size = New Size(333, 77)
+        btnLogout.ShadowDecoration.CustomizableEdges = CustomizableEdges12
+        btnLogout.Size = New Size(291, 58)
         btnLogout.TabIndex = 10
         btnLogout.Text = "Logout"
         ' 
         ' btnSettings
         ' 
         btnSettings.BorderRadius = 5
-        btnSettings.CustomizableEdges = CustomizableEdges15
+        btnSettings.CustomizableEdges = CustomizableEdges13
         btnSettings.DisabledState.BorderColor = Color.DarkGray
         btnSettings.DisabledState.CustomBorderColor = Color.DarkGray
         btnSettings.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -159,11 +157,11 @@ Partial Class DashboardForm
         btnSettings.ForeColor = Color.White
         btnSettings.HoverState.FillColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
         btnSettings.HoverState.ForeColor = Color.White
-        btnSettings.Location = New Point(13, 915)
-        btnSettings.Margin = New Padding(4, 5, 4, 5)
+        btnSettings.Location = New Point(13, 648)
+        btnSettings.Margin = New Padding(4)
         btnSettings.Name = "btnSettings"
-        btnSettings.ShadowDecoration.CustomizableEdges = CustomizableEdges16
-        btnSettings.Size = New Size(307, 69)
+        btnSettings.ShadowDecoration.CustomizableEdges = CustomizableEdges14
+        btnSettings.Size = New Size(269, 52)
         btnSettings.TabIndex = 9
         btnSettings.Text = "Settings"
         btnSettings.TextAlign = HorizontalAlignment.Left
@@ -171,7 +169,7 @@ Partial Class DashboardForm
         ' btnReports
         ' 
         btnReports.BorderRadius = 5
-        btnReports.CustomizableEdges = CustomizableEdges17
+        btnReports.CustomizableEdges = CustomizableEdges15
         btnReports.DisabledState.BorderColor = Color.DarkGray
         btnReports.DisabledState.CustomBorderColor = Color.DarkGray
         btnReports.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -181,11 +179,11 @@ Partial Class DashboardForm
         btnReports.ForeColor = Color.White
         btnReports.HoverState.FillColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
         btnReports.HoverState.ForeColor = Color.White
-        btnReports.Location = New Point(13, 831)
-        btnReports.Margin = New Padding(4, 5, 4, 5)
+        btnReports.Location = New Point(13, 588)
+        btnReports.Margin = New Padding(4)
         btnReports.Name = "btnReports"
-        btnReports.ShadowDecoration.CustomizableEdges = CustomizableEdges18
-        btnReports.Size = New Size(307, 69)
+        btnReports.ShadowDecoration.CustomizableEdges = CustomizableEdges16
+        btnReports.Size = New Size(269, 52)
         btnReports.TabIndex = 8
         btnReports.Text = "Reports"
         btnReports.TextAlign = HorizontalAlignment.Left
@@ -193,7 +191,7 @@ Partial Class DashboardForm
         ' btnUsers
         ' 
         btnUsers.BorderRadius = 5
-        btnUsers.CustomizableEdges = CustomizableEdges19
+        btnUsers.CustomizableEdges = CustomizableEdges17
         btnUsers.DisabledState.BorderColor = Color.DarkGray
         btnUsers.DisabledState.CustomBorderColor = Color.DarkGray
         btnUsers.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -203,11 +201,11 @@ Partial Class DashboardForm
         btnUsers.ForeColor = Color.White
         btnUsers.HoverState.FillColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
         btnUsers.HoverState.ForeColor = Color.White
-        btnUsers.Location = New Point(13, 746)
-        btnUsers.Margin = New Padding(4, 5, 4, 5)
+        btnUsers.Location = New Point(13, 528)
+        btnUsers.Margin = New Padding(4)
         btnUsers.Name = "btnUsers"
-        btnUsers.ShadowDecoration.CustomizableEdges = CustomizableEdges20
-        btnUsers.Size = New Size(307, 69)
+        btnUsers.ShadowDecoration.CustomizableEdges = CustomizableEdges18
+        btnUsers.Size = New Size(269, 52)
         btnUsers.TabIndex = 7
         btnUsers.Text = "Users"
         btnUsers.TextAlign = HorizontalAlignment.Left
@@ -215,7 +213,7 @@ Partial Class DashboardForm
         ' btnFaculty
         ' 
         btnFaculty.BorderRadius = 5
-        btnFaculty.CustomizableEdges = CustomizableEdges21
+        btnFaculty.CustomizableEdges = CustomizableEdges19
         btnFaculty.DisabledState.BorderColor = Color.DarkGray
         btnFaculty.DisabledState.CustomBorderColor = Color.DarkGray
         btnFaculty.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -225,11 +223,11 @@ Partial Class DashboardForm
         btnFaculty.ForeColor = Color.White
         btnFaculty.HoverState.FillColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
         btnFaculty.HoverState.ForeColor = Color.White
-        btnFaculty.Location = New Point(13, 661)
-        btnFaculty.Margin = New Padding(4, 5, 4, 5)
+        btnFaculty.Location = New Point(13, 468)
+        btnFaculty.Margin = New Padding(4)
         btnFaculty.Name = "btnFaculty"
-        btnFaculty.ShadowDecoration.CustomizableEdges = CustomizableEdges22
-        btnFaculty.Size = New Size(307, 69)
+        btnFaculty.ShadowDecoration.CustomizableEdges = CustomizableEdges20
+        btnFaculty.Size = New Size(269, 52)
         btnFaculty.TabIndex = 6
         btnFaculty.Text = "Faculty"
         btnFaculty.TextAlign = HorizontalAlignment.Left
@@ -237,7 +235,7 @@ Partial Class DashboardForm
         ' btnAttendance
         ' 
         btnAttendance.BorderRadius = 5
-        btnAttendance.CustomizableEdges = CustomizableEdges23
+        btnAttendance.CustomizableEdges = CustomizableEdges21
         btnAttendance.DisabledState.BorderColor = Color.DarkGray
         btnAttendance.DisabledState.CustomBorderColor = Color.DarkGray
         btnAttendance.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -247,11 +245,11 @@ Partial Class DashboardForm
         btnAttendance.ForeColor = Color.White
         btnAttendance.HoverState.FillColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
         btnAttendance.HoverState.ForeColor = Color.White
-        btnAttendance.Location = New Point(13, 577)
-        btnAttendance.Margin = New Padding(4, 5, 4, 5)
+        btnAttendance.Location = New Point(13, 408)
+        btnAttendance.Margin = New Padding(4)
         btnAttendance.Name = "btnAttendance"
-        btnAttendance.ShadowDecoration.CustomizableEdges = CustomizableEdges24
-        btnAttendance.Size = New Size(307, 69)
+        btnAttendance.ShadowDecoration.CustomizableEdges = CustomizableEdges22
+        btnAttendance.Size = New Size(269, 52)
         btnAttendance.TabIndex = 5
         btnAttendance.Text = "Attendance"
         btnAttendance.TextAlign = HorizontalAlignment.Left
@@ -259,7 +257,7 @@ Partial Class DashboardForm
         ' btnCourses
         ' 
         btnCourses.BorderRadius = 5
-        btnCourses.CustomizableEdges = CustomizableEdges25
+        btnCourses.CustomizableEdges = CustomizableEdges23
         btnCourses.DisabledState.BorderColor = Color.DarkGray
         btnCourses.DisabledState.CustomBorderColor = Color.DarkGray
         btnCourses.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -269,11 +267,11 @@ Partial Class DashboardForm
         btnCourses.ForeColor = Color.White
         btnCourses.HoverState.FillColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
         btnCourses.HoverState.ForeColor = Color.White
-        btnCourses.Location = New Point(13, 492)
-        btnCourses.Margin = New Padding(4, 5, 4, 5)
+        btnCourses.Location = New Point(13, 348)
+        btnCourses.Margin = New Padding(4)
         btnCourses.Name = "btnCourses"
-        btnCourses.ShadowDecoration.CustomizableEdges = CustomizableEdges26
-        btnCourses.Size = New Size(307, 69)
+        btnCourses.ShadowDecoration.CustomizableEdges = CustomizableEdges24
+        btnCourses.Size = New Size(269, 52)
         btnCourses.TabIndex = 4
         btnCourses.Text = "Courses"
         btnCourses.TextAlign = HorizontalAlignment.Left
@@ -281,7 +279,7 @@ Partial Class DashboardForm
         ' btnStudents
         ' 
         btnStudents.BorderRadius = 5
-        btnStudents.CustomizableEdges = CustomizableEdges27
+        btnStudents.CustomizableEdges = CustomizableEdges25
         btnStudents.DisabledState.BorderColor = Color.DarkGray
         btnStudents.DisabledState.CustomBorderColor = Color.DarkGray
         btnStudents.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -291,11 +289,11 @@ Partial Class DashboardForm
         btnStudents.ForeColor = Color.White
         btnStudents.HoverState.FillColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
         btnStudents.HoverState.ForeColor = Color.White
-        btnStudents.Location = New Point(13, 407)
-        btnStudents.Margin = New Padding(4, 5, 4, 5)
+        btnStudents.Location = New Point(13, 288)
+        btnStudents.Margin = New Padding(4)
         btnStudents.Name = "btnStudents"
-        btnStudents.ShadowDecoration.CustomizableEdges = CustomizableEdges28
-        btnStudents.Size = New Size(307, 69)
+        btnStudents.ShadowDecoration.CustomizableEdges = CustomizableEdges26
+        btnStudents.Size = New Size(269, 52)
         btnStudents.TabIndex = 3
         btnStudents.Text = "Students"
         btnStudents.TextAlign = HorizontalAlignment.Left
@@ -303,7 +301,7 @@ Partial Class DashboardForm
         ' btnStudentPortal
         ' 
         btnStudentPortal.BorderRadius = 5
-        btnStudentPortal.CustomizableEdges = CustomizableEdges29
+        btnStudentPortal.CustomizableEdges = CustomizableEdges27
         btnStudentPortal.DisabledState.BorderColor = Color.DarkGray
         btnStudentPortal.DisabledState.CustomBorderColor = Color.DarkGray
         btnStudentPortal.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -313,11 +311,11 @@ Partial Class DashboardForm
         btnStudentPortal.ForeColor = Color.White
         btnStudentPortal.HoverState.FillColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
         btnStudentPortal.HoverState.ForeColor = Color.White
-        btnStudentPortal.Location = New Point(13, 338)
-        btnStudentPortal.Margin = New Padding(4, 5, 4, 5)
+        btnStudentPortal.Location = New Point(13, 228)
+        btnStudentPortal.Margin = New Padding(4)
         btnStudentPortal.Name = "btnStudentPortal"
-        btnStudentPortal.ShadowDecoration.CustomizableEdges = CustomizableEdges30
-        btnStudentPortal.Size = New Size(307, 69)
+        btnStudentPortal.ShadowDecoration.CustomizableEdges = CustomizableEdges28
+        btnStudentPortal.Size = New Size(269, 52)
         btnStudentPortal.TabIndex = 2
         btnStudentPortal.Text = "Student Portal"
         btnStudentPortal.TextAlign = HorizontalAlignment.Left
@@ -326,7 +324,7 @@ Partial Class DashboardForm
         ' btnDashboard
         ' 
         btnDashboard.BorderRadius = 5
-        btnDashboard.CustomizableEdges = CustomizableEdges31
+        btnDashboard.CustomizableEdges = CustomizableEdges29
         btnDashboard.DisabledState.BorderColor = Color.DarkGray
         btnDashboard.DisabledState.CustomBorderColor = Color.DarkGray
         btnDashboard.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -336,11 +334,11 @@ Partial Class DashboardForm
         btnDashboard.ForeColor = Color.White
         btnDashboard.HoverState.FillColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
         btnDashboard.HoverState.ForeColor = Color.White
-        btnDashboard.Location = New Point(13, 254)
-        btnDashboard.Margin = New Padding(4, 5, 4, 5)
+        btnDashboard.Location = New Point(13, 168)
+        btnDashboard.Margin = New Padding(4)
         btnDashboard.Name = "btnDashboard"
-        btnDashboard.ShadowDecoration.CustomizableEdges = CustomizableEdges32
-        btnDashboard.Size = New Size(307, 69)
+        btnDashboard.ShadowDecoration.CustomizableEdges = CustomizableEdges30
+        btnDashboard.Size = New Size(269, 52)
         btnDashboard.TabIndex = 1
         btnDashboard.Text = "Dashboard"
         btnDashboard.TextAlign = HorizontalAlignment.Left
@@ -350,24 +348,24 @@ Partial Class DashboardForm
         pnlUserInfo.BackColor = Color.FromArgb(CByte(46), CByte(139), CByte(87))
         pnlUserInfo.Controls.Add(lblRole)
         pnlUserInfo.Controls.Add(lblWelcome)
-        pnlUserInfo.CustomizableEdges = CustomizableEdges33
+        pnlUserInfo.CustomizableEdges = CustomizableEdges31
         pnlUserInfo.Dock = DockStyle.Top
         pnlUserInfo.Location = New Point(0, 0)
-        pnlUserInfo.Margin = New Padding(4, 5, 4, 5)
+        pnlUserInfo.Margin = New Padding(4)
         pnlUserInfo.Name = "pnlUserInfo"
-        pnlUserInfo.ShadowDecoration.CustomizableEdges = CustomizableEdges34
-        pnlUserInfo.Size = New Size(333, 185)
+        pnlUserInfo.ShadowDecoration.CustomizableEdges = CustomizableEdges32
+        pnlUserInfo.Size = New Size(291, 139)
         pnlUserInfo.TabIndex = 0
         ' 
         ' lblRole
         ' 
         lblRole.Dock = DockStyle.Bottom
-        lblRole.Font = New Font("Segoe UI", 9.0F)
+        lblRole.Font = New Font("Segoe UI", 9F)
         lblRole.ForeColor = Color.White
-        lblRole.Location = New Point(0, 139)
+        lblRole.Location = New Point(0, 105)
         lblRole.Margin = New Padding(4, 0, 4, 0)
         lblRole.Name = "lblRole"
-        lblRole.Size = New Size(333, 46)
+        lblRole.Size = New Size(291, 34)
         lblRole.TabIndex = 1
         lblRole.Text = "Role: Admin"
         lblRole.TextAlign = ContentAlignment.MiddleCenter
@@ -375,15 +373,15 @@ Partial Class DashboardForm
         ' lblWelcome
         ' 
         lblWelcome.Dock = DockStyle.Top
-        lblWelcome.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
+        lblWelcome.Font = New Font("Segoe UI", 11F, FontStyle.Bold)
         lblWelcome.ForeColor = Color.White
         lblWelcome.Location = New Point(0, 0)
         lblWelcome.Margin = New Padding(4, 0, 4, 0)
         lblWelcome.Name = "lblWelcome"
-        lblWelcome.Size = New Size(333, 123)
+        lblWelcome.Size = New Size(291, 82)
         lblWelcome.TabIndex = 0
         lblWelcome.Text = "Welcome, User"
-        lblWelcome.TextAlign = ContentAlignment.MiddleCenter
+        lblWelcome.TextAlign = ContentAlignment.BottomCenter
         ' 
         ' pnlTop
         ' 
@@ -392,26 +390,26 @@ Partial Class DashboardForm
         pnlTop.Controls.Add(btnMinimize)
         pnlTop.Controls.Add(btnMaximize)
         pnlTop.Controls.Add(btnClose)
-        pnlTop.CustomizableEdges = CustomizableEdges11
+        pnlTop.CustomizableEdges = CustomizableEdges9
         pnlTop.Dock = DockStyle.Top
-        pnlTop.Location = New Point(333, 0)
-        pnlTop.Margin = New Padding(4, 5, 4, 5)
+        pnlTop.Location = New Point(291, 0)
+        pnlTop.Margin = New Padding(4)
         pnlTop.Name = "pnlTop"
-        pnlTop.ShadowDecoration.CustomizableEdges = CustomizableEdges12
+        pnlTop.ShadowDecoration.CustomizableEdges = CustomizableEdges10
         pnlTop.ShadowDecoration.Depth = 5
         pnlTop.ShadowDecoration.Enabled = True
-        pnlTop.Size = New Size(1267, 92)
+        pnlTop.Size = New Size(1109, 69)
         pnlTop.TabIndex = 1
         ' 
         ' lblPageTitle
         ' 
         lblPageTitle.AutoSize = True
-        lblPageTitle.Font = New Font("Segoe UI", 14.0F, FontStyle.Bold)
+        lblPageTitle.Font = New Font("Segoe UI", 14F, FontStyle.Bold)
         lblPageTitle.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
-        lblPageTitle.Location = New Point(27, 26)
+        lblPageTitle.Location = New Point(24, 20)
         lblPageTitle.Margin = New Padding(4, 0, 4, 0)
         lblPageTitle.Name = "lblPageTitle"
-        lblPageTitle.Size = New Size(138, 32)
+        lblPageTitle.Size = New Size(109, 25)
         lblPageTitle.TabIndex = 3
         lblPageTitle.Text = "Dashboard"
         ' 
@@ -425,13 +423,13 @@ Partial Class DashboardForm
         btnMinimize.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         btnMinimize.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
         btnMinimize.FillColor = Color.FromArgb(CByte(241), CByte(196), CByte(15))
-        btnMinimize.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold)
+        btnMinimize.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
         btnMinimize.ForeColor = Color.White
-        btnMinimize.Location = New Point(1080, 23)
-        btnMinimize.Margin = New Padding(4, 5, 4, 5)
+        btnMinimize.Location = New Point(945, 17)
+        btnMinimize.Margin = New Padding(4)
         btnMinimize.Name = "btnMinimize"
         btnMinimize.ShadowDecoration.CustomizableEdges = CustomizableEdges4
-        btnMinimize.Size = New Size(47, 54)
+        btnMinimize.Size = New Size(41, 40)
         btnMinimize.TabIndex = 2
         btnMinimize.Text = "-"
         ' 
@@ -445,13 +443,13 @@ Partial Class DashboardForm
         btnMaximize.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         btnMaximize.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
         btnMaximize.FillColor = Color.FromArgb(CByte(46), CByte(204), CByte(113))
-        btnMaximize.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold)
+        btnMaximize.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
         btnMaximize.ForeColor = Color.White
-        btnMaximize.Location = New Point(1140, 23)
-        btnMaximize.Margin = New Padding(4, 5, 4, 5)
+        btnMaximize.Location = New Point(998, 17)
+        btnMaximize.Margin = New Padding(4)
         btnMaximize.Name = "btnMaximize"
         btnMaximize.ShadowDecoration.CustomizableEdges = CustomizableEdges6
-        btnMaximize.Size = New Size(47, 54)
+        btnMaximize.Size = New Size(41, 40)
         btnMaximize.TabIndex = 1
         btnMaximize.Text = "□"
         ' 
@@ -465,13 +463,13 @@ Partial Class DashboardForm
         btnClose.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         btnClose.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
         btnClose.FillColor = Color.FromArgb(CByte(231), CByte(76), CByte(60))
-        btnClose.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold)
+        btnClose.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
         btnClose.ForeColor = Color.White
-        btnClose.Location = New Point(1200, 23)
-        btnClose.Margin = New Padding(4, 5, 4, 5)
+        btnClose.Location = New Point(1050, 17)
+        btnClose.Margin = New Padding(4)
         btnClose.Name = "btnClose"
         btnClose.ShadowDecoration.CustomizableEdges = CustomizableEdges8
-        btnClose.Size = New Size(47, 54)
+        btnClose.Size = New Size(41, 40)
         btnClose.TabIndex = 0
         btnClose.Text = "X"
         ' 
@@ -480,12 +478,12 @@ Partial Class DashboardForm
         pnlContent.BackColor = Color.FromArgb(CByte(244), CByte(246), CByte(247))
         pnlContent.CustomizableEdges = CustomizableEdges1
         pnlContent.Dock = DockStyle.Fill
-        pnlContent.Location = New Point(333, 92)
-        pnlContent.Margin = New Padding(4, 5, 4, 5)
+        pnlContent.Location = New Point(291, 69)
+        pnlContent.Margin = New Padding(4)
         pnlContent.Name = "pnlContent"
-        pnlContent.Padding = New Padding(27, 31, 27, 31)
+        pnlContent.Padding = New Padding(24, 23, 24, 23)
         pnlContent.ShadowDecoration.CustomizableEdges = CustomizableEdges2
-        pnlContent.Size = New Size(1267, 985)
+        pnlContent.Size = New Size(1109, 739)
         pnlContent.TabIndex = 2
         ' 
         ' Guna2DragControl1
@@ -500,14 +498,14 @@ Partial Class DashboardForm
         ' 
         ' DashboardForm
         ' 
-        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1600, 1077)
+        ClientSize = New Size(1400, 808)
         Controls.Add(pnlContent)
         Controls.Add(pnlTop)
         Controls.Add(pnlSidebar)
         FormBorderStyle = FormBorderStyle.None
-        Margin = New Padding(4, 5, 4, 5)
+        Margin = New Padding(4)
         Name = "DashboardForm"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Dashboard - Student Management System"

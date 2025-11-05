@@ -1016,4 +1016,7 @@ Public Class DashboardForm
         End Try
     End Sub
 
+    Private Sub pnlContent_Paint(sender As Object, e As PaintEventArgs) Handles pnlContent.Paint
+
+    End Sub
 End Class

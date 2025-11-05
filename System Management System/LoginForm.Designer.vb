@@ -47,6 +47,7 @@ Partial Class LoginForm
         Guna2Elipse1 = New Guna.UI2.WinForms.Guna2Elipse(components)
         pnlMain = New Guna.UI2.WinForms.Guna2Panel()
         pnlLogin = New Guna.UI2.WinForms.Guna2Panel()
+        chkShowPassword = New Guna.UI2.WinForms.Guna2CheckBox()
         btnExit = New Guna.UI2.WinForms.Guna2Button()
         btnLogin = New Guna.UI2.WinForms.Guna2Button()
         txtPassword = New Guna.UI2.WinForms.Guna2TextBox()
@@ -57,7 +58,6 @@ Partial Class LoginForm
         lblAppName = New Label()
         Guna2DragControl1 = New Guna.UI2.WinForms.Guna2DragControl(components)
         Guna2ShadowForm1 = New Guna.UI2.WinForms.Guna2ShadowForm(components)
-        chkShowPassword = New Guna.UI2.WinForms.Guna2CheckBox()
         pnlMain.SuspendLayout()
         pnlLogin.SuspendLayout()
         pnlHeader.SuspendLayout()
@@ -76,10 +76,10 @@ Partial Class LoginForm
         pnlMain.CustomizableEdges = CustomizableEdges13
         pnlMain.Dock = DockStyle.Fill
         pnlMain.Location = New Point(0, 0)
-        pnlMain.Margin = New Padding(4, 5, 4, 5)
+        pnlMain.Margin = New Padding(4, 4, 4, 4)
         pnlMain.Name = "pnlMain"
         pnlMain.ShadowDecoration.CustomizableEdges = CustomizableEdges14
-        pnlMain.Size = New Size(600, 923)
+        pnlMain.Size = New Size(525, 692)
         pnlMain.TabIndex = 0
         ' 
         ' pnlLogin
@@ -94,15 +94,35 @@ Partial Class LoginForm
         pnlLogin.Controls.Add(lblSubtitle)
         pnlLogin.Controls.Add(lblTitle)
         pnlLogin.CustomizableEdges = CustomizableEdges9
-        pnlLogin.Location = New Point(53, 277)
-        pnlLogin.Margin = New Padding(4, 5, 4, 5)
+        pnlLogin.Location = New Point(46, 208)
+        pnlLogin.Margin = New Padding(4, 4, 4, 4)
         pnlLogin.Name = "pnlLogin"
         pnlLogin.ShadowDecoration.BorderRadius = 15
         pnlLogin.ShadowDecoration.CustomizableEdges = CustomizableEdges10
         pnlLogin.ShadowDecoration.Depth = 10
         pnlLogin.ShadowDecoration.Enabled = True
-        pnlLogin.Size = New Size(493, 585)
+        pnlLogin.Size = New Size(431, 439)
         pnlLogin.TabIndex = 1
+        ' 
+        ' chkShowPassword
+        ' 
+        chkShowPassword.AutoSize = True
+        chkShowPassword.CheckedState.BorderColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
+        chkShowPassword.CheckedState.BorderRadius = 0
+        chkShowPassword.CheckedState.BorderThickness = 0
+        chkShowPassword.CheckedState.FillColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
+        chkShowPassword.Font = New Font("Segoe UI", 9F)
+        chkShowPassword.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
+        chkShowPassword.Location = New Point(35, 274)
+        chkShowPassword.Margin = New Padding(4, 4, 4, 4)
+        chkShowPassword.Name = "chkShowPassword"
+        chkShowPassword.Size = New Size(108, 19)
+        chkShowPassword.TabIndex = 12
+        chkShowPassword.Text = "Show Password"
+        chkShowPassword.UncheckedState.BorderColor = Color.FromArgb(CByte(125), CByte(137), CByte(149))
+        chkShowPassword.UncheckedState.BorderRadius = 0
+        chkShowPassword.UncheckedState.BorderThickness = 0
+        chkShowPassword.UncheckedState.FillColor = Color.FromArgb(CByte(125), CByte(137), CByte(149))
         ' 
         ' btnExit
         ' 
@@ -115,11 +135,11 @@ Partial Class LoginForm
         btnExit.FillColor = Color.FromArgb(CByte(231), CByte(76), CByte(60))
         btnExit.Font = New Font("Segoe UI", 10.5F, FontStyle.Bold)
         btnExit.ForeColor = Color.White
-        btnExit.Location = New Point(40, 485)
-        btnExit.Margin = New Padding(4, 5, 4, 5)
+        btnExit.Location = New Point(35, 364)
+        btnExit.Margin = New Padding(4, 4, 4, 4)
         btnExit.Name = "btnExit"
         btnExit.ShadowDecoration.CustomizableEdges = CustomizableEdges2
-        btnExit.Size = New Size(413, 62)
+        btnExit.Size = New Size(361, 46)
         btnExit.TabIndex = 4
         btnExit.Text = "Exit"
         ' 
@@ -135,11 +155,11 @@ Partial Class LoginForm
         btnLogin.Font = New Font("Segoe UI", 10.5F, FontStyle.Bold)
         btnLogin.ForeColor = Color.White
         btnLogin.HoverState.FillColor = Color.FromArgb(CByte(39), CByte(118), CByte(74))
-        btnLogin.Location = New Point(40, 400)
-        btnLogin.Margin = New Padding(4, 5, 4, 5)
+        btnLogin.Location = New Point(35, 300)
+        btnLogin.Margin = New Padding(4, 4, 4, 4)
         btnLogin.Name = "btnLogin"
         btnLogin.ShadowDecoration.CustomizableEdges = CustomizableEdges4
-        btnLogin.Size = New Size(413, 69)
+        btnLogin.Size = New Size(361, 52)
         btnLogin.TabIndex = 3
         btnLogin.Text = "Login"
         ' 
@@ -157,15 +177,15 @@ Partial Class LoginForm
         txtPassword.Font = New Font("Segoe UI", 10.5F)
         txtPassword.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
         txtPassword.HoverState.BorderColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
-        txtPassword.Location = New Point(40, 292)
-        txtPassword.Margin = New Padding(5, 8, 5, 8)
+        txtPassword.Location = New Point(35, 219)
+        txtPassword.Margin = New Padding(4, 6, 4, 6)
         txtPassword.Name = "txtPassword"
         txtPassword.PasswordChar = "●"c
         txtPassword.PlaceholderForeColor = Color.Silver
         txtPassword.PlaceholderText = "Password"
         txtPassword.SelectedText = ""
         txtPassword.ShadowDecoration.CustomizableEdges = CustomizableEdges6
-        txtPassword.Size = New Size(413, 69)
+        txtPassword.Size = New Size(361, 52)
         txtPassword.TabIndex = 2
         txtPassword.UseSystemPasswordChar = True
         ' 
@@ -183,24 +203,24 @@ Partial Class LoginForm
         txtUsername.Font = New Font("Segoe UI", 10.5F)
         txtUsername.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
         txtUsername.HoverState.BorderColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
-        txtUsername.Location = New Point(40, 185)
-        txtUsername.Margin = New Padding(5, 8, 5, 8)
+        txtUsername.Location = New Point(35, 139)
+        txtUsername.Margin = New Padding(4, 6, 4, 6)
         txtUsername.Name = "txtUsername"
         txtUsername.PlaceholderForeColor = Color.Silver
         txtUsername.PlaceholderText = "Username"
         txtUsername.SelectedText = ""
         txtUsername.ShadowDecoration.CustomizableEdges = CustomizableEdges8
-        txtUsername.Size = New Size(413, 69)
+        txtUsername.Size = New Size(361, 52)
         txtUsername.TabIndex = 1
         ' 
         ' lblSubtitle
         ' 
         lblSubtitle.Font = New Font("Segoe UI", 9.75F)
         lblSubtitle.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
-        lblSubtitle.Location = New Point(36, 108)
+        lblSubtitle.Location = New Point(32, 81)
         lblSubtitle.Margin = New Padding(4, 0, 4, 0)
         lblSubtitle.Name = "lblSubtitle"
-        lblSubtitle.Size = New Size(421, 38)
+        lblSubtitle.Size = New Size(368, 28)
         lblSubtitle.TabIndex = 1
         lblSubtitle.Text = "Enter your credentials to continue"
         lblSubtitle.TextAlign = ContentAlignment.MiddleCenter
@@ -209,10 +229,10 @@ Partial Class LoginForm
         ' 
         lblTitle.Font = New Font("Segoe UI", 18F, FontStyle.Bold)
         lblTitle.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
-        lblTitle.Location = New Point(33, 46)
+        lblTitle.Location = New Point(29, 34)
         lblTitle.Margin = New Padding(4, 0, 4, 0)
         lblTitle.Name = "lblTitle"
-        lblTitle.Size = New Size(427, 62)
+        lblTitle.Size = New Size(374, 46)
         lblTitle.TabIndex = 0
         lblTitle.Text = "Welcome Back!"
         lblTitle.TextAlign = ContentAlignment.MiddleCenter
@@ -224,10 +244,10 @@ Partial Class LoginForm
         pnlHeader.CustomizableEdges = CustomizableEdges11
         pnlHeader.Dock = DockStyle.Top
         pnlHeader.Location = New Point(0, 0)
-        pnlHeader.Margin = New Padding(4, 5, 4, 5)
+        pnlHeader.Margin = New Padding(4, 4, 4, 4)
         pnlHeader.Name = "pnlHeader"
         pnlHeader.ShadowDecoration.CustomizableEdges = CustomizableEdges12
-        pnlHeader.Size = New Size(600, 185)
+        pnlHeader.Size = New Size(525, 139)
         pnlHeader.TabIndex = 0
         ' 
         ' lblAppName
@@ -238,7 +258,7 @@ Partial Class LoginForm
         lblAppName.Location = New Point(0, 0)
         lblAppName.Margin = New Padding(4, 0, 4, 0)
         lblAppName.Name = "lblAppName"
-        lblAppName.Size = New Size(600, 185)
+        lblAppName.Size = New Size(525, 139)
         lblAppName.TabIndex = 0
         lblAppName.Text = "Student Management" & vbCrLf & "System"
         lblAppName.TextAlign = ContentAlignment.MiddleCenter
@@ -253,34 +273,14 @@ Partial Class LoginForm
         ' 
         Guna2ShadowForm1.TargetForm = Me
         ' 
-        ' chkShowPassword
-        ' 
-        chkShowPassword.AutoSize = True
-        chkShowPassword.CheckedState.BorderColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
-        chkShowPassword.CheckedState.BorderRadius = 0
-        chkShowPassword.CheckedState.BorderThickness = 0
-        chkShowPassword.CheckedState.FillColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
-        chkShowPassword.Font = New Font("Segoe UI", 9F)
-        chkShowPassword.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
-        chkShowPassword.Location = New Point(40, 366)
-        chkShowPassword.Margin = New Padding(4, 5, 4, 5)
-        chkShowPassword.Name = "chkShowPassword"
-        chkShowPassword.Size = New Size(132, 24)
-        chkShowPassword.TabIndex = 12
-        chkShowPassword.Text = "Show Password"
-        chkShowPassword.UncheckedState.BorderColor = Color.FromArgb(CByte(125), CByte(137), CByte(149))
-        chkShowPassword.UncheckedState.BorderRadius = 0
-        chkShowPassword.UncheckedState.BorderThickness = 0
-        chkShowPassword.UncheckedState.FillColor = Color.FromArgb(CByte(125), CByte(137), CByte(149))
-        ' 
         ' LoginForm
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(600, 923)
+        ClientSize = New Size(525, 692)
         Controls.Add(pnlMain)
         FormBorderStyle = FormBorderStyle.None
-        Margin = New Padding(4, 5, 4, 5)
+        Margin = New Padding(4, 4, 4, 4)
         Name = "LoginForm"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Login - Student Management System"
