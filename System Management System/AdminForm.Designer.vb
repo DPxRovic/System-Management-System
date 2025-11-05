@@ -32,6 +32,8 @@ Partial Class AdminForm
         components = New ComponentModel.Container()
         Dim CustomizableEdges23 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges24 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
@@ -68,9 +70,8 @@ Partial Class AdminForm
         Dim CustomizableEdges32 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges33 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges34 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         pnlMain = New Guna.UI2.WinForms.Guna2Panel()
+        btnLogout = New Guna.UI2.WinForms.Guna2Button()
         tabControl = New Guna.UI2.WinForms.Guna2TabControl()
         tabUsers = New TabPage()
         pnlUsersContent = New Guna.UI2.WinForms.Guna2Panel()
@@ -99,7 +100,6 @@ Partial Class AdminForm
         btnDeleteCourse = New Guna.UI2.WinForms.Guna2Button()
         btnRefreshCourses = New Guna.UI2.WinForms.Guna2Button()
         chkShowArchivedCourses = New Guna.UI2.WinForms.Guna2CheckBox()
-        btnLogout = New Guna.UI2.WinForms.Guna2Button()
         pnlMain.SuspendLayout()
         tabControl.SuspendLayout()
         tabUsers.SuspendLayout()
@@ -128,18 +128,39 @@ Partial Class AdminForm
         pnlMain.Size = New Size(1166, 808)
         pnlMain.TabIndex = 0
         ' 
+        ' btnLogout
+        ' 
+        btnLogout.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
+        btnLogout.BorderRadius = 5
+        btnLogout.CustomizableEdges = CustomizableEdges1
+        btnLogout.DisabledState.BorderColor = Color.DarkGray
+        btnLogout.DisabledState.CustomBorderColor = Color.DarkGray
+        btnLogout.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnLogout.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnLogout.FillColor = Color.FromArgb(CByte(231), CByte(76), CByte(60))
+        btnLogout.Font = New Font("Segoe UI", 10.5F, FontStyle.Bold)
+        btnLogout.ForeColor = Color.White
+        btnLogout.HoverState.FillColor = Color.FromArgb(CByte(192), CByte(57), CByte(43))
+        btnLogout.Location = New Point(24, 745)
+        btnLogout.Margin = New Padding(4)
+        btnLogout.Name = "btnLogout"
+        btnLogout.ShadowDecoration.CustomizableEdges = CustomizableEdges2
+        btnLogout.Size = New Size(180, 40)
+        btnLogout.TabIndex = 11
+        btnLogout.Text = "Logout"
+        ' 
         ' tabControl
         ' 
         tabControl.Alignment = TabAlignment.Left
-        tabControl.Anchor = AnchorStyles.None
         tabControl.Controls.Add(tabUsers)
         tabControl.Controls.Add(tabCourses)
+        tabControl.Dock = DockStyle.Fill
         tabControl.ItemSize = New Size(180, 50)
         tabControl.Location = New Point(24, 139)
         tabControl.Margin = New Padding(4)
         tabControl.Name = "tabControl"
         tabControl.SelectedIndex = 0
-        tabControl.Size = New Size(1118, 629)
+        tabControl.Size = New Size(1118, 646)
         tabControl.TabButtonHoverState.BorderColor = Color.Empty
         tabControl.TabButtonHoverState.FillColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
         tabControl.TabButtonHoverState.Font = New Font("Segoe UI Semibold", 10F)
@@ -168,7 +189,7 @@ Partial Class AdminForm
         tabUsers.Margin = New Padding(4)
         tabUsers.Name = "tabUsers"
         tabUsers.Padding = New Padding(18, 17, 18, 17)
-        tabUsers.Size = New Size(930, 621)
+        tabUsers.Size = New Size(930, 638)
         tabUsers.TabIndex = 0
         tabUsers.Text = "👥 Users"
         ' 
@@ -181,7 +202,7 @@ Partial Class AdminForm
         pnlUsersContent.Margin = New Padding(4)
         pnlUsersContent.Name = "pnlUsersContent"
         pnlUsersContent.ShadowDecoration.CustomizableEdges = CustomizableEdges4
-        pnlUsersContent.Size = New Size(894, 506)
+        pnlUsersContent.Size = New Size(894, 523)
         pnlUsersContent.TabIndex = 1
         ' 
         ' dgvUsers
@@ -217,7 +238,7 @@ Partial Class AdminForm
         dgvUsers.RowHeadersVisible = False
         dgvUsers.RowHeadersWidth = 51
         dgvUsers.RowTemplate.Height = 35
-        dgvUsers.Size = New Size(894, 506)
+        dgvUsers.Size = New Size(894, 523)
         dgvUsers.TabIndex = 0
         dgvUsers.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
         dgvUsers.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -395,7 +416,7 @@ Partial Class AdminForm
         tabCourses.Margin = New Padding(4)
         tabCourses.Name = "tabCourses"
         tabCourses.Padding = New Padding(18, 17, 18, 17)
-        tabCourses.Size = New Size(930, 570)
+        tabCourses.Size = New Size(930, 638)
         tabCourses.TabIndex = 1
         tabCourses.Text = "📚 Courses"
         ' 
@@ -408,7 +429,7 @@ Partial Class AdminForm
         pnlCoursesContent.Margin = New Padding(4)
         pnlCoursesContent.Name = "pnlCoursesContent"
         pnlCoursesContent.ShadowDecoration.CustomizableEdges = CustomizableEdges18
-        pnlCoursesContent.Size = New Size(894, 455)
+        pnlCoursesContent.Size = New Size(894, 523)
         pnlCoursesContent.TabIndex = 1
         ' 
         ' dgvCourses
@@ -444,7 +465,7 @@ Partial Class AdminForm
         dgvCourses.RowHeadersVisible = False
         dgvCourses.RowHeadersWidth = 51
         dgvCourses.RowTemplate.Height = 35
-        dgvCourses.Size = New Size(894, 455)
+        dgvCourses.Size = New Size(894, 523)
         dgvCourses.TabIndex = 0
         dgvCourses.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
         dgvCourses.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -660,27 +681,6 @@ Partial Class AdminForm
         chkShowArchivedCourses.UncheckedState.BorderRadius = 0
         chkShowArchivedCourses.UncheckedState.BorderThickness = 0
         chkShowArchivedCourses.UncheckedState.FillColor = Color.FromArgb(CByte(125), CByte(137), CByte(149))
-        ' 
-        ' btnLogout
-        ' 
-        btnLogout.Anchor = AnchorStyles.None
-        btnLogout.BorderRadius = 5
-        btnLogout.CustomizableEdges = CustomizableEdges1
-        btnLogout.DisabledState.BorderColor = Color.DarkGray
-        btnLogout.DisabledState.CustomBorderColor = Color.DarkGray
-        btnLogout.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
-        btnLogout.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        btnLogout.FillColor = Color.FromArgb(CByte(231), CByte(76), CByte(60))
-        btnLogout.Font = New Font("Segoe UI", 10.5F, FontStyle.Bold)
-        btnLogout.ForeColor = Color.White
-        btnLogout.HoverState.FillColor = Color.FromArgb(CByte(192), CByte(57), CByte(43))
-        btnLogout.Location = New Point(24, 710)
-        btnLogout.Margin = New Padding(4)
-        btnLogout.Name = "btnLogout"
-        btnLogout.ShadowDecoration.CustomizableEdges = CustomizableEdges2
-        btnLogout.Size = New Size(180, 58)
-        btnLogout.TabIndex = 11
-        btnLogout.Text = "Logout"
         ' 
         ' AdminForm
         ' 
