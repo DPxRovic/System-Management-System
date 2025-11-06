@@ -300,6 +300,7 @@ Public Class DatabaseInitializer
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
 
         ' Enrollments table - Enhanced with subject_code and professor_id for direct tracking
+        ' Note: Foreign key for professor_id is added via ApplyPostCreationConstraints() to avoid dependency issues
         tableDefinitions("enrollments") = "
             CREATE TABLE `enrollments` (
                 `id` INT AUTO_INCREMENT PRIMARY KEY,
@@ -319,8 +320,7 @@ Public Class DatabaseInitializer
                 INDEX idx_status (status),
                 INDEX idx_composite_enrollment (student_id, course_id, subject_code),
                 UNIQUE KEY unique_enrollment (student_id, course_id),
-                FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE,
-                FOREIGN KEY (professor_id) REFERENCES professors(id) ON DELETE SET NULL
+                FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Student enrollments with subject and professor tracking'"
 
         ' Attendance table
@@ -749,8 +749,11 @@ Public Class DatabaseInitializer
             Logger.LogInfo("Verifying database integrity...")
 
             Dim requiredTables As List(Of String) = New List(Of String) From {
-                "users", "students", "faculty", "courses", "enrollments", "attendance",
-                "professors", "sections", "professor_sections", "professor_subjects"
+                ' Independent tables
+                "users", "students", "faculty", "professors", "sections",
+                ' Dependent tables (with foreign keys)
+                "courses", "professor_subjects", "professor_sections", 
+                "enrollments", "attendance"
             }
 
             ' Check all required tables exist
