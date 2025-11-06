@@ -211,6 +211,7 @@ Public Class DatabaseInitializer
                 `role` VARCHAR(20) NOT NULL,
                 `fullname` VARCHAR(100) NOT NULL,
                 `is_archived` TINYINT(1) DEFAULT 0,
+                `course_code` VARCHAR(255),
                 `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                 INDEX idx_username (username),
@@ -245,6 +246,7 @@ Public Class DatabaseInitializer
                 `first_name` VARCHAR(100),
                 `last_name` VARCHAR(100),
                 `email` VARCHAR(200),
+                `course_code` VARCHAR(255),
                 `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                 FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL,
@@ -276,6 +278,7 @@ Public Class DatabaseInitializer
             CREATE TABLE `sections` (
                 `id` INT AUTO_INCREMENT PRIMARY KEY,
                 `course_id` INT NOT NULL,
+                `course_code` VARCHAR(255),
                 `name` VARCHAR(50) NOT NULL,
                 `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
