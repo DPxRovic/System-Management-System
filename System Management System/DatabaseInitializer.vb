@@ -3,7 +3,8 @@
 ' PURPOSE: Enhanced database initialization with comprehensive error handling
 ' AUTHOR: System
 ' DATE: 2025-10-14
-' LAST UPDATED: 2025-10-26 - Added rollback capability and better error recovery
+' LAST UPDATED: 2025-11-06 - Added professor_subjects, sections, professor_sections tables and enhanced relationship tracking
+' Updated By: rainnn19
 ' For Future users please do not remove this header
 ' ==========================================
 
@@ -276,12 +277,14 @@ Public Class DatabaseInitializer
                 FOREIGN KEY (faculty_id) REFERENCES faculty(id) ON DELETE SET NULL
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
 
-        ' Enrollments table
+        ' Enrollments table (enhanced with subject_code and professor_id)
         tableDefinitions("enrollments") = "
             CREATE TABLE `enrollments` (
                 `id` INT AUTO_INCREMENT PRIMARY KEY,
                 `student_id` VARCHAR(20) NOT NULL,
                 `course_id` INT NOT NULL,
+                `subject_code` VARCHAR(20),
+                `professor_id` INT,
                 `enrollment_date` DATE DEFAULT (CURRENT_DATE),
                 `status` VARCHAR(20) DEFAULT 'Enrolled',
                 `grade` VARCHAR(5),
@@ -289,6 +292,8 @@ Public Class DatabaseInitializer
                 `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                 INDEX idx_student_id (student_id),
                 INDEX idx_course_id (course_id),
+                INDEX idx_subject_code (subject_code),
+                INDEX idx_professor_id (professor_id),
                 INDEX idx_status (status),
                 UNIQUE KEY unique_enrollment (student_id, course_id),
                 FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE
@@ -315,6 +320,82 @@ Public Class DatabaseInitializer
                 INDEX idx_composite (student_id, course_id, date),
                 FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
+
+        ' Professors table
+        tableDefinitions("professors") = "
+            CREATE TABLE `professors` (
+                `id` INT AUTO_INCREMENT PRIMARY KEY,
+                `professor_id` VARCHAR(20) NOT NULL UNIQUE,
+                `name` VARCHAR(100) NOT NULL,
+                `department` VARCHAR(100),
+                `email` VARCHAR(100),
+                `phone_number` VARCHAR(20),
+                `subject_code` VARCHAR(20),
+                `specialization` VARCHAR(100),
+                `hire_date` DATE DEFAULT (CURRENT_DATE),
+                `status` VARCHAR(20) DEFAULT 'Active',
+                `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                `created_by` VARCHAR(50) DEFAULT 'rainnn19',
+                `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                INDEX idx_professor_id (professor_id),
+                INDEX idx_department (department),
+                INDEX idx_subject_code (subject_code),
+                INDEX idx_status (status)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
+
+        ' Professor subjects junction table
+        tableDefinitions("professor_subjects") = "
+            CREATE TABLE `professor_subjects` (
+                `id` INT AUTO_INCREMENT PRIMARY KEY,
+                `professor_id` INT NOT NULL,
+                `subject_code` VARCHAR(20) NOT NULL,
+                `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                `created_by` VARCHAR(50) DEFAULT 'rainnn19',
+                FOREIGN KEY (professor_id) REFERENCES professors(id) ON DELETE CASCADE,
+                UNIQUE KEY unique_professor_subject (professor_id, subject_code),
+                INDEX idx_subject_code (subject_code)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
+
+        ' Sections table
+        tableDefinitions("sections") = "
+            CREATE TABLE `sections` (
+                `id` INT AUTO_INCREMENT PRIMARY KEY,
+                `section_code` VARCHAR(20) NOT NULL UNIQUE,
+                `section_name` VARCHAR(100) NOT NULL,
+                `subject_code` VARCHAR(20) NOT NULL,
+                `capacity` INT DEFAULT 30,
+                `year_level` VARCHAR(20),
+                `semester` VARCHAR(20),
+                `academic_year` VARCHAR(20),
+                `status` VARCHAR(20) DEFAULT 'Active',
+                `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                `created_by` VARCHAR(50) DEFAULT 'rainnn19',
+                `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                INDEX idx_section_code (section_code),
+                INDEX idx_subject_code (subject_code),
+                INDEX idx_year_level (year_level),
+                INDEX idx_status (status)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
+
+        ' Professor sections junction table
+        tableDefinitions("professor_sections") = "
+            CREATE TABLE `professor_sections` (
+                `id` INT AUTO_INCREMENT PRIMARY KEY,
+                `professor_id` INT NOT NULL,
+                `section_id` INT NOT NULL,
+                `subject_code` VARCHAR(20) NOT NULL,
+                `assigned_date` DATE DEFAULT (CURRENT_DATE),
+                `status` VARCHAR(20) DEFAULT 'Active',
+                `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                `created_by` VARCHAR(50) DEFAULT 'rainnn19',
+                `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (professor_id) REFERENCES professors(id) ON DELETE CASCADE,
+                FOREIGN KEY (section_id) REFERENCES sections(id) ON DELETE CASCADE,
+                UNIQUE KEY unique_professor_section (professor_id, section_id, subject_code),
+                INDEX idx_professor_id (professor_id),
+                INDEX idx_section_id (section_id),
+                INDEX idx_subject_code (subject_code)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
     End Sub
 
     ''' <summary>
@@ -339,10 +420,44 @@ Public Class DatabaseInitializer
 
                 Case "enrollments"
                     AddColumnIfNotExists("enrollments", "updated_at", "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
+                    ' Migration support: Add new columns for enhanced relationship tracking
+                    AddColumnIfNotExists("enrollments", "subject_code", "VARCHAR(20)")
+                    AddColumnIfNotExists("enrollments", "professor_id", "INT")
+                    ' Add indexes if columns were just added
+                    AddIndexIfNotExists("enrollments", "idx_subject_code", "subject_code")
+                    AddIndexIfNotExists("enrollments", "idx_professor_id", "professor_id")
 
                 Case "attendance"
                     AddColumnIfNotExists("attendance", "updated_at", "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
+
+                Case "professors"
+                    ' Migration support for professors table if it exists
+                    AddColumnIfNotExists("professors", "subject_code", "VARCHAR(20)")
+                    AddColumnIfNotExists("professors", "created_by", "VARCHAR(50) DEFAULT 'rainnn19'")
+                    AddColumnIfNotExists("professors", "updated_at", "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
+                    AddIndexIfNotExists("professors", "idx_subject_code", "subject_code")
+
+                Case "sections"
+                    ' Migration support for sections table if it exists
+                    AddColumnIfNotExists("sections", "subject_code", "VARCHAR(20) NOT NULL DEFAULT ''")
+                    AddColumnIfNotExists("sections", "capacity", "INT DEFAULT 30")
+                    AddColumnIfNotExists("sections", "created_by", "VARCHAR(50) DEFAULT 'rainnn19'")
+                    AddColumnIfNotExists("sections", "updated_at", "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
+                    AddIndexIfNotExists("sections", "idx_subject_code", "subject_code")
+
+                Case "professor_sections"
+                    ' Migration support for professor_sections table if it exists
+                    AddColumnIfNotExists("professor_sections", "subject_code", "VARCHAR(20) NOT NULL DEFAULT ''")
+                    AddColumnIfNotExists("professor_sections", "created_by", "VARCHAR(50) DEFAULT 'rainnn19'")
+                    AddColumnIfNotExists("professor_sections", "updated_at", "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
+                    AddIndexIfNotExists("professor_sections", "idx_subject_code", "subject_code")
+
+                Case "professor_subjects"
+                    ' Migration support for professor_subjects table if it exists
+                    AddColumnIfNotExists("professor_subjects", "created_by", "VARCHAR(50) DEFAULT 'rainnn19'")
             End Select
+
+            Logger.LogInfo($"Table structure update completed for {tableName}")
 
         Catch ex As Exception
             Logger.LogWarning($"Error updating table structure for {tableName}: {ex.Message}")
@@ -377,6 +492,37 @@ Public Class DatabaseInitializer
 
         Catch ex As Exception
             Logger.LogWarning($"Failed to add column '{columnName}' to table '{tableName}': {ex.Message}")
+        End Try
+    End Sub
+
+    ''' <summary>
+    ''' NEW: Adds an index to a table if it doesn't exist
+    ''' </summary>
+    Private Shared Sub AddIndexIfNotExists(tableName As String, indexName As String, columnName As String)
+        Try
+            Dim checkQuery As String = "
+                SELECT COUNT(*) 
+                FROM information_schema.statistics 
+                WHERE table_schema = @database 
+                AND table_name = @table 
+                AND index_name = @index"
+
+            Dim checkParams As New Dictionary(Of String, Object) From {
+                {"@database", DatabaseManager.DatabaseName},
+                {"@table", tableName},
+                {"@index", indexName}
+            }
+
+            Dim indexExists As Integer = Convert.ToInt32(DatabaseHandler.ExecuteScalar(checkQuery, checkParams))
+
+            If indexExists = 0 Then
+                Dim alterQuery As String = $"ALTER TABLE `{tableName}` ADD INDEX `{indexName}` (`{columnName}`)"
+                DatabaseHandler.ExecuteNonQuery(alterQuery)
+                Logger.LogInfo($"Added index '{indexName}' to table '{tableName}'")
+            End If
+
+        Catch ex As Exception
+            Logger.LogWarning($"Failed to add index '{indexName}' to table '{tableName}': {ex.Message}")
         End Try
     End Sub
 
@@ -560,7 +706,8 @@ Public Class DatabaseInitializer
             Logger.LogInfo("Verifying database integrity...")
 
             Dim requiredTables As List(Of String) = New List(Of String) From {
-                "users", "students", "faculty", "courses", "enrollments", "attendance"
+                "users", "students", "faculty", "courses", "enrollments", "attendance",
+                "professors", "professor_subjects", "sections", "professor_sections"
             }
 
             ' Check all required tables exist
@@ -578,6 +725,27 @@ Public Class DatabaseInitializer
             If adminCount = 0 Then
                 Logger.LogWarning("No admin users found in database")
                 allValid = False
+            End If
+
+            ' Verify new table relationships
+            If DatabaseHandler.TableExists("professor_subjects") And DatabaseHandler.TableExists("professors") Then
+                Dim fkQuery As String = "
+                    SELECT COUNT(*) 
+                    FROM information_schema.table_constraints 
+                    WHERE table_schema = @database 
+                    AND table_name = 'professor_subjects' 
+                    AND constraint_type = 'FOREIGN KEY'"
+
+                Dim fkParams As New Dictionary(Of String, Object) From {
+                    {"@database", DatabaseManager.DatabaseName}
+                }
+
+                Dim fkCount As Integer = Convert.ToInt32(DatabaseHandler.ExecuteScalar(fkQuery, fkParams))
+
+                If fkCount = 0 Then
+                    Logger.LogWarning("Foreign key constraints missing on professor_subjects table")
+                    allValid = False
+                End If
             End If
 
             If allValid Then
@@ -620,7 +788,8 @@ Public Class DatabaseInitializer
             DatabaseHandler.ExecuteNonQuery("SET FOREIGN_KEY_CHECKS = 0")
 
             Dim tables As List(Of String) = New List(Of String) From {
-                "attendance", "enrollments", "courses", "students", "faculty", "users"
+                "professor_sections", "professor_subjects", "attendance", "enrollments", 
+                "courses", "sections", "professors", "students", "faculty", "users"
             }
 
             For Each tableName In tables
