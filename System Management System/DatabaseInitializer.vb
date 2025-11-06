@@ -190,6 +190,9 @@ Public Class DatabaseInitializer
                 End Try
             Next
 
+            ' NEW: Apply cross-table foreign keys after all tables are created
+            ApplyPostCreationConstraints()
+
             Return True
 
         Catch ex As Exception
@@ -197,6 +200,26 @@ Public Class DatabaseInitializer
             Return False
         End Try
     End Function
+
+    ''' <summary>
+    ''' NEW: Applies foreign key constraints that depend on multiple tables being created
+    ''' This runs after all tables are created to avoid dependency issues
+    ''' </summary>
+    Private Shared Sub ApplyPostCreationConstraints()
+        Try
+            Logger.LogInfo("Applying post-creation foreign key constraints...")
+
+            ' Add foreign key from enrollments to professors (only if professors table exists)
+            If DatabaseHandler.TableExists("professors") And DatabaseHandler.TableExists("enrollments") Then
+                AddForeignKeyIfNotExists("enrollments", "fk_enrollments_professor", "professor_id", "professors", "id", "SET NULL")
+            End If
+
+            Logger.LogInfo("Post-creation constraints applied successfully.")
+
+        Catch ex As Exception
+            Logger.LogWarning($"Error applying post-creation constraints: {ex.Message}")
+        End Try
+    End Sub
 
     ''' <summary>
     ''' Defines all table structures
@@ -436,8 +459,7 @@ Public Class DatabaseInitializer
                     AddIndexIfNotExists("enrollments", "idx_subject_code", "subject_code")
                     AddIndexIfNotExists("enrollments", "idx_professor_id", "professor_id")
                     AddIndexIfNotExists("enrollments", "idx_composite_enrollment", "student_id, course_id, subject_code")
-                    ' Add foreign key for professor_id if it doesn't exist
-                    AddForeignKeyIfNotExists("enrollments", "fk_enrollments_professor", "professor_id", "professors", "id", "SET NULL")
+                    ' Note: Foreign key for professor_id is added in ApplyPostCreationConstraints()
 
                 Case "attendance"
                     AddColumnIfNotExists("attendance", "updated_at", "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
