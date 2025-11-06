@@ -66,11 +66,11 @@ Public Class CreateAccountForm
             cmbRole.Items.Clear()
 
             If currentUserRole.ToUpper() = "SUPERADMIN" Then
-                ' SuperAdmin can assign all roles
-                cmbRole.Items.AddRange(New String() {"Student", "Faculty", "Admin", "SuperAdmin"})
+                ' SuperAdmin can assign all roles including Professor
+                cmbRole.Items.AddRange(New String() {"Student", "Faculty", "Professor", "Admin", "SuperAdmin"})
             Else
-                ' Admin can only assign Student, Faculty, Admin
-                cmbRole.Items.AddRange(New String() {"Student", "Faculty", "Admin"})
+                ' Admin can assign Student, Faculty, Professor, Admin
+                cmbRole.Items.AddRange(New String() {"Student", "Faculty", "Professor", "Admin"})
             End If
 
             If cmbRole.Items.Count > 0 Then

@@ -305,8 +305,4 @@ Public Class StudentSelectorForm
     Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
 
     End Sub
-
-    Private Sub dgvStudents_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvStudents.CellContentClick
-
-    End Sub
 End Class

@@ -34,13 +34,10 @@ Public Class StudentFormDialog
     ''' </summary>
     Private Sub StudentFormDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            ' Initialize status dropdown
             InitializeStatusDropdown()
 
-            ' === Temporarily remove checkbox event handler ===
             RemoveHandler chkNoDOB.CheckedChanged, AddressOf chkNoDOB_CheckedChanged
 
-            ' Set form title and button text based on mode
             If editMode Then
                 lblTitle.Text = "Edit Student Record"
                 btnSave.Text = "Update"
@@ -48,23 +45,14 @@ Public Class StudentFormDialog
             Else
                 lblTitle.Text = "Add New Student"
                 btnSave.Text = "Save"
-
-                ' Set default values
                 dtpEnrollmentDate.Value = DateTime.Today
-                cmbStatus.SelectedIndex = 0 ' Active
-
-                ' ✅ Set default DOB (18 years old) and enable editing
+                cmbStatus.SelectedIndex = 0
                 dtpDateOfBirth.Value = DateTime.Today.AddYears(-18)
                 dtpDateOfBirth.Enabled = True
-
-                ' ✅ Ensure "No DOB" is unchecked when adding a new student
                 chkNoDOB.Checked = False
             End If
 
-            ' === Reattach event handler after initialization ===
             AddHandler chkNoDOB.CheckedChanged, AddressOf chkNoDOB_CheckedChanged
-
-            ' Apply theme
             ApplyTheme()
 
         Catch ex As Exception
@@ -73,23 +61,16 @@ Public Class StudentFormDialog
         End Try
     End Sub
 
-    ''' <summary>
-    ''' Initialize status dropdown
-    ''' </summary>
     Private Sub InitializeStatusDropdown()
         Try
             cmbStatus.Items.Clear()
             cmbStatus.Items.AddRange(New String() {"Active", "Inactive", "Graduated", "Archived"})
             cmbStatus.SelectedIndex = 0
-
         Catch ex As Exception
             Logger.LogError("Error initializing status dropdown", ex)
         End Try
     End Sub
 
-    ''' <summary>
-    ''' Load student data for editing
-    ''' </summary>
     Private Sub LoadStudentData()
         Try
             If currentStudent Is Nothing Then Return
@@ -100,10 +81,8 @@ Public Class StudentFormDialog
             txtPhoneNumber.Text = currentStudent.PhoneNumber
             txtCourse.Text = currentStudent.Course
 
-            ' === Temporarily detach the event handler ===
             RemoveHandler chkNoDOB.CheckedChanged, AddressOf chkNoDOB_CheckedChanged
 
-            ' Handle DOB
             If currentStudent.DateOfBirth.HasValue Then
                 chkNoDOB.Checked = False
                 dtpDateOfBirth.Value = currentStudent.DateOfBirth.Value
@@ -114,36 +93,27 @@ Public Class StudentFormDialog
                 dtpDateOfBirth.Enabled = False
             End If
 
-            ' === Reattach event after values are set ===
             AddHandler chkNoDOB.CheckedChanged, AddressOf chkNoDOB_CheckedChanged
 
-            ' Enrollment date
             If currentStudent.EnrollmentDate.HasValue Then
                 dtpEnrollmentDate.Value = currentStudent.EnrollmentDate.Value
             Else
                 dtpEnrollmentDate.Value = DateTime.Today
             End If
 
-            ' Status
             Dim statusIndex As Integer = cmbStatus.FindStringExact(currentStudent.Status)
-            If statusIndex >= 0 Then
-                cmbStatus.SelectedIndex = statusIndex
-            End If
+            If statusIndex >= 0 Then cmbStatus.SelectedIndex = statusIndex
 
         Catch ex As Exception
             Logger.LogError("Error loading student data", ex)
         End Try
     End Sub
 
-    ''' <summary>
-    ''' Apply theme to form controls
-    ''' </summary>
     Private Sub ApplyTheme()
         Try
             Me.BackColor = ThemeManager.BackgroundColor
             pnlMain.FillColor = ThemeManager.WhiteColor
             ThemeManager.ApplyShadow(pnlMain, ThemeManager.ShadowDepthHeavy)
-
         Catch ex As Exception
             Logger.LogError("Error applying theme", ex)
         End Try
@@ -180,6 +150,13 @@ Public Class StudentFormDialog
                 Return False
             End If
 
+            ' === Extra validation for name (supports ñ and accents) ===
+            If Not System.Text.RegularExpressions.Regex.IsMatch(txtName.Text, "^[A-Za-zÀ-ÿñÑ .-]+$") Then
+                MessageBox.Show("Name can only contain letters (including ñ, accents), spaces, periods (.), and hyphens (-).", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                txtName.Focus()
+                Return False
+            End If
+
             ' Validate Email (if provided)
             If Not String.IsNullOrWhiteSpace(txtEmail.Text) Then
                 If Not IsValidEmail(txtEmail.Text) Then
@@ -189,10 +166,10 @@ Public Class StudentFormDialog
                 End If
             End If
 
-            ' Validate Phone Number (if provided)
+            ' === Validate Contact Number ===
             If Not String.IsNullOrWhiteSpace(txtPhoneNumber.Text) Then
-                If txtPhoneNumber.Text.Length < 7 Then
-                    MessageBox.Show("Phone number must be at least 7 characters long.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                If Not System.Text.RegularExpressions.Regex.IsMatch(txtPhoneNumber.Text, "^\+?\d{11,12}$") Then
+                    MessageBox.Show("Contact number must be 11–12 digits and may start with '+'.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                     txtPhoneNumber.Focus()
                     Return False
                 End If
@@ -205,7 +182,7 @@ Public Class StudentFormDialog
                 Return False
             End If
 
-            ' Validate Date of Birth (if not checked as no DOB)
+            ' Validate Date of Birth
             If Not chkNoDOB.Checked Then
                 If dtpDateOfBirth.Value > DateTime.Today Then
                     MessageBox.Show("Date of birth cannot be in the future.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -215,7 +192,6 @@ Public Class StudentFormDialog
 
                 Dim age As Integer = DateTime.Today.Year - dtpDateOfBirth.Value.Year
                 If dtpDateOfBirth.Value.Date > DateTime.Today.AddYears(-age) Then age -= 1
-
                 If age < 5 OrElse age > 100 Then
                     MessageBox.Show("Please enter a valid date of birth (age must be between 5 and 100 years).", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                     dtpDateOfBirth.Focus()
@@ -245,9 +221,6 @@ Public Class StudentFormDialog
         End Try
     End Function
 
-    ''' <summary>
-    ''' Validates email format
-    ''' </summary>
     Private Function IsValidEmail(email As String) As Boolean
         Try
             Dim addr = New System.Net.Mail.MailAddress(email)
@@ -257,21 +230,13 @@ Public Class StudentFormDialog
         End Try
     End Function
 
-    ''' <summary>
-    ''' Save button click
-    ''' </summary>
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Try
-            ' Validate inputs
-            If Not ValidateInputs() Then
-                Return
-            End If
+            If Not ValidateInputs() Then Return
 
-            ' Show loading cursor
             Me.Cursor = Cursors.WaitCursor
             btnSave.Enabled = False
 
-            ' Create student object
             Dim student As New Student With {
                 .StudentId = txtStudentId.Text.Trim(),
                 .Name = txtName.Text.Trim(),
@@ -284,13 +249,10 @@ Public Class StudentFormDialog
             }
 
             Dim success As Boolean = False
-
             If editMode Then
-                ' Update existing student
                 student.Id = currentStudent.Id
                 success = StudentRepository.UpdateStudent(student)
             Else
-                ' Create new student
                 success = StudentRepository.CreateStudent(student)
             End If
 
@@ -311,23 +273,14 @@ Public Class StudentFormDialog
         End Try
     End Sub
 
-    ''' <summary>
-    ''' Cancel button click
-    ''' </summary>
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         Me.DialogResult = DialogResult.Cancel
         Me.Close()
     End Sub
 
-    ''' <summary>
-    ''' No DOB checkbox changed
-    ''' </summary>
     Private Sub chkNoDOB_CheckedChanged(sender As Object, e As EventArgs) Handles chkNoDOB.CheckedChanged
         Try
-            ' Enable/disable based on checkbox
             dtpDateOfBirth.Enabled = Not chkNoDOB.Checked
-
-            ' Only reset default if they checked the box
             If chkNoDOB.Checked Then
                 dtpDateOfBirth.Value = DateTime.Today.AddYears(-20)
             End If
@@ -336,9 +289,6 @@ Public Class StudentFormDialog
         End Try
     End Sub
 
-    ''' <summary>
-    ''' Handle Enter key press in text boxes
-    ''' </summary>
     Private Sub txtStudentId_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtStudentId.KeyPress
         If e.KeyChar = Convert.ToChar(Keys.Enter) Then
             e.Handled = True
@@ -346,10 +296,17 @@ Public Class StudentFormDialog
         End If
     End Sub
 
+    ' === Validate Name (letters, ñ, Ñ, spaces, ., - only) ===
     Private Sub txtName_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtName.KeyPress
         If e.KeyChar = Convert.ToChar(Keys.Enter) Then
             e.Handled = True
             txtEmail.Focus()
+            Return
+        End If
+
+        Dim validChars As String = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZñÑ .-"
+        If Not validChars.Contains(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
+            e.Handled = True
         End If
     End Sub
 
@@ -360,11 +317,37 @@ Public Class StudentFormDialog
         End If
     End Sub
 
+    ' === Validate Contact Number (digits only, optional +, max 12) ===
     Private Sub txtPhoneNumber_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPhoneNumber.KeyPress
         If e.KeyChar = Convert.ToChar(Keys.Enter) Then
             e.Handled = True
             txtCourse.Focus()
+            Return
         End If
+
+        If Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+            Return
+        End If
+
+        ' Allow '+' only if it's the first character
+        If e.KeyChar = "+"c Then
+            If txtPhoneNumber.SelectionStart <> 0 OrElse txtPhoneNumber.Text.Contains("+") Then
+                e.Handled = True
+            End If
+            Return
+        End If
+
+        ' Only digits allowed
+        If Not Char.IsDigit(e.KeyChar) Then
+            e.Handled = True
+            Return
+        End If
+
+        ' Limit to 12 characters total
+        Dim nextLength As Integer = txtPhoneNumber.Text.Length
+        If txtPhoneNumber.SelectionLength = 0 Then nextLength += 1
+        If nextLength > 12 Then e.Handled = True
     End Sub
 
     Private Sub txtCourse_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCourse.KeyPress
@@ -372,13 +355,5 @@ Public Class StudentFormDialog
             e.Handled = True
             dtpDateOfBirth.Focus()
         End If
-    End Sub
-
-    Private Sub dtpDateOfBirth_ValueChanged(sender As Object, e As EventArgs) Handles dtpDateOfBirth.ValueChanged
-
-    End Sub
-
-    Private Sub dtpEnrollmentDate_ValueChanged(sender As Object, e As EventArgs) Handles dtpEnrollmentDate.ValueChanged
-
     End Sub
 End Class

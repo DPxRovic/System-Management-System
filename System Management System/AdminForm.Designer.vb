@@ -30,8 +30,8 @@ Partial Class AdminForm
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
-        Dim CustomizableEdges23 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges24 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges33 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges34 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -56,20 +56,30 @@ Partial Class AdminForm
         Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim CustomizableEdges29 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges30 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges19 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges20 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges21 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges22 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges23 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges24 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges25 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges26 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges27 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges28 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges29 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges30 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges31 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges32 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges33 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges34 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges35 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges36 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges37 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges38 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges39 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges40 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges41 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges42 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges43 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges44 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         pnlMain = New Guna.UI2.WinForms.Guna2Panel()
         btnLogout = New Guna.UI2.WinForms.Guna2Button()
         tabControl = New Guna.UI2.WinForms.Guna2TabControl()
@@ -88,6 +98,13 @@ Partial Class AdminForm
         pnlCoursesContent = New Guna.UI2.WinForms.Guna2Panel()
         dgvCourses = New Guna.UI2.WinForms.Guna2DataGridView()
         pnlCoursesControls = New Guna.UI2.WinForms.Guna2Panel()
+        Guna2CheckBox1 = New Guna.UI2.WinForms.Guna2CheckBox()
+        btnRefreshCourse1 = New Guna.UI2.WinForms.Guna2Button()
+        btnDeleteCourse1 = New Guna.UI2.WinForms.Guna2Button()
+        btnArchiveCourse1 = New Guna.UI2.WinForms.Guna2Button()
+        btnEditCourse1 = New Guna.UI2.WinForms.Guna2Button()
+        btnAddCourse1 = New Guna.UI2.WinForms.Guna2Button()
+        Label1 = New Label()
         pnlHeader = New Guna.UI2.WinForms.Guna2Panel()
         lblPermissionNote = New Label()
         lblSubtitle = New Label()
@@ -109,6 +126,7 @@ Partial Class AdminForm
         tabCourses.SuspendLayout()
         pnlCoursesContent.SuspendLayout()
         CType(dgvCourses, ComponentModel.ISupportInitialize).BeginInit()
+        pnlCoursesControls.SuspendLayout()
         pnlHeader.SuspendLayout()
         SuspendLayout()
         ' 
@@ -118,13 +136,13 @@ Partial Class AdminForm
         pnlMain.Controls.Add(btnLogout)
         pnlMain.Controls.Add(tabControl)
         pnlMain.Controls.Add(pnlHeader)
-        pnlMain.CustomizableEdges = CustomizableEdges23
+        pnlMain.CustomizableEdges = CustomizableEdges33
         pnlMain.Dock = DockStyle.Fill
         pnlMain.Location = New Point(0, 0)
         pnlMain.Margin = New Padding(4)
         pnlMain.Name = "pnlMain"
         pnlMain.Padding = New Padding(24, 23, 24, 23)
-        pnlMain.ShadowDecoration.CustomizableEdges = CustomizableEdges24
+        pnlMain.ShadowDecoration.CustomizableEdges = CustomizableEdges34
         pnlMain.Size = New Size(1166, 808)
         pnlMain.TabIndex = 0
         ' 
@@ -141,11 +159,11 @@ Partial Class AdminForm
         btnLogout.Font = New Font("Segoe UI", 10.5F, FontStyle.Bold)
         btnLogout.ForeColor = Color.White
         btnLogout.HoverState.FillColor = Color.FromArgb(CByte(192), CByte(57), CByte(43))
-        btnLogout.Location = New Point(24, 745)
+        btnLogout.Location = New Point(24, 741)
         btnLogout.Margin = New Padding(4)
         btnLogout.Name = "btnLogout"
         btnLogout.ShadowDecoration.CustomizableEdges = CustomizableEdges2
-        btnLogout.Size = New Size(180, 40)
+        btnLogout.Size = New Size(180, 44)
         btnLogout.TabIndex = 11
         btnLogout.Text = "Logout"
         ' 
@@ -491,14 +509,148 @@ Partial Class AdminForm
         ' 
         ' pnlCoursesControls
         ' 
-        pnlCoursesControls.CustomizableEdges = CustomizableEdges19
+        pnlCoursesControls.Controls.Add(Guna2CheckBox1)
+        pnlCoursesControls.Controls.Add(btnRefreshCourse1)
+        pnlCoursesControls.Controls.Add(btnDeleteCourse1)
+        pnlCoursesControls.Controls.Add(btnArchiveCourse1)
+        pnlCoursesControls.Controls.Add(btnEditCourse1)
+        pnlCoursesControls.Controls.Add(btnAddCourse1)
+        pnlCoursesControls.Controls.Add(Label1)
+        pnlCoursesControls.CustomizableEdges = CustomizableEdges29
         pnlCoursesControls.Dock = DockStyle.Top
         pnlCoursesControls.Location = New Point(18, 17)
         pnlCoursesControls.Margin = New Padding(4)
         pnlCoursesControls.Name = "pnlCoursesControls"
-        pnlCoursesControls.ShadowDecoration.CustomizableEdges = CustomizableEdges20
+        pnlCoursesControls.ShadowDecoration.CustomizableEdges = CustomizableEdges30
         pnlCoursesControls.Size = New Size(894, 81)
         pnlCoursesControls.TabIndex = 0
+        ' 
+        ' Guna2CheckBox1
+        ' 
+        Guna2CheckBox1.AutoSize = True
+        Guna2CheckBox1.CheckedState.BorderColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
+        Guna2CheckBox1.CheckedState.BorderRadius = 0
+        Guna2CheckBox1.CheckedState.BorderThickness = 0
+        Guna2CheckBox1.CheckedState.FillColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
+        Guna2CheckBox1.Font = New Font("Segoe UI", 9F)
+        Guna2CheckBox1.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
+        Guna2CheckBox1.Location = New Point(678, 45)
+        Guna2CheckBox1.Margin = New Padding(4)
+        Guna2CheckBox1.Name = "Guna2CheckBox1"
+        Guna2CheckBox1.Size = New Size(105, 19)
+        Guna2CheckBox1.TabIndex = 12
+        Guna2CheckBox1.Text = "Show Archived"
+        Guna2CheckBox1.UncheckedState.BorderColor = Color.FromArgb(CByte(125), CByte(137), CByte(149))
+        Guna2CheckBox1.UncheckedState.BorderRadius = 0
+        Guna2CheckBox1.UncheckedState.BorderThickness = 0
+        Guna2CheckBox1.UncheckedState.FillColor = Color.FromArgb(CByte(125), CByte(137), CByte(149))
+        ' 
+        ' btnRefreshCourse1
+        ' 
+        btnRefreshCourse1.BorderRadius = 5
+        btnRefreshCourse1.CustomizableEdges = CustomizableEdges19
+        btnRefreshCourse1.DisabledState.BorderColor = Color.DarkGray
+        btnRefreshCourse1.DisabledState.CustomBorderColor = Color.DarkGray
+        btnRefreshCourse1.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnRefreshCourse1.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnRefreshCourse1.FillColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
+        btnRefreshCourse1.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        btnRefreshCourse1.ForeColor = Color.White
+        btnRefreshCourse1.Location = New Point(552, 39)
+        btnRefreshCourse1.Margin = New Padding(4)
+        btnRefreshCourse1.Name = "btnRefreshCourse1"
+        btnRefreshCourse1.ShadowDecoration.CustomizableEdges = CustomizableEdges20
+        btnRefreshCourse1.Size = New Size(105, 34)
+        btnRefreshCourse1.TabIndex = 11
+        btnRefreshCourse1.Text = "🔄 Refresh"
+        ' 
+        ' btnDeleteCourse1
+        ' 
+        btnDeleteCourse1.BorderRadius = 5
+        btnDeleteCourse1.CustomizableEdges = CustomizableEdges21
+        btnDeleteCourse1.DisabledState.BorderColor = Color.DarkGray
+        btnDeleteCourse1.DisabledState.CustomBorderColor = Color.DarkGray
+        btnDeleteCourse1.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnDeleteCourse1.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnDeleteCourse1.FillColor = Color.FromArgb(CByte(231), CByte(76), CByte(60))
+        btnDeleteCourse1.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        btnDeleteCourse1.ForeColor = Color.White
+        btnDeleteCourse1.Location = New Point(458, 39)
+        btnDeleteCourse1.Margin = New Padding(4)
+        btnDeleteCourse1.Name = "btnDeleteCourse1"
+        btnDeleteCourse1.ShadowDecoration.CustomizableEdges = CustomizableEdges22
+        btnDeleteCourse1.Size = New Size(81, 34)
+        btnDeleteCourse1.TabIndex = 10
+        btnDeleteCourse1.Text = "Delete"
+        ' 
+        ' btnArchiveCourse1
+        ' 
+        btnArchiveCourse1.BorderRadius = 5
+        btnArchiveCourse1.CustomizableEdges = CustomizableEdges23
+        btnArchiveCourse1.DisabledState.BorderColor = Color.DarkGray
+        btnArchiveCourse1.DisabledState.CustomBorderColor = Color.DarkGray
+        btnArchiveCourse1.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnArchiveCourse1.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnArchiveCourse1.FillColor = Color.FromArgb(CByte(243), CByte(156), CByte(18))
+        btnArchiveCourse1.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        btnArchiveCourse1.ForeColor = Color.White
+        btnArchiveCourse1.Location = New Point(364, 39)
+        btnArchiveCourse1.Margin = New Padding(4)
+        btnArchiveCourse1.Name = "btnArchiveCourse1"
+        btnArchiveCourse1.ShadowDecoration.CustomizableEdges = CustomizableEdges24
+        btnArchiveCourse1.Size = New Size(81, 34)
+        btnArchiveCourse1.TabIndex = 9
+        btnArchiveCourse1.Text = "Archive"
+        ' 
+        ' btnEditCourse1
+        ' 
+        btnEditCourse1.BorderRadius = 5
+        btnEditCourse1.CustomizableEdges = CustomizableEdges25
+        btnEditCourse1.DisabledState.BorderColor = Color.DarkGray
+        btnEditCourse1.DisabledState.CustomBorderColor = Color.DarkGray
+        btnEditCourse1.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnEditCourse1.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnEditCourse1.FillColor = Color.FromArgb(CByte(52), CByte(152), CByte(219))
+        btnEditCourse1.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        btnEditCourse1.ForeColor = Color.White
+        btnEditCourse1.Location = New Point(272, 39)
+        btnEditCourse1.Margin = New Padding(4)
+        btnEditCourse1.Name = "btnEditCourse1"
+        btnEditCourse1.ShadowDecoration.CustomizableEdges = CustomizableEdges26
+        btnEditCourse1.Size = New Size(81, 34)
+        btnEditCourse1.TabIndex = 8
+        btnEditCourse1.Text = "Edit"
+        ' 
+        ' btnAddCourse1
+        ' 
+        btnAddCourse1.BorderRadius = 5
+        btnAddCourse1.CustomizableEdges = CustomizableEdges27
+        btnAddCourse1.DisabledState.BorderColor = Color.DarkGray
+        btnAddCourse1.DisabledState.CustomBorderColor = Color.DarkGray
+        btnAddCourse1.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnAddCourse1.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnAddCourse1.FillColor = Color.FromArgb(CByte(46), CByte(139), CByte(87))
+        btnAddCourse1.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        btnAddCourse1.ForeColor = Color.White
+        btnAddCourse1.Location = New Point(178, 39)
+        btnAddCourse1.Margin = New Padding(4)
+        btnAddCourse1.Name = "btnAddCourse1"
+        btnAddCourse1.ShadowDecoration.CustomizableEdges = CustomizableEdges28
+        btnAddCourse1.Size = New Size(81, 34)
+        btnAddCourse1.TabIndex = 7
+        btnAddCourse1.Text = "Add"
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
+        Label1.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        Label1.Location = New Point(14, 12)
+        Label1.Margin = New Padding(4, 0, 4, 0)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(115, 21)
+        Label1.TabIndex = 1
+        Label1.Text = "Total Courses:"
         ' 
         ' pnlHeader
         ' 
@@ -506,13 +658,13 @@ Partial Class AdminForm
         pnlHeader.Controls.Add(lblPermissionNote)
         pnlHeader.Controls.Add(lblSubtitle)
         pnlHeader.Controls.Add(lblTitle)
-        pnlHeader.CustomizableEdges = CustomizableEdges21
+        pnlHeader.CustomizableEdges = CustomizableEdges31
         pnlHeader.Dock = DockStyle.Top
         pnlHeader.Location = New Point(24, 23)
         pnlHeader.Margin = New Padding(4)
         pnlHeader.Name = "pnlHeader"
         pnlHeader.Padding = New Padding(24, 23, 24, 23)
-        pnlHeader.ShadowDecoration.CustomizableEdges = CustomizableEdges22
+        pnlHeader.ShadowDecoration.CustomizableEdges = CustomizableEdges32
         pnlHeader.Size = New Size(1118, 116)
         pnlHeader.TabIndex = 0
         ' 
@@ -575,7 +727,7 @@ Partial Class AdminForm
         ' btnAddCourse
         ' 
         btnAddCourse.BorderRadius = 5
-        btnAddCourse.CustomizableEdges = CustomizableEdges25
+        btnAddCourse.CustomizableEdges = CustomizableEdges35
         btnAddCourse.DisabledState.BorderColor = Color.DarkGray
         btnAddCourse.DisabledState.CustomBorderColor = Color.DarkGray
         btnAddCourse.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -586,14 +738,14 @@ Partial Class AdminForm
         btnAddCourse.Location = New Point(189, 40)
         btnAddCourse.Margin = New Padding(4)
         btnAddCourse.Name = "btnAddCourse"
-        btnAddCourse.ShadowDecoration.CustomizableEdges = CustomizableEdges26
+        btnAddCourse.ShadowDecoration.CustomizableEdges = CustomizableEdges36
         btnAddCourse.Size = New Size(81, 34)
         btnAddCourse.TabIndex = 1
         ' 
         ' btnEditCourse
         ' 
         btnEditCourse.BorderRadius = 5
-        btnEditCourse.CustomizableEdges = CustomizableEdges27
+        btnEditCourse.CustomizableEdges = CustomizableEdges37
         btnEditCourse.DisabledState.BorderColor = Color.DarkGray
         btnEditCourse.DisabledState.CustomBorderColor = Color.DarkGray
         btnEditCourse.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -604,14 +756,14 @@ Partial Class AdminForm
         btnEditCourse.Location = New Point(283, 40)
         btnEditCourse.Margin = New Padding(4)
         btnEditCourse.Name = "btnEditCourse"
-        btnEditCourse.ShadowDecoration.CustomizableEdges = CustomizableEdges28
+        btnEditCourse.ShadowDecoration.CustomizableEdges = CustomizableEdges38
         btnEditCourse.Size = New Size(81, 34)
         btnEditCourse.TabIndex = 2
         ' 
         ' btnArchiveCourse
         ' 
         btnArchiveCourse.BorderRadius = 5
-        btnArchiveCourse.CustomizableEdges = CustomizableEdges29
+        btnArchiveCourse.CustomizableEdges = CustomizableEdges39
         btnArchiveCourse.DisabledState.BorderColor = Color.DarkGray
         btnArchiveCourse.DisabledState.CustomBorderColor = Color.DarkGray
         btnArchiveCourse.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -622,14 +774,14 @@ Partial Class AdminForm
         btnArchiveCourse.Location = New Point(375, 40)
         btnArchiveCourse.Margin = New Padding(4)
         btnArchiveCourse.Name = "btnArchiveCourse"
-        btnArchiveCourse.ShadowDecoration.CustomizableEdges = CustomizableEdges30
+        btnArchiveCourse.ShadowDecoration.CustomizableEdges = CustomizableEdges40
         btnArchiveCourse.Size = New Size(81, 34)
         btnArchiveCourse.TabIndex = 3
         ' 
         ' btnDeleteCourse
         ' 
         btnDeleteCourse.BorderRadius = 5
-        btnDeleteCourse.CustomizableEdges = CustomizableEdges31
+        btnDeleteCourse.CustomizableEdges = CustomizableEdges41
         btnDeleteCourse.DisabledState.BorderColor = Color.DarkGray
         btnDeleteCourse.DisabledState.CustomBorderColor = Color.DarkGray
         btnDeleteCourse.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -640,14 +792,14 @@ Partial Class AdminForm
         btnDeleteCourse.Location = New Point(469, 40)
         btnDeleteCourse.Margin = New Padding(4)
         btnDeleteCourse.Name = "btnDeleteCourse"
-        btnDeleteCourse.ShadowDecoration.CustomizableEdges = CustomizableEdges32
+        btnDeleteCourse.ShadowDecoration.CustomizableEdges = CustomizableEdges42
         btnDeleteCourse.Size = New Size(81, 34)
         btnDeleteCourse.TabIndex = 4
         ' 
         ' btnRefreshCourses
         ' 
         btnRefreshCourses.BorderRadius = 5
-        btnRefreshCourses.CustomizableEdges = CustomizableEdges33
+        btnRefreshCourses.CustomizableEdges = CustomizableEdges43
         btnRefreshCourses.DisabledState.BorderColor = Color.DarkGray
         btnRefreshCourses.DisabledState.CustomBorderColor = Color.DarkGray
         btnRefreshCourses.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -658,7 +810,7 @@ Partial Class AdminForm
         btnRefreshCourses.Location = New Point(563, 40)
         btnRefreshCourses.Margin = New Padding(4)
         btnRefreshCourses.Name = "btnRefreshCourses"
-        btnRefreshCourses.ShadowDecoration.CustomizableEdges = CustomizableEdges34
+        btnRefreshCourses.ShadowDecoration.CustomizableEdges = CustomizableEdges44
         btnRefreshCourses.Size = New Size(105, 34)
         btnRefreshCourses.TabIndex = 5
         ' 
@@ -703,6 +855,8 @@ Partial Class AdminForm
         tabCourses.ResumeLayout(False)
         pnlCoursesContent.ResumeLayout(False)
         CType(dgvCourses, ComponentModel.ISupportInitialize).EndInit()
+        pnlCoursesControls.ResumeLayout(False)
+        pnlCoursesControls.PerformLayout()
         pnlHeader.ResumeLayout(False)
         ResumeLayout(False)
 
@@ -737,4 +891,11 @@ Partial Class AdminForm
     Friend WithEvents btnRefreshCourses As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents chkShowArchivedCourses As Guna.UI2.WinForms.Guna2CheckBox
     Friend WithEvents btnLogout As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Guna2CheckBox1 As Guna.UI2.WinForms.Guna2CheckBox
+    Friend WithEvents btnRefreshCourse1 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnDeleteCourse1 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnArchiveCourse1 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnEditCourse1 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnAddCourse1 As Guna.UI2.WinForms.Guna2Button
 End Class

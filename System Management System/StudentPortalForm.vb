@@ -34,8 +34,7 @@ Public Class StudentPortalForm
                 Me.Close()
                 Return
             End If
-            Me.WindowState = FormWindowState.Maximized
-            pnlHeader.BringToFront()
+
             ' Load student profile
             currentStudent = StudentPortalRepository.GetStudentProfile(studentId)
             If currentStudent Is Nothing Then
@@ -742,7 +741,7 @@ Public Class StudentPortalForm
 
             html.AppendLine("<div class='footer'>")
             html.AppendLine("<p>This is an official student attendance report</p>")
-            html.AppendLine("<p>&copy; 2025 Student Management System. All rights reserved.</p>")
+            html.AppendLine("<p>&copy; 2025 CSD Student Management System. All rights reserved.</p>")
             html.AppendLine("</div>")
 
             html.AppendLine("</body>")
@@ -859,17 +858,7 @@ Public Class StudentPortalForm
         End Try
     End Sub
 
-    Private Sub pnlMain_Paint(sender As Object, e As PaintEventArgs) Handles pnlMain.Paint
 
-    End Sub
-
-    Private Sub tabProfile_Click(sender As Object, e As EventArgs) Handles tabProfile.Click
-
-    End Sub
-
-    Private Sub pnlHeader_Paint(sender As Object, e As PaintEventArgs) Handles pnlHeader.Paint
-
-    End Sub
 
 #End Region
 

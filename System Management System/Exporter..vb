@@ -178,7 +178,7 @@ Public Class Exporter
             ' Footer
             html.AppendLine("<div class='footer'>")
             html.AppendLine($"<p>Total Records: {data.Rows.Count}</p>")
-            html.AppendLine("<p>&copy; 2025 Student Management System</p>")
+            html.AppendLine("<p>&copy; 2025 CSD Student Management System</p>")
             html.AppendLine("</div>")
 
             html.AppendLine("</body>")

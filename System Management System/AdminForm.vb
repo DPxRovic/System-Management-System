@@ -90,10 +90,10 @@ Public Class AdminForm
                 btnDeleteUser.Visible = True
                 btnArchiveUser.Visible = True
 
-                btnAddCourse.Visible = True
-                btnEditCourse.Visible = True
-                btnDeleteCourse.Visible = True
-                btnArchiveCourse.Visible = True
+                btnAddCourse1.Visible = True
+                btnEditCourse1.Visible = True
+                btnDeleteCourse1.Visible = True
+                btnArchiveCourse1.Visible = True
 
                 lblPermissionNote.Visible = False
             Else
@@ -103,10 +103,10 @@ Public Class AdminForm
                 btnDeleteUser.Visible = False
                 btnArchiveUser.Visible = True ' Can archive only
 
-                btnAddCourse.Visible = False
-                btnEditCourse.Visible = False
-                btnDeleteCourse.Visible = False
-                btnArchiveCourse.Visible = True ' Can archive only
+                btnAddCourse1.Visible = False
+                btnEditCourse1.Visible = False
+                btnDeleteCourse1.Visible = False
+                btnArchiveCourse1.Visible = True ' Can archive only
 
                 lblPermissionNote.Visible = True
                 lblPermissionNote.Text = "⚠ Limited Access: Only SuperAdmin can Add/Edit/Delete"
@@ -368,31 +368,23 @@ Public Class AdminForm
         End Try
     End Sub
 
-    Private Sub btnAddCourse_Click(sender As Object, e As EventArgs) Handles btnAddCourse.Click
+    Private Sub btnAddCourse1_Click(sender As Object, e As EventArgs) Handles btnAddCourse.Click
         MessageBox.Show("Add Course - not implemented in this build", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
-    Private Sub btnEditCourse_Click(sender As Object, e As EventArgs) Handles btnEditCourse.Click
+    Private Sub btnEditCourse1_Click(sender As Object, e As EventArgs) Handles btnEditCourse.Click
         MessageBox.Show("Edit Course - not implemented in this build", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
-    Private Sub btnDeleteCourse_Click(sender As Object, e As EventArgs) Handles btnDeleteCourse.Click
+    Private Sub btnDeleteCourse1_Click(sender As Object, e As EventArgs) Handles btnDeleteCourse.Click
         MessageBox.Show("Delete Course - not implemented in this build", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
-    Private Sub btnArchiveCourse_Click(sender As Object, e As EventArgs) Handles btnArchiveCourse.Click
+    Private Sub btnArchiveCourse1_Click(sender As Object, e As EventArgs) Handles btnArchiveCourse.Click
         MessageBox.Show("Archive Course - not implemented in this build", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
     Private Sub lblPermissionNote_Click(sender As Object, e As EventArgs) Handles lblPermissionNote.Click
-
-    End Sub
-
-    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub dgvCourses_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvCourses.CellContentClick
 
     End Sub
 

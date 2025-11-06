@@ -130,10 +130,11 @@ Partial Class StudentManagementForm
         pnlMain.CustomizableEdges = CustomizableEdges31
         pnlMain.Dock = DockStyle.Fill
         pnlMain.Location = New Point(0, 0)
+        pnlMain.Margin = New Padding(3, 2, 3, 2)
         pnlMain.Name = "pnlMain"
-        pnlMain.Padding = New Padding(20)
+        pnlMain.Padding = New Padding(18, 15, 18, 15)
         pnlMain.ShadowDecoration.CustomizableEdges = CustomizableEdges32
-        pnlMain.Size = New Size(1333, 1077)
+        pnlMain.Size = New Size(1166, 808)
         pnlMain.TabIndex = 0
         ' 
         ' pnlContent
@@ -143,10 +144,11 @@ Partial Class StudentManagementForm
         pnlContent.Controls.Add(pnlFilters)
         pnlContent.CustomizableEdges = CustomizableEdges29
         pnlContent.Dock = DockStyle.Fill
-        pnlContent.Location = New Point(20, 220)
+        pnlContent.Location = New Point(18, 165)
+        pnlContent.Margin = New Padding(3, 2, 3, 2)
         pnlContent.Name = "pnlContent"
         pnlContent.ShadowDecoration.CustomizableEdges = CustomizableEdges30
-        pnlContent.Size = New Size(1293, 837)
+        pnlContent.Size = New Size(1130, 628)
         pnlContent.TabIndex = 1
         ' 
         ' pnlStudentGrid
@@ -157,14 +159,15 @@ Partial Class StudentManagementForm
         pnlStudentGrid.Controls.Add(pnlGridHeader)
         pnlStudentGrid.CustomizableEdges = CustomizableEdges3
         pnlStudentGrid.Dock = DockStyle.Fill
-        pnlStudentGrid.Location = New Point(0, 230)
+        pnlStudentGrid.Location = New Point(0, 172)
+        pnlStudentGrid.Margin = New Padding(3, 2, 3, 2)
         pnlStudentGrid.Name = "pnlStudentGrid"
-        pnlStudentGrid.Padding = New Padding(20)
+        pnlStudentGrid.Padding = New Padding(18, 15, 18, 15)
         pnlStudentGrid.ShadowDecoration.BorderRadius = 10
         pnlStudentGrid.ShadowDecoration.CustomizableEdges = CustomizableEdges4
         pnlStudentGrid.ShadowDecoration.Depth = 5
         pnlStudentGrid.ShadowDecoration.Enabled = True
-        pnlStudentGrid.Size = New Size(1293, 607)
+        pnlStudentGrid.Size = New Size(1130, 456)
         pnlStudentGrid.TabIndex = 2
         ' 
         ' dgvStudents
@@ -193,13 +196,14 @@ Partial Class StudentManagementForm
         dgvStudents.DefaultCellStyle = DataGridViewCellStyle3
         dgvStudents.Dock = DockStyle.Fill
         dgvStudents.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
-        dgvStudents.Location = New Point(20, 70)
+        dgvStudents.Location = New Point(18, 53)
+        dgvStudents.Margin = New Padding(3, 2, 3, 2)
         dgvStudents.Name = "dgvStudents"
         dgvStudents.ReadOnly = True
         dgvStudents.RowHeadersVisible = False
         dgvStudents.RowHeadersWidth = 51
         dgvStudents.RowTemplate.Height = 35
-        dgvStudents.Size = New Size(1253, 517)
+        dgvStudents.Size = New Size(1094, 388)
         dgvStudents.TabIndex = 1
         dgvStudents.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
         dgvStudents.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -229,10 +233,11 @@ Partial Class StudentManagementForm
         pnlGridHeader.Controls.Add(Label2)
         pnlGridHeader.CustomizableEdges = CustomizableEdges1
         pnlGridHeader.Dock = DockStyle.Top
-        pnlGridHeader.Location = New Point(20, 20)
+        pnlGridHeader.Location = New Point(18, 15)
+        pnlGridHeader.Margin = New Padding(3, 2, 3, 2)
         pnlGridHeader.Name = "pnlGridHeader"
         pnlGridHeader.ShadowDecoration.CustomizableEdges = CustomizableEdges2
-        pnlGridHeader.Size = New Size(1253, 50)
+        pnlGridHeader.Size = New Size(1094, 38)
         pnlGridHeader.TabIndex = 0
         ' 
         ' lblRecordCount
@@ -240,9 +245,9 @@ Partial Class StudentManagementForm
         lblRecordCount.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         lblRecordCount.Font = New Font("Segoe UI", 10F)
         lblRecordCount.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
-        lblRecordCount.Location = New Point(953, 10)
+        lblRecordCount.Location = New Point(832, 8)
         lblRecordCount.Name = "lblRecordCount"
-        lblRecordCount.Size = New Size(300, 30)
+        lblRecordCount.Size = New Size(262, 22)
         lblRecordCount.TabIndex = 1
         lblRecordCount.Text = "Total Students: 0"
         lblRecordCount.TextAlign = ContentAlignment.MiddleRight
@@ -252,9 +257,9 @@ Partial Class StudentManagementForm
         Label2.AutoSize = True
         Label2.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
         Label2.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
-        Label2.Location = New Point(0, 10)
+        Label2.Location = New Point(0, 8)
         Label2.Name = "Label2"
-        Label2.Size = New Size(158, 28)
+        Label2.Size = New Size(127, 21)
         Label2.TabIndex = 0
         Label2.Text = "Student Record"
         ' 
@@ -272,14 +277,15 @@ Partial Class StudentManagementForm
         pnlControls.Controls.Add(btnAddStudent)
         pnlControls.CustomizableEdges = CustomizableEdges19
         pnlControls.Dock = DockStyle.Top
-        pnlControls.Location = New Point(0, 120)
+        pnlControls.Location = New Point(0, 90)
+        pnlControls.Margin = New Padding(3, 2, 3, 2)
         pnlControls.Name = "pnlControls"
-        pnlControls.Padding = New Padding(20)
+        pnlControls.Padding = New Padding(18, 15, 18, 15)
         pnlControls.ShadowDecoration.BorderRadius = 10
         pnlControls.ShadowDecoration.CustomizableEdges = CustomizableEdges20
         pnlControls.ShadowDecoration.Depth = 5
         pnlControls.ShadowDecoration.Enabled = True
-        pnlControls.Size = New Size(1293, 110)
+        pnlControls.Size = New Size(1130, 82)
         pnlControls.TabIndex = 1
         ' 
         ' btnPrintReport
@@ -293,10 +299,11 @@ Partial Class StudentManagementForm
         btnPrintReport.FillColor = Color.FromArgb(CByte(155), CByte(89), CByte(182))
         btnPrintReport.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         btnPrintReport.ForeColor = Color.White
-        btnPrintReport.Location = New Point(970, 45)
+        btnPrintReport.Location = New Point(849, 34)
+        btnPrintReport.Margin = New Padding(3, 2, 3, 2)
         btnPrintReport.Name = "btnPrintReport"
         btnPrintReport.ShadowDecoration.CustomizableEdges = CustomizableEdges6
-        btnPrintReport.Size = New Size(130, 45)
+        btnPrintReport.Size = New Size(114, 34)
         btnPrintReport.TabIndex = 7
         btnPrintReport.Text = "Print Report"
         ' 
@@ -311,10 +318,11 @@ Partial Class StudentManagementForm
         btnExportCSV.FillColor = Color.FromArgb(CByte(52), CByte(152), CByte(219))
         btnExportCSV.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         btnExportCSV.ForeColor = Color.White
-        btnExportCSV.Location = New Point(830, 45)
+        btnExportCSV.Location = New Point(726, 34)
+        btnExportCSV.Margin = New Padding(3, 2, 3, 2)
         btnExportCSV.Name = "btnExportCSV"
         btnExportCSV.ShadowDecoration.CustomizableEdges = CustomizableEdges8
-        btnExportCSV.Size = New Size(130, 45)
+        btnExportCSV.Size = New Size(114, 34)
         btnExportCSV.TabIndex = 6
         btnExportCSV.Text = "Export CSV"
         ' 
@@ -327,9 +335,10 @@ Partial Class StudentManagementForm
         chkShowArchived.CheckedState.FillColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
         chkShowArchived.Font = New Font("Segoe UI", 9F)
         chkShowArchived.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
-        chkShowArchived.Location = New Point(680, 55)
+        chkShowArchived.Location = New Point(595, 41)
+        chkShowArchived.Margin = New Padding(3, 2, 3, 2)
         chkShowArchived.Name = "chkShowArchived"
-        chkShowArchived.Size = New Size(129, 24)
+        chkShowArchived.Size = New Size(105, 19)
         chkShowArchived.TabIndex = 5
         chkShowArchived.Text = "Show Archived"
         chkShowArchived.UncheckedState.BorderColor = Color.FromArgb(CByte(125), CByte(137), CByte(149))
@@ -348,10 +357,11 @@ Partial Class StudentManagementForm
         btnRefresh.FillColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
         btnRefresh.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         btnRefresh.ForeColor = Color.White
-        btnRefresh.Location = New Point(540, 45)
+        btnRefresh.Location = New Point(472, 34)
+        btnRefresh.Margin = New Padding(3, 2, 3, 2)
         btnRefresh.Name = "btnRefresh"
         btnRefresh.ShadowDecoration.CustomizableEdges = CustomizableEdges10
-        btnRefresh.Size = New Size(120, 45)
+        btnRefresh.Size = New Size(105, 34)
         btnRefresh.TabIndex = 4
         btnRefresh.Text = "🔄 Refresh"
         ' 
@@ -366,10 +376,11 @@ Partial Class StudentManagementForm
         btnArchiveStudent.FillColor = Color.FromArgb(CByte(243), CByte(156), CByte(18))
         btnArchiveStudent.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         btnArchiveStudent.ForeColor = Color.White
-        btnArchiveStudent.Location = New Point(410, 45)
+        btnArchiveStudent.Location = New Point(359, 34)
+        btnArchiveStudent.Margin = New Padding(3, 2, 3, 2)
         btnArchiveStudent.Name = "btnArchiveStudent"
         btnArchiveStudent.ShadowDecoration.CustomizableEdges = CustomizableEdges12
-        btnArchiveStudent.Size = New Size(120, 45)
+        btnArchiveStudent.Size = New Size(105, 34)
         btnArchiveStudent.TabIndex = 3
         btnArchiveStudent.Text = "Archive"
         ' 
@@ -384,10 +395,11 @@ Partial Class StudentManagementForm
         btnDeleteStudent.FillColor = Color.FromArgb(CByte(231), CByte(76), CByte(60))
         btnDeleteStudent.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         btnDeleteStudent.ForeColor = Color.White
-        btnDeleteStudent.Location = New Point(280, 45)
+        btnDeleteStudent.Location = New Point(245, 34)
+        btnDeleteStudent.Margin = New Padding(3, 2, 3, 2)
         btnDeleteStudent.Name = "btnDeleteStudent"
         btnDeleteStudent.ShadowDecoration.CustomizableEdges = CustomizableEdges14
-        btnDeleteStudent.Size = New Size(120, 45)
+        btnDeleteStudent.Size = New Size(105, 34)
         btnDeleteStudent.TabIndex = 2
         btnDeleteStudent.Text = "Delete"
         ' 
@@ -402,10 +414,11 @@ Partial Class StudentManagementForm
         btnEditStudent.FillColor = Color.FromArgb(CByte(52), CByte(152), CByte(219))
         btnEditStudent.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         btnEditStudent.ForeColor = Color.White
-        btnEditStudent.Location = New Point(150, 45)
+        btnEditStudent.Location = New Point(131, 34)
+        btnEditStudent.Margin = New Padding(3, 2, 3, 2)
         btnEditStudent.Name = "btnEditStudent"
         btnEditStudent.ShadowDecoration.CustomizableEdges = CustomizableEdges16
-        btnEditStudent.Size = New Size(120, 45)
+        btnEditStudent.Size = New Size(105, 34)
         btnEditStudent.TabIndex = 1
         btnEditStudent.Text = "Edit"
         ' 
@@ -420,10 +433,11 @@ Partial Class StudentManagementForm
         btnAddStudent.FillColor = Color.FromArgb(CByte(46), CByte(139), CByte(87))
         btnAddStudent.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         btnAddStudent.ForeColor = Color.White
-        btnAddStudent.Location = New Point(20, 45)
+        btnAddStudent.Location = New Point(18, 34)
+        btnAddStudent.Margin = New Padding(3, 2, 3, 2)
         btnAddStudent.Name = "btnAddStudent"
         btnAddStudent.ShadowDecoration.CustomizableEdges = CustomizableEdges18
-        btnAddStudent.Size = New Size(120, 45)
+        btnAddStudent.Size = New Size(105, 34)
         btnAddStudent.TabIndex = 0
         btnAddStudent.Text = "Add Student"
         ' 
@@ -442,13 +456,14 @@ Partial Class StudentManagementForm
         pnlFilters.CustomizableEdges = CustomizableEdges27
         pnlFilters.Dock = DockStyle.Top
         pnlFilters.Location = New Point(0, 0)
+        pnlFilters.Margin = New Padding(3, 2, 3, 2)
         pnlFilters.Name = "pnlFilters"
-        pnlFilters.Padding = New Padding(20)
+        pnlFilters.Padding = New Padding(18, 15, 18, 15)
         pnlFilters.ShadowDecoration.BorderRadius = 10
         pnlFilters.ShadowDecoration.CustomizableEdges = CustomizableEdges28
         pnlFilters.ShadowDecoration.Depth = 5
         pnlFilters.ShadowDecoration.Enabled = True
-        pnlFilters.Size = New Size(1293, 120)
+        pnlFilters.Size = New Size(1130, 90)
         pnlFilters.TabIndex = 0
         ' 
         ' btnClearFilters
@@ -462,10 +477,11 @@ Partial Class StudentManagementForm
         btnClearFilters.FillColor = Color.FromArgb(CByte(149), CByte(165), CByte(166))
         btnClearFilters.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         btnClearFilters.ForeColor = Color.White
-        btnClearFilters.Location = New Point(1130, 55)
+        btnClearFilters.Location = New Point(1022, 47)
+        btnClearFilters.Margin = New Padding(3, 2, 3, 2)
         btnClearFilters.Name = "btnClearFilters"
         btnClearFilters.ShadowDecoration.CustomizableEdges = CustomizableEdges22
-        btnClearFilters.Size = New Size(120, 45)
+        btnClearFilters.Size = New Size(105, 34)
         btnClearFilters.TabIndex = 7
         btnClearFilters.Text = "Clear Filters"
         ' 
@@ -480,10 +496,11 @@ Partial Class StudentManagementForm
         btnSearch.FillColor = Color.FromArgb(CByte(46), CByte(139), CByte(87))
         btnSearch.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         btnSearch.ForeColor = Color.White
-        btnSearch.Location = New Point(1000, 55)
+        btnSearch.Location = New Point(911, 47)
+        btnSearch.Margin = New Padding(3, 2, 3, 2)
         btnSearch.Name = "btnSearch"
         btnSearch.ShadowDecoration.CustomizableEdges = CustomizableEdges24
-        btnSearch.Size = New Size(120, 45)
+        btnSearch.Size = New Size(105, 34)
         btnSearch.TabIndex = 6
         btnSearch.Text = "🔍 Search"
         ' 
@@ -499,10 +516,11 @@ Partial Class StudentManagementForm
         cmbStatusFilter.Font = New Font("Segoe UI", 10F)
         cmbStatusFilter.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
         cmbStatusFilter.ItemHeight = 30
-        cmbStatusFilter.Location = New Point(760, 60)
+        cmbStatusFilter.Location = New Point(712, 45)
+        cmbStatusFilter.Margin = New Padding(3, 2, 3, 2)
         cmbStatusFilter.Name = "cmbStatusFilter"
         cmbStatusFilter.ShadowDecoration.CustomizableEdges = CustomizableEdges26
-        cmbStatusFilter.Size = New Size(220, 36)
+        cmbStatusFilter.Size = New Size(193, 36)
         cmbStatusFilter.TabIndex = 5
         ' 
         ' Label5
@@ -510,9 +528,9 @@ Partial Class StudentManagementForm
         Label5.AutoSize = True
         Label5.Font = New Font("Segoe UI", 9F)
         Label5.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
-        Label5.Location = New Point(760, 35)
+        Label5.Location = New Point(712, 28)
         Label5.Name = "Label5"
-        Label5.Size = New Size(49, 20)
+        Label5.Size = New Size(39, 15)
         Label5.TabIndex = 4
         Label5.Text = "Status"
         ' 
@@ -528,10 +546,11 @@ Partial Class StudentManagementForm
         cmbCourseFilter.Font = New Font("Segoe UI", 10F)
         cmbCourseFilter.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
         cmbCourseFilter.ItemHeight = 30
-        cmbCourseFilter.Location = New Point(450, 60)
+        cmbCourseFilter.Location = New Point(394, 45)
+        cmbCourseFilter.Margin = New Padding(3, 2, 3, 2)
         cmbCourseFilter.Name = "cmbCourseFilter"
         cmbCourseFilter.ShadowDecoration.CustomizableEdges = CustomizableEdges26
-        cmbCourseFilter.Size = New Size(290, 36)
+        cmbCourseFilter.Size = New Size(312, 36)
         cmbCourseFilter.TabIndex = 3
         ' 
         ' Label4
@@ -539,9 +558,9 @@ Partial Class StudentManagementForm
         Label4.AutoSize = True
         Label4.Font = New Font("Segoe UI", 9F)
         Label4.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
-        Label4.Location = New Point(450, 35)
+        Label4.Location = New Point(394, 26)
         Label4.Name = "Label4"
-        Label4.Size = New Size(117, 20)
+        Label4.Size = New Size(95, 15)
         Label4.TabIndex = 2
         Label4.Text = "Course/Program"
         ' 
@@ -559,13 +578,13 @@ Partial Class StudentManagementForm
         txtSearch.Font = New Font("Segoe UI", 10F)
         txtSearch.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
         txtSearch.HoverState.BorderColor = Color.FromArgb(CByte(26), CByte(188), CByte(156))
-        txtSearch.Location = New Point(20, 60)
-        txtSearch.Margin = New Padding(4, 5, 4, 5)
+        txtSearch.Location = New Point(18, 45)
+        txtSearch.Margin = New Padding(4, 4, 4, 4)
         txtSearch.Name = "txtSearch"
         txtSearch.PlaceholderText = "Search by Student ID, Name, Email, or Phone..."
         txtSearch.SelectedText = ""
         txtSearch.ShadowDecoration.CustomizableEdges = CustomizableEdges26
-        txtSearch.Size = New Size(410, 40)
+        txtSearch.Size = New Size(369, 36)
         txtSearch.TabIndex = 1
         ' 
         ' Label3
@@ -573,9 +592,9 @@ Partial Class StudentManagementForm
         Label3.AutoSize = True
         Label3.Font = New Font("Segoe UI", 9F)
         Label3.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
-        Label3.Location = New Point(20, 35)
+        Label3.Location = New Point(18, 26)
         Label3.Name = "Label3"
-        Label3.Size = New Size(53, 20)
+        Label3.Size = New Size(42, 15)
         Label3.TabIndex = 0
         Label3.Text = "Search"
         ' 
@@ -589,14 +608,15 @@ Partial Class StudentManagementForm
         pnlHeader.Controls.Add(Label1)
         pnlHeader.CustomizableEdges = CustomizableEdges7
         pnlHeader.Dock = DockStyle.Top
-        pnlHeader.Location = New Point(20, 20)
+        pnlHeader.Location = New Point(18, 15)
+        pnlHeader.Margin = New Padding(3, 2, 3, 2)
         pnlHeader.Name = "pnlHeader"
-        pnlHeader.Padding = New Padding(20)
+        pnlHeader.Padding = New Padding(18, 15, 18, 15)
         pnlHeader.ShadowDecoration.BorderRadius = 10
         pnlHeader.ShadowDecoration.CustomizableEdges = CustomizableEdges8
         pnlHeader.ShadowDecoration.Depth = 5
         pnlHeader.ShadowDecoration.Enabled = True
-        pnlHeader.Size = New Size(1293, 200)
+        pnlHeader.Size = New Size(1130, 150)
         pnlHeader.TabIndex = 0
         ' 
         ' lblPermissionNote
@@ -604,9 +624,9 @@ Partial Class StudentManagementForm
         lblPermissionNote.Dock = DockStyle.Bottom
         lblPermissionNote.Font = New Font("Segoe UI", 9F, FontStyle.Italic)
         lblPermissionNote.ForeColor = Color.FromArgb(CByte(231), CByte(76), CByte(60))
-        lblPermissionNote.Location = New Point(20, 157)
+        lblPermissionNote.Location = New Point(18, 69)
         lblPermissionNote.Name = "lblPermissionNote"
-        lblPermissionNote.Size = New Size(1253, 23)
+        lblPermissionNote.Size = New Size(1094, 17)
         lblPermissionNote.TabIndex = 3
         lblPermissionNote.Text = "⚠ Limited Access: Only SuperAdmin can permanently delete students"
         lblPermissionNote.TextAlign = ContentAlignment.MiddleLeft
@@ -627,11 +647,13 @@ Partial Class StudentManagementForm
         pnlStatistics.Controls.Add(lblTotalStudents)
         pnlStatistics.Controls.Add(Label7)
         pnlStatistics.CustomizableEdges = CustomizableEdges5
-        pnlStatistics.Location = New Point(20, 95)
+        pnlStatistics.Dock = DockStyle.Bottom
+        pnlStatistics.Location = New Point(18, 86)
+        pnlStatistics.Margin = New Padding(3, 2, 3, 2)
         pnlStatistics.Name = "pnlStatistics"
-        pnlStatistics.Padding = New Padding(15)
+        pnlStatistics.Padding = New Padding(13, 11, 13, 11)
         pnlStatistics.ShadowDecoration.CustomizableEdges = CustomizableEdges6
-        pnlStatistics.Size = New Size(1090, 65)
+        pnlStatistics.Size = New Size(1094, 49)
         pnlStatistics.TabIndex = 2
         ' 
         ' lblTotalCourses
@@ -639,9 +661,9 @@ Partial Class StudentManagementForm
         lblTotalCourses.AutoSize = True
         lblTotalCourses.Font = New Font("Segoe UI", 16F, FontStyle.Bold)
         lblTotalCourses.ForeColor = Color.FromArgb(CByte(155), CByte(89), CByte(182))
-        lblTotalCourses.Location = New Point(950, 15)
+        lblTotalCourses.Location = New Point(831, 11)
         lblTotalCourses.Name = "lblTotalCourses"
-        lblTotalCourses.Size = New Size(33, 37)
+        lblTotalCourses.Size = New Size(26, 30)
         lblTotalCourses.TabIndex = 9
         lblTotalCourses.Text = "0"
         ' 
@@ -650,9 +672,9 @@ Partial Class StudentManagementForm
         Label12.AutoSize = True
         Label12.Font = New Font("Segoe UI", 8F)
         Label12.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
-        Label12.Location = New Point(875, 30)
+        Label12.Location = New Point(766, 22)
         Label12.Name = "Label12"
-        Label12.Size = New Size(58, 19)
+        Label12.Size = New Size(48, 13)
         Label12.TabIndex = 8
         Label12.Text = "Courses"
         ' 
@@ -661,9 +683,9 @@ Partial Class StudentManagementForm
         lblGraduatedStudents.AutoSize = True
         lblGraduatedStudents.Font = New Font("Segoe UI", 16F, FontStyle.Bold)
         lblGraduatedStudents.ForeColor = Color.FromArgb(CByte(52), CByte(152), CByte(219))
-        lblGraduatedStudents.Location = New Point(730, 15)
+        lblGraduatedStudents.Location = New Point(639, 11)
         lblGraduatedStudents.Name = "lblGraduatedStudents"
-        lblGraduatedStudents.Size = New Size(33, 37)
+        lblGraduatedStudents.Size = New Size(26, 30)
         lblGraduatedStudents.TabIndex = 7
         lblGraduatedStudents.Text = "0"
         ' 
@@ -672,9 +694,9 @@ Partial Class StudentManagementForm
         Label10.AutoSize = True
         Label10.Font = New Font("Segoe UI", 8F)
         Label10.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
-        Label10.Location = New Point(655, 30)
+        Label10.Location = New Point(573, 22)
         Label10.Name = "Label10"
-        Label10.Size = New Size(74, 19)
+        Label10.Size = New Size(62, 13)
         Label10.TabIndex = 6
         Label10.Text = "Graduated"
         ' 
@@ -683,9 +705,9 @@ Partial Class StudentManagementForm
         lblArchivedStudents.AutoSize = True
         lblArchivedStudents.Font = New Font("Segoe UI", 16F, FontStyle.Bold)
         lblArchivedStudents.ForeColor = Color.FromArgb(CByte(149), CByte(165), CByte(166))
-        lblArchivedStudents.Location = New Point(540, 15)
+        lblArchivedStudents.Location = New Point(472, 11)
         lblArchivedStudents.Name = "lblArchivedStudents"
-        lblArchivedStudents.Size = New Size(33, 37)
+        lblArchivedStudents.Size = New Size(26, 30)
         lblArchivedStudents.TabIndex = 5
         lblArchivedStudents.Text = "0"
         ' 
@@ -694,9 +716,9 @@ Partial Class StudentManagementForm
         Label8.AutoSize = True
         Label8.Font = New Font("Segoe UI", 8F)
         Label8.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
-        Label8.Location = New Point(470, 30)
+        Label8.Location = New Point(411, 22)
         Label8.Name = "Label8"
-        Label8.Size = New Size(62, 19)
+        Label8.Size = New Size(51, 13)
         Label8.TabIndex = 4
         Label8.Text = "Archived"
         ' 
@@ -705,9 +727,9 @@ Partial Class StudentManagementForm
         lblInactiveStudents.AutoSize = True
         lblInactiveStudents.Font = New Font("Segoe UI", 16F, FontStyle.Bold)
         lblInactiveStudents.ForeColor = Color.FromArgb(CByte(243), CByte(156), CByte(18))
-        lblInactiveStudents.Location = New Point(350, 15)
+        lblInactiveStudents.Location = New Point(306, 11)
         lblInactiveStudents.Name = "lblInactiveStudents"
-        lblInactiveStudents.Size = New Size(33, 37)
+        lblInactiveStudents.Size = New Size(26, 30)
         lblInactiveStudents.TabIndex = 3
         lblInactiveStudents.Text = "0"
         ' 
@@ -716,9 +738,9 @@ Partial Class StudentManagementForm
         Label6.AutoSize = True
         Label6.Font = New Font("Segoe UI", 8F)
         Label6.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
-        Label6.Location = New Point(285, 30)
+        Label6.Location = New Point(249, 22)
         Label6.Name = "Label6"
-        Label6.Size = New Size(56, 19)
+        Label6.Size = New Size(46, 13)
         Label6.TabIndex = 2
         Label6.Text = "Inactive"
         ' 
@@ -727,9 +749,9 @@ Partial Class StudentManagementForm
         lblTotalStudents.AutoSize = True
         lblTotalStudents.Font = New Font("Segoe UI", 16F, FontStyle.Bold)
         lblTotalStudents.ForeColor = Color.FromArgb(CByte(46), CByte(139), CByte(87))
-        lblTotalStudents.Location = New Point(170, 15)
+        lblTotalStudents.Location = New Point(149, 11)
         lblTotalStudents.Name = "lblTotalStudents"
-        lblTotalStudents.Size = New Size(33, 37)
+        lblTotalStudents.Size = New Size(26, 30)
         lblTotalStudents.TabIndex = 1
         lblTotalStudents.Text = "0"
         ' 
@@ -738,9 +760,9 @@ Partial Class StudentManagementForm
         Label7.AutoSize = True
         Label7.Font = New Font("Segoe UI", 8F)
         Label7.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
-        Label7.Location = New Point(15, 30)
+        Label7.Location = New Point(13, 22)
         Label7.Name = "Label7"
-        Label7.Size = New Size(104, 19)
+        Label7.Size = New Size(86, 13)
         Label7.TabIndex = 0
         Label7.Text = "Active Students"
         ' 
@@ -749,9 +771,9 @@ Partial Class StudentManagementForm
         lblSubtitle.AutoSize = True
         lblSubtitle.Font = New Font("Segoe UI", 10F)
         lblSubtitle.ForeColor = Color.FromArgb(CByte(127), CByte(140), CByte(141))
-        lblSubtitle.Location = New Point(20, 55)
+        lblSubtitle.Location = New Point(18, 41)
         lblSubtitle.Name = "lblSubtitle"
-        lblSubtitle.Size = New Size(436, 23)
+        lblSubtitle.Size = New Size(349, 19)
         lblSubtitle.TabIndex = 1
         lblSubtitle.Text = "Comprehensive student academic records management"
         ' 
@@ -760,19 +782,20 @@ Partial Class StudentManagementForm
         Label1.AutoSize = True
         Label1.Font = New Font("Segoe UI", 18F, FontStyle.Bold)
         Label1.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
-        Label1.Location = New Point(20, 20)
+        Label1.Location = New Point(18, 15)
         Label1.Name = "Label1"
-        Label1.Size = New Size(374, 41)
+        Label1.Size = New Size(301, 32)
         Label1.TabIndex = 0
         Label1.Text = "👥 Student Management"
         ' 
         ' StudentManagementForm
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1333, 1077)
+        ClientSize = New Size(1166, 808)
         Controls.Add(pnlMain)
         FormBorderStyle = FormBorderStyle.None
+        Margin = New Padding(3, 2, 3, 2)
         Name = "StudentManagementForm"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Student Management"

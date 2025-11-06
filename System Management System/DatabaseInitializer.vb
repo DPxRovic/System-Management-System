@@ -218,26 +218,7 @@ Public Class DatabaseInitializer
                 INDEX idx_archived (is_archived)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
 
-        ' Students table
-        tableDefinitions("students") = "
-            CREATE TABLE `students` (
-                `id` INT AUTO_INCREMENT PRIMARY KEY,
-                `student_id` VARCHAR(20) NOT NULL UNIQUE,
-                `name` VARCHAR(100) NOT NULL,
-                `course` VARCHAR(100) NOT NULL,
-                `email` VARCHAR(100),
-                `phone_number` VARCHAR(20),
-                `date_of_birth` DATE,
-                `enrollment_date` DATE DEFAULT (CURRENT_DATE),
-                `status` VARCHAR(20) DEFAULT 'Active',
-                `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-                INDEX idx_student_id (student_id),
-                INDEX idx_course (course),
-                INDEX idx_status (status)
-            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
-
-        ' Faculty table
+        ' Faculty table (create before courses because courses references faculty)
         tableDefinitions("faculty") = "
             CREATE TABLE `faculty` (
                 `id` INT AUTO_INCREMENT PRIMARY KEY,
@@ -254,6 +235,20 @@ Public Class DatabaseInitializer
                 INDEX idx_faculty_id (faculty_id),
                 INDEX idx_department (department),
                 INDEX idx_status (status)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
+
+        ' Professors table (references users)
+        tableDefinitions("professors") = "
+            CREATE TABLE `professors` (
+                `id` INT AUTO_INCREMENT PRIMARY KEY,
+                `user_id` INT NULL,
+                `first_name` VARCHAR(100),
+                `last_name` VARCHAR(100),
+                `email` VARCHAR(200),
+                `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL,
+                INDEX idx_user_id (user_id)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
 
         ' Courses table
@@ -276,12 +271,70 @@ Public Class DatabaseInitializer
                 FOREIGN KEY (faculty_id) REFERENCES faculty(id) ON DELETE SET NULL
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
 
+        ' Sections table (belongs to a course)
+        tableDefinitions("sections") = "
+            CREATE TABLE `sections` (
+                `id` INT AUTO_INCREMENT PRIMARY KEY,
+                `course_id` INT NOT NULL,
+                `name` VARCHAR(50) NOT NULL,
+                `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                INDEX idx_course_id (course_id),
+                FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
+
+        ' Professor-Courses junction
+        tableDefinitions("professor_courses") = "
+            CREATE TABLE `professor_courses` (
+                `id` INT AUTO_INCREMENT PRIMARY KEY,
+                `professor_id` INT NOT NULL,
+                `course_id` INT NOT NULL,
+                `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (professor_id) REFERENCES professors(id) ON DELETE CASCADE,
+                FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE,
+                INDEX idx_professor_course (professor_id, course_id)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
+
+        ' Professor-Sections junction
+        tableDefinitions("professor_sections") = "
+            CREATE TABLE `professor_sections` (
+                `id` INT AUTO_INCREMENT PRIMARY KEY,
+                `professor_id` INT NOT NULL,
+                `section_id` INT NOT NULL,
+                `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (professor_id) REFERENCES professors(id) ON DELETE CASCADE,
+                FOREIGN KEY (section_id) REFERENCES sections(id) ON DELETE CASCADE,
+                INDEX idx_professor_section (professor_id, section_id)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
+
+        ' Students table
+        tableDefinitions("students") = "
+            CREATE TABLE `students` (
+                `id` INT AUTO_INCREMENT PRIMARY KEY,
+                `student_id` VARCHAR(20) NOT NULL UNIQUE,
+                `firstname` VARCHAR(100),
+                `lastname` VARCHAR(100),
+                `name` VARCHAR(100),
+                `course` VARCHAR(100) NOT NULL,
+                `email` VARCHAR(100),
+                `phone_number` VARCHAR(20),
+                `date_of_birth` DATE,
+                `enrollment_date` DATE DEFAULT (CURRENT_DATE),
+                `status` VARCHAR(20) DEFAULT 'Active',
+                `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                INDEX idx_student_id (student_id),
+                INDEX idx_course (course),
+                INDEX idx_status (status)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
+
         ' Enrollments table
         tableDefinitions("enrollments") = "
             CREATE TABLE `enrollments` (
                 `id` INT AUTO_INCREMENT PRIMARY KEY,
                 `student_id` VARCHAR(20) NOT NULL,
                 `course_id` INT NOT NULL,
+                `section_id` INT NULL,
                 `enrollment_date` DATE DEFAULT (CURRENT_DATE),
                 `status` VARCHAR(20) DEFAULT 'Enrolled',
                 `grade` VARCHAR(5),
@@ -289,9 +342,11 @@ Public Class DatabaseInitializer
                 `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                 INDEX idx_student_id (student_id),
                 INDEX idx_course_id (course_id),
+                INDEX idx_section_id (section_id),
                 INDEX idx_status (status),
                 UNIQUE KEY unique_enrollment (student_id, course_id),
-                FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE
+                FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE,
+                FOREIGN KEY (section_id) REFERENCES sections(id) ON DELETE SET NULL
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
 
         ' Attendance table
@@ -553,6 +608,7 @@ Public Class DatabaseInitializer
     ''' <summary>
     ''' NEW: Verifies database integrity after initialization
     ''' </summary>
+
     Private Shared Function VerifyDatabaseIntegrity() As Boolean
         Dim allValid As Boolean = True
 
@@ -560,7 +616,16 @@ Public Class DatabaseInitializer
             Logger.LogInfo("Verifying database integrity...")
 
             Dim requiredTables As List(Of String) = New List(Of String) From {
-                "users", "students", "faculty", "courses", "enrollments", "attendance"
+                "users",
+                "students",
+                "faculty",
+                "professors",
+                "courses",
+                "sections",
+                "professor_courses",
+                "professor_sections",
+                "enrollments",
+                "attendance"
             }
 
             ' Check all required tables exist
@@ -601,6 +666,7 @@ Public Class DatabaseInitializer
     ''' <summary>
     ''' Drops all tables (use with caution) - Enhanced with confirmation
     ''' </summary>
+
     Public Shared Sub DropAllTables()
         Try
             ' NEW: Add confirmation requirement
@@ -619,8 +685,18 @@ Public Class DatabaseInitializer
 
             DatabaseHandler.ExecuteNonQuery("SET FOREIGN_KEY_CHECKS = 0")
 
+            ' Drop in reverse dependency order to avoid FK conflicts
             Dim tables As List(Of String) = New List(Of String) From {
-                "attendance", "enrollments", "courses", "students", "faculty", "users"
+                "attendance",
+                "enrollments",
+                "professor_sections",
+                "professor_courses",
+                "sections",
+                "courses",
+                "professors",
+                "faculty",
+                "students",
+                "users"
             }
 
             For Each tableName In tables

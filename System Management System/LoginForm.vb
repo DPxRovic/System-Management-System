@@ -91,7 +91,8 @@ Public Class LoginForm
                             Me.Show()
                         End If
                     End Using
-                ElseIf role = "FACULTY" OrElse role = "STUDENT" Then
+                ElseIf role = "FACULTY" OrElse role = "STUDENT" OrElse role = "PROFESSOR" Then
+                    ' Faculty, Student and Professor use the Dashboard. Dashboard can show/hide features based on role.
                     Dim dashboard As New DashboardForm(user)
                     dashboard.Show()
                     Me.Hide()
@@ -244,5 +245,9 @@ Public Class LoginForm
         Catch ex As Exception
             Logger.LogError("Error toggling show password", ex)
         End Try
+    End Sub
+
+    Private Sub lblAppName_Click(sender As Object, e As EventArgs) Handles lblAppName.Click
+
     End Sub
 End Class

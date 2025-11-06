@@ -71,6 +71,7 @@ Public Class AdminRepository
 
     ''' <summary>
     ''' Creates a new user
+    ''' - If role is PROFESSOR, also creates a professors profile row
     ''' </summary>
     Public Shared Function CreateUser(username As String, password As String, role As String, fullname As String) As Boolean
         Try
@@ -94,6 +95,46 @@ Public Class AdminRepository
 
             If rowsAffected > 0 Then
                 Logger.LogInfo($"User {username} created successfully with role {role}")
+
+                ' If professor role, create professors profile
+                If String.Equals(role, "PROFESSOR", StringComparison.OrdinalIgnoreCase) Then
+                    ' Get the newly created user id
+                    Dim getIdQuery As String = "SELECT id FROM users WHERE username = @username LIMIT 1"
+                    Dim idParams As New Dictionary(Of String, Object) From {{"@username", username}}
+                    Dim idObj = DatabaseHandler.ExecuteScalar(getIdQuery, idParams)
+                    Dim uid As Integer = If(idObj IsNot Nothing, Convert.ToInt32(idObj), 0)
+
+                    If uid > 0 Then
+                        ' Parse fullname into first/last
+                        Dim fn As String = ""
+                        Dim ln As String = ""
+                        Dim parts() As String = fullname.Trim().Split(" "c)
+                        If parts.Length > 0 Then
+                            fn = parts(0)
+                            If parts.Length > 1 Then
+                                ln = String.Join(" "c, parts, 1, parts.Length - 1)
+                            End If
+                        End If
+
+                        Try
+                            Dim profInsert As String = "
+                                INSERT INTO professors (user_id, first_name, last_name, email)
+                                VALUES (@uid, @fn, @ln, @email)"
+                            Dim profParams As New Dictionary(Of String, Object) From {
+                                {"@uid", uid},
+                                {"@fn", fn},
+                                {"@ln", ln},
+                                {"@email", DBNull.Value}
+                            }
+                            DatabaseHandler.ExecuteNonQuery(profInsert, profParams)
+                            Logger.LogInfo($"Professor profile created for user id {uid}")
+                        Catch ex As Exception
+                            Logger.LogWarning($"Failed to create professor profile for user {username}: {ex.Message}")
+                            ' Not fatal for user creation; propagate or swallow per policy — swallow here
+                        End Try
+                    End If
+                End If
+
                 Return True
             End If
 
@@ -106,6 +147,7 @@ Public Class AdminRepository
 
     ''' <summary>
     ''' Updates an existing user
+    ''' - Handles professor profile creation/deletion when role changes
     ''' </summary>
     Public Shared Function UpdateUser(userId As Integer, username As String, password As String, role As String, fullname As String) As Boolean
         Try
@@ -134,6 +176,62 @@ Public Class AdminRepository
 
             If rowsAffected > 0 Then
                 Logger.LogInfo($"User {username} updated successfully")
+
+                ' Manage professors table depending on role
+                If String.Equals(role, "PROFESSOR", StringComparison.OrdinalIgnoreCase) Then
+                    ' Ensure professor profile exists
+                    Dim checkProf As String = "SELECT COUNT(*) FROM professors WHERE user_id = @uid"
+                    Dim checkParams As New Dictionary(Of String, Object) From {{"@uid", userId}}
+                    Dim profCount As Integer = Convert.ToInt32(DatabaseHandler.ExecuteScalar(checkProf, checkParams))
+
+                    If profCount = 0 Then
+                        ' Parse fullname into first/last
+                        Dim fn As String = ""
+                        Dim ln As String = ""
+                        Dim parts() As String = fullname.Trim().Split(" "c)
+                        If parts.Length > 0 Then
+                            fn = parts(0)
+                            If parts.Length > 1 Then
+                                ln = String.Join(" "c, parts, 1, parts.Length - 1)
+                            End If
+                        End If
+
+                        Dim profInsert As String = "
+                            INSERT INTO professors (user_id, first_name, last_name, email)
+                            VALUES (@uid, @fn, @ln, @email)"
+                        Dim profParams As New Dictionary(Of String, Object) From {
+                            {"@uid", userId},
+                            {"@fn", fn},
+                            {"@ln", ln},
+                            {"@email", DBNull.Value}
+                        }
+                        DatabaseHandler.ExecuteNonQuery(profInsert, profParams)
+                        Logger.LogInfo($"Professor profile created for user id {userId} during update")
+                    Else
+                        ' Optionally update name fields
+                        Dim parts() As String = fullname.Trim().Split(" "c)
+                        Dim fn As String = If(parts.Length > 0, parts(0), "")
+                        Dim ln As String = If(parts.Length > 1, String.Join(" "c, parts, 1, parts.Length - 1), "")
+                        Dim profUpdate As String = "UPDATE professors SET first_name = @fn, last_name = @ln WHERE user_id = @uid"
+                        Dim upParams As New Dictionary(Of String, Object) From {
+                            {"@fn", fn},
+                            {"@ln", ln},
+                            {"@uid", userId}
+                        }
+                        DatabaseHandler.ExecuteNonQuery(profUpdate, upParams)
+                    End If
+                Else
+                    ' Role is not professor -> remove professor profile if exists
+                    Try
+                        Dim delProf As String = "DELETE FROM professors WHERE user_id = @uid"
+                        Dim delParams As New Dictionary(Of String, Object) From {{"@uid", userId}}
+                        DatabaseHandler.ExecuteNonQuery(delProf, delParams)
+                        Logger.LogInfo($"Removed professor profile for user id {userId} because role changed to {role}")
+                    Catch ex As Exception
+                        Logger.LogWarning($"Failed to remove professor profile for user {userId}: {ex.Message}")
+                    End Try
+                End If
+
                 Return True
             End If
 

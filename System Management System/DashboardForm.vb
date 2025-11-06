@@ -16,9 +16,6 @@ Public Class DashboardForm
     Private currentForm As Form = Nothing
     Private isStudentMode As Boolean = False
 
-    ' *** NEW: Flag to control closing order (CRITICAL FOR FIX) ***
-    Private isClosingFromButton As Boolean = False
-
     ''' <summary>
     ''' Constructor with user parameter
     ''' </summary>
@@ -28,14 +25,22 @@ Public Class DashboardForm
         isStudentMode = IsStudentUser()
     End Sub
 
+    Public Sub New()
+    End Sub
+
     ''' <summary>
     ''' Form load event - Setup dashboard based on user role
     ''' </summary>
     Private Sub DashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            ' Display user information
-            lblWelcome.Text = $"Welcome, {currentUser.FullName}"
-            lblRole.Text = $"Role: {currentUser.Role}"
+            ' Display user information (guard for parameterless ctor)
+            If currentUser IsNot Nothing Then
+                lblWelcome.Text = $"Welcome, {currentUser.FullName}"
+                lblRole.Text = $"Role: {currentUser.Role}"
+            Else
+                lblWelcome.Text = "Welcome, User"
+                lblRole.Text = "Role: Unknown"
+            End If
 
             ' Apply consistent navigation button appearance
             InitializeNavigationButtonsAppearance()
@@ -46,21 +51,27 @@ Public Class DashboardForm
             ' Set button permissions based on user role
             SetUserPermissions()
 
+            ' Ensure professor button visibility for professor/admin/superadmin
+            If currentUser IsNot Nothing Then
+                Dim r = currentUser.Role?.ToUpperInvariant()
+                btnProfessor.Visible = (r = "PROFESSOR" OrElse r = "ADMIN" OrElse r = "SUPERADMIN")
+                ' Optionally enable when visible
+                btnProfessor.Enabled = btnProfessor.Visible
+            End If
+
             ' Enable auto-scaling for child forms
             Me.AutoScaleMode = AutoScaleMode.Dpi
 
             ' Load initial content based on role
             If isStudentMode Then
-                ' Students start with dashboard, can navigate to portal
                 LoadDashboardContent()
                 SetActiveButton(btnDashboard)
             Else
-                ' Regular users start with dashboard
                 LoadDashboardContent()
                 SetActiveButton(btnDashboard)
             End If
 
-            Logger.LogInfo($"Dashboard loaded for user: {currentUser.Username}")
+            Logger.LogInfo($"Dashboard loaded for user: {If(currentUser IsNot Nothing, currentUser.Username, "<unknown>")}")
 
         Catch ex As Exception
             Logger.LogError("Error loading dashboard", ex)
@@ -86,7 +97,7 @@ Public Class DashboardForm
     ''' </summary>
     Private Sub SetupNavigation()
         Try
-            ' Make ALL buttons visible first (FIX #1 & #2)
+            ' Make ALL buttons visible first (including professor)
             btnDashboard.Visible = True
             btnStudents.Visible = True
             btnCourses.Visible = True
@@ -96,35 +107,26 @@ Public Class DashboardForm
             btnReports.Visible = True
             btnSettings.Visible = True
             btnStudentPortal.Visible = True
+            btnProfessor.Visible = True
 
             ' Set enabled/disabled state and styling based on role
-            Select Case currentUser.Role.ToUpper()
+            Dim role = If(currentUser?.Role, "").ToUpperInvariant()
+
+            Select Case role
                 Case "SUPERADMIN"
-                    ' SuperAdmin has access to everything
-                    EnableButton(btnDashboard)
-                    EnableButton(btnStudents)
-                    EnableButton(btnCourses)
-                    EnableButton(btnAttendance)
-                    EnableButton(btnFaculty)
-                    EnableButton(btnUsers)
-                    EnableButton(btnReports)
-                    EnableButton(btnSettings)
-                    EnableButton(btnStudentPortal) ' FIX #3 - SuperAdmin can access student portal
+                    EnableButton(btnDashboard) : EnableButton(btnStudents) : EnableButton(btnCourses)
+                    EnableButton(btnAttendance) : EnableButton(btnFaculty) : EnableButton(btnUsers)
+                    EnableButton(btnReports) : EnableButton(btnSettings) : EnableButton(btnStudentPortal)
+                    EnableButton(btnProfessor)
 
                 Case "ADMIN"
-                    ' Admin has access to most features
-                    EnableButton(btnDashboard)
-                    EnableButton(btnStudents)
-                    EnableButton(btnCourses)
-                    EnableButton(btnAttendance)
-                    EnableButton(btnFaculty)
-                    EnableButton(btnUsers)
-                    EnableButton(btnReports)
-                    EnableButton(btnSettings)
-                    EnableButton(btnStudentPortal) ' FIX #3 - Admin can access student portal
+                    EnableButton(btnDashboard) : EnableButton(btnStudents) : EnableButton(btnCourses)
+                    EnableButton(btnAttendance) : EnableButton(btnFaculty) : EnableButton(btnUsers)
+                    EnableButton(btnReports) : EnableButton(btnSettings) : EnableButton(btnStudentPortal)
+                    ' Admins can manage professor records but don't necessarily use the panel - keep visible but disabled
+                    DisableButton(btnProfessor)
 
                 Case "FACULTY"
-                    ' Faculty has limited access
                     EnableButton(btnDashboard)
                     DisableButton(btnStudents)
                     EnableButton(btnCourses)
@@ -133,10 +135,10 @@ Public Class DashboardForm
                     DisableButton(btnUsers)
                     EnableButton(btnReports)
                     DisableButton(btnSettings)
-                    EnableButton(btnStudentPortal) ' FIX #3 - Faculty can access student portal
+                    EnableButton(btnStudentPortal)
+                    DisableButton(btnProfessor)
 
-                Case "STUDENT"
-                    ' Students have minimal access
+                Case "PROFESSOR"
                     EnableButton(btnDashboard)
                     DisableButton(btnStudents)
                     DisableButton(btnCourses)
@@ -145,10 +147,22 @@ Public Class DashboardForm
                     DisableButton(btnUsers)
                     EnableButton(btnReports)
                     DisableButton(btnSettings)
-                    EnableButton(btnStudentPortal) ' Students access their own portal
+                    EnableButton(btnStudentPortal)
+                    EnableButton(btnProfessor)
+
+                Case "STUDENT"
+                    EnableButton(btnDashboard)
+                    DisableButton(btnStudents)
+                    DisableButton(btnCourses)
+                    EnableButton(btnAttendance)
+                    DisableButton(btnFaculty)
+                    DisableButton(btnUsers)
+                    EnableButton(btnReports)
+                    DisableButton(btnSettings)
+                    EnableButton(btnStudentPortal)
+                    DisableButton(btnProfessor)
 
                 Case Else
-                    ' Default: minimal access
                     EnableButton(btnDashboard)
                     DisableButton(btnStudents)
                     DisableButton(btnCourses)
@@ -158,6 +172,7 @@ Public Class DashboardForm
                     DisableButton(btnReports)
                     DisableButton(btnSettings)
                     DisableButton(btnStudentPortal)
+                    DisableButton(btnProfessor)
             End Select
 
         Catch ex As Exception
@@ -258,9 +273,9 @@ Public Class DashboardForm
     Private Sub InitializeNavigationButtonsAppearance()
         Try
             Dim navButtons = New Guna2Button() {
-                btnDashboard, btnStudents, btnCourses, btnAttendance,
-                btnFaculty, btnUsers, btnReports, btnSettings, btnStudentPortal
-            }
+            btnDashboard, btnStudents, btnCourses, btnAttendance,
+            btnFaculty, btnUsers, btnReports, btnSettings, btnStudentPortal, btnProfessor
+        }
 
             For Each b In navButtons
                 If b Is Nothing Then Continue For
@@ -606,6 +621,7 @@ Public Class DashboardForm
             btnReports.FillColor = Color.Transparent
             btnSettings.FillColor = Color.Transparent
             btnStudentPortal.FillColor = Color.Transparent
+            btnProfessor.FillColor = Color.Transparent
 
             ' Reset text colors
             btnDashboard.ForeColor = Color.White
@@ -617,6 +633,7 @@ Public Class DashboardForm
             btnReports.ForeColor = Color.White
             btnSettings.ForeColor = Color.White
             btnStudentPortal.ForeColor = Color.White
+            btnProfessor.ForeColor = Color.White
         Catch ex As Exception
             Logger.LogError("Error resetting button colors", ex)
         End Try
@@ -907,30 +924,20 @@ Public Class DashboardForm
     ''' Close button click
     ''' </summary>
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
-        Dim confirm As DialogResult = MessageBox.Show("Are you sure you want to Exit?",
-                                                  "Confirm Exit",
-                                                  MessageBoxButtons.YesNo,
-                                                  MessageBoxIcon.Question)
-        If confirm = DialogResult.Yes Then
-            ' Clear the content panel so no form stays loaded
-            pnlContent.Controls.Clear()
+        Try
+            Dim result As DialogResult = MessageBox.Show(
+                "Are you sure you want to exit?",
+                "Confirm Exit",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question)
 
-            ' Make sure all open child forms are closed
-            For Each f As Form In Application.OpenForms.OfType(Of Form).ToList()
-                If f.Name <> "" Then
-                    f.Close()
-                End If
-            Next
-
-            ' Show the login form (only once)
-            'Dim login As New LoginForm()
-            'login.Show()'
-
-            ' Finally hide this main form
-            Me.Close()
-        End If
+            If result = DialogResult.Yes Then
+                Application.Exit()
+            End If
+        Catch ex As Exception
+            Logger.LogError("Error closing application", ex)
+        End Try
     End Sub
-
 
     ''' <summary>
     ''' Maximize/Restore button click
@@ -1030,7 +1037,56 @@ Public Class DashboardForm
     End Sub
 
 
-    Private Sub pnlContent_Paint(sender As Object, e As PaintEventArgs) Handles pnlContent.Paint
+    'this helper near other loading helpers
+    Private Sub LoadUserControl(ctrl As Control, pageTitle As String)
+        Try
+            ' Dispose of current form if any
+            If currentForm IsNot Nothing Then
+                currentForm.Close()
+                currentForm.Dispose()
+                currentForm = Nothing
+            End If
 
+            pnlContent.Controls.Clear()
+
+            If lblPageTitle IsNot Nothing Then
+                lblPageTitle.Text = pageTitle
+            End If
+
+            ctrl.Dock = DockStyle.Fill
+            pnlContent.Controls.Add(ctrl)
+            ctrl.BringToFront()
+            ctrl.Show()
+        Catch ex As Exception
+            Logger.LogError("Error loading user control", ex)
+            MessageBox.Show($"Error loading module: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
+
+    ' this click handler to load ProfessorControl (paste near other navigation handlers)
+    Private Sub btnProfessor_Click(sender As Object, e As EventArgs) Handles btnProfessor.Click
+        Try
+            If currentUser Is Nothing Then
+                MessageBox.Show("No user context available.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End If
+
+            SetActiveButton(btnProfessor)
+
+            Dim profControl As New ProfessorControl()
+            ' ProfessorControl has a ProfessorId property (ensure it exists)
+            Try
+                profControl.ProfessorId = currentUser.Id
+            Catch
+                ' ignore if property not present; control still loads
+            End Try
+
+            LoadUserControl(profControl, "Professor Dashboard")
+
+        Catch ex As Exception
+            Logger.LogError("Error opening professor panel", ex)
+            MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
 End Class
